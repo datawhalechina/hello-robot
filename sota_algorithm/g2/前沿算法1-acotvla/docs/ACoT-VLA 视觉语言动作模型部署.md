@@ -933,3 +933,91 @@ PYTHONPATH="$ACOT_CODE_ROOT/acotvla/packages/openpi-client/src" \
 | Green | 47/50 | 94% |
 | Blue | 37/50 | 74% |
 | 总计 | 132/150 | **88.00%** |
+
+### 5.5 部署联调与最小化环境检查
+
+5.1–5.4 默认服务端和 Isaac Sim 在同一台机器上，并且依赖是完整的。把服务放到远程 GPU、或者为了节省空间裁剪依赖时，下面几项会直接影响联调效率。
+
+#### 1. 服务就绪与首次编译
+
+`serve_model.py` 启动后先恢复 params，再等待第一次推理触发 JAX 编译。一次 A10 24 GB 远程部署的实测结果：
+
+- 首次从持久化盘加载约 10 分钟；页缓存命中后重启，7.1 GiB params 约 12.7 秒恢复；
+- 第一次 `infer` 的 JAX 编译约 3–10 分钟，期间没有进度输出，容易误判为卡死；
+- 编译完成后，远程隧道下单次 30 帧 fine action 推理约 1.9–2.6 秒。
+
+判断服务是否就绪，不要只看进程是否存在。以下任一信号出现才算监听成功：
+
+```text
+server listening on 127.0.0.1:8000
+G2 ACoT-VLA 服务监听端口：8000
+```
+
+如果日志只有 `websockets.server ... listening`，说明 WebSocket 层已启动，但模型可能还在加载或等待编译；此时发请求会一直等。首次编译期间不要重启服务，否则会重新编译。
+
+#### 2. 首次请求与 metadata 核对
+
+在进入 Isaac Sim 之前，先用最小客户端发一次请求，核对服务端 metadata：
+
+```text
+model_kind=acot_pi05
+state_dim=16
+action_dim=16
+action_type=JOINT_ABS
+coarse_action_horizon=50
+action_horizon=30
+```
+
+返回值应为 `(30, 16)` 的有限数值。动作全零、NaN 或维度不符时，先修接口，不要继续跑闭环。服务端会自动检测 LoRA 结构；若日志打印 `LoRA结构：否`，不要强行加 `--lora`；反过来，微调 checkpoint 被当成非 LoRA 加载时，也会在参数形状上暴露出来。
+
+#### 3. Tokenizer 下载
+
+OpenPI 的 PaliGemma tokenizer 在模型初始化时从 `gs://big_vision/paligemma_tokenizer.model` 获取。匿名 gcsfs 访问 bucket 列表接口可能返回 401，但对象本身是公开 HTTPS 资源。典型现象是 params 已经恢复完，日志末尾才出现 gcsfs traceback，看起来像 checkpoint 损坏，实际是 tokenizer 初始化失败。
+
+可以提前下载并放到缓存目录：
+
+```bash
+mkdir -p ~/.cache/openpi/big_vision
+curl -L -o ~/.cache/openpi/big_vision/paligemma_tokenizer.model https://storage.googleapis.com/big_vision/paligemma_tokenizer.model
+```
+
+缓存命中后，`maybe_download` 会直接返回，不再访问 `gs://`。若设置了 `OPENPI_DATA_HOME`，缓存目录以该变量为准。
+
+#### 4. 最小化 serving 环境的可选依赖
+
+如果为了缩小环境执行了 `uv sync --no-dev` 或手动裁剪依赖，OpenPI 的几个顶层 import 可能失败：
+
+| 文件 | import | 说明 |
+|---|---|---|
+| `openpi/transforms.py` | `torchvision` | 本章 serving 路径未实际使用 |
+| `openpi/shared/nnx_utils.py` | `matplotlib.pyplot` | 仅调试/可视化使用 |
+| `openpi/training/data_loader.py`、`sampler.py` | `lerobot` | 仅数据加载使用，serving 不调用 |
+
+`g2_policy.py` 用 `try/except ImportError` 包住 `from openpi import transforms`；上面的依赖缺失时，异常被吞掉，`G2ACOTInputs` 根本不会定义，最终只看到：
+
+```text
+AttributeError: module 'g2_policy' has no attribute 'G2ACOTInputs'
+```
+
+处理方式：按官方 `uv sync` 恢复完整依赖，或把 serving 不需要的 import 改成延迟导入。不要为了补 `torchvision` 盲目升级 torch，可能连带替换整套 CUDA 轮子。
+
+#### 5. 模块遮蔽
+
+仓库同时存在 `code/config.py` 和 `training/config.py`。从 `code/` 目录启动自定义脚本时，`sys.path[0]` 是 `code/`，`from config import ...` 会命中错误的文件，报 `cannot import name ...`。训练/服务脚本应从 `training/` 所在层级启动，或在脚本开头显式插入：
+
+```python
+sys.path.insert(0, str(Path(__file__).resolve().parent / "training"))
+```
+
+#### 6. 远程服务与零样本边界
+
+服务不在 Isaac Sim 同一台机器时，客户端通过 SSH 端口转发或内网隧道连接。此时每次 replan 都包含网络往返，不要用本地服务的延迟估算整轮评测时间。联调顺序应是：
+
+1. 核对 metadata；
+2. 发一次最小请求，确认 `(30, 16)` 且数值有限；
+3. 跑单色 1 集 smoke，确认物块、相机和动作方向都正常；
+4. 再跑多集评测。
+
+隧道只用于联调，评测结束后立即关闭；不要把公网隧道地址写进日志、截图或文档。
+
+如果使用的是没有在本场景微调过的预训练 checkpoint，服务正常、动作有限，并不代表策略已经适配。先做输入依赖探测：给状态加偏置、把图像换成全黑/噪声、把 prompt 换成无关句子，观察动作是否随之变化；如果只有状态有响应，优先检查权重与训练配置是否一致，而不是继续加 replan 次数。任务成功只以 `sim.task.completed` 为准；没有成功回合时，不要用回放或专家脚本片段代替策略 rollout。
