@@ -15,7 +15,7 @@ cd isaac-sim
 
 我们能看到如下的页面。
 
-<img src=".\assets\page.png"/>
+<img src="./assets/page.png"/>
 
 ### 设置Isaacsim属性
 
@@ -33,7 +33,7 @@ cd isaac-sim
 
 * 默认旋转顺序 (Default rotation order)：默认设置为先绕 Z 轴旋转，然后绕 Y 轴，最后绕 X 轴旋转。
 
-<img src=".\assets\stage.png"/>
+<img src="./assets/stage.png"/>
 
 ### 创建物理场景
 
@@ -53,7 +53,7 @@ cd isaac-sim
 
 * 将 Broadphase 类型设置为 MBP 
 
-<img src=".\assets\physics.png"/>
+<img src="./assets/physics.png"/>
 
 ### 添加一个物理地面
 
@@ -65,7 +65,7 @@ cd isaac-sim
 
 2）点击“眼睛图标”并选择Grid打开网格 ，可以更容易看到地面。
 
-<img src=".\assets\ground.png"/>
+<img src="./assets/ground.png"/>
 
 ### 添加一个灯光
 
@@ -73,7 +73,7 @@ cd isaac-sim
 
 1）为了让我们添加的聚光灯更容易被看到，我们先将defaultlight中的 Main > Intensity 调成300来降低默认灯光的强度。
 
-<img src=".\assets\defaultlight.png"/>
+<img src="./assets/defaultlight.png"/>
 
 2）通过 Create > Light > Sphere Light 创建一个新的球型灯光。
 
@@ -81,7 +81,7 @@ cd isaac-sim
 
 4）修改灯光颜色、亮度和范围属性，修改颜色为(0, 1, 0)，将Intensity灯光强度改为1e6，Radius半径修改为0.5，在后面的shaping部分，将cone angle修改为45度，即可看到如下的灯光。
 
-<img src=".\assets\spherelight.png"/>
+<img src="./assets/spherelight.png"/>
 
 通过这些内容的学习，你应该对整个Isaacsim的页面有了一个初步的了解和认知，下面将介绍仿真环境中，机器人的基础构建过程。
 
@@ -95,25 +95,25 @@ cd isaac-sim
 
 1）点击 Create > Xform 创建一个新的坐标系，并将其重命名为body，并将它的Translate设置为（0,0,1）。注意：通过菜单 Create 创建的节点默认会挂在世界坐标系（World）根节点下，如果希望它创建在某个特定坐标系（如 wheel_right）之下，可以先在 Stage 树中选中该坐标系再点击 Create，节点会直接绑定到选中的父层级下，避免创建后再手动拖拽和二次矫正坐标参数。
 
-<img src=".\assets\xform.png"/>
+<img src="./assets/xform.png"/>
 
 2）点击 Create > Shape > Cube 创建一个立方体，点击Cube立方体，将Transform > Scale缩放比例设置为（1,2,0.5），并将Cube拖到body坐标系上，注意此时cube的偏移是（0,0,0）。
 
-<img src=".\assets\cube.png"/>
+<img src="./assets/cube.png"/>
 
 制作机器人的轮子：
 
 1）点击 Create > Xform 创建一个新的坐标系，并将其重命名为wheel_left，并将它的Translate设置为（1.5,0,1），orient方向设置为（90,0,0）。
 
-<img src=".\assets\left_xform.png"/>
+<img src="./assets/left_xform.png"/>
 
 2）点击 Create > Shape > Cylinder 创建圆柱体，orient方向设置为（0,90,0），将他的geometry中的radius半径改为0.5，height高度改为1.0，并将这个圆柱体重命名为wheel_left。
 
-<img src=".\assets\wheel_left.png"/>
+<img src="./assets/wheel_left.png"/>
 
 3）右键wheel_left的xform，选择duplicate复制一个新的xform，新的xform和圆柱体都改名为wheel_right，注意，下面一定是将xform的translate的x改为-1.5，不要改成圆柱体的了。
 
-<img src=".\assets\wheel_right.png"/>
+<img src="./assets/wheel_right.png"/>
 
 ### 添加物理属性
 
@@ -123,9 +123,9 @@ cd isaac-sim
 
 1）选中3个物体，右键选择+Add，添加Physics > Rigid Body with Colliders Preset，此时按下播放键，三个物体就会全部落到地面上。
 
-<img src=".\assets\phy.png"/>
+<img src="./assets/phy.png"/>
 
-<img src=".\assets\fall.png"/>
+<img src="./assets/fall.png"/>
 
 ### 检查碰撞网络
 
@@ -137,7 +137,7 @@ cd isaac-sim
 
 3）确认所有应用了碰撞检测 API 的物体周围都显示了紫色轮廓线。例如，确认长方体、圆柱体和地面是否都显示了紫色轮廓线。
 
-<img src=".\assets\all.png"/>
+<img src="./assets/all.png"/>
 
 ### 添加接触和摩擦参数
 
@@ -145,7 +145,7 @@ cd isaac-sim
 
 2）将指定的物理知识应用于物体，在body的选项卡中选择cube，找到Physics materials on selected models，在下拉框中选择/World/PhysicsMaterial即可。
 
-<img src=".\assets\friction.png"/>
+<img src="./assets/friction.png"/>
 
 ### 添加材料属性
 
@@ -155,11 +155,11 @@ cd isaac-sim
 
 2）将相应的刚体分配给新创建的材质，方法是转到 Property 属性选项卡中的  Materials on selected models 项，然后从下拉列表中选择匹配的材质，请注意，选择后，刚刚下面的Physics materials on selected models也会跟着变动，这个选项重新选择一下/World/PhysicsMaterial即可。
 
-<img src=".\assets\materials.png"/>
+<img src="./assets/materials.png"/>
 
 3）body和wheel都按上面的流程添加好材质后，可以修改body和wheel的材质来修改颜色，在选项卡的 Material and Shader 中，如果出现groundplane的也变了的情况，修改 groundplane下的collisionmesh 中的 Materials on selected models 即可。
 
-<img src=".\assets\color.png"/>
+<img src="./assets/color.png"/>
 
 ### 2.2.2 组装简易机器人
 
@@ -169,7 +169,7 @@ cd isaac-sim
 
 在Isaacsim仿真软件的content部分，依次点击 Isaacsim > Samples > Rigging > MockRobot 将mock_robot_no_joints.usd文件直接拖入环境中即可，其他的除了ground plane之外都可以去除。
 
-<img src=".\assets\mockrobot_old.png"/>
+<img src="./assets/mockrobot_old.png"/>
 
 ### 添加关节
 
@@ -185,7 +185,7 @@ cd isaac-sim
 
 6）对右侧车轮接头重复前2-5步骤。
 
-<img src=".\assets\wheel_joint.png"/>
+<img src="./assets/wheel_joint.png"/>
 
 在添加关节之前，按下播放键后，三个刚体分别落到地面。现在添加了关节，这些刚体就像连在一起一样落下。要观察它们像旋转关节连接一样一起运动，你可以按住 Shift 键，然后在视口中点击并拖动机器人的任意部位。
 
@@ -193,7 +193,7 @@ cd isaac-sim
 
 添加关节即可建立机械连接。要控制和驱动关节，必须添加关节驱动 API。选中wheel_joint_left和wheel_joint_right两个关节，在 Property 属性选项卡中选择+Add > Physics > Angular Drive，同时为两个关节添加驱动。
 
-<img src=".\assets\angular.png"/>
+<img src="./assets/angular.png"/>
 
 * 位置控制： 对于位置控制关节，设置较高的刚度和相对较低的阻尼或零阻尼。
 
@@ -203,7 +203,7 @@ cd isaac-sim
 
 注意，一定要两个轮子都设置。
 
-<img src=".\assets\drive.png"/>
+<img src="./assets/drive.png"/>
 
 ### 添加铰接结构
 
@@ -215,7 +215,7 @@ Joint 是连接两个物体的零件，而 Articulation 是一种将整个机器
 
 > ⚠️ **注意**：请不要在轮子或地面等其他层级上重复添加 Articulation Root，否则播放时会报错「检测到多个关节根节点」。多余的 Articulation Root 无法在界面上手动删除，只能通过修改 USD 文件移除（参见 issue #4）。
 
-<img src=".\assets\articulation.png"/>
+<img src="./assets/articulation.png"/>
 
 ### 添加控制器
 
@@ -223,13 +223,13 @@ Joint 是连接两个物体的零件，而 Articulation 是一种将整个机器
 
 1）依次点击 Tools > Robotics > Omnigraph Controllers > Joint Velocity 添加速度控制器，在弹出来的窗口中点击Add添加按钮，选择mock_robot_no_joints，路径选择/Graphs/Velocity_Controller（这个应该是自动选择的）。
 
-<img src=".\assets\velocity.png"/>
+<img src="./assets/velocity.png"/>
 
-<img src=".\assets\add.png"/>
+<img src="./assets/add.png"/>
 
 2）将Graphs放到mock_robot_no_joints xform下，右键选择velocity_controller，点击open graph即可打开action graph，最后点击播放，即可开始运动。
 
-<img src=".\assets\motion_end.png"/>
+<img src="./assets/motion_end.png"/>
 
 至此，简易移动机器人构建移动就都完成了，恭喜你完成了第一个完整的示例，传感器部分会放到本章最后统一讲解。下面我们将开始第二个比较关键的内容，机械臂。
 
@@ -251,15 +251,15 @@ Joint 是连接两个物体的零件，而 Articulation 是一种将整个机器
 
 2）将 robotiq_2f_140.usd 的prim重命名为ee_link，同时将ee_link的tanslate的数值设置为wrist_3_link的相同数值，从而让他们在视觉上进行装配，并将Orient换为(-90, 0, -90)。
 
-<img src=".\assets\connect.png"/>
+<img src="./assets/connect.png"/>
 
 3）选择 ee_link/root_joint，进入属性编辑器中的 Physics Articulation Root 部分，移除 Articulation Root，为机械爪保留单一关节即可，并将joints部分的body 0 设置为 wrist_3_link，将机械爪与机械臂连接。
 
-<img src=".\assets\body0.png"/>
+<img src="./assets/body0.png"/>
 
 4）选择ur的prim，在属性中找到 IsaacRobotAPI，在 isaac：physics：robotjoints 和 isaac：physics：robotLinks 字段中添加 /ur/ee_link，确保 UR10e 包含 2F-140 机械爪。
 
-<img src=".\assets\schema.png"/>
+<img src="./assets/schema.png"/>
 
 ### 2.3.2 生成 Lula 机器人描述文件和碰撞球体
 
@@ -281,9 +281,9 @@ Lula 机器人描述编辑器不支持可实例化网格，因此必须移除可
 
 2）查找选择所有的visuals和collisions，取消勾选instanceable可实例化。
 
-<img src=".\assets\visuals.png"/>
+<img src="./assets/visuals.png"/>
 
-<img src=".\assets\collisions.png"/>
+<img src="./assets/collisions.png"/>
 
 ### 在 Lula 机器人描述编辑器中配置关节
 
@@ -293,7 +293,7 @@ Lula 机器人描述编辑器不支持可实例化网格，因此必须移除可
 
 3）在选择面板中，选择ur关节，找到 Set Joint Properties，对于每个通用机械臂的关节，将Joint Status关节状态设置为Active Joint活动关节 ，其他设置保持默认，同时保持 Robotiq 2F-140 夹持关节为Fixed Joint固定关节，这样机器人控制器就不会试图移动机械爪以优化机器人位置。
 
-<img src=".\assets\lula_editor.png"/>
+<img src="./assets/lula_editor.png"/>
 
 ### 生成碰撞球体并导出文件
 
@@ -305,7 +305,7 @@ Lula 机器人描述编辑器不支持可实例化网格，因此必须移除可
 
 3）点击 Generate Spheres 生成球体，球体会变成青色，表示碰撞球体已经生成。然后对其他关节也做重复的步骤。
 
-<img src=".\assets\spheres.png"/>
+<img src="./assets/spheres.png"/>
 
 4）在 Lula Robot Description Editor 机器人描述编辑器中，到最底部，找到 Export To File 导出文件部分。
 
@@ -315,7 +315,7 @@ Lula 机器人描述编辑器不支持可实例化网格，因此必须移除可
 
 7）导出机器人配置文件后停止模拟。
 
-<img src=".\assets\spheres_end.png"/>
+<img src="./assets/spheres_end.png"/>
 
 以上就是配置文件设置，后续使用建议直接采用官方提供生成的文件，因为有一些官方有些参数没有给，是我自己设置的，所以尽量使用官方参数，流程理解即可。
 
@@ -332,7 +332,7 @@ cd isaac-sim
 ./python.sh standalone_examples/api/isaacsim.robot.manipulators/ur10e/gripper_control.py
 ```
 
-<img src=".\assets\gripper.png"/>
+<img src="./assets/gripper.png"/>
 
 ### Lula 运动学求解器跟踪目标示例
 
@@ -351,7 +351,7 @@ follow_target.py 脚本初始化 FollowTarget 类，并 manipulator 和 parallel
 
 最终的 follow_target_example.py 脚本初始化了 FollowTarget 任务和前一步创建的 KinematicsSolver，并设定了立方体的目标位置并执行。
 
-<img src=".\assets\lula_example.png"/>
+<img src="./assets/lula_example.png"/>
 
 ### RMPFlow 跟踪目标示例
 
@@ -368,7 +368,7 @@ rmpflow.py 使用上述 ur10e_rmpflow_common.yaml 文件、ur10e.urdf 以及 RMP
 
 follow_target_example_rmpflow.py 脚本初始化了 FollowTarget 任务和上一步创建的 RMPFlowController，并设定了立方体后面的目标位置并执行。
 
-<img src=".\assets\rmp_example.png"/>
+<img src="./assets/rmp_example.png"/>
 
 ### RMPFlow 的基本拣选与放置任务
 
@@ -385,4 +385,4 @@ tasks/pick_place.py 脚本会创建一个选取任务 ，设置 UR10e 的操作�
 
 pick_place_example.py 脚本负责整合所有内容并运行模拟。
 
-<img src=".\assets\rmp_pick.png"/>
+<img src="./assets/rmp_pick.png"/>
