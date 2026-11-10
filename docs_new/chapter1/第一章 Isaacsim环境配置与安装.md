@@ -47,11 +47,11 @@ nvidia-smi
 
 输入以上命令检查驱动版本和GPU状态，应该输出如下示例：
 
-<img src=".\assets\nvidia-smi.png"/>
+<img src="./assets/nvidia-smi.png"/>
 
 请注意，驱动的版本一定要跟显卡匹配，建议通过系统的“软件和更新”来安装，当然，如果有其他更好的安装方法也可以使用，保证驱动版本和显卡匹配即可。
 
-<img src=".\assets\update.png"/>
+<img src="./assets/update.png"/>
 
 ### 1.1.2 安装CUDA Toolkit
 
@@ -61,11 +61,11 @@ CUDA Toolkit安装包获取地址：https://developer.nvidia.com/cuda-toolkit-ar
 
 来源：https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html
 
-<img src=".\assets\cudatoolkit.png"/>
+<img src="./assets/cudatoolkit.png"/>
 
 拿CUDA Toolkit 13.0举例，大家根据自己不同的版本去进行安装命令调试。
 
-<img src=".\assets\toolkit13.0.png"/>
+<img src="./assets/toolkit13.0.png"/>
 
 由于我们已经安装了显卡驱动，所以直接采用以下命令安装即可。
 
@@ -98,7 +98,7 @@ source ~/.bashrc
 
 输出如下证明安装成功：
 
-<img src=".\assets\nvcc.png"/>
+<img src="./assets/nvcc.png"/>
 
 ### 1.1.3 CUDNN安装
 
@@ -108,13 +108,13 @@ CUDNN安装需要仔细查看显卡驱动和CUDA Toolkit的版本，给大家列
 
 也可自行前往链接查看：https://docs.nvidia.com/deeplearning/cudnn/backend/latest/reference/support-matrix.html#support-matrix
 
-<img src=".\assets\cudnn.png"/>
+<img src="./assets/cudnn.png"/>
 
 ### 1.1.4 vscode安装
 
 vscode安装包获取地址：https://code.visualstudio.com/Download
 
-<img src=".\assets\vscode.png"/>
+<img src="./assets/vscode.png"/>
 
 下载linux版本的deb文件，并运行以下命令，将后面的文件名换成下载的名称：
 
@@ -199,7 +199,7 @@ wget http://fishros.com/install -O fishros && . fishros
 
 Isaacsim 5.1的安装包获取地址：https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/download.html
 
-<img src=".\assets\isaacsim5.1.png"/>
+<img src="./assets/isaacsim5.1.png"/>
 
 将这些包下载下来，第一个是isaacsim的原生软件，Isaac Sim Assets为后续可能会用到的资产。
 
@@ -212,11 +212,11 @@ cd isaac-sim
 
 ROS Bridge Extension选择isaacsim.ros2.bridge，Use Internal ROS2 Libraries选择humble即可。
 
-<img src=".\assets\selector.png"/>
+<img src="./assets/selector.png"/>
 
 最后出现如下窗口就安装成功了。
 
-<img src=".\assets\block.png"/>
+<img src="./assets/block.png"/>
 
 ## 1.3 IsaacLab 2.3.1安装
 
@@ -264,7 +264,7 @@ sudo apt install cmake build-essential
 ```python
 ./isaaclab.sh -p scripts/tutorials/00_sim/create_empty.py
 ```
-<img src=".\assets\lab.png"/>
+<img src="./assets/lab.png"/>
 
 如果出现测试框架扩展模块错误，可以忽略，不影响核心功能：
 
@@ -320,9 +320,9 @@ Metrics/base_velocity/error_vel_yaw: 0.0577
 
 1）克隆 [Isaac Sim ROS 工作区](https://github.com/isaac-sim/IsaacSim-ros_workspaces)，请注意，目前的工作区适用Isaacsim 6.0.0，对于5.1.0的版本，需要通过releases，下载5.1版本的工作区。
 
-<img src=".\assets\release.png"/>
+<img src="./assets/release.png"/>
 
-<img src=".\assets\workspace_5.1.png"/>
+<img src="./assets/workspace_5.1.png"/>
 
 2）下载完之后，构建dockerfile：
 
