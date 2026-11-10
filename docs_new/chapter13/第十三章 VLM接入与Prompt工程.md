@@ -1025,7 +1025,7 @@ base.stop()
 $$
 \rho=\frac{\min\big(\max(0,s),\;\max(0,L-0.05)\big)}{L},\qquad
 \mathbf{g}=\mathbf{t}-\rho\,\mathbf{d},\qquad
-\psi=\operatorname{atan2}(t_y-g_y,\;t_x-g_x)
+\psi=\mathrm{atan2}(t_y-g_y,\;t_x-g_x)
 $$
 
 ```python
@@ -1050,7 +1050,7 @@ def make_standoff_goal(robot: Pose2D, target_xy, distance: float) -> Pose2D:
 1. $d_x=4.20$， $d_y=-0.20$， $L=\sqrt{17.64+0.04}=\sqrt{17.68}\approx4.2048$；
 2. $\rho=0.85/4.2048\approx0.2022$（ $L-0.05\approx4.155>0.85$，取 0.85）；
 3. $g_x=0.60-4.20\times0.2022\approx-0.249$， $g_y=-3.50-(-0.20)\times0.2022\approx-3.460$；
-4. $\psi=\operatorname{atan2}(-0.040,\,0.849)\approx-0.048$ rad（约 $-2.7^\circ$，几乎正对 $+x$ 方向）；
+4. $\psi=\mathrm{atan2}(-0.040,\,0.849)\approx-0.048$ rad（约 $-2.7^\circ$，几乎正对 $+x$ 方向）；
 5. 发给 Nav2 的四元数： $q_z=\sin(\psi/2)\approx-0.024$， $q_w=\cos(\psi/2)\approx0.9997$（`Nav2Bridge.send_goal`）。
 
 验证： $\|\mathbf{t}-\mathbf{g}\|=\sqrt{0.849^2+0.040^2}\approx0.850$ m，与设定一致。蓝色箱子半边长 0.24 m，`nav2_params.yaml` 中 `robot_radius: 0.34`、`inflation_radius: 0.44`。终点距箱子中心 0.85 m，大于 $0.24+0.34=0.58$ m，机器人轮廓不会与箱子重叠；而如果终点设在箱子中心，那里是致命代价区，规划必然失败。
@@ -1095,7 +1095,7 @@ def navigate(simulation, base, bridge, sensors, ranges, goal, nav_config) -> boo
 
 $$
 v_{ix}=v_x-\omega_z y_i,\qquad v_{iy}=v_y+\omega_z x_i,\qquad
-\delta_i=\operatorname{atan2}(v_{iy},v_{ix}),\qquad
+\delta_i=\mathrm{atan2}(v_{iy},v_{ix}),\qquad
 \dot\phi_i=\frac{\sqrt{v_{ix}^2+v_{iy}^2}}{r}
 $$
 
