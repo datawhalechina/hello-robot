@@ -1,0 +1,52 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="760" viewBox="0 0 1000 760">
+  <defs>
+    <marker id="blue" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#2563eb"/></marker>
+    <marker id="orange" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#ea580c"/></marker>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.s{font-size:15px}.m{font-size:18px}.wheel{stroke:#1e293b;stroke-width:14;stroke-linecap:round}.vel{stroke:#2563eb;stroke-width:4;marker-end:url(#blue)}.body{fill:#e2e8f0;stroke:#475569;stroke-width:2}</style>
+  </defs>
+  <rect width="1000" height="760" fill="#f8fafc"/>
+  <text x="500" y="36" text-anchor="middle" class="t b" font-size="24">四种典型运动下的车轮朝向与轮心速度（俯视图）</text>
+
+  <g>
+    <rect x="25" y="65" width="460" height="300" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="255" y="98" text-anchor="middle" class="t b m">① 纯前进：vₓ&gt;0</text>
+    <rect x="165" y="135" width="180" height="170" rx="20" class="body"/><path d="M230 135 L255 115 L280 135" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+    <g class="wheel"><line x1="168" y1="155" x2="168" y2="195"/><line x1="342" y1="155" x2="342" y2="195"/><line x1="168" y1="245" x2="168" y2="285"/><line x1="342" y1="245" x2="342" y2="285"/></g>
+    <g class="vel"><line x1="168" y1="175" x2="168" y2="125"/><line x1="342" y1="175" x2="342" y2="125"/><line x1="168" y1="265" x2="168" y2="215"/><line x1="342" y1="265" x2="342" y2="215"/></g>
+    <text x="255" y="337" text-anchor="middle" class="t s">四轮都朝前，方向相同、速度相同</text>
+  </g>
+
+  <g>
+    <rect x="515" y="65" width="460" height="300" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="745" y="98" text-anchor="middle" class="t b m">② 纯横移：vᵧ&gt;0</text>
+    <rect x="655" y="135" width="180" height="170" rx="20" class="body"/><path d="M720 135 L745 115 L770 135" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+    <g class="wheel"><line x1="637" y1="165" x2="677" y2="165"/><line x1="813" y1="165" x2="853" y2="165"/><line x1="637" y1="275" x2="677" y2="275"/><line x1="813" y1="275" x2="853" y2="275"/></g>
+    <g class="vel"><line x1="657" y1="165" x2="607" y2="165"/><line x1="833" y1="165" x2="783" y2="165"/><line x1="657" y1="275" x2="607" y2="275"/><line x1="833" y1="275" x2="783" y2="275"/></g>
+    <text x="745" y="337" text-anchor="middle" class="t s">四轮转到左侧，底盘不改变朝向即可横移</text>
+  </g>
+
+  <g>
+    <rect x="25" y="390" width="460" height="300" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="255" y="423" text-anchor="middle" class="t b m">③ 原地逆时针旋转：ωz&gt;0</text>
+    <rect x="165" y="460" width="180" height="170" rx="20" class="body"/><circle cx="255" cy="545" r="6" fill="#dc2626"/>
+    <g class="wheel"><line x1="154" y1="508" x2="182" y2="480"/><line x1="328" y1="480" x2="356" y2="508"/><line x1="154" y1="582" x2="182" y2="610"/><line x1="328" y1="610" x2="356" y2="582"/></g>
+    <g class="vel"><line x1="168" y1="494" x2="128" y2="534"/><line x1="342" y1="494" x2="302" y2="454"/><line x1="168" y1="596" x2="208" y2="636"/><line x1="342" y1="596" x2="382" y2="556"/></g>
+    <path d="M225 545 A30 30 0 1 1 253 575" fill="none" stroke="#ea580c" stroke-width="4" marker-end="url(#orange)"/>
+    <text x="255" y="662" text-anchor="middle" class="t s">每个轮子的速度都与“中心到轮心”的连线垂直</text>
+  </g>
+
+  <g>
+    <rect x="515" y="390" width="460" height="300" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="745" y="423" text-anchor="middle" class="t b m">④ 平移 + 旋转：三项同时非零</text>
+    <rect x="655" y="460" width="180" height="170" rx="20" class="body"/><circle cx="745" cy="545" r="6" fill="#dc2626"/>
+    <g class="wheel"><line x1="650" y1="477" x2="674" y2="511"/><line x1="823" y1="500" x2="845" y2="466"/><line x1="647" y1="589" x2="679" y2="613"/><line x1="821" y1="604" x2="847" y2="574"/></g>
+    <g class="vel"><line x1="662" y1="494" x2="620" y2="435"/><line x1="834" y1="483" x2="861" y2="441"/><line x1="663" y1="601" x2="628" y2="575"/><line x1="834" y1="589" x2="868" y2="550"/></g>
+    <line x1="745" y1="545" x2="745" y2="475" stroke="#64748b" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#blue)"/>
+    <text x="757" y="510" class="t s">v_c</text>
+    <text x="745" y="662" text-anchor="middle" class="t s">平移与旋转叠加后，四轮方向和速度通常都不同</text>
+  </g>
+
+  <rect x="155" y="710" width="690" height="34" rx="10" fill="#eff6ff" stroke="#60a5fa"/>
+  <text x="500" y="733" text-anchor="middle" class="t m">蓝色箭头表示轮心速度；深色短线表示车轮滚动方向，二者必须保持一致。</text>
+</svg>
+

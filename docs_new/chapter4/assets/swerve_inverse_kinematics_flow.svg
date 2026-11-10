@@ -1,0 +1,28 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="330" viewBox="0 0 1000 330">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.s{font-size:15px}.m{font-size:18px}</style>
+  </defs>
+  <rect width="1000" height="330" fill="#f8fafc"/>
+  <text x="500" y="34" text-anchor="middle" class="t b" font-size="24">四轮独立转向逆运动学的数据流</text>
+
+  <g stroke-width="2">
+    <rect x="30" y="90" width="150" height="130" rx="18" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect x="225" y="90" width="170" height="130" rx="18" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect x="440" y="90" width="175" height="130" rx="18" fill="#ffedd5" stroke="#f97316"/>
+    <rect x="660" y="90" width="140" height="130" rx="18" fill="#dcfce7" stroke="#22c55e"/>
+    <rect x="845" y="90" width="125" height="130" rx="18" fill="#fee2e2" stroke="#ef4444"/>
+  </g>
+  <g class="t" text-anchor="middle">
+    <text x="105" y="126" class="b m">底盘目标速度</text><text x="105" y="165" class="m">vₓ, vᵧ, ωz</text><text x="105" y="196" class="s">上层只需给 3 个量</text>
+    <text x="310" y="122" class="b m">逐轮代入位置</text><text x="310" y="155" class="s">(xᵢ, yᵢ)</text><text x="310" y="185" class="s">LF / LR / RF / RR</text>
+    <text x="527" y="120" class="b m">求轮心速度</text><text x="527" y="153" class="s">vᵢₓ=vₓ−ωz yᵢ</text><text x="527" y="182" class="s">vᵢᵧ=vᵧ+ωz xᵢ</text>
+    <text x="730" y="120" class="b m">极坐标转换</text><text x="730" y="153" class="s">θᵢ=atan2(...)</text><text x="730" y="182" class="s">vᵢ=√(...)</text>
+    <text x="907" y="120" class="b m">关节目标</text><text x="907" y="153" class="s">转向 θᵢ</text><text x="907" y="182" class="s">驱动 ωᵢ=vᵢ/r</text>
+  </g>
+  <g stroke="#475569" stroke-width="4" marker-end="url(#arrow)">
+    <line x1="180" y1="155" x2="218" y2="155"/><line x1="395" y1="155" x2="433" y2="155"/><line x1="615" y1="155" x2="653" y2="155"/><line x1="800" y1="155" x2="838" y2="155"/>
+  </g>
+  <rect x="160" y="258" width="680" height="43" rx="12" fill="#fff7ed" stroke="#fb923c"/>
+  <text x="500" y="286" text-anchor="middle" class="t m">同一套公式循环计算 4 次，最终把 3 个底盘速度量转换为 8 个关节目标。</text>
+</svg>

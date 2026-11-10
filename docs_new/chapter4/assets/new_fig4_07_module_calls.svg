@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="k" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker>
+    <marker id="g" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#94a3b8"/></marker>
+  </defs>
+  <rect width="1000" height="600" fill="#ffffff"/>
+  <text x="500" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#0f172a">code/code_chapter4 模块调用关系</text>
+
+  <!-- demos -->
+  <g font-size="13" fill="#0f172a" text-anchor="middle">
+    <rect x="60" y="60" width="380" height="96" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+    <text x="250" y="86" font-weight="700" font-size="15">demo_velocity_control.py</text>
+    <text x="250" y="110">MOTION_SEQUENCE：5 段 (vx, vy, wz, 时长)</text>
+    <text x="250" y="132">每步：set_velocity → update → step</text>
+
+    <rect x="560" y="60" width="380" height="96" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+    <text x="750" y="86" font-weight="700" font-size="15">demo_waypoint_control.py</text>
+    <text x="750" y="110">WAYPOINTS：4 个 Pose2D</text>
+    <text x="750" y="132">每步：get_pose2d → compute → set_velocity → update → step</text>
+  </g>
+
+  <!-- middle layer -->
+  <g font-size="13" fill="#0f172a" text-anchor="middle">
+    <rect x="40" y="230" width="270" height="120" rx="10" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+    <text x="175" y="256" font-weight="700" font-size="15">simulation.py</text>
+    <text x="175" y="280">G2Simulation</text>
+    <text x="175" y="302">SimulationApp · World · 场景加载</text>
+    <text x="175" y="324">step() · get_pose2d() · close()</text>
+
+    <rect x="365" y="230" width="270" height="120" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+    <text x="500" y="256" font-weight="700" font-size="15">base_controller.py</text>
+    <text x="500" y="280">G2BaseController</text>
+    <text x="500" y="302">限速 · 加速度限制 · 超时 · 写关节</text>
+    <text x="500" y="324">measured_chassis_velocity()</text>
+
+    <rect x="690" y="230" width="270" height="120" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+    <text x="825" y="256" font-weight="700" font-size="15">base_controller.py</text>
+    <text x="825" y="280">PoseController</text>
+    <text x="825" y="302">compute(current, target)</text>
+    <text x="825" y="324">→ PoseControlResult</text>
+  </g>
+
+  <!-- bottom layer -->
+  <g font-size="13" fill="#0f172a" text-anchor="middle">
+    <rect x="365" y="420" width="270" height="110" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+    <text x="500" y="446" font-weight="700" font-size="15">kinematics.py</text>
+    <text x="500" y="470">SwerveKinematics.inverse / forward</text>
+    <text x="500" y="492">ChassisVelocity · WheelState · Pose2D</text>
+    <text x="500" y="514">normalize_angle · SwerveOdometry</text>
+
+    <rect x="40" y="420" width="270" height="110" rx="10" fill="#ffffff" stroke="#64748b" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="175" y="446" font-weight="700" font-size="15">config.py</text>
+    <text x="175" y="470">路径 · 关节名称 · RobotGeometry</text>
+    <text x="175" y="492">ControlLimits · SimulationConfig</text>
+    <text x="175" y="514" fill="#64748b">被所有模块导入</text>
+
+    <rect x="690" y="420" width="270" height="110" rx="10" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+    <text x="825" y="446" font-weight="700" font-size="15">Isaac Sim</text>
+    <text x="825" y="470">SingleArticulation.apply_action</text>
+    <text x="825" y="492">ArticulationAction（位置 / 速度目标）</text>
+    <text x="825" y="514">get_joint_positions / velocities</text>
+  </g>
+
+  <g stroke="#334155" stroke-width="2" fill="none" marker-end="url(#k)">
+    <line x1="200" y1="156" x2="185" y2="226"/>
+    <line x1="320" y1="156" x2="460" y2="226"/>
+    <line x1="640" y1="156" x2="200" y2="226"/>
+    <line x1="700" y1="156" x2="540" y2="226"/>
+    <line x1="800" y1="156" x2="820" y2="226"/>
+    <line x1="500" y1="350" x2="500" y2="416"/>
+    <line x1="840" y1="350" x2="560" y2="416"/>
+    <line x1="600" y1="350" x2="760" y2="416"/>
+  </g>
+  <g stroke="#94a3b8" stroke-width="1.5" fill="none" stroke-dasharray="5 4" marker-end="url(#g)">
+    <line x1="175" y1="350" x2="175" y2="416"/>
+  </g>
+  <text x="660" y="395" font-size="12" fill="#475569">写 8 个关节目标</text>
+  <text x="640" y="380" font-size="12" fill="#475569" text-anchor="end">normalize_angle</text>
+  <text x="510" y="390" font-size="12" fill="#475569">inverse()</text>
+  <text x="185" y="392" font-size="12" fill="#64748b">加载 USD</text>
+  <text x="500" y="570" text-anchor="middle" font-size="13" fill="#475569">实线：函数调用；运动学与控制逻辑全部自写，Isaac Sim 只负责关节执行与物理仿真</text>
+</svg>

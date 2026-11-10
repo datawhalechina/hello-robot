@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520" viewBox="0 0 1000 520" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="k" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker>
+    <marker id="b" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker>
+    <marker id="o" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#ea580c"/></marker>
+    <marker id="r" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/></marker>
+  </defs>
+  <rect width="1000" height="520" fill="#ffffff"/>
+  <text x="500" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#0f172a">同一个误差向量，在世界坐标系与底盘坐标系中的分量不同</text>
+
+  <!-- world axes -->
+  <line x1="60" y1="480" x2="590" y2="480" stroke="#334155" stroke-width="2" marker-end="url(#k)"/>
+  <line x1="60" y1="480" x2="60" y2="70" stroke="#334155" stroke-width="2" marker-end="url(#k)"/>
+  <text x="575" y="502" font-size="15" fill="#334155">X_world</text>
+  <text x="70" y="78" font-size="15" fill="#334155">Y_world</text>
+  <text x="40" y="500" font-size="13" fill="#64748b">O</text>
+
+  <!-- world error components -->
+  <line x1="300" y1="380" x2="450" y2="380" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="450" y1="380" x2="450" y2="180" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="375" y="402" text-anchor="middle" font-size="13" fill="#475569">e_x^world = 0.6</text>
+  <text x="458" y="300" font-size="13" fill="#475569">e_y^world = 0.8</text>
+
+  <!-- robot body rotated 30 deg CCW -->
+  <g transform="rotate(-30 300 380)">
+    <rect x="255" y="340" width="90" height="80" rx="10" fill="#e2e8f0" stroke="#475569" stroke-width="2"/>
+    <path d="M345 365 L360 380 L345 395" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+  </g>
+  <circle cx="300" cy="380" r="5" fill="#0f172a"/>
+
+  <!-- body axes -->
+  <line x1="300" y1="380" x2="560" y2="230" stroke="#2563eb" stroke-width="2" marker-end="url(#b)"/>
+  <line x1="300" y1="380" x2="200" y2="207" stroke="#2563eb" stroke-width="2" marker-end="url(#b)"/>
+  <text x="560" y="218" font-size="15" fill="#2563eb">x_body</text>
+  <text x="548" y="252" font-size="12" fill="#2563eb">（车头）</text>
+  <text x="130" y="200" font-size="15" fill="#2563eb">y_body（左侧）</text>
+
+  <!-- yaw arc -->
+  <path d="M370 380 A70 70 0 0 0 360.6 345" fill="none" stroke="#0f172a" stroke-width="1.5"/>
+  <text x="378" y="364" font-size="14" fill="#0f172a">ψ = 30°</text>
+
+  <!-- error vector -->
+  <line x1="300" y1="380" x2="447" y2="184" stroke="#dc2626" stroke-width="3" marker-end="url(#r)"/>
+  <circle cx="450" cy="180" r="7" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <text x="462" y="172" font-size="14" fill="#dc2626">目标点</text>
+
+  <!-- body projections -->
+  <line x1="300" y1="380" x2="499" y2="265" stroke="#ea580c" stroke-width="4" opacity="0.75"/>
+  <line x1="499" y1="265" x2="450" y2="180" stroke="#ea580c" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="508" y="282" font-size="13" fill="#ea580c">e_x^body ≈ 0.92</text>
+  <text x="482" y="215" font-size="13" fill="#ea580c">e_y^body ≈ 0.39</text>
+
+  <!-- right panel -->
+  <rect x="620" y="70" width="360" height="410" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="640" y="102" font-size="16" font-weight="700" fill="#0f172a">数值示例（单位：m）</text>
+  <g font-size="14" fill="#0f172a">
+    <text x="640" y="136">机器人航向 ψ = 30°</text>
+    <text x="640" y="160">cos ψ ≈ 0.866，sin ψ = 0.5</text>
+    <text x="640" y="194">世界误差：e_x^world = 0.6，e_y^world = 0.8</text>
+    <text x="640" y="234" font-weight="700">转换到底盘坐标系：</text>
+    <text x="640" y="262">e_x^body = 0.866×0.6 + 0.5×0.8</text>
+    <text x="700" y="286">≈ 0.520 + 0.400 = 0.920</text>
+    <text x="640" y="316">e_y^body = −0.5×0.6 + 0.866×0.8</text>
+    <text x="700" y="340">≈ −0.300 + 0.693 = 0.393</text>
+    <text x="640" y="380" fill="#dc2626">若直接把 (0.6, 0.8) 当作 (vx, vy)，</text>
+    <text x="640" y="404" fill="#dc2626">机器人会沿车头 30° 偏转后的方向走偏。</text>
+    <text x="640" y="444" fill="#475569">距离误差两种坐标下相同：</text>
+    <text x="640" y="466" fill="#475569">√(0.6²+0.8²) = √(0.92²+0.393²) ≈ 1.0</text>
+  </g>
+</svg>

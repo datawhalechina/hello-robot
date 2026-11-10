@@ -1,0 +1,51 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+  <defs>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#059669"/></marker>
+    <marker id="dimArrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse"><path d="M0,4 L8,0 L8,8 z" fill="#64748b"/></marker>
+    <style>
+      .t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.small{font-size:16px}.mid{font-size:19px}.bold{font-weight:700}.dim{stroke:#64748b;stroke-width:2;marker-start:url(#dimArrow);marker-end:url(#dimArrow)}
+    </style>
+  </defs>
+  <rect width="900" height="560" fill="#f8fafc"/>
+  <text x="450" y="35" text-anchor="middle" class="t bold" font-size="24">四轮独立转向底盘的坐标系与几何参数（俯视图）</text>
+
+  <rect x="285" y="105" width="330" height="355" rx="30" fill="#dbeafe" stroke="#1d4ed8" stroke-width="3"/>
+  <path d="M405 105 L450 70 L495 105" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="3"/>
+  <text x="450" y="97" text-anchor="middle" class="t bold mid">车头</text>
+  <circle cx="450" cy="282" r="7" fill="#dc2626"/>
+  <text x="463" y="306" class="t small">底盘中心 O</text>
+
+  <g fill="#1e293b" stroke="#020617" stroke-width="2">
+    <rect x="266" y="125" width="38" height="82" rx="9"/>
+    <rect x="266" y="360" width="38" height="82" rx="9"/>
+    <rect x="596" y="125" width="38" height="82" rx="9"/>
+    <rect x="596" y="360" width="38" height="82" rx="9"/>
+  </g>
+
+  <g class="t bold mid">
+    <text x="210" y="145">LF 左前</text><text x="187" y="170" class="small" font-weight="400">(+L/2, +W/2)</text>
+    <text x="208" y="403">LR 左后</text><text x="185" y="428" class="small" font-weight="400">(-L/2, +W/2)</text>
+    <text x="650" y="145">RF 右前</text><text x="650" y="170" class="small" font-weight="400">(+L/2, -W/2)</text>
+    <text x="650" y="403">RR 右后</text><text x="650" y="428" class="small" font-weight="400">(-L/2, -W/2)</text>
+  </g>
+
+  <line x1="450" y1="282" x2="450" y2="152" stroke="#2563eb" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <text x="464" y="182" class="t bold mid" fill="#2563eb">+x 前方</text>
+  <line x1="450" y1="282" x2="320" y2="282" stroke="#059669" stroke-width="4" marker-end="url(#arrowGreen)"/>
+  <text x="320" y="270" class="t bold mid" fill="#059669">+y 左侧</text>
+
+  <line x1="285" y1="82" x2="615" y2="82" class="dim"/>
+  <line x1="285" y1="88" x2="285" y2="108" stroke="#64748b" stroke-width="2"/>
+  <line x1="615" y1="88" x2="615" y2="108" stroke="#64748b" stroke-width="2"/>
+  <text x="450" y="66" text-anchor="middle" class="t bold mid">轮距 W = 0.436 m</text>
+
+  <line x1="665" y1="166" x2="665" y2="401" class="dim"/>
+  <line x1="616" y1="166" x2="674" y2="166" stroke="#64748b" stroke-width="2"/>
+  <line x1="616" y1="401" x2="674" y2="401" stroke="#64748b" stroke-width="2"/>
+  <text x="690" y="270" class="t bold mid">轴距 L</text>
+  <text x="690" y="296" class="t mid">0.460 m</text>
+
+  <rect x="90" y="485" width="720" height="50" rx="12" fill="#fff7ed" stroke="#fb923c" stroke-width="2"/>
+  <text x="450" y="516" text-anchor="middle" class="t mid">记忆方法：前轮 x 为正，左轮 y 为正；四轮顺序固定为 LF → LR → RF → RR。</text>
+</svg>

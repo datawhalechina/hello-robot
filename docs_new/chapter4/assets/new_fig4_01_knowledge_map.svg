@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker>
+    <marker id="arrg" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/></marker>
+  </defs>
+  <rect width="1000" height="560" fill="#ffffff"/>
+  <text x="500" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">第四章知识地图：从目标位姿到 G2 实际运动</text>
+
+  <text x="20" y="70" font-size="14" fill="#64748b">控制链（每个物理周期执行一次，默认 120 Hz）</text>
+  <g font-size="14" fill="#0f172a">
+    <rect x="20" y="82" width="172" height="86" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+    <text x="106" y="110" text-anchor="middle" font-weight="700">第六部分</text>
+    <text x="106" y="132" text-anchor="middle">位姿反馈控制</text>
+    <text x="106" y="154" text-anchor="middle" font-size="12" fill="#475569">目标位姿 → (vx, vy, ωz)</text>
+
+    <rect x="217" y="82" width="172" height="86" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+    <text x="303" y="110" text-anchor="middle" font-weight="700">第五部分（下）</text>
+    <text x="303" y="132" text-anchor="middle">底盘级工程约束</text>
+    <text x="303" y="154" text-anchor="middle" font-size="12" fill="#475569">限速 · 加速度 · 超时</text>
+
+    <rect x="414" y="82" width="172" height="86" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+    <text x="500" y="110" text-anchor="middle" font-weight="700">第三部分</text>
+    <text x="500" y="132" text-anchor="middle">逆运动学</text>
+    <text x="500" y="154" text-anchor="middle" font-size="12" fill="#475569">速度 → 4 × (θi, ωi)</text>
+
+    <rect x="611" y="82" width="172" height="86" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+    <text x="697" y="110" text-anchor="middle" font-weight="700">第五部分（上）</text>
+    <text x="697" y="132" text-anchor="middle">最短转向 · 轮速缩放</text>
+    <text x="697" y="154" text-anchor="middle" font-size="12" fill="#475569">让逆解更适合执行</text>
+
+    <rect x="808" y="82" width="172" height="86" rx="10" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+    <text x="894" y="110" text-anchor="middle" font-weight="700">Isaac Sim</text>
+    <text x="894" y="132" text-anchor="middle">8 个底盘关节</text>
+    <text x="894" y="154" text-anchor="middle" font-size="12" fill="#475569">物理仿真 · 轮地接触</text>
+  </g>
+  <g stroke="#334155" stroke-width="2" marker-end="url(#arr)">
+    <line x1="192" y1="125" x2="213" y2="125"/>
+    <line x1="389" y1="125" x2="410" y2="125"/>
+    <line x1="586" y1="125" x2="607" y2="125"/>
+    <line x1="783" y1="125" x2="804" y2="125"/>
+  </g>
+
+  <rect x="414" y="212" width="369" height="70" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="598" y="240" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">第四部分 正运动学与轮速里程计</text>
+  <text x="598" y="264" text-anchor="middle" font-size="12" fill="#475569">实测 (θi, ωi) → 底盘速度估计 → 积分得到位姿</text>
+  <path d="M894 168 L894 247 L787 247" fill="none" stroke="#16a34a" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrg)"/>
+  <path d="M414 247 L106 247 L106 172" fill="none" stroke="#16a34a" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrg)"/>
+  <text x="260" y="238" text-anchor="middle" font-size="12" fill="#16a34a">位姿反馈（示例中直接读取仿真真值位姿）</text>
+
+  <rect x="20" y="310" width="960" height="62" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+  <text x="500" y="336" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">基础：第一部分 位姿 · 速度 · 坐标系　＋　第二部分 G2 几何参数 · 转向/驱动关节</text>
+  <text x="500" y="358" text-anchor="middle" font-size="12" fill="#475569">统一约定：x 向前、y 向左、z 向上、逆时针为正；轮序固定为 LF、LR、RF、RR</text>
+
+  <text x="20" y="408" font-size="14" fill="#64748b">对应代码 code/code_chapter4/（第七部分逐段解读，第八部分运行）</text>
+  <g font-size="13" fill="#0f172a">
+    <rect x="20" y="420" width="172" height="92" rx="8" fill="#ffffff" stroke="#64748b"/>
+    <text x="106" y="446" text-anchor="middle" font-weight="700">config.py</text>
+    <text x="106" y="470" text-anchor="middle" font-size="12" fill="#475569">几何参数 · 关节名</text>
+    <text x="106" y="490" text-anchor="middle" font-size="12" fill="#475569">控制限幅 · 仿真配置</text>
+
+    <rect x="217" y="420" width="172" height="92" rx="8" fill="#ffffff" stroke="#64748b"/>
+    <text x="303" y="446" text-anchor="middle" font-weight="700">kinematics.py</text>
+    <text x="303" y="470" text-anchor="middle" font-size="12" fill="#475569">正/逆运动学 · 里程计</text>
+    <text x="303" y="490" text-anchor="middle" font-size="12" fill="#475569">对应第三、四、五（上）部分</text>
+
+    <rect x="414" y="420" width="172" height="92" rx="8" fill="#ffffff" stroke="#64748b"/>
+    <text x="500" y="446" text-anchor="middle" font-weight="700">base_controller.py</text>
+    <text x="500" y="470" text-anchor="middle" font-size="12" fill="#475569">G2BaseController</text>
+    <text x="500" y="490" text-anchor="middle" font-size="12" fill="#475569">PoseController</text>
+
+    <rect x="611" y="420" width="172" height="92" rx="8" fill="#ffffff" stroke="#64748b"/>
+    <text x="697" y="446" text-anchor="middle" font-weight="700">simulation.py</text>
+    <text x="697" y="470" text-anchor="middle" font-size="12" fill="#475569">启动 Isaac Sim · 加载场景</text>
+    <text x="697" y="490" text-anchor="middle" font-size="12" fill="#475569">读取位姿 · 推进仿真</text>
+
+    <rect x="808" y="420" width="172" height="92" rx="8" fill="#ffffff" stroke="#64748b"/>
+    <text x="894" y="446" text-anchor="middle" font-weight="700">demo_*.py</text>
+    <text x="894" y="470" text-anchor="middle" font-size="12" fill="#475569">速度控制示例</text>
+    <text x="894" y="490" text-anchor="middle" font-size="12" fill="#475569">航点控制示例</text>
+  </g>
+  <text x="500" y="545" text-anchor="middle" font-size="13" fill="#475569">蓝框：核心算法；橙框：让结果可执行、安全的工程处理；绿框：反馈/估计</text>
+</svg>

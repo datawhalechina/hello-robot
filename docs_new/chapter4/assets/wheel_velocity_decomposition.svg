@@ -1,0 +1,49 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+  <defs>
+    <marker id="aBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker>
+    <marker id="aOrange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#ea580c"/></marker>
+    <marker id="aGreen" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#059669"/></marker>
+    <marker id="aPurple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#7c3aed"/></marker>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.s{font-size:16px}.m{font-size:19px}</style>
+  </defs>
+  <rect width="900" height="520" fill="#f8fafc"/>
+  <text x="450" y="34" text-anchor="middle" class="t b" font-size="24">单个轮心速度：平移速度与旋转切向速度的向量叠加</text>
+
+  <rect x="85" y="100" width="555" height="350" rx="24" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+  <circle cx="255" cy="335" r="8" fill="#dc2626"/>
+  <text x="226" y="364" class="t b m">中心 O</text>
+  <circle cx="535" cy="170" r="8" fill="#111827"/>
+  <rect x="522" y="136" width="26" height="68" rx="7" fill="#334155" transform="rotate(97 535 170)"/>
+  <text x="552" y="158" class="t b m">第 i 个轮子</text>
+
+  <line x1="255" y1="335" x2="530" y2="173" stroke="#7c3aed" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#aPurple)"/>
+  <text x="365" y="232" class="t b m" fill="#7c3aed">位置向量 rᵢ=(xᵢ,yᵢ)</text>
+
+  <path d="M205 315 A55 55 0 0 1 225 270" fill="none" stroke="#ea580c" stroke-width="4" marker-end="url(#aOrange)"/>
+  <text x="115" y="285" class="t b m" fill="#ea580c">ωz &gt; 0</text>
+
+  <line x1="535" y1="170" x2="475" y2="70" stroke="#2563eb" stroke-width="5" marker-end="url(#aBlue)"/>
+  <text x="385" y="70" class="t b m" fill="#2563eb">中心平移 v_c</text>
+
+  <line x1="535" y1="170" x2="435" y2="250" stroke="#ea580c" stroke-width="5" marker-end="url(#aOrange)"/>
+  <text x="445" y="278" class="t b m" fill="#ea580c">旋转速度 ω × rᵢ</text>
+
+  <line x1="535" y1="170" x2="375" y2="150" stroke="#059669" stroke-width="6" marker-end="url(#aGreen)"/>
+  <text x="345" y="132" class="t b m" fill="#059669">轮心总速度 vᵢ</text>
+  <line x1="475" y1="70" x2="375" y2="150" stroke="#94a3b8" stroke-width="2" stroke-dasharray="7 6"/>
+  <line x1="435" y1="250" x2="375" y2="150" stroke="#94a3b8" stroke-width="2" stroke-dasharray="7 6"/>
+
+  <rect x="675" y="105" width="190" height="290" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="770" y="145" text-anchor="middle" class="t b m">计算顺序</text>
+  <text x="695" y="187" class="t m">① 已知底盘速度</text>
+  <text x="711" y="216" class="t s">(vₓ, vᵧ, ωz)</text>
+  <text x="695" y="258" class="t m">② 加上旋转分量</text>
+  <text x="699" y="288" class="t s">vᵢₓ = vₓ − ωz yᵢ</text>
+  <text x="699" y="315" class="t s">vᵢᵧ = vᵧ + ωz xᵢ</text>
+  <text x="695" y="355" class="t m">③ 向量决定轮子</text>
+  <text x="705" y="382" class="t s">方向 θᵢ 与速度 ωᵢ</text>
+
+  <rect x="105" y="468" width="690" height="36" rx="10" fill="#ecfdf5" stroke="#34d399"/>
+  <text x="450" y="492" text-anchor="middle" class="t m">直观理解：轮子不是“跟着车身转”，而是必须沿该轮心瞬时速度向量滚动。</text>
+</svg>
+

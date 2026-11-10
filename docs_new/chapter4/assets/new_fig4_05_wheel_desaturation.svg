@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="1000" height="560" fill="#ffffff"/>
+  <text x="500" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">轮速统一缩放 vs 单独截断（指令 vx=0.7 m/s, ωz=1.2 rad/s，假设上限 10 rad/s）</text>
+
+  <!-- legend -->
+  <g font-size="13" fill="#334155">
+    <rect x="120" y="54" width="14" height="14" rx="3" fill="#94a3b8"/><text x="140" y="66">逆运动学原始轮速</text>
+    <rect x="290" y="54" width="14" height="14" rx="3" fill="#f97316"/><text x="310" y="66">单独截断（错误做法）</text>
+    <rect x="490" y="54" width="14" height="14" rx="3" fill="#2563eb"/><text x="510" y="66">统一缩放 s = 10/14.29 ≈ 0.70（代码做法）</text>
+  </g>
+
+  <!-- grid & axis: baseline y=400, 1 rad/s = 18.75px -->
+  <g stroke="#e2e8f0" stroke-width="1">
+    <line x1="90" y1="325" x2="700" y2="325"/>
+    <line x1="90" y1="250" x2="700" y2="250"/>
+    <line x1="90" y1="175" x2="700" y2="175"/>
+    <line x1="90" y1="100" x2="700" y2="100"/>
+  </g>
+  <g font-size="12" fill="#64748b" text-anchor="end">
+    <text x="82" y="404">0</text><text x="82" y="329">4</text><text x="82" y="254">8</text><text x="82" y="179">12</text><text x="82" y="104">16</text>
+  </g>
+  <text x="40" y="250" font-size="12" fill="#64748b" transform="rotate(-90 40 250)" text-anchor="middle">车轮角速度 / rad·s⁻¹</text>
+  <line x1="90" y1="400" x2="700" y2="400" stroke="#475569" stroke-width="1.5"/>
+
+  <!-- limit line at 10 -> y=212.5 -->
+  <line x1="90" y1="212.5" x2="700" y2="212.5" stroke="#dc2626" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="700" y="206" font-size="12" fill="#dc2626" text-anchor="end">上限 10 rad/s</text>
+
+  <!-- bars: group centers 165, 315, 465, 615 ; bar width 34, gap 2 -->
+  <g>
+    <!-- LF 7.40 / 7.40 / 5.18 -->
+    <path d="M110 400 V265.25 a4 4 0 0 1 4 -4 H140 a4 4 0 0 1 4 4 V400 Z" fill="#94a3b8"/>
+    <path d="M146 400 V265.25 a4 4 0 0 1 4 -4 H176 a4 4 0 0 1 4 4 V400 Z" fill="#f97316"/>
+    <path d="M182 400 V306.9 a4 4 0 0 1 4 -4 H212 a4 4 0 0 1 4 4 V400 Z" fill="#2563eb"/>
+    <!-- LR -->
+    <path d="M260 400 V265.25 a4 4 0 0 1 4 -4 H290 a4 4 0 0 1 4 4 V400 Z" fill="#94a3b8"/>
+    <path d="M296 400 V265.25 a4 4 0 0 1 4 -4 H326 a4 4 0 0 1 4 4 V400 Z" fill="#f97316"/>
+    <path d="M332 400 V306.9 a4 4 0 0 1 4 -4 H362 a4 4 0 0 1 4 4 V400 Z" fill="#2563eb"/>
+    <!-- RF 14.29 / 10 / 10 -->
+    <path d="M410 400 V136.06 a4 4 0 0 1 4 -4 H440 a4 4 0 0 1 4 4 V400 Z" fill="#94a3b8"/>
+    <path d="M446 400 V216.5 a4 4 0 0 1 4 -4 H476 a4 4 0 0 1 4 4 V400 Z" fill="#f97316"/>
+    <path d="M482 400 V216.5 a4 4 0 0 1 4 -4 H512 a4 4 0 0 1 4 4 V400 Z" fill="#2563eb"/>
+    <!-- RR -->
+    <path d="M560 400 V136.06 a4 4 0 0 1 4 -4 H590 a4 4 0 0 1 4 4 V400 Z" fill="#94a3b8"/>
+    <path d="M596 400 V216.5 a4 4 0 0 1 4 -4 H626 a4 4 0 0 1 4 4 V400 Z" fill="#f97316"/>
+    <path d="M632 400 V216.5 a4 4 0 0 1 4 -4 H662 a4 4 0 0 1 4 4 V400 Z" fill="#2563eb"/>
+  </g>
+  <!-- selective labels -->
+  <g font-size="11" fill="#334155" text-anchor="middle">
+    <text x="127" y="255">7.40</text><text x="199" y="297">5.18</text>
+    <text x="427" y="126">14.29</text><text x="499" y="232" fill="#ffffff">10.0</text>
+  </g>
+  <g font-size="14" font-weight="700" fill="#0f172a" text-anchor="middle">
+    <text x="163" y="424">LF</text><text x="313" y="424">LR</text><text x="463" y="424">RF</text><text x="613" y="424">RR</text>
+  </g>
+
+  <!-- result panel -->
+  <rect x="730" y="90" width="250" height="320" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="745" y="120" font-size="15" font-weight="700" fill="#0f172a">用正运动学反算底盘速度</text>
+  <g font-size="13" fill="#0f172a">
+    <text x="745" y="152" fill="#64748b">原始指令</text>
+    <text x="745" y="174">vx = 0.700，ωz = 1.200</text>
+    <text x="745" y="196">ωz / vx = 1.714</text>
+    <text x="745" y="232" fill="#c2410c">单独截断</text>
+    <text x="745" y="254">vx ≈ 0.556，ωz ≈ 0.792</text>
+    <text x="745" y="276">ωz / vx ≈ 1.425  ← 弯道变了</text>
+    <text x="745" y="312" fill="#1d4ed8">统一缩放</text>
+    <text x="745" y="334">vx ≈ 0.490，ωz ≈ 0.840</text>
+    <text x="745" y="356">ωz / vx = 1.714  ← 轨迹不变</text>
+    <text x="745" y="392" fill="#475569" font-size="12">（单独截断时四轮速度互相矛盾，</text>
+    <text x="745" y="408" fill="#475569" font-size="12"> 实际会出现轮胎打滑）</text>
+  </g>
+  <text x="500" y="470" text-anchor="middle" font-size="13" fill="#475569">ωz / vx 是轨迹曲率（转弯半径的倒数）。统一缩放只让机器人"慢下来"，不改变它要走的弯；</text>
+  <text x="500" y="492" text-anchor="middle" font-size="13" fill="#475569">单独截断会削弱外侧轮，使转弯半径变大、轨迹偏离目标。</text>
+  <text x="500" y="525" text-anchor="middle" font-size="12" fill="#64748b">注：代码默认上限 max_wheel_speed = 18 rad/s，此处取 10 rad/s 只是为了演示超限情形</text>
+</svg>

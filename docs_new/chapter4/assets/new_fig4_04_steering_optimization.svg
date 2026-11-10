@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="470" viewBox="0 0 1000 470" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="b" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker>
+    <marker id="r" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/></marker>
+    <marker id="g" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/></marker>
+  </defs>
+  <rect width="1000" height="470" fill="#ffffff"/>
+  <text x="500" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#0f172a">转向最短路径：当前轮朝前（θc = 0），底盘要求后退（θd = π）</text>
+
+  <!-- panel A -->
+  <rect x="30" y="60" width="450" height="330" rx="14" fill="#fef2f2" stroke="#fca5a5"/>
+  <text x="255" y="92" text-anchor="middle" font-size="16" font-weight="700" fill="#991b1b">方案 A：直接转到 θd = π，轮速 +5.714</text>
+  <circle cx="255" cy="235" r="95" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+  <line x1="255" y1="225" x2="255" y2="140" stroke="#94a3b8" stroke-width="12" stroke-linecap="round" opacity="0.5"/>
+  <line x1="255" y1="245" x2="255" y2="330" stroke="#1e293b" stroke-width="12" stroke-linecap="round"/>
+  <path d="M255 140 A95 95 0 0 0 250 330" fill="none" stroke="#dc2626" stroke-width="3" marker-end="url(#r)"/>
+  <text x="128" y="240" text-anchor="middle" font-size="14" fill="#dc2626">转 180°</text>
+  <line x1="300" y1="290" x2="300" y2="345" stroke="#2563eb" stroke-width="3" marker-end="url(#b)"/>
+  <text x="312" y="330" font-size="13" fill="#2563eb">轮心速度向后</text>
+  <text x="255" y="372" text-anchor="middle" font-size="13" fill="#475569">要等转向机构转半圈，期间轮胎原地摩擦</text>
+
+  <!-- panel B -->
+  <rect x="520" y="60" width="450" height="330" rx="14" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="745" y="92" text-anchor="middle" font-size="16" font-weight="700" fill="#166534">方案 B（代码采用）：保持 θ = 0，轮速 −5.714</text>
+  <circle cx="745" cy="235" r="95" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+  <line x1="745" y1="195" x2="745" y2="275" stroke="#1e293b" stroke-width="12" stroke-linecap="round"/>
+  <path d="M720 160 A40 40 0 0 0 720 220" fill="none" stroke="#16a34a" stroke-width="3" marker-end="url(#g)"/>
+  <text x="630" y="150" font-size="13" fill="#16a34a">车轮反向自转</text>
+  <text x="760" y="180" font-size="13" fill="#475569">转向角保持 0</text>
+  <line x1="790" y1="290" x2="790" y2="345" stroke="#2563eb" stroke-width="3" marker-end="url(#b)"/>
+  <text x="802" y="330" font-size="13" fill="#2563eb">轮心速度向后</text>
+  <text x="745" y="372" text-anchor="middle" font-size="13" fill="#475569">转向角不变（Δθ = 0），立即产生同样的轮心速度</text>
+
+  <!-- rule -->
+  <rect x="30" y="405" width="940" height="50" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="500" y="436" text-anchor="middle" font-size="15" fill="#0f172a">规则：Δθ = normalize(θd − θc)；若 |Δθ| &gt; π/2，则 Δθ ← normalize(Δθ + π)，ω ← −ω；最终目标角 = θc + Δθ（每轮最多转 90°）</text>
+</svg>
