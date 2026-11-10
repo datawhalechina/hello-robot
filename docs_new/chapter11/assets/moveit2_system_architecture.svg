@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760">
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 Z" fill="#334155"/></marker><style>.t{font:700 30px sans-serif;fill:#0f172a}.h{font:700 20px sans-serif;fill:#0f172a}.p{font:16px sans-serif;fill:#334155}.box{fill:#f8fafc;stroke:#2563eb;stroke-width:2}.model{fill:#eef2ff;stroke:#6366f1;stroke-width:2}.plan{fill:#ecfdf5;stroke:#16a34a;stroke-width:2}.exec{fill:#fff7ed;stroke:#ea580c;stroke-width:2}.sensor{fill:#fdf2f8;stroke:#db2777;stroke-width:2}.a{stroke:#334155;stroke-width:3;fill:none;marker-end:url(#a)}</style></defs>
+  <rect width="1400" height="760" fill="#f8fafc"/>
+  <text x="700" y="42" text-anchor="middle" class="t">code_chapter11_2 中的 MoveIt 2 系统结构</text>
+  <rect x="45" y="95" width="230" height="110" rx="14" class="box"/><text x="160" y="132" text-anchor="middle" class="h">任务入口</text><text x="160" y="163" text-anchor="middle" class="p">RViz MotionPlanning</text><text x="160" y="187" text-anchor="middle" class="p">pick_red_moveit</text>
+  <rect x="345" y="78" width="710" height="300" rx="18" class="model"/><text x="700" y="112" text-anchor="middle" class="h">move_group：统一规划服务</text>
+  <rect x="380" y="145" width="190" height="90" rx="12" class="box"/><text x="475" y="178" text-anchor="middle" class="h">机器人模型</text><text x="475" y="205" text-anchor="middle" class="p">URDF + SRDF + KDL</text>
+  <rect x="605" y="145" width="190" height="90" rx="12" class="sensor"/><text x="700" y="178" text-anchor="middle" class="h">Planning Scene</text><text x="700" y="205" text-anchor="middle" class="p">FCL + OctoMap + 附着物</text>
+  <rect x="830" y="145" width="190" height="90" rx="12" class="plan"/><text x="925" y="178" text-anchor="middle" class="h">OMPL 规划</text><text x="925" y="205" text-anchor="middle" class="p">RRTConnect / RRTstar / PRM</text>
+  <rect x="475" y="265" width="210" height="80" rx="12" class="plan"/><text x="580" y="297" text-anchor="middle" class="h">请求适配器</text><text x="580" y="324" text-anchor="middle" class="p">起点修复、约束与时间参数化</text>
+  <rect x="725" y="265" width="210" height="80" rx="12" class="plan"/><text x="830" y="297" text-anchor="middle" class="h">轨迹执行管理</text><text x="830" y="324" text-anchor="middle" class="p">选择控制器并监控执行</text>
+  <path d="M275 150 H340" class="a"/>
+  <rect x="1115" y="95" width="240" height="110" rx="14" class="sensor"/><text x="1235" y="132" text-anchor="middle" class="h">头部深度感知</text><text x="1235" y="162" text-anchor="middle" class="p">/chapter11/head/depth_points</text><text x="1235" y="187" text-anchor="middle" class="p">PointCloudOctomapUpdater</text>
+  <path d="M1115 170 H1060" class="a"/>
+  <rect x="455" y="455" width="270" height="110" rx="14" class="exec"/><text x="590" y="492" text-anchor="middle" class="h">MoveIt Simple Controller Manager</text><text x="590" y="522" text-anchor="middle" class="p">选择 right_arm_controller</text><text x="590" y="547" text-anchor="middle" class="p">发送 FollowJointTrajectory</text>
+  <rect x="790" y="455" width="270" height="110" rx="14" class="exec"/><text x="925" y="492" text-anchor="middle" class="h">C++ Isaac Controller Bridge</text><text x="925" y="522" text-anchor="middle" class="p">100 Hz 插值、反馈和误差检查</text><text x="925" y="547" text-anchor="middle" class="p">标准 Action ↔ 简单 JointState 话题</text>
+  <rect x="1115" y="455" width="240" height="110" rx="14" class="exec"/><text x="1235" y="492" text-anchor="middle" class="h">Isaac Sim G2</text><text x="1235" y="522" text-anchor="middle" class="p">关节 drive + 夹爪</text><text x="1235" y="547" text-anchor="middle" class="p">发布实测关节状态</text>
+  <path d="M830 378 V420 H590 V450" class="a"/><path d="M725 510 H785" class="a"/><path d="M1060 510 H1110" class="a"/>
+  <path d="M1235 565 V655 H700 V570" class="a"/>
+  <text x="970" y="680" text-anchor="middle" class="p">/chapter11/isaac_joint_states → /joint_states → move_group 当前状态与 TF</text>
+  <rect x="75" y="455" width="300" height="110" rx="14" class="box"/><text x="225" y="492" text-anchor="middle" class="h">关键边界</text><text x="225" y="522" text-anchor="middle" class="p">MoveIt 产生并管理轨迹</text><text x="225" y="547" text-anchor="middle" class="p">控制桥和底层 drive 才真正驱动关节</text>
+</svg>

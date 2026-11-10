@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="520" fill="#ffffff"/>
+  <text x="600" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">胶囊连杆 vs. AABB：把“粗线段碰盒子”变成“细线段碰胀大的盒子”</text>
+
+  <!-- 左 -->
+  <rect x="30" y="55" width="560" height="440" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="310" y="84" text-anchor="middle" font-size="16" font-weight="700">原问题：半径 r 的胶囊 与 AABB</text>
+  <rect x="330" y="180" width="160" height="180" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="410" y="275" text-anchor="middle" font-size="14" fill="#b91c1c">障碍 AABB</text>
+  <line x1="90" y1="400" x2="330" y2="230" stroke="#93c5fd" stroke-width="44" stroke-linecap="round"/>
+  <line x1="90" y1="400" x2="330" y2="230" stroke="#1d4ed8" stroke-width="3"/>
+  <circle cx="90" cy="400" r="5" fill="#1d4ed8"/><circle cx="330" cy="230" r="5" fill="#1d4ed8"/>
+  <text x="70" y="438" font-size="13">start（关节点 i）</text>
+  <text x="250" y="200" font-size="13">end（关节点 i+1）</text>
+  <path d="M200 322 L214 342" stroke="#334155" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="140" y="300" font-size="13" fill="#334155">半径 r = link_radius</text>
+  <text x="60" y="476" font-size="13" fill="#475569">直接判断“胶囊与盒子是否重叠”需要处理圆角，较繁琐</text>
+
+  <!-- 右 -->
+  <rect x="610" y="55" width="560" height="440" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="890" y="84" text-anchor="middle" font-size="16" font-weight="700">等价近似：线段 与 膨胀 AABB（Slab 法）</text>
+  <rect x="888" y="158" width="204" height="224" fill="#fff1f2" stroke="#f43f5e" stroke-width="2" stroke-dasharray="8 5"/>
+  <rect x="910" y="180" width="160" height="180" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="990" y="400" text-anchor="middle" font-size="13" fill="#be123c">每边外扩 inflation = r + safety_margin</text>
+  <line x1="670" y1="400" x2="910" y2="230" stroke="#1d4ed8" stroke-width="3"/>
+  <circle cx="670" cy="400" r="5" fill="#1d4ed8"/><circle cx="910" cy="230" r="5" fill="#1d4ed8"/>
+  <line x1="888" y1="110" x2="888" y2="470" stroke="#64748b" stroke-dasharray="3 4"/>
+  <line x1="1092" y1="110" x2="1092" y2="470" stroke="#64748b" stroke-dasharray="3 4"/>
+  <text x="870" y="128" text-anchor="end" font-size="12" fill="#475569">x 方向 slab 下界</text>
+  <text x="1100" y="128" font-size="12" fill="#475569">上界</text>
+  <circle cx="888" cy="246" r="6" fill="#ea580c"/>
+  <text x="700" y="262" font-size="12" fill="#c2410c">进入 slab：t₁</text>
+  <text x="640" y="455" font-size="13" fill="#334155">对 x、y、z 三个轴分别求进入/离开参数，取 t_min = max(进入)、</text>
+  <text x="640" y="477" font-size="13" fill="#334155">t_max = min(离开)，并与 [0,1] 求交；t_min ≤ t_max 即相交</text>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 470" width="940" height="470" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#444"/>
+    </marker>
+  </defs>
+  <rect width="940" height="470" fill="#fff"/>
+  <text x="470" y="32" text-anchor="middle" font-size="19" font-weight="bold" fill="#222">运动模式互锁：请求 → 控制器批准 → 桥接执行</text>
+
+  <g font-size="13" text-anchor="middle">
+    <rect x="30" y="70" width="190" height="96" rx="8" fill="#e8f0fe" stroke="#3b6fd8" stroke-width="1.6"/>
+    <text x="125" y="96" font-weight="bold">mission / teleop</text>
+    <text x="125" y="120">每 0.1 s 发布</text>
+    <text x="125" y="140">/mode_request</text>
+    <text x="125" y="158" font-size="11.5" fill="#555">NAV / ARM / IDLE</text>
+
+    <rect x="300" y="60" width="330" height="200" rx="8" fill="#fdeaea" stroke="#c94040" stroke-width="1.6"/>
+    <text x="465" y="86" font-weight="bold">controller.py · watchdog()（每 0.05 s，墙钟）</text>
+    <text x="320" y="114" text-anchor="start" font-size="12.5">公共前提：反馈新鲜（&lt;0.8 s）、请求新鲜（&lt;0.75 s）、</text>
+    <text x="320" y="132" text-anchor="start" font-size="12.5">无急停、无 CARRY_LOST 锁存</text>
+    <text x="320" y="160" text-anchor="start" font-size="12.5" fill="#1d5e3a">NAV：无执行中 action，右臂各关节离 home &lt; 0.10 rad，</text>
+    <text x="320" y="178" text-anchor="start" font-size="12.5" fill="#1d5e3a">　　 持物时夹爪角在 (0.08, 0.60) rad</text>
+    <text x="320" y="206" text-anchor="start" font-size="12.5" fill="#1d3f8f">ARM：/odom 实测 |v_xy|&lt;0.015 m/s 且 |ω|&lt;0.025 rad/s</text>
+    <text x="320" y="224" text-anchor="start" font-size="12.5" fill="#1d3f8f">　　 已连续保持 &gt; 0.5 s</text>
+    <text x="320" y="248" text-anchor="start" font-size="12.5" fill="#666">其余情况：IDLE</text>
+
+    <rect x="710" y="70" width="200" height="96" rx="8" fill="#fff4e0" stroke="#d98a1c" stroke-width="1.6"/>
+    <text x="810" y="96" font-weight="bold">sim/bridge.py</text>
+    <text x="810" y="120">订阅 /motion_mode</text>
+    <text x="810" y="140" font-size="12">心跳 &gt;0.6 s 未更新 → hold()</text>
+    <text x="810" y="158" font-size="12">速度 &gt;0.4 s 未更新 → 置零</text>
+
+    <line x1="220" y1="118" x2="298" y2="118" stroke="#444" stroke-width="1.6" marker-end="url(#a)"/>
+    <line x1="630" y1="118" x2="708" y2="118" stroke="#444" stroke-width="1.6" marker-end="url(#a)"/>
+    <text x="669" y="108" font-size="11.5" fill="#444">/motion_mode</text>
+    <path d="M465,260 C465,300 125,300 125,168" fill="none" stroke="#444" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#a)"/>
+    <text x="300" y="298" font-size="11.5" fill="#444">mission 用 healthy() 等待实际批准（最多 20 s）</text>
+  </g>
+
+  <!-- 三个模式表 -->
+  <g font-size="12.5">
+    <rect x="30" y="320" width="280" height="120" rx="8" fill="#e6f5ea" stroke="#2e8b57"/>
+    <text x="170" y="345" text-anchor="middle" font-weight="bold" fill="#1d5e3a">NAV 模式</text>
+    <text x="45" y="372">✓ 桥接接收 /cmd_vel（限幅 0.55/0.55/1.0）</text>
+    <text x="45" y="396">✗ 忽略 /isaac/joint_command</text>
+    <text x="45" y="420">右臂、夹爪保持原目标</text>
+
+    <rect x="330" y="320" width="280" height="120" rx="8" fill="#e8f0fe" stroke="#3b6fd8"/>
+    <text x="470" y="345" text-anchor="middle" font-weight="bold" fill="#1d3f8f">ARM 模式</text>
+    <text x="345" y="372">✓ 接收右臂七关节 / 夹爪目标</text>
+    <text x="345" y="396">✗ 底盘速度强制为 0</text>
+    <text x="345" y="420">控制器才接受轨迹与夹爪 action</text>
+
+    <rect x="630" y="320" width="280" height="120" rx="8" fill="#eeeeee" stroke="#888"/>
+    <text x="770" y="345" text-anchor="middle" font-weight="bold" fill="#333">IDLE 模式</text>
+    <text x="645" y="372">底盘减速停止，机械臂冻结在实测角</text>
+    <text x="645" y="396">已闭合夹爪保留目标 0 rad（不卸力）</text>
+    <text x="645" y="420">未完成开合冻结在当前开度</text>
+  </g>
+</svg>

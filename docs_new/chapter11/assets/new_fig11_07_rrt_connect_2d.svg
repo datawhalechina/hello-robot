@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arrg" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#ea580c"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="520" fill="#ffffff"/>
+  <text x="600" y="32" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">二维小例子：RRT-Connect 的双树生长与贪心连接</text>
+
+  <rect x="60" y="60" width="400" height="400" fill="#f8fafc" stroke="#64748b"/>
+  <rect x="260" y="220" width="80" height="240" fill="#fee2e2" stroke="#dc2626"/>
+  <rect x="100" y="180" width="80" height="40" fill="#fee2e2" stroke="#dc2626"/>
+  <!-- start tree -->
+  <polyline points="100,420 124,388 160,368 196,344 220,308 232,268 244,228" fill="none" stroke="#2563eb" stroke-width="3"/>
+  <line x1="124" y1="388" x2="92" y2="348" stroke="#2563eb" stroke-width="2"/>
+  <line x1="160" y1="368" x2="188" y2="412" stroke="#2563eb" stroke-width="2"/>
+  <g fill="#2563eb"><circle cx="124" cy="388" r="4"/><circle cx="160" cy="368" r="4"/><circle cx="196" cy="344" r="4"/><circle cx="220" cy="308" r="4"/><circle cx="232" cy="268" r="4"/><circle cx="92" cy="348" r="4"/><circle cx="188" cy="412" r="4"/></g>
+  <circle cx="244" cy="228" r="7" fill="#2563eb" stroke="#0f172a" stroke-width="2"/>
+  <!-- goal tree -->
+  <polyline points="420,100 388,124 352,148 312,172 276,192" fill="none" stroke="#ea580c" stroke-width="3"/>
+  <line x1="388" y1="124" x2="400" y2="180" stroke="#ea580c" stroke-width="2"/>
+  <line x1="352" y1="148" x2="330" y2="96" stroke="#ea580c" stroke-width="2"/>
+  <g fill="#ea580c"><circle cx="388" cy="124" r="4"/><circle cx="352" cy="148" r="4"/><circle cx="312" cy="172" r="4"/><circle cx="400" cy="180" r="4"/><circle cx="330" cy="96" r="4"/><circle cx="276" cy="192" r="5"/></g>
+  <path d="M276 192 L250 225" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="5 3" marker-end="url(#arrg)"/>
+  <circle cx="100" cy="420" r="8" fill="#16a34a"/>
+  <circle cx="420" cy="100" r="8" fill="#dc2626"/>
+  <text x="108" y="448" font-size="13">起点树 T_a 根 q_s</text>
+  <text x="330" y="82" font-size="13">终点树 T_b 根 q_g</text>
+  <text x="140" y="232" font-size="12" fill="#1d4ed8">T_a 新节点 (4.6,5.8)</text>
+  <text x="282" y="210" font-size="12" fill="#c2410c">(5.4,6.7)</text>
+
+  <g font-size="15" fill="#0f172a">
+    <text x="510" y="90" font-weight="700" font-size="17">一轮迭代做的事</text>
+    <text x="510" y="128">① 采样 q_rand（以 goal_bias 概率直接取对方树的根）</text>
+    <text x="510" y="160">② Extend：T_a 最近节点向 q_rand 走一步 → 得到 q_new</text>
+    <text x="510" y="192">③ Connect：T_b 以 q_new 为目标<tspan font-weight="700">反复</tspan> Extend，</text>
+    <text x="534" y="216">直到到达 q_new（连通）或遇到碰撞（停止）</text>
+    <text x="510" y="248">④ 未连通：交换 T_a 与 T_b 的角色，进入下一轮</text>
+    <text x="510" y="280">⑤ 连通：分别回溯两棵树，拼接成 q_s → q_g 的路径</text>
+    <text x="510" y="330" font-weight="700" font-size="17">图中这一轮</text>
+    <text x="510" y="364">T_b 最后一个节点 (5.4,6.7) 到 q_new=(4.6,5.8) 的距离</text>
+    <text x="534" y="390">√(0.8² + 0.9²) ≈ 1.20 ＞ step=1，先走一步再走一步，</text>
+    <text x="534" y="416">两步都无碰（直线经过 u=5 时 v≈6.25，在障碍上方）→ 连通</text>
+    <text x="510" y="460" fill="#475569" font-size="14">贪心 Connect 让两棵树“主动靠拢”，所以 RRT-Connect 通常比单树 RRT 快</text>
+  </g>
+</svg>

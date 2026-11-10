@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3b6fd8"/>
+    </marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2e8b57"/>
+    </marker>
+  </defs>
+  <rect width="960" height="560" fill="#fff"/>
+  <text x="480" y="30" text-anchor="middle" font-size="19" font-weight="bold" fill="#222">源码模块调用关系（蓝：命令 / 请求，绿：观测 / 反馈）</text>
+
+  <g font-size="13" text-anchor="middle">
+    <!-- 编排层 -->
+    <rect x="330" y="55" width="300" height="60" rx="8" fill="#e8f0fe" stroke="#3b6fd8" stroke-width="2"/>
+    <text x="480" y="80" font-weight="bold">src/mission.cpp（Mission::run）</text>
+    <text x="480" y="100" font-size="12" fill="#555">+ docking.hpp + scene_client.hpp，读 config/task.yaml</text>
+
+    <!-- 能力层 -->
+    <rect x="30" y="185" width="200" height="70" rx="8" fill="#e6f5ea" stroke="#2e8b57"/>
+    <text x="130" y="210" font-weight="bold">Nav2</text>
+    <text x="130" y="230" font-size="12">bt_navigator / planner /</text>
+    <text x="130" y="246" font-size="12">controller_server</text>
+
+    <rect x="255" y="185" width="200" height="70" rx="8" fill="#f3e8fb" stroke="#8a4fc0"/>
+    <text x="355" y="210" font-weight="bold">MoveIt2 move_group</text>
+    <text x="355" y="230" font-size="12">/move_action · /execute_trajectory</text>
+    <text x="355" y="246" font-size="12">/compute_cartesian_path · scene</text>
+
+    <rect x="480" y="185" width="210" height="70" rx="8" fill="#fdeaea" stroke="#c94040"/>
+    <text x="585" y="210" font-weight="bold">g2_mobile/controller.py</text>
+    <text x="585" y="230" font-size="12">FollowJointTrajectory · GripperCommand</text>
+    <text x="585" y="246" font-size="12">/motion_mode 互锁 · /estop</text>
+
+    <rect x="715" y="185" width="215" height="70" rx="8" fill="#fff4e0" stroke="#d98a1c"/>
+    <text x="822" y="210" font-weight="bold">g2_mobile/perception.py</text>
+    <text x="822" y="230" font-size="12">YOLO + RGB-D + common.py</text>
+    <text x="822" y="246" font-size="12">/grasp_candidates · /target_center</text>
+
+    <rect x="30" y="300" width="200" height="50" rx="8" fill="#eeeeee" stroke="#888"/>
+    <text x="130" y="322" font-weight="bold">AMCL 或 SLAM Toolbox</text>
+    <text x="130" y="340" font-size="12">map → odom</text>
+
+    <rect x="255" y="300" width="200" height="50" rx="8" fill="#eeeeee" stroke="#888"/>
+    <text x="355" y="322" font-weight="bold">robot_state_publisher</text>
+    <text x="355" y="340" font-size="12">右臂内部 TF</text>
+
+    <!-- 物理层 -->
+    <rect x="130" y="420" width="700" height="100" rx="10" fill="#fff8ec" stroke="#d98a1c" stroke-width="2"/>
+    <text x="480" y="446" font-weight="bold">sim/bridge.py（Isaac python.sh）⇄ sim/simulation.py</text>
+    <text x="480" y="470" font-size="12">发布 /clock /odom /scan /joint_states /isaac/joint_states /camera/* 与 TF（odom→base_link 等）</text>
+    <text x="480" y="490" font-size="12">订阅 /cmd_vel /isaac/joint_command /motion_mode；舵轮运动学 sim/base/ · 模拟激光 mapping.raycast</text>
+    <text x="480" y="508" font-size="12" fill="#666">Isaac World：G2 Omnipicker、两张桌子、苹果/橙子/茶盒、接收板、RGB-D 相机</text>
+  </g>
+
+  <!-- 命令箭头 -->
+  <line x1="380" y1="115" x2="150" y2="183" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="210" y="140" font-size="11.5" fill="#3b6fd8">/navigate_to_pose · /follow_path</text>
+  <line x1="440" y1="115" x2="365" y2="183" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="520" y1="115" x2="575" y2="183" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="600" y="150" font-size="11.5" fill="#3b6fd8">gripper_cmd · /mode_request</text>
+  <line x1="455" y1="230" x2="478" y2="230" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="130" y1="255" x2="180" y2="418" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="105" y="390" font-size="11.5" fill="#3b6fd8">/cmd_vel</text>
+  <line x1="585" y1="255" x2="585" y2="418" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="590" y="385" font-size="11.5" fill="#3b6fd8" text-anchor="start">/isaac/joint_command</text>
+
+  <!-- 反馈箭头 -->
+  <line x1="820" y1="418" x2="820" y2="257" stroke="#2e8b57" stroke-width="1.6" marker-end="url(#g)"/>
+  <text x="825" y="385" font-size="11.5" fill="#2e8b57">RGB-D · TF</text>
+  <line x1="760" y1="185" x2="610" y2="117" stroke="#2e8b57" stroke-width="1.6" marker-end="url(#g)"/>
+  <text x="740" y="140" font-size="11.5" fill="#2e8b57">候选 · 中心</text>
+  <line x1="680" y1="418" x2="660" y2="257" stroke="#2e8b57" stroke-width="1.6" marker-end="url(#g)"/>
+  <text x="690" y="300" font-size="11.5" fill="#2e8b57">/isaac/joint_states · /odom</text>
+  <line x1="300" y1="418" x2="340" y2="352" stroke="#2e8b57" stroke-width="1.6" marker-end="url(#g)"/>
+  <text x="250" y="400" font-size="11.5" fill="#2e8b57">/joint_states</text>
+  <line x1="230" y1="325" x2="252" y2="325" stroke="#2e8b57" stroke-width="1.2" stroke-dasharray="4,3"/>
+</svg>

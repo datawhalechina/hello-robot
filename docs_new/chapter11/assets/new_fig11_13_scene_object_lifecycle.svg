@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="1200" height="380" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="380" fill="#ffffff"/>
+  <text x="600" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">红色物体在 Planning Scene 中的三种身份（code_chapter11_2）</text>
+
+  <g font-size="14" fill="#0f172a">
+    <rect x="40" y="70" width="320" height="200" rx="14" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+    <text x="200" y="100" text-anchor="middle" font-weight="700" font-size="16">① 世界障碍 CollisionObject</text>
+    <text x="60" y="132">addTeachingScene()</text>
+    <text x="60" y="158">id = red_object，operation = ADD</text>
+    <text x="60" y="184">中心 (0.56, 0.535, -0.43)</text>
+    <text x="60" y="210">尺寸 0.075 × 0.075 × 0.075</text>
+    <text x="60" y="246" fill="#b91c1c">HOME → 预抓取：必须绕开它</text>
+
+    <rect x="440" y="70" width="320" height="200" rx="14" fill="#f8fafc" stroke="#64748b" stroke-width="2" stroke-dasharray="8 5"/>
+    <text x="600" y="100" text-anchor="middle" font-weight="700" font-size="16">② 从世界中移除</text>
+    <text x="460" y="132">removeRedForFinalApproach()</text>
+    <text x="460" y="158">operation = REMOVE</text>
+    <text x="460" y="184">sleep 250 ms 等场景更新</text>
+    <text x="460" y="246" fill="#334155">预抓取 → 抓取：夹爪可进入</text>
+
+    <rect x="840" y="70" width="320" height="200" rx="14" fill="#ecfdf5" stroke="#16a34a" stroke-width="2"/>
+    <text x="1000" y="100" text-anchor="middle" font-weight="700" font-size="16">③ 附着 AttachedCollisionObject</text>
+    <text x="860" y="132">attachRedToGripper()</text>
+    <text x="860" y="158">link_name = gripper_r_center_link</text>
+    <text x="860" y="184">touch_links = {gripper_r_center_link}</text>
+    <text x="860" y="210">盒体位于该 link 原点</text>
+    <text x="860" y="246" fill="#15803d">抓取 → 抬升：随臂一起查碰撞</text>
+  </g>
+  <g stroke="#475569" stroke-width="2.5" fill="none" marker-end="url(#arr)">
+    <path d="M362 170 H436"/>
+    <path d="M762 170 H836"/>
+  </g>
+  <text x="400" y="160" text-anchor="middle" font-size="12" fill="#475569">到达预抓取</text>
+  <text x="800" y="160" text-anchor="middle" font-size="12" fill="#475569">夹爪闭合</text>
+  <text x="600" y="320" text-anchor="middle" font-size="14" fill="#334155">对照 code_chapter11_1：红色物体 collision=False，从一开始就不参与碰撞；闭合夹爪后由 Isaac 让可视物体跟随末端</text>
+  <text x="600" y="348" text-anchor="middle" font-size="14" fill="#334155">注意：附着只表示规划碰撞语义，不代表模拟了真实接触、摩擦和夹紧力</text>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="940" viewBox="0 0 1500 940" role="img" aria-labelledby="title desc">
+<title id="title">图 12-3｜同一颗苹果，先统一坐标，再统一时间</title><desc id="desc">实线是 TF 父子关系；底部蓝色箭头是数据转换顺序，不是额外发布的 TF。</desc>
+<rect width="1500" height="940" fill="#F5F8FC"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#69788A"/></marker><marker id="green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17816E"/></marker><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2463B5"/></marker></defs>
+<text x="45" y="58" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="32" font-weight="700" fill="#18334B" text-anchor="start">图 12-3｜同一颗苹果，先统一坐标，再统一时间</text>
+<text x="45" y="100" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#69788A" text-anchor="start">实线是 TF 父子关系；底部蓝色箭头是数据转换顺序，不是额外发布的 TF。</text>
+<rect x="50" y="150" width="330" height="120" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="70" y="187" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5" text-anchor="start">map</text>
+<text x="70" y="223" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">Nav2 跨房间导航目标</text>
+<rect x="580" y="150" width="330" height="120" rx="15" fill="white" stroke="#17816E" stroke-width="2"/>
+<text x="600" y="187" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#17816E" text-anchor="start">odom</text>
+<text x="600" y="223" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">布局、停靠点、抓取目标</text>
+<path d="M380 210 H578" fill="none" stroke="#69788A" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="398" y="174" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#69788A" text-anchor="start">AMCL 或 SLAM</text>
+<text x="411" y="246" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#69788A" text-anchor="start">二选一发布</text>
+<rect x="580" y="345" width="330" height="115" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="600" y="382" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5" text-anchor="start">base_link</text>
+<text x="600" y="418" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">X 前 / Y 左 / Z 上</text>
+<path d="M745 270 V343" fill="none" stroke="#69788A" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="765" y="309" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#69788A" text-anchor="start">bridge：实际底盘位姿</text>
+<rect x="50" y="565" width="390" height="130" rx="15" fill="white" stroke="#17816E" stroke-width="2"/>
+<text x="70" y="602" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#17816E" text-anchor="start">camera_optical_frame</text>
+<text x="70" y="638" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">X 右 / Y 下 / Z 前</text>
+<text x="70" y="669" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">RGB-D 测得相机中的苹果点</text>
+<rect x="510" y="565" width="230" height="130" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="530" y="602" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5" text-anchor="start">base_scan</text>
+<text x="530" y="638" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">二维模拟激光</text>
+<rect x="810" y="565" width="640" height="130" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="830" y="602" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5" text-anchor="start">arm_base_link → 右臂连杆 → TCP</text>
+<text x="830" y="638" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">TCP = gripper_r_center_link</text>
+<text x="830" y="669" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">桥接发布臂基座；RSP 发布右臂内部 TF</text>
+<path d="M630 460 V505 H245 V563" fill="none" stroke="#69788A" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="280" y="494" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#69788A" text-anchor="start">bridge</text>
+<path d="M690 460 V535 H625 V563" fill="none" stroke="#69788A" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="513" y="532" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#69788A" text-anchor="start">bridge</text>
+<path d="M850 460 V505 H1100 V563" fill="none" stroke="#69788A" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="1030" y="491" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#69788A" text-anchor="start">bridge + RSP</text>
+<rect x="50" y="740" width="1400" height="145" rx="15" fill="#EAF1FC" stroke="#2463B5" stroke-width="2"/>
+<text x="75" y="776" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#2463B5" text-anchor="start">抓取数据：像素 + 深度</text>
+<path d="M350 770 H415" fill="none" stroke="#2463B5" stroke-width="3" marker-end="url(#blue)"/>
+<text x="435" y="776" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#2463B5" text-anchor="start">相机三维点</text>
+<path d="M585 770 H665" fill="none" stroke="#2463B5" stroke-width="3" marker-end="url(#blue)"/>
+<text x="685" y="776" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#2463B5" text-anchor="start">同一时刻 TF</text>
+<path d="M845 770 H925" fill="none" stroke="#2463B5" stroke-width="3" marker-end="url(#blue)"/>
+<text x="945" y="776" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#2463B5" text-anchor="start">odom 抓取位姿 → MoveIt</text>
+<text x="75" y="819" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#18334B" text-anchor="start">RGB、深度、内参、点云：共同时间戳 t；坐标转换也查询 TF(t)，不能拿“最新 TF”硬拼。</text>
+<text x="75" y="857" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#18334B" text-anchor="start">导航数据反向使用同一套变换：task.yaml 中的 odom 停靠目标 → map 目标 → Nav2。</text>
+<text x="50" y="922" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#BC641D" text-anchor="start">读图要点：移动底盘后，相机与机械臂的位置都变了；旧图像、旧候选不能直接复用。</text>
+</svg>

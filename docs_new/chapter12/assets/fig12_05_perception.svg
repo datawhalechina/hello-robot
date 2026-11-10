@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="900" viewBox="0 0 1500 900" role="img" aria-labelledby="title desc">
+<title id="title">图 12-5｜从一个检测框，到手臂可以尝试的抓取姿态</title><desc id="desc">正常抓取必须先有有效 YOLO 苹果检测；以下是已知桌面约束下的几何处理，不是实例分割。</desc>
+<rect width="1500" height="900" fill="#F5F8FC"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#69788A"/></marker><marker id="green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17816E"/></marker><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2463B5"/></marker></defs>
+<text x="45" y="58" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="32" font-weight="700" fill="#18334B" text-anchor="start">图 12-5｜从一个检测框，到手臂可以尝试的抓取姿态</text>
+<text x="45" y="100" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#69788A" text-anchor="start">正常抓取必须先有有效 YOLO 苹果检测；以下是已知桌面约束下的几何处理，不是实例分割。</text>
+<rect x="45" y="145" width="425" height="130" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="65" y="182" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5" text-anchor="start">① 找到苹果框</text>
+<text x="65" y="218" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">RGB + YOLO：只选 apple</text>
+<text x="65" y="249" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">矩形框内仍可能有桌面背景</text>
+<rect x="535" y="145" width="425" height="130" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="555" y="182" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5" text-anchor="start">② 反投影与坐标转换</text>
+<text x="555" y="218" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">框内有效深度 + 相机内参</text>
+<text x="555" y="249" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">同帧 TF：相机点 → odom 点</text>
+<rect x="1025" y="145" width="425" height="130" rx="15" fill="white" stroke="#17816E" stroke-width="2"/>
+<text x="1045" y="182" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#17816E" text-anchor="start">③ 几何筛选</text>
+<text x="1045" y="218" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">桌面范围 / 高度带 / 离群点</text>
+<text x="1045" y="249" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">检查点数与跨度，去掉背景</text>
+<path d="M470 210 H533" fill="none" stroke="#69788A" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M960 210 H1023" fill="none" stroke="#69788A" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="70" y="315" width="370" height="215" rx="15" fill="#EEE4D5" stroke="#C7A988" stroke-width="2"/>
+<circle cx="240" cy="408" r="20" fill="#D75B59" stroke="none" stroke-width="2"/>
+<path d="M240 391 q0 -14 12 -16" fill="none" stroke="#17816E" stroke-width="3"/>
+<text x="240" y="415" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="700" fill="white" text-anchor="middle"></text>
+<rect x="174" y="350" width="135" height="120" rx="0" fill="none" stroke="#2463B5" stroke-width="2"/>
+<text x="185" y="338" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#2463B5" text-anchor="start">apple</text>
+<text x="95" y="505" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#BC641D" text-anchor="start">检测框 ≠ 纯苹果点云</text>
+<rect x="560" y="315" width="370" height="215" rx="15" fill="#EAF1FC" stroke="#2463B5" stroke-width="2"/>
+<circle cx="655" cy="353" r="3.8" fill="#A6B4C4" stroke="none" stroke-width="2"/>
+<circle cx="655" cy="374" r="3.8" fill="#A6B4C4" stroke="none" stroke-width="2"/>
+<circle cx="655" cy="395" r="3.8" fill="#A6B4C4" stroke="none" stroke-width="2"/>
+<circle cx="655" cy="416" r="3.8" fill="#A6B4C4" stroke="none" stroke-width="2"/>
+<circle cx="655" cy="437" r="3.8" fill="#A6B4C4" stroke="none" stroke-width="2"/>
+<circle cx="655" cy="458" r="3.8" fill="#A6B4C4" stroke="none" stroke-width="2"/>
+<circle cx="681" cy="353" r="3.8" fill="#A6B4C4" stroke="none" stroke-width="2"/>
+<circle cx="681" cy="374" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="681" cy="395" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="681" cy="416" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="681" cy="437" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="681" cy="458" r="3.8" fill="#A6B4C4" stroke="none" stroke-width="2"/>
+<circle cx="707" cy="353" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="707" cy="374" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="707" cy="395" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="707" cy="416" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="707" cy="437" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="707" cy="458" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="733" cy="353" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="733" cy="374" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="733" cy="395" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="733" cy="416" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="733" cy="437" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="733" cy="458" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="759" cy="353" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="759" cy="374" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="759" cy="395" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="759" cy="416" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="759" cy="437" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="759" cy="458" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="785" cy="353" r="3.8" fill="#A6B4C4" stroke="none" stroke-width="2"/>
+<circle cx="785" cy="374" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="785" cy="395" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="785" cy="416" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="785" cy="437" r="3.8" fill="#2463B5" stroke="none" stroke-width="2"/>
+<circle cx="785" cy="458" r="3.8" fill="#A6B4C4" stroke="none" stroke-width="2"/>
+<circle cx="811" cy="353" r="3.8" fill="#A6B4C4" stroke="none" stroke-width="2"/>
+<circle cx="811" cy="374" r="3.8" fill="#A6B4C4" stroke="none" stroke-width="2"/>
+<circle cx="811" cy="395" r="3.8" fill="#A6B4C4" stroke="none" stroke-width="2"/>
+<circle cx="811" cy="416" r="3.8" fill="#A6B4C4" stroke="none" stroke-width="2"/>
+<circle cx="811" cy="437" r="3.8" fill="#A6B4C4" stroke="none" stroke-width="2"/>
+<circle cx="811" cy="458" r="3.8" fill="#A6B4C4" stroke="none" stroke-width="2"/>
+<text x="585" y="505" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#2463B5" text-anchor="start">把“像素位置”变成“三维位置”</text>
+<rect x="1050" y="315" width="370" height="215" rx="15" fill="#E0F3EC" stroke="#17816E" stroke-width="2"/>
+<circle cx="1186" cy="383" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1186" cy="399" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1186" cy="415" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1202" cy="367" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1202" cy="383" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1202" cy="399" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1202" cy="415" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1202" cy="431" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1218" cy="351" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1218" cy="367" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1218" cy="383" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1218" cy="399" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1218" cy="415" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1218" cy="431" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1218" cy="447" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1234" cy="351" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1234" cy="367" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1234" cy="383" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1234" cy="399" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1234" cy="415" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1234" cy="431" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1234" cy="447" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1250" cy="351" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1250" cy="367" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1250" cy="383" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1250" cy="399" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1250" cy="415" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1250" cy="431" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1250" cy="447" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1266" cy="367" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1266" cy="383" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1266" cy="399" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1266" cy="415" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1266" cy="431" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1282" cy="383" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1282" cy="399" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<circle cx="1282" cy="415" r="4" fill="#17816E" stroke="none" stroke-width="2"/>
+<text x="1075" y="505" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#17816E" text-anchor="start">保留目标表面的有效几何点</text>
+<path d="M1238 530 V588" fill="none" stroke="#17816E" stroke-width="3" marker-end="url(#green)"/>
+<rect x="1025" y="590" width="425" height="160" rx="15" fill="white" stroke="#17816E" stroke-width="2"/>
+<text x="1045" y="627" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#17816E" text-anchor="start">④ 提出夹爪候选</text>
+<text x="1045" y="663" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">预设方向 + PCA 派生方向</text>
+<text x="1045" y="694" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">最多 6 个，经宽度等条件筛选</text>
+<text x="1045" y="725" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">输出 odom 下的 TCP 位姿</text>
+<rect x="535" y="590" width="425" height="160" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="555" y="627" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5" text-anchor="start">⑤ IK：关节能否到达？</text>
+<text x="555" y="663" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">为候选生成预抓取位姿</text>
+<text x="555" y="694" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">KDL 求右臂七关节目标</text>
+<text x="555" y="725" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">几何候选不保证关节可达</text>
+<rect x="45" y="590" width="425" height="160" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="65" y="627" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5" text-anchor="start">⑥ 规划，然后执行</text>
+<text x="65" y="663" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">RRTConnect 搜索关节空间路径</text>
+<text x="65" y="694" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">规划成功后再执行轨迹</text>
+<text x="65" y="725" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">仍需遵守本章碰撞配置边界</text>
+<path d="M1025 670 H962" fill="none" stroke="#69788A" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M535 670 H472" fill="none" stroke="#69788A" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="45" y="807" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="400" fill="#BC641D" text-anchor="start">远桌第二次感知：排除接收板及边缘附近区域，避免把刚放好的苹果 A 又当成待抓目标。</text>
+<text x="45" y="852" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="400" fill="#BC641D" text-anchor="start">读图要点：检测回答“在哪里”，候选回答“怎么夹”，IK 回答“够不够得着”，规划回答“怎么过去”。</text>
+</svg>

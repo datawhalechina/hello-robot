@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" width="1200" height="460" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="1200" height="460" fill="#ffffff"/>
+  <text x="600" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">五次 smoothstep：位置 h(τ)、速度 h′(τ)、加速度 h″(τ)（以 τ 为自变量）</text>
+
+  <!-- panel 1 h -->
+  <g transform="translate(40,60)">
+    <rect width="360" height="340" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="180" y="26" text-anchor="middle" font-size="15" font-weight="700">h(τ) = 10τ³ − 15τ⁴ + 6τ⁵</text>
+    <line x1="40" y1="300" x2="330" y2="300" stroke="#64748b"/>
+    <line x1="40" y1="300" x2="40" y2="50" stroke="#64748b"/>
+    <path d="M40 300 C130 300 150 300 185 175 C220 50 240 50 330 50" fill="none" stroke="#2563eb" stroke-width="3"/>
+    <text x="330" y="320" text-anchor="end" font-size="12">τ = 1</text>
+    <text x="34" y="54" text-anchor="end" font-size="12">1</text>
+    <text x="34" y="304" text-anchor="end" font-size="12">0</text>
+    <circle cx="185" cy="175" r="4" fill="#2563eb"/>
+    <text x="195" y="190" font-size="12">h(0.5) = 0.5</text>
+  </g>
+  <!-- panel 2 hdot -->
+  <g transform="translate(420,60)">
+    <rect width="360" height="340" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="180" y="26" text-anchor="middle" font-size="15" font-weight="700">h′(τ) = 30τ² − 60τ³ + 30τ⁴</text>
+    <line x1="40" y1="300" x2="330" y2="300" stroke="#64748b"/>
+    <line x1="40" y1="300" x2="40" y2="50" stroke="#64748b"/>
+    <path d="M40 300 C110 300 120 80 185 80 C250 80 260 300 330 300" fill="none" stroke="#ea580c" stroke-width="3"/>
+    <circle cx="185" cy="80" r="4" fill="#ea580c"/>
+    <text x="195" y="74" font-size="12">峰值 h′(0.5) = 1.875</text>
+    <text x="34" y="304" text-anchor="end" font-size="12">0</text>
+    <text x="180" y="325" text-anchor="middle" font-size="12">两端速度为 0</text>
+  </g>
+  <!-- panel 3 hddot -->
+  <g transform="translate(800,60)">
+    <rect width="360" height="340" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="180" y="26" text-anchor="middle" font-size="15" font-weight="700">h″(τ) = 60τ − 180τ² + 120τ³</text>
+    <line x1="40" y1="180" x2="330" y2="180" stroke="#64748b"/>
+    <line x1="40" y1="300" x2="40" y2="50" stroke="#64748b"/>
+    <path d="M40 180 C70 60 95 70 101 70 C130 70 160 180 185 180 C210 180 240 290 269 290 C275 290 300 300 330 180" fill="none" stroke="#16a34a" stroke-width="3"/>
+    <circle cx="101" cy="70" r="4" fill="#16a34a"/>
+    <text x="110" y="64" font-size="12">≈ +5.77（τ≈0.211）</text>
+    <circle cx="269" cy="290" r="4" fill="#16a34a"/>
+    <text x="200" y="316" font-size="12">≈ −5.77（τ≈0.789）</text>
+    <text x="34" y="184" text-anchor="end" font-size="12">0</text>
+  </g>
+  <text x="600" y="430" text-anchor="middle" font-size="14" fill="#334155">对时间求导：q̇ = h′(τ)·Δq / T，q̈ = h″(τ)·Δq / T²。代码用 1.875 估计速度时长，用 5.8（略大于 5.77）保守估计加速度时长</text>
+</svg>

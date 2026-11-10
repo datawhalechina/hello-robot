@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#7c3aed"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="560" fill="#ffffff"/>
+  <text x="600" y="32" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">二维小例子：单树 RRT 的一次扩展与最终生长结果（0~10 的平面 C 空间）</text>
+
+  <!-- 左：一次扩展 -->
+  <rect x="60" y="60" width="400" height="400" fill="#f8fafc" stroke="#64748b"/>
+  <rect x="260" y="220" width="80" height="240" fill="#fee2e2" stroke="#dc2626"/>
+  <rect x="100" y="180" width="80" height="40" fill="#fee2e2" stroke="#dc2626"/>
+  <circle cx="100" cy="420" r="40" fill="none" stroke="#94a3b8" stroke-dasharray="5 4"/>
+  <line x1="100" y1="420" x2="220" y2="260" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <line x1="100" y1="420" x2="124" y2="388" stroke="#2563eb" stroke-width="4" marker-end="url(#arr)"/>
+  <circle cx="100" cy="420" r="8" fill="#16a34a"/>
+  <circle cx="220" cy="260" r="7" fill="#7c3aed"/>
+  <circle cx="124" cy="388" r="6" fill="#2563eb"/>
+  <circle cx="420" cy="100" r="8" fill="#dc2626"/>
+  <text x="108" y="446" font-size="13">q_s=(1,1) 最近节点</text>
+  <text x="230" y="254" font-size="13" fill="#6d28d9">采样 q_rand=(4,5)</text>
+  <text x="132" y="380" font-size="13" fill="#1d4ed8">q_new=(1.6,1.8)</text>
+  <text x="380" y="88" font-size="13" fill="#b91c1c">q_g=(9,9)</text>
+  <text x="260" y="498" text-anchor="middle" font-size="14" fill="#334155">步长 step=1：沿采样方向只走 1 个单位</text>
+  <text x="260" y="522" text-anchor="middle" font-size="13" fill="#475569">q_new = q_near + (q_rand − q_near)·step / ‖q_rand − q_near‖</text>
+
+  <!-- 右：生长结果 -->
+  <rect x="620" y="60" width="400" height="400" fill="#f8fafc" stroke="#64748b"/>
+  <rect x="820" y="220" width="80" height="240" fill="#fee2e2" stroke="#dc2626"/>
+  <rect x="660" y="180" width="80" height="40" fill="#fee2e2" stroke="#dc2626"/>
+  <g stroke="#93c5fd" stroke-width="2" fill="none">
+    <line x1="684" y1="388" x2="652" y2="348"/>
+    <line x1="720" y1="368" x2="748" y2="412"/>
+    <line x1="748" y1="412" x2="784" y2="436"/>
+    <line x1="780" y1="308" x2="760" y2="264"/>
+    <line x1="760" y1="264" x2="732" y2="236"/>
+    <line x1="832" y1="196" x2="852" y2="144"/>
+    <line x1="852" y1="144" x2="828" y2="104"/>
+    <line x1="872" y1="172" x2="908" y2="196"/>
+    <line x1="908" y1="196" x2="944" y2="212"/>
+    <line x1="944" y1="212" x2="972" y2="248"/>
+  </g>
+  <polyline points="660,420 684,388 720,368 756,344 780,308 792,268 804,228 832,196 872,172 912,148 948,124 980,100" fill="none" stroke="#2563eb" stroke-width="3.5"/>
+  <g fill="#2563eb">
+    <circle cx="684" cy="388" r="4"/><circle cx="720" cy="368" r="4"/><circle cx="756" cy="344" r="4"/><circle cx="780" cy="308" r="4"/><circle cx="792" cy="268" r="4"/><circle cx="804" cy="228" r="4"/><circle cx="832" cy="196" r="4"/><circle cx="872" cy="172" r="4"/><circle cx="912" cy="148" r="4"/><circle cx="948" cy="124" r="4"/>
+  </g>
+  <g fill="#93c5fd">
+    <circle cx="652" cy="348" r="4"/><circle cx="748" cy="412" r="4"/><circle cx="784" cy="436" r="4"/><circle cx="760" cy="264" r="4"/><circle cx="732" cy="236" r="4"/><circle cx="852" cy="144" r="4"/><circle cx="828" cy="104" r="4"/><circle cx="908" cy="196" r="4"/><circle cx="944" cy="212" r="4"/><circle cx="972" cy="248" r="4"/>
+  </g>
+  <circle cx="660" cy="420" r="8" fill="#16a34a"/>
+  <circle cx="980" cy="100" r="8" fill="#dc2626"/>
+  <text x="820" y="498" text-anchor="middle" font-size="14" fill="#334155">深蓝：回溯 parent 得到的路径；浅蓝：没用上的分支</text>
+  <text x="820" y="522" text-anchor="middle" font-size="13" fill="#475569">路径是折线、不最短——这正是后面要做捷径优化的原因</text>
+
+  <g font-size="13" fill="#334155">
+    <rect x="1040" y="80" width="14" height="14" fill="#fee2e2" stroke="#dc2626"/><text x="1062" y="92">障碍</text>
+    <circle cx="1047" cy="120" r="6" fill="#16a34a"/><text x="1062" y="125">起点</text>
+    <circle cx="1047" cy="150" r="6" fill="#dc2626"/><text x="1062" y="155">终点</text>
+    <circle cx="1047" cy="180" r="6" fill="#7c3aed"/><text x="1062" y="185">随机采样</text>
+    <circle cx="1047" cy="210" r="6" fill="#2563eb"/><text x="1062" y="215">树节点</text>
+  </g>
+</svg>

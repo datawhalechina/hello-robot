@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="850" viewBox="0 0 1500 850" role="img" aria-labelledby="title desc">
+<title id="title">图 12-1｜先搬一颗，再整理另一颗</title><desc id="desc">俯视概念图：只表达任务顺序，不按比例绘制；虚线路线不是 Nav2 的实际规划结果。</desc>
+<rect width="1500" height="850" fill="#F5F8FC"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#69788A"/></marker><marker id="green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17816E"/></marker><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2463B5"/></marker></defs>
+<text x="45" y="58" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="32" font-weight="700" fill="#18334B" text-anchor="start">图 12-1｜先搬一颗，再整理另一颗</text>
+<text x="45" y="100" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#69788A" text-anchor="start">俯视概念图：只表达任务顺序，不按比例绘制；虚线路线不是 Nav2 的实际规划结果。</text>
+<rect x="45" y="135" width="1410" height="445" rx="15" fill="white" stroke="#D7E1EC" stroke-width="2"/>
+<rect x="100" y="245" width="335" height="235" rx="15" fill="#F4E8D9" stroke="#C7A988" stroke-width="2"/>
+<text x="120" y="282" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="27" font-weight="700" fill="#18334B" text-anchor="start">源桌</text>
+<circle cx="175" cy="340" r="20" fill="#D75B59" stroke="none" stroke-width="2"/>
+<path d="M175 323 q0 -14 12 -16" fill="none" stroke="#17816E" stroke-width="3"/>
+<text x="175" y="347" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="700" fill="white" text-anchor="middle">A</text>
+<circle cx="275" cy="340" r="20" fill="#E8A348" stroke="none" stroke-width="2"/>
+<rect x="345" y="320" width="38" height="40" rx="4" fill="#759787" stroke="#17816E" stroke-width="2"/>
+<text x="130" y="412" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">苹果 A + 橙子 + 茶盒</text>
+<text x="130" y="447" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#69788A" text-anchor="start">只搬苹果，不搬干扰物</text>
+<rect x="550" y="280" width="170" height="160" rx="15" fill="#E1E7EE" stroke="#A6B4C4" stroke-width="2"/>
+<text x="635" y="366" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" font-weight="400" fill="#69788A" text-anchor="middle">障碍物</text>
+<rect x="1000" y="185" width="395" height="325" rx="15" fill="#F4E8D9" stroke="#C7A988" stroke-width="2"/>
+<text x="1020" y="222" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="27" font-weight="700" fill="#18334B" text-anchor="start">远桌</text>
+<circle cx="1060" cy="280" r="20" fill="#D75B59" stroke="none" stroke-width="2"/>
+<path d="M1060 263 q0 -14 12 -16" fill="none" stroke="#17816E" stroke-width="3"/>
+<text x="1060" y="287" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="700" fill="white" text-anchor="middle">B</text>
+<circle cx="1160" cy="280" r="20" fill="#E8A348" stroke="none" stroke-width="2"/>
+<rect x="1230" y="260" width="38" height="40" rx="4" fill="#759787" stroke="#17816E" stroke-width="2"/>
+<rect x="1080" y="350" width="270" height="120" rx="15" fill="#E0F3EC" stroke="#17816E" stroke-width="2"/>
+<text x="1095" y="380" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#17816E" text-anchor="start">接收板 · 最终状态</text>
+<circle cx="1145" cy="417" r="20" fill="#D75B59" stroke="none" stroke-width="2"/>
+<path d="M1145 400 q0 -14 12 -16" fill="none" stroke="#17816E" stroke-width="3"/>
+<text x="1145" y="424" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="700" fill="white" text-anchor="middle">A</text>
+<circle cx="1270" cy="417" r="20" fill="#D75B59" stroke="none" stroke-width="2"/>
+<path d="M1270 400 q0 -14 12 -16" fill="none" stroke="#17816E" stroke-width="3"/>
+<text x="1270" y="424" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="700" fill="white" text-anchor="middle">B</text>
+<text x="1145" y="452" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#18334B" text-anchor="middle">槽位 0</text>
+<text x="1270" y="452" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#18334B" text-anchor="middle">槽位 1</text>
+<path d="M1060 302 V332 H1270 V393" fill="none" stroke="#17816E" stroke-width="3" marker-end="url(#green)"/>
+<text x="1050" y="550" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#17816E" text-anchor="start">③ B → 槽位 1</text>
+<rect x="155" y="505" width="110" height="50" rx="15" fill="#EAF1FC" stroke="#2463B5" stroke-width="2"/>
+<text x="210" y="538" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#2463B5" text-anchor="middle">机器人</text>
+<path d="M210 505 V470" fill="none" stroke="#2463B5" stroke-width="3" marker-end="url(#blue)"/>
+<text x="295" y="559" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#2463B5" text-anchor="start">① 抓起 A，抬升验证后收臂</text>
+<path d="M265 520 H790 Q845 520 845 460 V240 Q845 170 920 170 H985" fill="none" stroke="#2463B5" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#blue)"/>
+<text x="485" y="205" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#2463B5" text-anchor="start">② 持物绕障 → 远桌停稳 → A 放入槽位 0</text>
+<rect x="45" y="625" width="440" height="150" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="65" y="662" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5" text-anchor="start">导航阶段：NAV</text>
+<text x="65" y="698" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">右臂保持 home，夹爪保持夹持</text>
+<text x="65" y="729" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">底盘移动，机械臂不同时抓放</text>
+<rect x="530" y="625" width="440" height="150" rx="15" fill="white" stroke="#17816E" stroke-width="2"/>
+<text x="550" y="662" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#17816E" text-anchor="start">操作阶段：ARM</text>
+<text x="550" y="698" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">底盘实际停稳后才允许伸臂</text>
+<text x="550" y="729" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">抓放之间用新鲜反馈确认结果</text>
+<rect x="1015" y="625" width="440" height="150" rx="15" fill="white" stroke="#BC641D" stroke-width="2"/>
+<text x="1035" y="662" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#BC641D" text-anchor="start">结束位置</text>
+<text x="1035" y="698" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">两颗苹果分别留在接收板上</text>
+<text x="1035" y="729" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">右臂回 home；底盘留在远桌</text>
+<text x="45" y="822" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="400" fill="#BC641D" text-anchor="start">读图要点：home 是收臂姿态，不是“返回房间起点”；整章任务是分阶段移动操作。</text>
+</svg>

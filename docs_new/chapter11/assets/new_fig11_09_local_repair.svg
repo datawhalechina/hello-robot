@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" width="1200" height="430" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="1200" height="430" fill="#ffffff"/>
+  <text x="600" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">LocalPathRepair：只替换失效边附近的窗口（window = 4，共 11 个路径点）</text>
+
+  <rect x="255" y="70" width="750" height="210" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-dasharray="8 5"/>
+  <text x="630" y="92" text-anchor="middle" font-size="14" fill="#c2410c">重规划窗口：copied[left]=q2 到 copied[right]=q9</text>
+
+  <rect x="610" y="160" width="70" height="100" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="645" y="298" text-anchor="middle" font-size="13" fill="#b91c1c">新出现的障碍</text>
+
+  <line x1="80" y1="210" x2="1100" y2="210" stroke="#94a3b8" stroke-width="3"/>
+  <line x1="580" y1="210" x2="680" y2="210" stroke="#dc2626" stroke-width="6"/>
+  <g fill="#2563eb">
+    <circle cx="80" cy="210" r="8"/><circle cx="180" cy="210" r="8"/><circle cx="1100" cy="210" r="8"/>
+  </g>
+  <g fill="#ea580c">
+    <circle cx="280" cy="210" r="9"/><circle cx="980" cy="210" r="9"/>
+  </g>
+  <g fill="#cbd5e1">
+    <circle cx="380" cy="210" r="7"/><circle cx="480" cy="210" r="7"/><circle cx="580" cy="210" r="7"/><circle cx="680" cy="210" r="7"/><circle cx="780" cy="210" r="7"/><circle cx="880" cy="210" r="7"/>
+  </g>
+  <g font-size="13" fill="#0f172a" text-anchor="middle">
+    <text x="80" y="240">q0</text><text x="180" y="240">q1</text><text x="280" y="240">q2</text><text x="380" y="240">q3</text><text x="480" y="240">q4</text><text x="580" y="240">q5</text><text x="680" y="240">q6</text><text x="780" y="240">q7</text><text x="880" y="240">q8</text><text x="980" y="240">q9</text><text x="1100" y="240">q10</text>
+  </g>
+  <text x="630" y="200" text-anchor="middle" font-size="12" fill="#b91c1c">失效边 5（q5→q6）</text>
+  <path d="M280 210 C360 120 520 115 640 120 C780 125 900 130 980 210" fill="none" stroke="#16a34a" stroke-width="4"/>
+  <text x="630" y="140" text-anchor="middle" font-size="13" fill="#15803d">局部 RRT-Connect 生成的新子路径</text>
+
+  <g font-size="14" fill="#334155">
+    <text x="60" y="330">left = max(0, invalid − window + 1) = max(0, 5 − 4 + 1) = 2；right = min(N − 1, invalid + window) = min(10, 9) = 9</text>
+    <text x="60" y="356">保留 q0、q1（蓝）与 q10（蓝）；灰色 q3~q8 被丢弃；q2、q9（橙）作为局部规划的起点和终点</text>
+    <text x="60" y="382">局部参数：max_iterations = min(2200, 5000) = 2200，goal_bias = 0.28，random_seed = 11 + 5 + 101 = 117</text>
+    <text x="60" y="408">拼接 copied[:2] + 新路径 + copied[10:]，再调用 path_is_valid() 对整条路径复查</text>
+  </g>
+</svg>

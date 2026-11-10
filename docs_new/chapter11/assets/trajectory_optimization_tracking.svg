@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="610" viewBox="0 0 1200 610">
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 Z" fill="#334155"/></marker><style>.t{font:700 28px sans-serif;fill:#0f172a}.h{font:700 20px sans-serif;fill:#0f172a}.p{font:17px sans-serif;fill:#475569}.b1{fill:#fff7ed;stroke:#ea580c;stroke-width:2}.b2{fill:#ecfdf5;stroke:#16a34a;stroke-width:2}.b3{fill:#eff6ff;stroke:#2563eb;stroke-width:2}.a{stroke:#334155;stroke-width:3;marker-end:url(#a)}.curve0{stroke:#f97316;stroke-width:4;fill:none}.curve1{stroke:#16a34a;stroke-width:4;fill:none}</style></defs>
+  <rect width="1200" height="610" fill="#f8fafc"/>
+  <text x="600" y="42" text-anchor="middle" class="t">从 RRT 折线路径到可执行关节轨迹</text>
+  <rect x="45" y="95" width="230" height="115" rx="16" class="b1"/><text x="160" y="132" text-anchor="middle" class="h">原始无碰路径</text><text x="160" y="163" text-anchor="middle" class="p">稀疏、折线多、长度较大</text><text x="160" y="190" text-anchor="middle" class="p">只有 q 节点，没有时间</text>
+  <rect x="345" y="95" width="230" height="115" rx="16" class="b2"/><text x="460" y="132" text-anchor="middle" class="h">碰撞安全捷径</text><text x="460" y="163" text-anchor="middle" class="p">删除可直连的中间节点</text><text x="460" y="190" text-anchor="middle" class="p">每次替换都检查整条边</text>
+  <rect x="645" y="95" width="230" height="115" rx="16" class="b2"/><text x="760" y="132" text-anchor="middle" class="h">重采样</text><text x="760" y="163" text-anchor="middle" class="p">统一关节空间分辨率</text><text x="760" y="190" text-anchor="middle" class="p">得到稳定路径点间距</text>
+  <rect x="945" y="95" width="210" height="115" rx="16" class="b3"/><text x="1050" y="132" text-anchor="middle" class="h">时间参数化</text><text x="1050" y="163" text-anchor="middle" class="p">满足速度、加速度上限</text><text x="1050" y="190" text-anchor="middle" class="p">输出 q(t)、q̇(t)</text>
+  <line x1="275" y1="152" x2="340" y2="152" class="a"/><line x1="575" y1="152" x2="640" y2="152" class="a"/><line x1="875" y1="152" x2="940" y2="152" class="a"/>
+  <text x="300" y="285" text-anchor="middle" class="h">路径形状</text><polyline points="80,440 165,335 245,410 340,285 440,390 525,300" class="curve0"/><circle cx="80" cy="440" r="7" fill="#f97316"/><circle cx="165" cy="335" r="7" fill="#f97316"/><circle cx="245" cy="410" r="7" fill="#f97316"/><circle cx="340" cy="285" r="7" fill="#f97316"/><circle cx="440" cy="390" r="7" fill="#f97316"/><circle cx="525" cy="300" r="7" fill="#f97316"/>
+  <path d="M680 440 C770 410 830 350 900 300 C970 250 1040 280 1120 250" class="curve1"/><text x="900" y="475" text-anchor="middle" class="p">优化后路径更短，但仍须保持无碰</text>
+  <rect x="170" y="520" width="860" height="60" rx="12" fill="#f8fafc" stroke="#64748b"/>
+  <text x="600" y="548" text-anchor="middle" class="p">路径优化解决“走哪条路”，时间参数化解决“每个时刻走到哪里”</text>
+  <text x="600" y="570" text-anchor="middle" class="p">轨迹跟踪器再利用实际关节反馈检查执行是否跟得上</text>
+</svg>

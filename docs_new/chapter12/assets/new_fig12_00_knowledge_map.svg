@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="600" fill="#ffffff"/>
+  <text x="480" y="34" text-anchor="middle" font-size="20" font-weight="bold" fill="#222">第十二章知识地图：一条搬运任务链上的六个环节</text>
+
+  <!-- 中央任务链 -->
+  <rect x="330" y="60" width="300" height="70" rx="10" fill="#e8f0fe" stroke="#3b6fd8" stroke-width="2"/>
+  <text x="480" y="90" text-anchor="middle" font-size="16" font-weight="bold" fill="#1d3f8f">第一部分 任务流程与系统架构</text>
+  <text x="480" y="114" text-anchor="middle" font-size="13" fill="#333">状态机 · 三组进程 · 接口合同</text>
+
+  <rect x="60" y="180" width="250" height="70" rx="10" fill="#fff4e0" stroke="#d98a1c" stroke-width="2"/>
+  <text x="185" y="208" text-anchor="middle" font-size="15" font-weight="bold" fill="#8a5200">第二部分 坐标系链与时间</text>
+  <text x="185" y="232" text-anchor="middle" font-size="13" fill="#333">map→odom→base_link · 同帧 RGB-D</text>
+
+  <rect x="355" y="180" width="250" height="70" rx="10" fill="#e6f5ea" stroke="#2e8b57" stroke-width="2"/>
+  <text x="480" y="208" text-anchor="middle" font-size="15" font-weight="bold" fill="#1d5e3a">第三部分 导航与对接停靠</text>
+  <text x="480" y="232" text-anchor="middle" font-size="13" fill="#333">地图 · Nav2 · 停稳 · 精靠 · 复核</text>
+
+  <rect x="650" y="180" width="250" height="70" rx="10" fill="#f3e8fb" stroke="#8a4fc0" stroke-width="2"/>
+  <text x="775" y="208" text-anchor="middle" font-size="15" font-weight="bold" fill="#5a2a86">第四部分 感知定位与抓取候选</text>
+  <text x="775" y="232" text-anchor="middle" font-size="13" fill="#333">YOLO · 反投影 · 筛选 · 2.5D 候选</text>
+
+  <rect x="200" y="300" width="250" height="70" rx="10" fill="#fdeaea" stroke="#c94040" stroke-width="2"/>
+  <text x="325" y="328" text-anchor="middle" font-size="15" font-weight="bold" fill="#8a1f1f">第五部分 执行与运动互锁</text>
+  <text x="325" y="352" text-anchor="middle" font-size="13" fill="#333">IK/RRTConnect · 笛卡尔 · 夹爪 · NAV/ARM/IDLE</text>
+
+  <rect x="510" y="300" width="250" height="70" rx="10" fill="#e5f6f6" stroke="#22898a" stroke-width="2"/>
+  <text x="635" y="328" text-anchor="middle" font-size="15" font-weight="bold" fill="#14595a">第六部分 阶段验收与验证</text>
+  <text x="635" y="352" text-anchor="middle" font-size="13" fill="#333">抬升验证 · 持物监测 · 放置验证</text>
+
+  <!-- 连线 -->
+  <line x1="420" y1="130" x2="200" y2="178" stroke="#555" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="480" y1="130" x2="480" y2="178" stroke="#555" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="540" y1="130" x2="760" y2="178" stroke="#555" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="310" y1="215" x2="353" y2="215" stroke="#999" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#arr)"/>
+  <line x1="650" y1="215" x2="607" y2="215" stroke="#999" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#arr)"/>
+  <line x1="440" y1="250" x2="360" y2="298" stroke="#555" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="740" y1="250" x2="420" y2="298" stroke="#555" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="450" y1="335" x2="508" y2="335" stroke="#555" stroke-width="1.6" marker-end="url(#arr)"/>
+  <path d="M760,335 C900,335 900,95 632,95" fill="none" stroke="#22898a" stroke-width="1.6" stroke-dasharray="6,4" marker-end="url(#arr)"/>
+  <text x="880" y="290" text-anchor="middle" font-size="12" fill="#14595a">验证结果决定</text>
+  <text x="880" y="306" text-anchor="middle" font-size="12" fill="#14595a">下一状态</text>
+
+  <!-- 代码模块层 -->
+  <rect x="40" y="410" width="880" height="160" rx="10" fill="#f7f7f7" stroke="#aaa" stroke-width="1.2"/>
+  <text x="60" y="436" font-size="14" font-weight="bold" fill="#444">对应代码（code/code_chapter12/）</text>
+  <g font-size="12.5" fill="#222">
+    <rect x="60" y="450" width="190" height="46" rx="6" fill="#e8f0fe" stroke="#3b6fd8"/>
+    <text x="155" y="470" text-anchor="middle">src/mission.cpp</text>
+    <text x="155" y="488" text-anchor="middle" fill="#555">状态机编排（一、三、五、六）</text>
+    <rect x="265" y="450" width="190" height="46" rx="6" fill="#e6f5ea" stroke="#2e8b57"/>
+    <text x="360" y="470" text-anchor="middle">src/docking.hpp · config/nav2*</text>
+    <text x="360" y="488" text-anchor="middle" fill="#555">精靠几何与 Nav2 参数（三）</text>
+    <rect x="470" y="450" width="210" height="46" rx="6" fill="#f3e8fb" stroke="#8a4fc0"/>
+    <text x="575" y="470" text-anchor="middle">g2_mobile/perception.py · common.py</text>
+    <text x="575" y="488" text-anchor="middle" fill="#555">YOLO RGB-D 与候选（四、六）</text>
+    <rect x="695" y="450" width="210" height="46" rx="6" fill="#fdeaea" stroke="#c94040"/>
+    <text x="800" y="470" text-anchor="middle">g2_mobile/controller.py</text>
+    <text x="800" y="488" text-anchor="middle" fill="#555">轨迹/夹爪 action 与互锁（五）</text>
+    <rect x="60" y="508" width="300" height="46" rx="6" fill="#fff4e0" stroke="#d98a1c"/>
+    <text x="210" y="528" text-anchor="middle">sim/simulation.py · sim/bridge.py</text>
+    <text x="210" y="546" text-anchor="middle" fill="#555">Isaac 物理、传感器、TF 与 /clock（二）</text>
+    <rect x="375" y="508" width="260" height="46" rx="6" fill="#e6f5ea" stroke="#2e8b57"/>
+    <text x="505" y="528" text-anchor="middle">g2_mobile/mapping.py · maps/</text>
+    <text x="505" y="546" text-anchor="middle" fill="#555">参考地图与模拟激光（三）</text>
+    <rect x="650" y="508" width="255" height="46" rx="6" fill="#eeeeee" stroke="#888"/>
+    <text x="777" y="528" text-anchor="middle">launch/ · run.sh · config/task.yaml</text>
+    <text x="777" y="546" text-anchor="middle" fill="#555">启动入口与唯一任务配置（七、八）</text>
+  </g>
+</svg>

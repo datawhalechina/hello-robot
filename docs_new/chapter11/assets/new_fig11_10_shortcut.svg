@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" width="1200" height="440" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="1200" height="440" fill="#ffffff"/>
+  <text x="600" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">随机捷径（shortcut）与重采样（resample）</text>
+
+  <rect x="30" y="55" width="560" height="360" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="310" y="84" text-anchor="middle" font-size="16" font-weight="700">捷径：边 q_i→q_j 无碰则删除中间点</text>
+  <rect x="220" y="150" width="100" height="110" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="270" y="210" text-anchor="middle" font-size="13" fill="#b91c1c">障碍</text>
+  <polyline points="80,330 160,300 200,340 280,310 360,300 420,200 520,120" fill="none" stroke="#94a3b8" stroke-width="3"/>
+  <line x1="160" y1="300" x2="360" y2="300" stroke="#16a34a" stroke-width="4"/>
+  <line x1="80" y1="330" x2="520" y2="120" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 5"/>
+  <g fill="#334155"><circle cx="80" cy="330" r="6"/><circle cx="160" cy="300" r="6"/><circle cx="360" cy="300" r="6"/><circle cx="420" cy="200" r="6"/><circle cx="520" cy="120" r="6"/></g>
+  <g fill="#e2e8f0" stroke="#64748b"><circle cx="200" cy="340" r="6"/><circle cx="280" cy="310" r="6"/></g>
+  <text x="70" y="356" font-size="13">q0</text>
+  <text x="150" y="290" font-size="13">q_i = q1</text>
+  <text x="350" y="324" font-size="13">q_j = q4</text>
+  <text x="500" y="110" font-size="13">q6</text>
+  <text x="300" y="370" text-anchor="middle" font-size="13" fill="#15803d">绿：q1→q4 无碰，删除 q2、q3（灰）</text>
+  <text x="300" y="396" text-anchor="middle" font-size="13" fill="#b91c1c">红虚线：q0→q6 穿过障碍，edge_is_valid 返回 False，保留原路径</text>
+
+  <rect x="610" y="55" width="560" height="360" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="890" y="84" text-anchor="middle" font-size="16" font-weight="700">重采样：每段按 path_resolution = 0.08 rad 均匀切分</text>
+  <line x1="660" y1="230" x2="1120" y2="230" stroke="#16a34a" stroke-width="4"/>
+  <g fill="#16a34a">
+    <circle cx="660" cy="230" r="7"/><circle cx="717.5" cy="230" r="5"/><circle cx="775" cy="230" r="5"/><circle cx="832.5" cy="230" r="5"/><circle cx="890" cy="230" r="5"/><circle cx="947.5" cy="230" r="5"/><circle cx="1005" cy="230" r="5"/><circle cx="1062.5" cy="230" r="5"/><circle cx="1120" cy="230" r="7"/>
+  </g>
+  <text x="660" y="262" text-anchor="middle" font-size="13">q_a</text>
+  <text x="1120" y="262" text-anchor="middle" font-size="13">q_b</text>
+  <text x="890" y="300" text-anchor="middle" font-size="14" fill="#334155">例：‖q_b − q_a‖ = 0.5813 rad → steps = ceil(0.5813/0.08) = 8</text>
+  <text x="890" y="326" text-anchor="middle" font-size="14" fill="#334155">每小段约 0.0727 rad，几何形状不变，只是点更均匀</text>
+  <text x="890" y="370" text-anchor="middle" font-size="13" fill="#475569">optimize() = resample(shortcut(path))，最后 path_is_valid 复查</text>
+</svg>

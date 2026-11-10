@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="960" viewBox="0 0 1500 960" role="img" aria-labelledby="title desc">
+<title id="title">图 12-4｜“导航成功”离“可以伸臂”还有几道检查</title><desc id="desc">到达检查器、精靠控制器、任务门槛各管一层；不是一个容差参数的三种写法。</desc>
+<rect width="1500" height="960" fill="#F5F8FC"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#69788A"/></marker><marker id="green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17816E"/></marker><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2463B5"/></marker></defs>
+<text x="45" y="58" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="32" font-weight="700" fill="#18334B" text-anchor="start">图 12-4｜“导航成功”离“可以伸臂”还有几道检查</text>
+<text x="45" y="100" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#69788A" text-anchor="start">到达检查器、精靠控制器、任务门槛各管一层；不是一个容差参数的三种写法。</text>
+<rect x="45" y="145" width="425" height="130" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="65" y="182" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5" text-anchor="start">① 普通导航：到附近</text>
+<text x="65" y="218" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">/navigate_to_pose</text>
+<text x="65" y="249" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">普通 XY / 朝向：0.08 m / 0.12 rad</text>
+<rect x="535" y="145" width="425" height="130" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="555" y="182" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5" text-anchor="start">② SETTLE：等实际停稳</text>
+<text x="555" y="218" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">请求 ARM；检查 /odom 实测速度</text>
+<text x="555" y="249" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">连续满足停稳条件超过 0.5 s</text>
+<path d="M470 210 H533" fill="none" stroke="#69788A" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="535" y="345" width="425" height="145" rx="15" fill="white" stroke="#BC641D" stroke-width="2"/>
+<text x="555" y="382" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#BC641D" text-anchor="start">③ 复核原始停靠目标</text>
+<text x="555" y="418" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">新鲜 odom → base_link</text>
+<text x="555" y="449" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">实际位置、朝向是否满足任务门槛？</text>
+<path d="M748 275 V343" fill="none" stroke="#69788A" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1025" y="345" width="425" height="145" rx="15" fill="white" stroke="#17816E" stroke-width="2"/>
+<text x="1045" y="382" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#17816E" text-anchor="start">⑤ 最终连续复核</text>
+<text x="1045" y="418" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">误差 ≤ 0.06 m / 0.05 rad</text>
+<text x="1045" y="449" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">持续 0.5 s；TF 更新；ARM 获许可</text>
+<path d="M960 415 H1023" fill="none" stroke="#17816E" stroke-width="3" marker-end="url(#green)"/>
+<text x="977" y="396" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#17816E" text-anchor="start">是</text>
+<rect x="45" y="575" width="915" height="145" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="65" y="612" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5" text-anchor="start">④ 需要精靠：DOCK → 再次 SETTLE</text>
+<text x="65" y="648" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">仅当距离 ≤ 0.30 m、朝向差 ≤ 0.35 rad 时生成短路径</text>
+<text x="65" y="679" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">切 NAV，调用 /follow_path；Dock 内部容差：0.025 m / 0.02 rad</text>
+<text x="65" y="710" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">精靠后重新停稳，切回 ARM；不是直接开始抓取</text>
+<path d="M680 490 V573" fill="none" stroke="#69788A" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="700" y="541" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#2463B5" text-anchor="start">否，但在精靠允许范围内</text>
+<path d="M960 650 H1238 V492" fill="none" stroke="#17816E" stroke-width="3" marker-end="url(#green)"/>
+<text x="1060" y="598" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#17816E" text-anchor="start">精靠完成后</text>
+<rect x="1025" y="765" width="425" height="100" rx="15" fill="white" stroke="#17816E" stroke-width="2"/>
+<text x="1045" y="802" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#17816E" text-anchor="start">允许伸臂</text>
+<text x="1045" y="838" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">进入当前桌面的新鲜感知与抓取</text>
+<path d="M1350 490 V763" fill="none" stroke="#17816E" stroke-width="3" marker-end="url(#green)"/>
+<text x="1370" y="692" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#17816E" text-anchor="start">通过</text>
+<rect x="45" y="345" width="425" height="145" rx="15" fill="white" stroke="#B64444" stroke-width="2"/>
+<text x="65" y="382" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#B64444" text-anchor="start">失败出口：FAILED</text>
+<text x="65" y="418" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">超出精靠范围、超时或复核失败</text>
+<text x="65" y="449" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">停止底盘、保持机械臂，不强行伸臂</text>
+<path d="M535 415 H472" fill="none" stroke="#69788A" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="485" y="398" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#B64444" text-anchor="middle">失败</text>
+<text x="45" y="786" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#18334B" text-anchor="start">停稳依据：平面速度 &lt; 0.015 m/s，</text>
+<text x="45" y="821" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#18334B" text-anchor="start">角速度绝对值 &lt; 0.025 rad/s；不是仅看零速度命令。</text>
+<text x="45" y="917" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="400" fill="#BC641D" text-anchor="start">读图要点：到达“桌子附近”不等于手臂够得着；先停稳，再复核，必要时低速精靠。</text>
+</svg>

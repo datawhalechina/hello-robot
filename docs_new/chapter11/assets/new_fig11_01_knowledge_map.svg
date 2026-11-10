@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" width="1200" height="660" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="660" fill="#ffffff"/>
+  <text x="600" y="38" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">第十一章知识地图：从“能到达”到“能安全执行”</text>
+
+  <!-- 原理层 -->
+  <text x="30" y="82" font-size="15" fill="#64748b">原理层</text>
+  <g font-size="15" fill="#0f172a">
+    <rect x="30" y="95" width="205" height="110" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="132" y="125" text-anchor="middle" font-weight="700" font-size="16">第一部分</text>
+    <text x="132" y="150" text-anchor="middle">规划问题与完整流程</text>
+    <text x="132" y="175" text-anchor="middle" font-size="13" fill="#475569">IK / 路径 / 轨迹 / 控制</text>
+
+    <rect x="265" y="95" width="205" height="110" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+    <text x="367" y="125" text-anchor="middle" font-weight="700" font-size="16">第二部分</text>
+    <text x="367" y="150" text-anchor="middle">构型空间与碰撞检测</text>
+    <text x="367" y="175" text-anchor="middle" font-size="13" fill="#475569">胶囊 + AABB / 边检查</text>
+
+    <rect x="500" y="95" width="205" height="110" rx="12" fill="#ecfdf5" stroke="#16a34a" stroke-width="2"/>
+    <text x="602" y="125" text-anchor="middle" font-weight="700" font-size="16">第三部分</text>
+    <text x="602" y="150" text-anchor="middle">采样规划与局部修复</text>
+    <text x="602" y="175" text-anchor="middle" font-size="13" fill="#475569">RRT / RRT-Connect / PRM / RRT*</text>
+
+    <rect x="735" y="95" width="205" height="110" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+    <text x="837" y="125" text-anchor="middle" font-weight="700" font-size="16">第四部分</text>
+    <text x="837" y="150" text-anchor="middle">轨迹优化与跟踪</text>
+    <text x="837" y="175" text-anchor="middle" font-size="13" fill="#475569">捷径 / 五次曲线 / 误差保护</text>
+
+    <rect x="970" y="95" width="205" height="110" rx="12" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+    <text x="1072" y="125" text-anchor="middle" font-weight="700" font-size="16">第五部分</text>
+    <text x="1072" y="150" text-anchor="middle">MoveIt 2 框架</text>
+    <text x="1072" y="175" text-anchor="middle" font-size="13" fill="#475569">move_group / 场景 / 控制器</text>
+  </g>
+  <g stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arr)">
+    <path d="M235 150 H262"/>
+    <path d="M470 150 H497"/>
+    <path d="M705 150 H732"/>
+    <path d="M940 150 H967"/>
+  </g>
+
+  <!-- 代码层 11_1 -->
+  <text x="30" y="262" font-size="15" fill="#64748b">代码层：code/code_chapter11_1（自编，不用 MoveIt 2）</text>
+  <g font-size="13" fill="#0f172a">
+    <rect x="30" y="275" width="205" height="120" rx="10" fill="#f8fafc" stroke="#94a3b8"/>
+    <text x="132" y="302" text-anchor="middle">config.py</text>
+    <text x="132" y="326" text-anchor="middle">arm_model.py</text>
+    <text x="132" y="350" text-anchor="middle">demo_pick_red.py</text>
+    <text x="132" y="374" text-anchor="middle" fill="#64748b">任务点与主流程</text>
+
+    <rect x="265" y="275" width="205" height="120" rx="10" fill="#f8fafc" stroke="#94a3b8"/>
+    <text x="367" y="302" text-anchor="middle">collision.py</text>
+    <text x="367" y="326" text-anchor="middle">perception.py</text>
+    <text x="367" y="350" text-anchor="middle">rgbd_geometry.py</text>
+    <text x="367" y="374" text-anchor="middle" fill="#64748b">障碍来源与碰撞判断</text>
+
+    <rect x="500" y="275" width="205" height="120" rx="10" fill="#f8fafc" stroke="#94a3b8"/>
+    <text x="602" y="302" text-anchor="middle">motion_planner.py</text>
+    <text x="602" y="326" text-anchor="middle">local_avoidance.py</text>
+    <text x="602" y="374" text-anchor="middle" fill="#64748b">RRT-Connect 与窗口修复</text>
+
+    <rect x="735" y="275" width="205" height="120" rx="10" fill="#f8fafc" stroke="#94a3b8"/>
+    <text x="837" y="302" text-anchor="middle">trajectory_optimizer.py</text>
+    <text x="837" y="326" text-anchor="middle">trajectory_tracker.py</text>
+    <text x="837" y="350" text-anchor="middle">gripper.py</text>
+    <text x="837" y="374" text-anchor="middle" fill="#64748b">时间轨迹与关节跟踪</text>
+  </g>
+
+  <!-- 代码层 11_2 -->
+  <text x="30" y="452" font-size="15" fill="#64748b">代码层：code/code_chapter11_2（ROS 2 Humble + MoveIt 2）</text>
+  <g font-size="13" fill="#0f172a">
+    <rect x="265" y="465" width="440" height="120" rx="10" fill="#f8fafc" stroke="#94a3b8"/>
+    <text x="485" y="492" text-anchor="middle">urdf/g2_right_arm.urdf.xacro · srdf/g2_right_arm.srdf</text>
+    <text x="485" y="516" text-anchor="middle">perception.py · robot_self_filter.py → sensors_3d.yaml</text>
+    <text x="485" y="540" text-anchor="middle">src/planning_scene.cpp（红色物体的添加 / 移除 / 附着）</text>
+    <text x="485" y="564" text-anchor="middle" fill="#64748b">模型与规划场景</text>
+
+    <rect x="735" y="465" width="440" height="120" rx="10" fill="#f8fafc" stroke="#94a3b8"/>
+    <text x="955" y="492" text-anchor="middle">ompl_planning.yaml · kinematics.yaml · joint_limits.yaml</text>
+    <text x="955" y="516" text-anchor="middle">src/local_replanner.cpp · src/pick_red.cpp</text>
+    <text x="955" y="540" text-anchor="middle">moveit_controllers.yaml · src/isaac_controller_bridge.cpp</text>
+    <text x="955" y="564" text-anchor="middle" fill="#64748b">规划流水线与轨迹执行</text>
+  </g>
+
+  <g stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6 5" fill="none">
+    <path d="M132 205 V275"/>
+    <path d="M367 205 V275"/>
+    <path d="M602 205 V275"/>
+    <path d="M837 205 V275"/>
+    <path d="M1072 205 V465"/>
+    <path d="M367 395 V465"/>
+  </g>
+
+  <rect x="30" y="610" width="1145" height="36" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="602" y="634" text-anchor="middle" font-size="14" fill="#334155">第六部分把两套代码按执行顺序串起来解读；第七部分给出构建、运行命令与结果截图</text>
+</svg>

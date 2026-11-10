@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="1200" height="520" fill="#ffffff"/>
+  <text x="600" y="32" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">二维小例子：PRM 先建路线图，再在图上查询</text>
+
+  <rect x="60" y="60" width="400" height="400" fill="#f8fafc" stroke="#64748b"/>
+  <rect x="260" y="220" width="80" height="240" fill="#fee2e2" stroke="#dc2626"/>
+  <rect x="100" y="180" width="80" height="40" fill="#fee2e2" stroke="#dc2626"/>
+  <g stroke="#94a3b8" stroke-width="2">
+    <line x1="100" y1="420" x2="200" y2="400"/>
+    <line x1="148" y1="348" x2="200" y2="400"/>
+    <line x1="200" y1="400" x2="228" y2="316"/>
+    <line x1="148" y1="348" x2="140" y2="276"/>
+    <line x1="140" y1="276" x2="212" y2="248"/>
+    <line x1="120" y1="140" x2="244" y2="196"/>
+    <line x1="308" y1="168" x2="380" y2="200"/>
+    <line x1="380" y1="200" x2="420" y2="100"/>
+    <line x1="380" y1="200" x2="400" y2="340"/>
+    <line x1="400" y1="340" x2="372" y2="412"/>
+  </g>
+  <line x1="200" y1="400" x2="372" y2="412" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="300" y="438" text-anchor="middle" font-size="12" fill="#b91c1c">C–L 穿过障碍，不加入图</text>
+  <polyline points="100,420 148,348 228,316 212,248 244,196 308,168 364,132 420,100" fill="none" stroke="#16a34a" stroke-width="4"/>
+  <g fill="#334155">
+    <circle cx="148" cy="348" r="5"/><circle cx="200" cy="400" r="5"/><circle cx="228" cy="316" r="5"/><circle cx="212" cy="248" r="5"/><circle cx="244" cy="196" r="5"/><circle cx="308" cy="168" r="5"/><circle cx="364" cy="132" r="5"/><circle cx="380" cy="200" r="5"/><circle cx="400" cy="340" r="5"/><circle cx="372" cy="412" r="5"/><circle cx="140" cy="276" r="5"/><circle cx="120" cy="140" r="5"/>
+  </g>
+  <circle cx="100" cy="420" r="8" fill="#16a34a"/>
+  <circle cx="420" cy="100" r="8" fill="#dc2626"/>
+  <g font-size="12" fill="#0f172a">
+    <text x="86" y="446">A 起点</text><text x="130" y="340">B</text><text x="206" y="396">C</text><text x="234" y="320">D</text><text x="196" y="244">E</text><text x="250" y="190">F</text><text x="300" y="160">G</text><text x="352" y="124">H</text><text x="420" y="86">I 终点</text><text x="386" y="196">J</text><text x="406" y="344">K</text><text x="378" y="430">L</text><text x="124" y="272">M</text><text x="104" y="136">N</text>
+  </g>
+
+  <g font-size="15" fill="#0f172a">
+    <text x="510" y="90" font-weight="700" font-size="17">阶段一：构建（Learning / Construction）</text>
+    <text x="510" y="122">① 在 C 空间随机撒点，只保留无碰节点（A~N）</text>
+    <text x="510" y="152">② 每个节点尝试与附近若干邻居连边</text>
+    <text x="510" y="182">③ 每条边都做边碰撞检查，失败的边丢弃（如 C–L）</text>
+    <text x="510" y="232" font-weight="700" font-size="17">阶段二：查询（Query）</text>
+    <text x="510" y="264">④ 把起点、终点接入路线图</text>
+    <text x="510" y="294">⑤ 在图上做最短路搜索（如 Dijkstra / A*）</text>
+    <text x="510" y="324">⑥ 得到绿色路径 A→B→D→E→F→G→H→I</text>
+    <text x="510" y="374" font-weight="700" font-size="17">与 RRT 系列的区别</text>
+    <text x="510" y="406">· 路线图可在同一静态环境中被多次查询复用（多查询）</text>
+    <text x="510" y="436">· RRT / RRT-Connect 每次查询重新长树（单查询）</text>
+    <text x="510" y="466">· 环境变化后，PRM 图上的边需要重新检查</text>
+  </g>
+</svg>

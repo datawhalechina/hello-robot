@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="500" fill="#ffffff"/>
+  <text x="600" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">MoveIt 2 的“机器人是什么”：四份文件各管一件事</text>
+
+  <g font-size="14" fill="#0f172a">
+    <rect x="30" y="60" width="270" height="300" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="165" y="90" text-anchor="middle" font-weight="700" font-size="16">URDF / Xacro</text>
+    <text x="165" y="112" text-anchor="middle" font-size="12" fill="#475569">urdf/g2_right_arm.urdf.xacro</text>
+    <text x="50" y="145">· 7 个 revolute 关节</text>
+    <text x="50" y="170">· 父子 link、origin、axis</text>
+    <text x="50" y="195">· limit（位置 / effort / velocity）</text>
+    <text x="50" y="220">· collision：球 / 圆柱 / 盒</text>
+    <text x="50" y="245">· visual：仅用于显示</text>
+    <text x="50" y="270">· gripper_r_center_joint（fixed）</text>
+    <text x="165" y="330" text-anchor="middle" font-weight="700" fill="#1d4ed8">回答：有哪些关节和连杆</text>
+
+    <rect x="320" y="60" width="270" height="300" rx="12" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+    <text x="455" y="90" text-anchor="middle" font-weight="700" font-size="16">SRDF</text>
+    <text x="455" y="112" text-anchor="middle" font-size="12" fill="#475569">srdf/g2_right_arm.srdf</text>
+    <text x="340" y="145">· group right_arm（chain）</text>
+    <text x="340" y="170">  arm_base_link → gripper_r_center_link</text>
+    <text x="340" y="195">· group_state home</text>
+    <text x="340" y="220">· disable_collisions</text>
+    <text x="340" y="245">  Adjacent × 8，Never × 2</text>
+    <text x="455" y="330" text-anchor="middle" font-weight="700" fill="#6d28d9">回答：规划谁、忽略谁</text>
+
+    <rect x="610" y="60" width="270" height="300" rx="12" fill="#ecfdf5" stroke="#16a34a" stroke-width="2"/>
+    <text x="745" y="90" text-anchor="middle" font-weight="700" font-size="16">kinematics.yaml</text>
+    <text x="745" y="112" text-anchor="middle" font-size="12" fill="#475569">config/kinematics.yaml</text>
+    <text x="630" y="145">· KDLKinematicsPlugin</text>
+    <text x="630" y="170">· search_resolution 0.005</text>
+    <text x="630" y="195">· timeout 0.08 s</text>
+    <text x="630" y="220">· attempts 5</text>
+    <text x="745" y="330" text-anchor="middle" font-weight="700" fill="#15803d">回答：怎样算 FK / IK</text>
+
+    <rect x="900" y="60" width="270" height="300" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+    <text x="1035" y="90" text-anchor="middle" font-weight="700" font-size="16">joint_limits.yaml</text>
+    <text x="1035" y="112" text-anchor="middle" font-size="12" fill="#475569">config/joint_limits.yaml</text>
+    <text x="920" y="145">· 7 个关节均为</text>
+    <text x="920" y="170">  max_velocity 1.25</text>
+    <text x="920" y="195">  max_acceleration 2.2</text>
+    <text x="920" y="220">· 供时间参数化使用</text>
+    <text x="1035" y="330" text-anchor="middle" font-weight="700" fill="#c2410c">回答：最快能多快</text>
+  </g>
+
+  <g stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arr)">
+    <path d="M165 362 V410 H560"/>
+    <path d="M455 362 V405"/>
+    <path d="M745 362 V405"/>
+    <path d="M1035 362 V410 H640"/>
+  </g>
+  <rect x="380" y="410" width="440" height="60" rx="12" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
+  <text x="600" y="437" text-anchor="middle" font-size="16" font-weight="700">MoveItConfigsBuilder → move_group</text>
+  <text x="600" y="459" text-anchor="middle" font-size="13" fill="#475569">launch/move_group.launch.py 一次性加载</text>
+</svg>

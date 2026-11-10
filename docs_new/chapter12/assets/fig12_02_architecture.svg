@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="900" viewBox="0 0 1500 900" role="img" aria-labelledby="title desc">
+<title id="title">图 12-2｜三个终端，三层职责，一条反馈闭环</title><desc id="desc">启动顺序为 A → B → C；图中箭头概括跨层接口，具体消息名见下一节。</desc>
+<rect width="1500" height="900" fill="#F5F8FC"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#69788A"/></marker><marker id="green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17816E"/></marker><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2463B5"/></marker></defs>
+<text x="45" y="58" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="32" font-weight="700" fill="#18334B" text-anchor="start">图 12-2｜三个终端，三层职责，一条反馈闭环</text>
+<text x="45" y="100" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#69788A" text-anchor="start">启动顺序为 A → B → C；图中箭头概括跨层接口，具体消息名见下一节。</text>
+<rect x="300" y="145" width="900" height="135" rx="15" fill="white" stroke="#BC641D" stroke-width="2"/>
+<text x="320" y="182" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#BC641D" text-anchor="start">终端 C｜mission：决定现在做什么</text>
+<text x="320" y="218" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">./run.sh mission</text>
+<text x="320" y="249" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">读取任务配置、选择目标、等待结果；能力系统就绪后才启动</text>
+<rect x="300" y="370" width="900" height="160" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="320" y="407" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5" text-anchor="start">终端 B｜ROS 能力系统：提供技能</text>
+<text x="320" y="443" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">./run.sh system</text>
+<text x="320" y="474" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">Nav2：路径 → 底盘速度    MoveIt2：目标姿态 → 轨迹</text>
+<text x="320" y="505" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">感知：RGB-D → 候选    控制器：轨迹 / 夹爪执行与模式互锁</text>
+<rect x="300" y="635" width="900" height="145" rx="15" fill="white" stroke="#17816E" stroke-width="2"/>
+<text x="320" y="672" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#17816E" text-anchor="start">终端 A｜Isaac + bridge：身体与感官</text>
+<text x="320" y="708" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">./run.sh sim</text>
+<text x="320" y="739" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">Isaac 推进物理；bridge 收命令、发传感器与实际状态</text>
+<text x="320" y="770" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">通过 ROS / DDS 通信，不互相导入两套 Python 运行时</text>
+<path d="M460 280 V368" fill="none" stroke="#2463B5" stroke-width="3" marker-end="url(#blue)"/>
+<text x="480" y="319" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#2463B5" text-anchor="start">目标 / action / 模式请求</text>
+<path d="M960 370 V282" fill="none" stroke="#17816E" stroke-width="3" marker-end="url(#green)"/>
+<text x="980" y="348" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#17816E" text-anchor="start">候选 / 状态 / action 结果</text>
+<path d="M460 530 V633" fill="none" stroke="#2463B5" stroke-width="3" marker-end="url(#blue)"/>
+<text x="480" y="568" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#2463B5" text-anchor="start">/cmd_vel、关节目标、模式</text>
+<path d="M960 635 V532" fill="none" stroke="#17816E" stroke-width="3" marker-end="url(#green)"/>
+<text x="980" y="610" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#17816E" text-anchor="start">RGB-D / odom / 关节 / TF</text>
+<path d="M300 211 H235 V708 H298" fill="none" stroke="#BC641D" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#arrow)"/>
+<text x="75" y="320" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#BC641D" text-anchor="start">共享话题</text>
+<text x="65" y="355" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">任务状态</text>
+<text x="65" y="388" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">用于诊断</text>
+<text x="65" y="447" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#69788A" text-anchor="start">不是直接</text>
+<text x="65" y="478" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#69788A" text-anchor="start">设置物体</text>
+<text x="65" y="509" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#69788A" text-anchor="start">或关节位姿</text>
+<text x="45" y="844" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="400" fill="#BC641D" text-anchor="start">读图要点：只启动 A、B 不会自动搬苹果；C 发起任务，B 提供能力，A 执行物理并返回反馈。</text>
+</svg>

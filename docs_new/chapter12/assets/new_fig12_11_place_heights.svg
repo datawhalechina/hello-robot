@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" width="900" height="430" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3b6fd8"/>
+    </marker>
+  </defs>
+  <rect width="900" height="430" fill="#fff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="19" font-weight="bold" fill="#222">放置阶段的关键高度（侧视示意，数值由 task.yaml 与 mission.cpp 计算）</text>
+
+  <!-- 纵向比例 1 cm = 10 px；board_z = 0.896 m 对应 y = 348 -->
+  <rect x="80" y="356" width="520" height="50" fill="#cfd8dc" stroke="#78909c"/>
+  <text x="340" y="386" text-anchor="middle" font-size="12.5">远桌 table：中心 z 0.848 + 半厚 0.04 → 桌面顶 0.888 m</text>
+  <rect x="200" y="348" width="240" height="8" fill="#90a4ae" stroke="#546e7a"/>
+
+  <g font-size="12.5">
+    <line x1="450" y1="348" x2="880" y2="348" stroke="#546e7a" stroke-dasharray="4,3"/>
+    <text x="880" y="342" text-anchor="end" fill="#546e7a">0.896 m  接收板顶面 board_z = 0.892 + 0.008/2</text>
+
+    <line x1="450" y1="303" x2="880" y2="303" stroke="#3b6fd8" stroke-dasharray="4,3"/>
+    <text x="880" y="297" text-anchor="end" fill="#3b6fd8">0.941 m  放置 TCP 高度 board_z + 0.045</text>
+
+    <line x1="450" y1="273" x2="880" y2="273" stroke="#c94040" stroke-dasharray="4,3"/>
+    <text x="880" y="267" text-anchor="end" fill="#c94040">0.971 m  在线放置验证 Z 上限 board_z + 0.075</text>
+
+    <line x1="450" y1="132" x2="880" y2="132" stroke="#2e8b57" stroke-dasharray="4,3"/>
+    <text x="880" y="126" text-anchor="end" fill="#2e8b57">1.112 m  TRANSFER 上方点 tray 中心 z + 0.22</text>
+  </g>
+
+  <!-- 苹果（直径约 5 cm = 50 px） -->
+  <circle cx="320" cy="323" r="25" fill="#e57373" stroke="#b71c1c"/>
+  <circle cx="320" cy="303" r="4" fill="#1d3f8f"/>
+  <text x="352" y="330" font-size="12" fill="#b71c1c">苹果</text>
+  <rect x="298" y="120" width="44" height="22" rx="4" fill="#e8f0fe" stroke="#3b6fd8"/>
+  <text x="320" y="136" text-anchor="middle" font-size="11">above</text>
+  <line x1="320" y1="144" x2="320" y2="292" stroke="#3b6fd8" stroke-width="2" marker-end="url(#a)"/>
+  <text x="120" y="200" font-size="12.5" fill="#1d3f8f">PLACE：笛卡尔直线下降 17.1 cm</text>
+  <text x="120" y="220" font-size="12.5" fill="#1d3f8f">张开夹爪后 RETREAT 沿原路上撤</text>
+  <text x="120" y="80" font-size="12" fill="#555">纵向比例 1 cm = 10 px（仅示意，横向不按比例）</text>
+</svg>

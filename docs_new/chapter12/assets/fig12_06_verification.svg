@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="930" viewBox="0 0 1500 930" role="img" aria-labelledby="title desc">
+<title id="title">图 12-6｜动作做完之后，还要看物体是否真的到位</title><desc id="desc">按箭头阅读：动作完成 → 观测验证 → 才进入下一阶段；任一关键检查失败都会停止任务。</desc>
+<rect width="1500" height="930" fill="#F5F8FC"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#69788A"/></marker><marker id="green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#17816E"/></marker><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#2463B5"/></marker></defs>
+<text x="45" y="58" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="32" font-weight="700" fill="#18334B" text-anchor="start">图 12-6｜动作做完之后，还要看物体是否真的到位</text>
+<text x="45" y="100" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#69788A" text-anchor="start">按箭头阅读：动作完成 → 观测验证 → 才进入下一阶段；任一关键检查失败都会停止任务。</text>
+<rect x="45" y="155" width="425" height="165" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="65" y="192" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5" text-anchor="start">① 接近、闭合、抬升</text>
+<text x="65" y="228" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">到预抓取点 → 直线接近 → 闭合</text>
+<text x="65" y="259" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">TCP 抬高 0.12 m</text>
+<text x="65" y="290" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">闭合反馈只能说明夹爪遇到阻挡</text>
+<rect x="535" y="155" width="425" height="165" rx="15" fill="white" stroke="#17816E" stroke-width="2"/>
+<text x="555" y="192" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#17816E" text-anchor="start">② 看苹果是否随手抬起</text>
+<text x="555" y="228" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">视觉中心高于桌面 0.10 m</text>
+<text x="555" y="259" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">至少 5 个有效样本，持续约 1 s</text>
+<text x="555" y="290" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">用新时间戳与同帧 TCP 排除误认</text>
+<rect x="1025" y="155" width="425" height="165" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="1045" y="192" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5" text-anchor="start">③ 收臂、持物运输</text>
+<text x="1045" y="228" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">验证通过才持物回 home</text>
+<text x="1045" y="259" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">NAV 中保持夹持，监测夹爪开度</text>
+<text x="1045" y="290" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">远桌停稳、精靠与复核后切 ARM</text>
+<path d="M470 235 H533" fill="none" stroke="#69788A" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M960 235 H1023" fill="none" stroke="#69788A" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M1238 320 V408" fill="none" stroke="#69788A" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1025" y="410" width="425" height="165" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="1045" y="447" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5" text-anchor="start">④ 放下、张开、上撤</text>
+<text x="1045" y="483" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">到槽位上方 → 下降 → 显式释放</text>
+<text x="1045" y="514" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">移除持物碰撞体，机械臂上撤</text>
+<text x="1045" y="545" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">给相机留出看接收板的空间</text>
+<rect x="535" y="410" width="425" height="165" rx="15" fill="white" stroke="#17816E" stroke-width="2"/>
+<text x="555" y="447" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#17816E" text-anchor="start">⑤ 看物体是否稳定落板</text>
+<text x="555" y="483" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">指定槽位附近、板面之上</text>
+<text x="555" y="514" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">连续稳定约 1.5 s；不能复用旧帧</text>
+<text x="555" y="545" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">在线窗口较宽，不能替代物理验收</text>
+<rect x="45" y="410" width="425" height="165" rx="15" fill="white" stroke="#BC641D" stroke-width="2"/>
+<text x="65" y="447" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#BC641D" text-anchor="start">⑥ 下一颗，或者结束</text>
+<text x="65" y="483" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">A 放置验证通过：重新感知 B</text>
+<text x="65" y="514" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">排除接收板；B 放入槽位 1</text>
+<text x="65" y="545" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">B 验证通过：home → IDLE → DONE</text>
+<path d="M1025 490 H962" fill="none" stroke="#69788A" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M535 490 H472" fill="none" stroke="#69788A" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="45" y="635" width="1410" height="145" rx="15" fill="#FFF5E7" stroke="#D7AA70" stroke-width="2"/>
+<text x="70" y="674" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="24" font-weight="700" fill="#BC641D" text-anchor="start">放置验证的特殊分支：YOLO 暂时看不到时，可检查指定槽位附近的同步深度几何。</text>
+<text x="70" y="715" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#18334B" text-anchor="start">它只支持“附近出现符合条件的几何”，不证明苹果类别与身份；正常抓取不能用此分支绕过 YOLO。</text>
+<text x="70" y="752" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#18334B" text-anchor="start">夹爪开度监测也只能发现部分失持征兆，不能保证检测所有滑落。</text>
+<rect x="45" y="815" width="1410" height="70" rx="15" fill="#FCEEEE" stroke="#B64444" stroke-width="2"/>
+<text x="70" y="859" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="400" fill="#B64444" text-anchor="start">失败时：取消相关 action、停止底盘、保持机械臂，避免无条件张开夹爪；当前没有自动重抓分支。</text>
+</svg>

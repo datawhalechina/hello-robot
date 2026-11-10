@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="520" fill="#ffffff"/>
+  <text x="600" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">路径、轨迹与控制指令：同一条运动的三种描述</text>
+
+  <!-- 路径 -->
+  <rect x="30" y="60" width="360" height="380" rx="14" fill="#f8fafc" stroke="#2563eb" stroke-width="2"/>
+  <text x="210" y="92" text-anchor="middle" font-size="18" font-weight="700" fill="#1d4ed8">① 路径 P（无时间）</text>
+  <line x1="70" y1="390" x2="360" y2="390" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="70" y1="390" x2="70" y2="120" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="345" y="412" font-size="14" fill="#475569">q₁</text>
+  <text x="48" y="130" font-size="14" fill="#475569">q₂</text>
+  <polyline points="100,360 150,300 230,290 270,220 330,160" fill="none" stroke="#2563eb" stroke-width="3"/>
+  <g fill="#2563eb">
+    <circle cx="100" cy="360" r="6"/><circle cx="150" cy="300" r="6"/><circle cx="230" cy="290" r="6"/><circle cx="270" cy="220" r="6"/><circle cx="330" cy="160" r="6"/>
+  </g>
+  <text x="108" y="380" font-size="13" fill="#0f172a">q₀</text>
+  <text x="300" y="150" font-size="13" fill="#0f172a">q_N</text>
+  <text x="210" y="432" text-anchor="middle" font-size="14" fill="#334155">只回答“经过哪些关节状态”</text>
+
+  <!-- 轨迹 -->
+  <rect x="420" y="60" width="360" height="380" rx="14" fill="#f8fafc" stroke="#ea580c" stroke-width="2"/>
+  <text x="600" y="92" text-anchor="middle" font-size="18" font-weight="700" fill="#c2410c">② 轨迹 T（加入时间）</text>
+  <line x1="460" y1="390" x2="760" y2="390" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="460" y1="390" x2="460" y2="120" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="745" y="412" font-size="14" fill="#475569">t</text>
+  <text x="430" y="130" font-size="14" fill="#475569">q_i(t)</text>
+  <path d="M480 360 C540 360 560 300 600 290 C640 280 650 250 680 200 C700 170 720 160 740 160" fill="none" stroke="#ea580c" stroke-width="3"/>
+  <g fill="#ea580c">
+    <circle cx="480" cy="360" r="5"/><circle cx="545" cy="335" r="5"/><circle cx="600" cy="290" r="5"/><circle cx="660" cy="235" r="5"/><circle cx="740" cy="160" r="5"/>
+  </g>
+  <text x="600" y="432" text-anchor="middle" font-size="14" fill="#334155">{t_k, q_k, q̇_k, q̈_k}：何时到、多快</text>
+
+  <!-- 控制 -->
+  <rect x="810" y="60" width="360" height="380" rx="14" fill="#f8fafc" stroke="#16a34a" stroke-width="2"/>
+  <text x="990" y="92" text-anchor="middle" font-size="18" font-weight="700" fill="#15803d">③ 控制指令（闭环）</text>
+  <rect x="850" y="130" width="130" height="60" rx="8" fill="#ecfdf5" stroke="#16a34a"/>
+  <text x="915" y="157" text-anchor="middle" font-size="14">期望 q_d(t)</text>
+  <text x="915" y="178" text-anchor="middle" font-size="12" fill="#475569">按时间读取</text>
+  <rect x="1010" y="130" width="130" height="60" rx="8" fill="#ecfdf5" stroke="#16a34a"/>
+  <text x="1075" y="157" text-anchor="middle" font-size="14">关节 drive</text>
+  <text x="1075" y="178" text-anchor="middle" font-size="12" fill="#475569">Isaac / 硬件</text>
+  <rect x="930" y="270" width="130" height="60" rx="8" fill="#ecfdf5" stroke="#16a34a"/>
+  <text x="995" y="297" text-anchor="middle" font-size="14">实际 q(t)</text>
+  <text x="995" y="318" text-anchor="middle" font-size="12" fill="#475569">关节反馈</text>
+  <path d="M980 160 H1006" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M1075 190 V300 H1064" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <path d="M930 300 H915 V194" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <text x="870" y="250" font-size="12" fill="#475569">误差 e = q_d − q</text>
+  <text x="990" y="432" text-anchor="middle" font-size="14" fill="#334155">回答“机器人是否真正跟上”</text>
+
+  <path d="M390 250 H416" stroke="#475569" stroke-width="2.5" marker-end="url(#arr)"/>
+  <path d="M780 250 H806" stroke="#475569" stroke-width="2.5" marker-end="url(#arr)"/>
+  <text x="600" y="490" text-anchor="middle" font-size="15" fill="#334155">RRT-Connect 输出①；时间参数化把①变成②；控制器 / 跟踪器执行②并依靠反馈完成③</text>
+</svg>

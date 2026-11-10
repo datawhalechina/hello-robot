@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="1200" height="420" fill="#ffffff"/>
+  <text x="600" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">状态检查 vs. 边检查：两个安全端点之间仍可能穿过障碍</text>
+
+  <rect x="30" y="55" width="560" height="340" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="310" y="84" text-anchor="middle" font-size="16" font-weight="700">只查端点：误判为“可行”</text>
+  <rect x="270" y="150" width="60" height="170" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="300" y="342" text-anchor="middle" font-size="13" fill="#b91c1c">C_obs</text>
+  <line x1="110" y1="240" x2="490" y2="240" stroke="#dc2626" stroke-width="3" stroke-dasharray="8 6"/>
+  <circle cx="110" cy="240" r="9" fill="#16a34a"/><circle cx="490" cy="240" r="9" fill="#16a34a"/>
+  <text x="96" y="272" font-size="14">q_a 无碰</text>
+  <text x="460" y="272" font-size="14">q_b 无碰</text>
+  <text x="310" y="375" text-anchor="middle" font-size="13" fill="#475569">中间的状态 q(α) 落在碰撞区域，但从未被检查</text>
+
+  <rect x="610" y="55" width="560" height="340" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="890" y="84" text-anchor="middle" font-size="16" font-weight="700">按 edge_resolution 插值：发现碰撞</text>
+  <rect x="850" y="150" width="60" height="170" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <line x1="690" y1="240" x2="1070" y2="240" stroke="#94a3b8" stroke-width="2"/>
+  <g fill="#16a34a">
+    <circle cx="690" cy="240" r="7"/><circle cx="719" cy="240" r="6"/><circle cx="748" cy="240" r="6"/><circle cx="778" cy="240" r="6"/><circle cx="807" cy="240" r="6"/><circle cx="836" cy="240" r="6"/>
+  </g>
+  <circle cx="865" cy="240" r="7" fill="#dc2626"/>
+  <text x="865" y="215" text-anchor="middle" font-size="13" fill="#b91c1c">第一个碰撞点 → 返回 False</text>
+  <g fill="#cbd5e1">
+    <circle cx="895" cy="240" r="6"/><circle cx="924" cy="240" r="6"/><circle cx="953" cy="240" r="6"/><circle cx="982" cy="240" r="6"/><circle cx="1011" cy="240" r="6"/><circle cx="1041" cy="240" r="6"/><circle cx="1070" cy="240" r="7"/>
+  </g>
+  <text x="890" y="355" text-anchor="middle" font-size="13" fill="#475569">samples = ceil(‖q_b − q_a‖ / 0.045)，共检查 samples+1 个状态</text>
+  <text x="890" y="377" text-anchor="middle" font-size="13" fill="#475569">灰点：发现碰撞后提前退出，不再检查</text>
+</svg>

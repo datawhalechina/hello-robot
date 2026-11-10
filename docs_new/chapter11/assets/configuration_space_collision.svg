@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 Z" fill="#334155"/></marker><style>.t{font:700 28px sans-serif;fill:#0f172a}.h{font:700 21px sans-serif;fill:#0f172a}.p{font:18px sans-serif;fill:#334155}.axis{stroke:#64748b;stroke-width:2}.path{stroke:#16a34a;stroke-width:5;fill:none}.bad{stroke:#dc2626;stroke-width:5;fill:none;stroke-dasharray:10 8}.obs{fill:#fee2e2;stroke:#dc2626;stroke-width:2}.node{fill:#dbeafe;stroke:#2563eb;stroke-width:2}.arr{stroke:#334155;stroke-width:3;fill:none;marker-end:url(#a)}</style></defs>
+  <rect width="1200" height="620" fill="#f8fafc"/>
+  <text x="600" y="42" text-anchor="middle" class="t">工作空间障碍如何变成关节配置空间约束</text>
+  <text x="300" y="85" text-anchor="middle" class="h">工作空间：看得见的连杆与障碍</text>
+  <line x1="70" y1="500" x2="530" y2="500" class="axis"/><line x1="120" y1="540" x2="120" y2="120" class="axis"/>
+  <rect x="340" y="255" width="120" height="170" rx="10" class="obs"/><text x="400" y="345" text-anchor="middle" class="p">障碍物</text>
+  <circle cx="170" cy="430" r="22" class="node"/><line x1="170" y1="430" x2="290" y2="320" stroke="#2563eb" stroke-width="24" stroke-linecap="round"/><line x1="290" y1="320" x2="410" y2="205" stroke="#2563eb" stroke-width="20" stroke-linecap="round"/><circle cx="290" cy="320" r="18" class="node"/>
+  <text x="190" y="470" class="p">连杆用胶囊近似</text>
+  <text x="900" y="85" text-anchor="middle" class="h">配置空间：q 中的可行区域与碰撞区域</text>
+  <line x1="670" y1="500" x2="1130" y2="500" class="axis"/><line x1="720" y1="540" x2="720" y2="120" class="axis"/>
+  <text x="1110" y="530" class="p">q₁</text><text x="680" y="140" class="p">q₂</text>
+  <path d="M805 170 C930 120 1080 190 1050 300 C1025 390 910 410 850 350 C790 292 740 230 805 170 Z" class="obs"/>
+  <text x="930" y="275" text-anchor="middle" class="p">碰撞配置集合</text>
+  <path d="M760 455 C810 420 825 365 845 330" class="path"/><path d="M845 330 C880 280 930 230 1035 165" class="bad"/>
+  <circle cx="760" cy="455" r="9" fill="#16a34a"/><circle cx="1035" cy="165" r="9" fill="#16a34a"/>
+  <text x="775" y="483" class="p">q_start</text><text x="1020" y="145" class="p">q_goal</text>
+  <path d="M545 300 H650" class="arr"/>
+  <rect x="180" y="555" width="840" height="48" rx="12" fill="#f8fafc" stroke="#64748b"/>
+  <text x="600" y="586" text-anchor="middle" class="p">不仅检查路径节点，还必须沿每条边插值检查，否则机械臂可能在两个安全节点之间穿过障碍物</text>
+</svg>

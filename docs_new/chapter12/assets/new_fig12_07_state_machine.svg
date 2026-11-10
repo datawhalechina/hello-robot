@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" width="980" height="560" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3b6fd8"/>
+    </marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c94040"/>
+    </marker>
+  </defs>
+  <rect width="980" height="560" fill="#fff"/>
+  <text x="490" y="32" text-anchor="middle" font-size="19" font-weight="bold" fill="#222">mission.cpp 状态机：/task_status 发布的阶段序列</text>
+
+  <g font-size="12.5" text-anchor="middle">
+    <!-- 第一行：准备与源桌 -->
+    <text x="30" y="72" text-anchor="start" font-size="13" font-weight="bold" fill="#555">① 准备与前往源桌</text>
+    <rect x="30" y="85" width="110" height="40" rx="6" fill="#eeeeee" stroke="#888"/><text x="85" y="110">WAIT_READY</text>
+    <rect x="165" y="85" width="80" height="40" rx="6" fill="#eeeeee" stroke="#888"/><text x="205" y="110">STOW</text>
+    <rect x="270" y="85" width="150" height="40" rx="6" fill="#e6f5ea" stroke="#2e8b57"/><text x="345" y="110">NAVIGATE_SOURCE</text>
+    <rect x="445" y="85" width="300" height="40" rx="6" fill="#e6f5ea" stroke="#2e8b57"/><text x="595" y="110">NAVIGATE → SETTLE →（DOCK → SETTLE）</text>
+    <line x1="140" y1="105" x2="163" y2="105" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+    <line x1="245" y1="105" x2="268" y2="105" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+    <line x1="420" y1="105" x2="443" y2="105" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+    <text x="860" y="100" font-size="12" fill="#555">navigate_to(</text>
+    <text x="860" y="116" font-size="12" fill="#555">source_dock)</text>
+
+    <!-- 第二行：源桌抓取 -->
+    <text x="30" y="162" text-anchor="start" font-size="13" font-weight="bold" fill="#555">② pick("SOURCE")：源桌抓取</text>
+    <rect x="30" y="175" width="150" height="40" rx="6" fill="#f3e8fb" stroke="#8a4fc0"/><text x="105" y="200">SOURCE_PERCEIVE</text>
+    <rect x="200" y="175" width="150" height="40" rx="6" fill="#e8f0fe" stroke="#3b6fd8"/><text x="275" y="200">SOURCE_APPROACH</text>
+    <rect x="370" y="175" width="130" height="40" rx="6" fill="#e8f0fe" stroke="#3b6fd8"/><text x="435" y="200">SOURCE_CLOSE</text>
+    <rect x="520" y="175" width="120" height="40" rx="6" fill="#e5f6f6" stroke="#22898a"/><text x="580" y="200">SOURCE_LIFT</text>
+    <rect x="660" y="175" width="125" height="40" rx="6" fill="#e8f0fe" stroke="#3b6fd8"/><text x="722" y="200">SOURCE_HOME</text>
+    <line x1="180" y1="195" x2="198" y2="195" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+    <line x1="350" y1="195" x2="368" y2="195" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+    <line x1="500" y1="195" x2="518" y2="195" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+    <line x1="640" y1="195" x2="658" y2="195" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+    <text x="580" y="232" font-size="11.5" fill="#14595a">视觉确认 z &gt; 桌面+0.10 m，持续 1 s</text>
+
+    <!-- 第三行：运输 -->
+    <text x="30" y="272" text-anchor="start" font-size="13" font-weight="bold" fill="#555">③ 持物运输至远桌</text>
+    <rect x="30" y="285" width="90" height="40" rx="6" fill="#eeeeee" stroke="#888"/><text x="75" y="310">CARRY</text>
+    <rect x="145" y="285" width="300" height="40" rx="6" fill="#e6f5ea" stroke="#2e8b57"/><text x="295" y="310">NAVIGATE → SETTLE →（DOCK → SETTLE）</text>
+    <line x1="120" y1="305" x2="143" y2="305" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+    <text x="620" y="302" font-size="12" fill="#555">navigate() = navigate_to(dock)；</text>
+    <text x="620" y="318" font-size="12" fill="#555">全程控制器监测夹爪开度（CARRY_LOST）</text>
+
+    <!-- 第四行：两次放置 -->
+    <text x="30" y="362" text-anchor="start" font-size="13" font-weight="bold" fill="#555">④ place(slot0)：放第一颗（仍以 SOURCE_ 为前缀）</text>
+    <rect x="30" y="375" width="160" height="40" rx="6" fill="#e8f0fe" stroke="#3b6fd8"/><text x="110" y="400">SOURCE_TRANSFER</text>
+    <rect x="210" y="375" width="140" height="40" rx="6" fill="#e8f0fe" stroke="#3b6fd8"/><text x="280" y="400">SOURCE_PLACE</text>
+    <rect x="370" y="375" width="150" height="40" rx="6" fill="#e8f0fe" stroke="#3b6fd8"/><text x="445" y="400">SOURCE_RETREAT</text>
+    <rect x="540" y="375" width="200" height="40" rx="6" fill="#e5f6f6" stroke="#22898a"/><text x="640" y="400">SOURCE_VERIFY_PLACE</text>
+    <line x1="190" y1="395" x2="208" y2="395" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+    <line x1="350" y1="395" x2="368" y2="395" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+    <line x1="520" y1="395" x2="538" y2="395" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+
+    <text x="30" y="452" text-anchor="start" font-size="13" font-weight="bold" fill="#555">⑤ pick("DESTINATION") → place(slot1) → 结束</text>
+    <rect x="30" y="465" width="300" height="40" rx="6" fill="#f3e8fb" stroke="#8a4fc0"/><text x="180" y="490">DESTINATION_PERCEIVE … _HOME（排除接收板）</text>
+    <rect x="350" y="465" width="250" height="40" rx="6" fill="#e8f0fe" stroke="#3b6fd8"/><text x="475" y="490">DESTINATION_TRANSFER … _VERIFY_PLACE</text>
+    <rect x="620" y="465" width="70" height="40" rx="6" fill="#eeeeee" stroke="#888"/><text x="655" y="490">STOW</text>
+    <rect x="710" y="465" width="70" height="40" rx="6" fill="#d9f2df" stroke="#2e8b57" stroke-width="2"/><text x="745" y="490" font-weight="bold">DONE</text>
+    <line x1="330" y1="485" x2="348" y2="485" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+    <line x1="600" y1="485" x2="618" y2="485" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+    <line x1="690" y1="485" x2="708" y2="485" stroke="#3b6fd8" stroke-width="1.6" marker-end="url(#a)"/>
+
+    <!-- FAILED -->
+    <rect x="830" y="300" width="130" height="70" rx="8" fill="#fdeaea" stroke="#c94040" stroke-width="2"/>
+    <text x="895" y="325" font-weight="bold" fill="#8a1f1f">FAILED: 原因</text>
+    <text x="895" y="344" font-size="11" fill="#8a1f1f">取消 action · IDLE</text>
+    <text x="895" y="360" font-size="11" fill="#8a1f1f">不自动张开夹爪</text>
+    <line x1="800" y1="200" x2="860" y2="298" stroke="#c94040" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#r)"/>
+    <line x1="750" y1="395" x2="828" y2="350" stroke="#c94040" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#r)"/>
+    <text x="895" y="400" font-size="11.5" fill="#8a1f1f">任一环节抛出异常</text>
+    <text x="895" y="416" font-size="11.5" fill="#8a1f1f">即进入，无自动重试</text>
+  </g>
+  <text x="490" y="540" text-anchor="middle" font-size="12" fill="#666">蓝：动作阶段　紫：感知阶段　青：视觉验证阶段　绿：导航阶段　虚线红：异常跳转</text>
+</svg>

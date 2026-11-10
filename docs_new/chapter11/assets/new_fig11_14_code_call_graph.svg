@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="640" fill="#ffffff"/>
+  <text x="600" y="32" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">模块调用关系：左 code_chapter11_1（自编）｜右 code_chapter11_2（MoveIt 2）</text>
+
+  <!-- left -->
+  <g font-size="13" fill="#0f172a">
+    <rect x="200" y="60" width="200" height="44" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+    <text x="300" y="87" text-anchor="middle" font-weight="700">demo_pick_red.py</text>
+
+    <rect x="30" y="140" width="170" height="44" rx="8" fill="#f8fafc" stroke="#64748b"/>
+    <text x="115" y="167" text-anchor="middle">config.py</text>
+    <rect x="215" y="140" width="170" height="44" rx="8" fill="#f8fafc" stroke="#64748b"/>
+    <text x="300" y="160" text-anchor="middle">arm_model.py</text>
+    <text x="300" y="177" text-anchor="middle" font-size="11" fill="#64748b">← code_chapter5.kinematics</text>
+    <rect x="400" y="140" width="170" height="44" rx="8" fill="#f8fafc" stroke="#64748b"/>
+    <text x="485" y="160" text-anchor="middle">simulation.py</text>
+    <text x="485" y="177" text-anchor="middle" font-size="11" fill="#64748b">Isaac 场景</text>
+
+    <rect x="30" y="230" width="170" height="44" rx="8" fill="#fef2f2" stroke="#dc2626"/>
+    <text x="115" y="250" text-anchor="middle">perception.py</text>
+    <text x="115" y="267" text-anchor="middle" font-size="11" fill="#64748b">+ rgbd_geometry.py</text>
+    <rect x="215" y="230" width="170" height="44" rx="8" fill="#fef2f2" stroke="#dc2626"/>
+    <text x="300" y="257" text-anchor="middle">collision.py</text>
+
+    <rect x="120" y="320" width="170" height="44" rx="8" fill="#ecfdf5" stroke="#16a34a"/>
+    <text x="205" y="347" text-anchor="middle">motion_planner.py</text>
+    <rect x="310" y="320" width="170" height="44" rx="8" fill="#ecfdf5" stroke="#16a34a"/>
+    <text x="395" y="347" text-anchor="middle">local_avoidance.py</text>
+
+    <rect x="120" y="410" width="170" height="44" rx="8" fill="#fff7ed" stroke="#ea580c"/>
+    <text x="205" y="430" text-anchor="middle">trajectory_optimizer.py</text>
+    <text x="205" y="447" text-anchor="middle" font-size="11" fill="#64748b">shortcut / resample / 五次</text>
+    <rect x="310" y="410" width="170" height="44" rx="8" fill="#fff7ed" stroke="#ea580c"/>
+    <text x="395" y="437" text-anchor="middle">trajectory_tracker.py</text>
+
+    <rect x="30" y="500" width="170" height="44" rx="8" fill="#f8fafc" stroke="#64748b"/>
+    <text x="115" y="527" text-anchor="middle">gripper.py</text>
+    <rect x="215" y="500" width="170" height="44" rx="8" fill="#f8fafc" stroke="#64748b"/>
+    <text x="300" y="527" text-anchor="middle">rviz_visualizer.py</text>
+    <rect x="400" y="500" width="170" height="44" rx="8" fill="#f8fafc" stroke="#64748b"/>
+    <text x="485" y="520" text-anchor="middle">Isaac G2 关节 drive</text>
+    <text x="485" y="537" text-anchor="middle" font-size="11" fill="#64748b">ArticulationAction</text>
+  </g>
+  <g stroke="#475569" stroke-width="1.6" fill="none" marker-end="url(#arr)">
+    <path d="M250 104 L130 138"/>
+    <path d="M300 104 V138"/>
+    <path d="M350 104 L470 138"/>
+    <path d="M300 184 V228"/>
+    <path d="M200 252 H213"/>
+    <path d="M280 274 L220 318"/>
+    <path d="M320 274 L380 318"/>
+    <path d="M330 342 H292"/>
+    <path d="M205 364 V408"/>
+    <path d="M290 432 H308"/>
+    <path d="M440 454 L470 498"/>
+  </g>
+  <text x="40" y="590" font-size="13" fill="#334155">每段运动：plan → repair → optimize → time_parameterize → execute</text>
+  <text x="40" y="612" font-size="12" fill="#64748b">local_avoidance 内部再次调用 RRTConnectPlanner；三者共用同一个 ArmCollisionChecker</text>
+
+  <line x1="600" y1="55" x2="600" y2="620" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <!-- right -->
+  <g font-size="13" fill="#0f172a">
+    <rect x="650" y="60" width="240" height="44" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+    <text x="770" y="80" text-anchor="middle" font-weight="700">pick_red.cpp</text>
+    <text x="770" y="97" text-anchor="middle" font-size="11" fill="#64748b">run_pick.sh → pick_red.launch.py</text>
+    <rect x="920" y="60" width="240" height="44" rx="8" fill="#f8fafc" stroke="#64748b"/>
+    <text x="1040" y="87" text-anchor="middle">planning_scene.cpp</text>
+
+    <rect x="650" y="150" width="240" height="44" rx="8" fill="#ecfdf5" stroke="#16a34a"/>
+    <text x="770" y="177" text-anchor="middle">local_replanner.cpp</text>
+
+    <rect x="650" y="240" width="510" height="60" rx="8" fill="#f5f3ff" stroke="#7c3aed"/>
+    <text x="905" y="264" text-anchor="middle" font-weight="700">move_group（move_group.launch.py 启动）</text>
+    <text x="905" y="286" text-anchor="middle" font-size="12" fill="#475569">URDF + SRDF + kinematics + ompl_planning + joint_limits + moveit_controllers + sensors_3d</text>
+
+    <rect x="650" y="345" width="240" height="60" rx="8" fill="#fff7ed" stroke="#ea580c"/>
+    <text x="770" y="370" text-anchor="middle">isaac_controller_bridge.cpp</text>
+    <text x="770" y="390" text-anchor="middle" font-size="11" fill="#64748b">FollowJointTrajectory server</text>
+    <rect x="920" y="345" width="240" height="60" rx="8" fill="#f8fafc" stroke="#64748b"/>
+    <text x="1040" y="370" text-anchor="middle">robot_state_publisher</text>
+    <text x="1040" y="390" text-anchor="middle" font-size="11" fill="#64748b">+ static TF world→arm_base_link</text>
+
+    <rect x="650" y="455" width="510" height="70" rx="8" fill="#fef2f2" stroke="#dc2626"/>
+    <text x="905" y="478" text-anchor="middle" font-weight="700">isaac_moveit_bridge.py（Isaac Python 主循环）</text>
+    <text x="905" y="498" text-anchor="middle" font-size="12" fill="#475569">simulation.py · trajectory_action_server.py（话题桥）</text>
+    <text x="905" y="515" text-anchor="middle" font-size="12" fill="#475569">perception.py · robot_self_filter.py · rgbd_geometry.py</text>
+  </g>
+  <g stroke="#475569" stroke-width="1.6" fill="none" marker-end="url(#arr)">
+    <path d="M890 82 H916"/>
+    <path d="M770 104 V146"/>
+    <path d="M770 194 V236"/>
+    <path d="M1040 104 V236"/>
+    <path d="M760 300 V341"/>
+    <path d="M740 455 V409"/>
+    <path d="M800 409 V451"/>
+    <path d="M1100 455 V304"/>
+    <path d="M890 375 H916"/>
+  </g>
+  <g font-size="11" fill="#475569">
+    <text x="660" y="326">轨迹 Action</text>
+    <text x="660" y="436">isaac_joint_states</text>
+    <text x="806" y="436">isaac_joint_command</text>
+    <text x="1106" y="430">depth_points</text>
+    <text x="1106" y="444">（OctoMap）</text>
+    <text x="893" y="366">/joint_states</text>
+  </g>
+  <text x="650" y="590" font-size="13" fill="#334155">三个终端：run_moveit_bridge.sh ｜ run_moveit.sh ｜ run_pick.sh</text>
+  <text x="650" y="612" font-size="12" fill="#64748b">/joint_states 由 C++ 控制桥转发，同时供 move_group 与 robot_state_publisher 使用</text>
+</svg>
