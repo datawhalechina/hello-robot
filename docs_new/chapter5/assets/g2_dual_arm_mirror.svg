@@ -1,0 +1,50 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="650" viewBox="0 0 1100 650">
+  <title>G2 双七自由度机械臂与镜像关系</title>
+  <desc>用示意图展示左右七自由度机械臂、关节增量奇偶符号关系和末端位置镜像关系。</desc>
+  <defs>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.s{font-size:15px}.m{font-size:18px}.l{font-size:22px}</style>
+  </defs>
+  <rect width="1100" height="650" fill="#f8fafc"/>
+  <text x="550" y="38" text-anchor="middle" class="t b" font-size="25">G2 双七自由度机械臂：结构镜像不等于“所有关节同号”</text>
+  <text x="1045" y="66" text-anchor="end" class="t s" fill="#64748b">教学示意，非几何比例图</text>
+
+  <rect x="468" y="88" width="164" height="115" rx="25" fill="#cbd5e1" stroke="#475569" stroke-width="3"/>
+  <text x="550" y="132" text-anchor="middle" class="t b l">arm_base_link</text>
+  <text x="550" y="164" text-anchor="middle" class="t m">双臂共同基座</text>
+
+  <g stroke-linecap="round" fill="none">
+    <path d="M485 185 L410 220 L345 192 L285 250 L225 232 L165 302 L112 285 L72 345" stroke="#2563eb" stroke-width="12"/>
+    <path d="M615 185 L690 220 L755 192 L815 250 L875 232 L935 302 L988 285 L1028 345" stroke="#dc2626" stroke-width="12"/>
+  </g>
+  <g fill="#fff" stroke-width="3">
+    <g stroke="#2563eb"><circle cx="485" cy="185" r="12"/><circle cx="410" cy="220" r="12"/><circle cx="345" cy="192" r="12"/><circle cx="285" cy="250" r="12"/><circle cx="225" cy="232" r="12"/><circle cx="165" cy="302" r="12"/><circle cx="112" cy="285" r="12"/></g>
+    <g stroke="#dc2626"><circle cx="615" cy="185" r="12"/><circle cx="690" cy="220" r="12"/><circle cx="755" cy="192" r="12"/><circle cx="815" cy="250" r="12"/><circle cx="875" cy="232" r="12"/><circle cx="935" cy="302" r="12"/><circle cx="988" cy="285" r="12"/></g>
+  </g>
+  <g class="t b s" text-anchor="middle">
+    <text x="485" y="175">J1</text><text x="410" y="210">J2</text><text x="345" y="182">J3</text><text x="285" y="240">J4</text><text x="225" y="222">J5</text><text x="165" y="292">J6</text><text x="112" y="275">J7</text>
+    <text x="615" y="175">J1</text><text x="690" y="210">J2</text><text x="755" y="182">J3</text><text x="815" y="240">J4</text><text x="875" y="222">J5</text><text x="935" y="292">J6</text><text x="988" y="275">J7</text>
+  </g>
+  <rect x="35" y="340" width="115" height="46" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="92" y="369" text-anchor="middle" class="t b s">左夹爪中心</text>
+  <rect x="950" y="340" width="115" height="46" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/><text x="1007" y="369" text-anchor="middle" class="t b s">右夹爪中心</text>
+  <text x="255" y="405" text-anchor="middle" class="t b m" fill="#2563eb">左臂：7 个旋转关节</text>
+  <text x="845" y="405" text-anchor="middle" class="t b m" fill="#dc2626">右臂：第一段安装变换不同</text>
+
+  <rect x="45" y="435" width="1010" height="150" rx="22" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="550" y="467" text-anchor="middle" class="t b l">围绕同一中心姿态做“视觉同向”动作时的关节增量</text>
+  <g class="t" text-anchor="middle">
+    <text x="105" y="512" class="b m">关节</text>
+    <text x="105" y="552" class="b m">右 / 左</text>
+    <g class="b m">
+      <rect x="155" y="486" width="90" height="78" rx="12" fill="#fee2e2" stroke="#ef4444"/><text x="200" y="514">J1</text><text x="200" y="548">−1</text>
+      <rect x="265" y="486" width="90" height="78" rx="12" fill="#dcfce7" stroke="#22c55e"/><text x="310" y="514">J2</text><text x="310" y="548">+1</text>
+      <rect x="375" y="486" width="90" height="78" rx="12" fill="#fee2e2" stroke="#ef4444"/><text x="420" y="514">J3</text><text x="420" y="548">−1</text>
+      <rect x="485" y="486" width="90" height="78" rx="12" fill="#dcfce7" stroke="#22c55e"/><text x="530" y="514">J4</text><text x="530" y="548">+1</text>
+      <rect x="595" y="486" width="90" height="78" rx="12" fill="#fee2e2" stroke="#ef4444"/><text x="640" y="514">J5</text><text x="640" y="548">−1</text>
+      <rect x="705" y="486" width="90" height="78" rx="12" fill="#dcfce7" stroke="#22c55e"/><text x="750" y="514">J6</text><text x="750" y="548">+1</text>
+      <rect x="815" y="486" width="90" height="78" rx="12" fill="#fee2e2" stroke="#ef4444"/><text x="860" y="514">J7</text><text x="860" y="548">−1</text>
+    </g>
+    <text x="970" y="514" class="b m">sq</text><text x="970" y="548" class="s">[− + − + − + −]</text>
+  </g>
+  <rect x="120" y="602" width="860" height="34" rx="10" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="550" y="625" text-anchor="middle" class="t s">当前模型的末端镜像：pR=[x,y,−z]ᵀ；左右 IK 已分别建模，求解后不要再额外翻转奇数关节。</text>
+</svg>

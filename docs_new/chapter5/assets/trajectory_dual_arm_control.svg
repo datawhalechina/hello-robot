@@ -1,0 +1,50 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="680" viewBox="0 0 1120 680">
+  <title>关节轨迹、双臂同步与关节 drive 闭环</title>
+  <desc>展示三次时间缩放曲线、左右臂共享时间步，以及 PhysX 关节 drive 的位置闭环。</desc>
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <marker id="arr-blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.s{font-size:15px}.m{font-size:18px}.l{font-size:22px}</style>
+  </defs>
+  <rect width="1120" height="680" fill="#f8fafc"/>
+  <text x="560" y="38" text-anchor="middle" class="t b" font-size="25">从 IK 目标到物理运动：平滑轨迹、同一时间轴、底层位置闭环</text>
+
+  <rect x="40" y="75" width="470" height="270" rx="22" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="275" y="108" text-anchor="middle" class="t b l">三次时间缩放 s(τ)=3τ²−2τ³</text>
+  <line x1="100" y1="290" x2="445" y2="290" stroke="#334155" stroke-width="3" marker-end="url(#arr)"/>
+  <line x1="100" y1="290" x2="100" y2="140" stroke="#334155" stroke-width="3" marker-end="url(#arr)"/>
+  <text x="452" y="306" class="t b s">τ</text><text x="82" y="140" class="t b s">s</text>
+  <line x1="100" y1="290" x2="430" y2="155" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="8 7"/>
+  <path d="M100 290 C180 290 185 260 265 222 C345 184 350 155 430 155" fill="none" stroke="#2563eb" stroke-width="6"/>
+  <circle cx="100" cy="290" r="6" fill="#2563eb"/><circle cx="430" cy="155" r="6" fill="#2563eb"/>
+  <text x="112" y="318" class="t s">0</text><text x="422" y="318" class="t s">1</text>
+  <text x="115" y="270" class="t s">起点斜率 0</text><text x="345" y="142" class="t s">终点斜率 0</text>
+  <text x="275" y="330" text-anchor="middle" class="t b m">q(t)=q₀+s(τ)(qd−q₀)</text>
+
+  <rect x="550" y="75" width="530" height="270" rx="22" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="815" y="108" text-anchor="middle" class="t b l">双臂必须共享同一条离散时间轴</text>
+  <g class="t" text-anchor="middle">
+    <text x="610" y="154" class="b m">步 k</text><text x="610" y="215" class="b m">步 k+1</text><text x="610" y="276" class="b m">步 k+2</text>
+    <g class="b s"><rect x="680" y="128" width="120" height="42" rx="9" fill="#dbeafe" stroke="#2563eb"/><text x="740" y="155">qL,k（7维）</text><rect x="820" y="128" width="120" height="42" rx="9" fill="#fee2e2" stroke="#dc2626"/><text x="880" y="155">qR,k（7维）</text>
+    <rect x="680" y="189" width="120" height="42" rx="9" fill="#dbeafe" stroke="#2563eb"/><text x="740" y="216">qL,k+1</text><rect x="820" y="189" width="120" height="42" rx="9" fill="#fee2e2" stroke="#dc2626"/><text x="880" y="216">qR,k+1</text>
+    <rect x="680" y="250" width="120" height="42" rx="9" fill="#dbeafe" stroke="#2563eb"/><text x="740" y="277">qL,k+2</text><rect x="820" y="250" width="120" height="42" rx="9" fill="#fee2e2" stroke="#dc2626"/><text x="880" y="277">qR,k+2</text></g>
+  </g>
+  <path d="M960 149 L1020 149 L1020 271 L960 271" fill="none" stroke="#16a34a" stroke-width="4"/>
+  <text x="1005" y="205" text-anchor="middle" class="t b s" fill="#16a34a">每一步</text><text x="1005" y="228" text-anchor="middle" class="t b s" fill="#16a34a">合并 14 维</text>
+  <text x="815" y="320" text-anchor="middle" class="t s">一次 ArticulationAction 同时发送左右目标，避免先左后右造成时间错位。</text>
+
+  <rect x="40" y="385" width="1040" height="235" rx="22" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="560" y="417" text-anchor="middle" class="t b l">位置控制的数据闭环</text>
+  <g class="t" text-anchor="middle" stroke-width="2.5">
+    <rect x="70" y="455" width="165" height="80" rx="16" fill="#fef3c7" stroke="#d97706"/><text x="152" y="485" class="b m">轨迹点 qd,k</text><text x="152" y="513" class="s">上层每个物理步发送</text>
+    <rect x="300" y="445" width="225" height="100" rx="16" fill="#ede9fe" stroke="#7c3aed"/><text x="412" y="478" class="b m">PhysX angular drive</text><text x="412" y="506" class="s">τ=Kp(qd−q)−Kd q̇</text><text x="412" y="530" class="s">stiffness / damping</text>
+    <rect x="590" y="455" width="175" height="80" rx="16" fill="#dbeafe" stroke="#2563eb"/><text x="677" y="485" class="b m">物理关节</text><text x="677" y="513" class="s">产生实际 q、q̇</text>
+    <rect x="830" y="455" width="200" height="80" rx="16" fill="#dcfce7" stroke="#16a34a"/><text x="930" y="485" class="b m">读取状态并 FK</text><text x="930" y="513" class="s">检查关节和末端误差</text>
+  </g>
+  <g stroke="#475569" stroke-width="4" marker-end="url(#arr)"><line x1="235" y1="495" x2="292" y2="495"/><line x1="525" y1="495" x2="582" y2="495"/><line x1="765" y1="495" x2="822" y2="495"/></g>
+  <path d="M930 535 L930 575 L412 575 L412 553" fill="none" stroke="#2563eb" stroke-width="3.5" marker-end="url(#arr-blue)"/>
+  <text x="670" y="598" text-anchor="middle" class="t s" fill="#2563eb">实际 q 作为 drive 的底层反馈；上层读取结果用于监控与下一次规划</text>
+
+  <rect x="140" y="636" width="840" height="30" rx="9" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="560" y="657" text-anchor="middle" class="t s">本章已有 USD/PhysX 位置闭环，因此 Python 层不再叠加另一套 PID 力矩控制。</text>
+</svg>

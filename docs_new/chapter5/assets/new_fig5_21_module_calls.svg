@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <title>code_chapter5 模块调用关系</title>
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+  </defs>
+  <rect width="1100" height="560" fill="#ffffff"/>
+  <text x="550" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">code/code_chapter5 模块调用关系</text>
+
+  <g font-size="15" fill="#0f172a" text-anchor="middle">
+    <!-- demos -->
+    <rect x="60" y="70" width="280" height="80" rx="12" fill="#fff7ed" stroke="#d97706" stroke-width="2"/>
+    <text x="200" y="102" font-weight="700">demo_joint_control.py</text>
+    <text x="200" y="128" font-size="13">move_to / move_mirrored</text>
+    <rect x="410" y="70" width="280" height="80" rx="12" fill="#fff7ed" stroke="#d97706" stroke-width="2"/>
+    <text x="550" y="102" font-weight="700">demo_fk_ik.py</text>
+    <text x="550" y="128" font-size="13">forward → solve_ik → move_to → 核对</text>
+    <rect x="760" y="70" width="280" height="80" rx="12" fill="#fff7ed" stroke="#d97706" stroke-width="2"/>
+    <text x="900" y="102" font-weight="700">demo_target_position.py</text>
+    <text x="900" y="128" font-size="13">位置式 solve_ik → move_to</text>
+
+    <!-- controller -->
+    <rect x="230" y="215" width="420" height="105" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="440" y="245" font-weight="700">arm_controller.py</text>
+    <text x="440" y="272" font-size="13">G2ArmController：关节索引、限位、make_trajectory、move_to、solve_ik</text>
+    <text x="440" y="298" font-size="13">G2DualArmController：mirrored_targets、make_trajectories、14 关节同步</text>
+
+    <!-- simulation -->
+    <rect x="760" y="215" width="280" height="105" rx="12" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+    <text x="900" y="245" font-weight="700">simulation.py</text>
+    <text x="900" y="272" font-size="13">G2Simulation：启动 Isaac Sim、加载场景</text>
+    <text x="900" y="298" font-size="13">step() / get_end_effector_pose()</text>
+
+    <!-- kinematics -->
+    <rect x="230" y="385" width="420" height="80" rx="12" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+    <text x="440" y="415" font-weight="700">kinematics.py（纯 NumPy，可脱离 Isaac Sim 运行）</text>
+    <text x="440" y="442" font-size="13">G2ArmKinematics：forward / jacobian / inverse；orientation_error</text>
+
+    <!-- config -->
+    <rect x="60" y="490" width="980" height="50" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+    <text x="550" y="521" font-size="14">config.py：ROBOT_USD、ROOM_USD、ARM_JOINT_NAMES、JOINT_*_LIMITS、HOME、镜像符号、SimulationConfig、IKConfig</text>
+
+    <!-- isaac -->
+    <rect x="760" y="385" width="280" height="80" rx="12" fill="#ffffff" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="900" y="415" font-weight="700">Isaac Sim / PhysX</text>
+    <text x="900" y="442" font-size="13">ArticulationAction → 关节 drive</text>
+  </g>
+
+  <g stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arr)">
+    <line x1="200" y1="150" x2="330" y2="207"/>
+    <line x1="550" y1="150" x2="470" y2="207"/>
+    <line x1="900" y1="150" x2="600" y2="207"/>
+    <line x1="230" y1="150" x2="790" y2="207"/>
+    <line x1="580" y1="150" x2="840" y2="207"/>
+    <line x1="900" y1="150" x2="900" y2="207"/>
+    <line x1="440" y1="320" x2="440" y2="377"/>
+    <line x1="650" y1="300" x2="752" y2="410"/>
+    <line x1="900" y1="320" x2="900" y2="377"/>
+  </g>
+  <text x="705" y="345" font-size="12" fill="#475569" text-anchor="middle">apply_action</text>
+  <text x="455" y="352" font-size="12" fill="#475569">FK / J / IK</text>
+  <text x="80" y="185" font-size="12" fill="#64748b">实线箭头：调用方向</text>
+</svg>

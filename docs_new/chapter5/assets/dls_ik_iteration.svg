@@ -1,0 +1,55 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="620" viewBox="0 0 1120 620">
+  <title>阻尼最小二乘逆运动学迭代流程</title>
+  <desc>展示数值逆运动学从当前关节角、正运动学、误差、Jacobian 到阻尼更新和收敛判断的循环。</desc>
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <marker id="arr-blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.s{font-size:15px}.m{font-size:18px}.l{font-size:22px}</style>
+  </defs>
+  <rect width="1120" height="620" fill="#f8fafc"/>
+  <text x="560" y="38" text-anchor="middle" class="t b" font-size="25">DLS 数值 IK：反复把末端误差转换成小的关节修正量</text>
+
+  <g stroke-width="2.5" class="t" text-anchor="middle">
+    <rect x="45" y="105" width="145" height="95" rx="18" fill="#dbeafe" stroke="#2563eb"/><text x="117" y="140" class="b l">当前 qk</text><text x="117" y="170" class="s">初值通常取当前关节角</text>
+    <rect x="235" y="105" width="145" height="95" rx="18" fill="#dcfce7" stroke="#16a34a"/><text x="307" y="140" class="b l">执行 FK</text><text x="307" y="170" class="s">得到 pk、Rk</text>
+    <rect x="425" y="105" width="165" height="95" rx="18" fill="#fef3c7" stroke="#d97706"/><text x="507" y="140" class="b l">计算误差 e</text><text x="507" y="170" class="s">位置误差 + 姿态误差</text>
+    <rect x="635" y="105" width="155" height="95" rx="18" fill="#ede9fe" stroke="#7c3aed"/><text x="712" y="140" class="b l">计算 J(qk)</text><text x="712" y="170" class="s">6 × 7 几何 Jacobian</text>
+    <rect x="835" y="90" width="240" height="125" rx="18" fill="#fee2e2" stroke="#dc2626"/><text x="955" y="123" class="b l">DLS 关节修正</text><text x="955" y="155" class="s">Δq = Jᵀ(JJᵀ+λ²I)⁻¹e</text><text x="955" y="183" class="s">λ = 0.04</text>
+  </g>
+  <g stroke="#475569" stroke-width="4" marker-end="url(#arr)"><line x1="190" y1="152" x2="227" y2="152"/><line x1="380" y1="152" x2="417" y2="152"/><line x1="590" y1="152" x2="627" y2="152"/><line x1="790" y1="152" x2="827" y2="152"/></g>
+
+  <rect x="785" y="270" width="290" height="130" rx="18" fill="#fff" stroke="#94a3b8" stroke-width="2.5"/>
+  <text x="930" y="301" text-anchor="middle" class="t b l">稳定性与约束处理</text>
+  <text x="810" y="332" class="t s">① 统一缩放：max|Δq| ≤ 0.12 rad</text>
+  <text x="810" y="359" class="t s">② 零空间关节居中：远离上下限</text>
+  <text x="810" y="386" class="t s">③ 更新后 clip 到 [qmin, qmax]</text>
+  <line x1="955" y1="215" x2="955" y2="262" stroke="#475569" stroke-width="4" marker-end="url(#arr)"/>
+
+  <rect x="470" y="285" width="250" height="105" rx="52" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
+  <text x="595" y="324" text-anchor="middle" class="t b l">误差是否收敛？</text>
+  <text x="595" y="354" text-anchor="middle" class="t s">‖ep‖ ≤ 0.002 m</text>
+  <text x="595" y="377" text-anchor="middle" class="t s">位姿 IK 还需 ‖eR‖ ≤ 0.015 rad</text>
+  <line x1="785" y1="335" x2="728" y2="335" stroke="#475569" stroke-width="4" marker-end="url(#arr)"/>
+
+  <rect x="65" y="285" width="270" height="105" rx="18" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="200" y="322" text-anchor="middle" class="t b l">成功：输出 q*</text>
+  <text x="200" y="352" text-anchor="middle" class="t s">只作为最终关节目标</text>
+  <text x="200" y="377" text-anchor="middle" class="t s">后续仍需生成平滑轨迹</text>
+  <line x1="470" y1="335" x2="343" y2="335" stroke="#16a34a" stroke-width="4" marker-end="url(#arr)"/>
+  <text x="400" y="322" text-anchor="middle" class="t b s" fill="#16a34a">是</text>
+
+  <rect x="405" y="440" width="380" height="75" rx="17" fill="#dbeafe" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="595" y="470" text-anchor="middle" class="t b l">否：qk+1 = qk + Δq</text>
+  <text x="595" y="497" text-anchor="middle" class="t s">进入下一次迭代；最多 300 次</text>
+  <line x1="595" y1="390" x2="595" y2="432" stroke="#2563eb" stroke-width="4" marker-end="url(#arr-blue)"/>
+  <text x="617" y="418" class="t b s" fill="#2563eb">否</text>
+  <path d="M405 478 L245 478 Q115 478 115 350 L115 208" fill="none" stroke="#2563eb" stroke-width="4" marker-end="url(#arr-blue)"/>
+
+  <rect x="825" y="450" width="250" height="112" rx="17" fill="#fff7ed" stroke="#f59e0b" stroke-width="2"/>
+  <text x="950" y="480" text-anchor="middle" class="t b m">阻尼 λ 的直觉</text>
+  <text x="850" y="511" class="t s">λ 小：收敛快，近奇异点易跳变</text>
+  <text x="850" y="539" class="t s">λ 大：更稳定，但可能更慢、更保守</text>
+
+  <rect x="100" y="570" width="920" height="34" rx="10" fill="#fee2e2" stroke="#ef4444"/>
+  <text x="560" y="593" text-anchor="middle" class="t s">DLS 只能缓解奇异数值放大，不能让不可达目标变得可达，也不等于碰撞检测。</text>
+</svg>

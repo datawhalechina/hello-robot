@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="960" viewBox="0 0 1440 960" role="img" aria-labelledby="title desc">
+<title id="title">图 6-2｜目标怎样变成轮子、机械臂与夹爪的运动</title><desc id="desc">任务顺序由第六章组织；底盘控制复用第四章，机械臂运动学与轨迹复用第五章。</desc>
+<rect width="1440" height="960" fill="#F4F7FB"/>
+<defs>
+<marker id="a61758A" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#61758A"/></marker>
+<marker id="a2866B4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#2866B4"/></marker>
+<marker id="a168477" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#168477"/></marker>
+<marker id="aC57926" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#C57926"/></marker>
+<marker id="aD74B4B" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#D74B4B"/></marker>
+</defs>
+<text x="40" y="54" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="30" font-weight="700" fill="#18334B" text-anchor="start">图 6-2｜目标怎样变成轮子、机械臂与夹爪的运动</text>
+<text x="40" y="94" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#61758A" text-anchor="start">任务顺序由第六章组织；底盘控制复用第四章，机械臂运动学与轨迹复用第五章。</text>
+<rect x="380" y="135" width="680" height="110" rx="16" fill="white" stroke="#2866B4" stroke-width="2"/>
+<text x="400" y="170" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#2866B4" text-anchor="start">task.py：固定任务与阶段检查</text>
+<text x="400" y="205" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">准备 → 停靠 → 接近 → 抓取 → 搬运 → 放置 → 验收</text>
+<path d="M720 245 V270 H215 V295" fill="none" stroke="#2866B4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a2866B4)"/>
+<path d="M720 270 V295" fill="none" stroke="#2866B4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a2866B4)"/>
+<path d="M720 270 H1230 V295" fill="none" stroke="#2866B4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a2866B4)"/>
+<rect x="40" y="295" width="350" height="130" rx="16" fill="white" stroke="#2866B4" stroke-width="2"/>
+<text x="60" y="330" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#2866B4" text-anchor="start">底盘目标：x / y / yaw</text>
+<text x="60" y="365" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">实测 chassis_link 位姿</text>
+<text x="60" y="395" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">位置误差 → 底盘速度</text>
+<rect x="40" y="465" width="350" height="150" rx="16" fill="white" stroke="#2866B4" stroke-width="2"/>
+<text x="60" y="500" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#2866B4" text-anchor="start">第四章控制器</text>
+<text x="60" y="535" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">四轮独立转向运动学</text>
+<text x="60" y="565" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">转向角 + 车轮驱动速度</text>
+<text x="60" y="595" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">停车后复核是否到位</text>
+<path d="M215 425 V465" fill="none" stroke="#2866B4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a2866B4)"/>
+<rect x="430" y="295" width="590" height="110" rx="16" fill="white" stroke="#168477" stroke-width="2"/>
+<text x="450" y="330" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#168477" text-anchor="start">机械臂目标：固定世界 TCP 位姿</text>
+<text x="450" y="365" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">move_world()：先转换到 arm_base_link</text>
+<rect x="430" y="450" width="280" height="165" rx="16" fill="white" stroke="#C57926" stroke-width="2"/>
+<text x="450" y="485" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#C57926" text-anchor="start">relative_joint</text>
+<text x="450" y="520" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">终点 IK → 七维 dq</text>
+<text x="450" y="550" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">关节空间平滑插值</text>
+<text x="450" y="580" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">直接传 dq 时无需 IK</text>
+<rect x="740" y="450" width="280" height="165" rx="16" fill="white" stroke="#168477" stroke-width="2"/>
+<text x="760" y="485" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#168477" text-anchor="start">delta_ee</text>
+<text x="760" y="520" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">计算 dp / dr</text>
+<text x="760" y="550" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">末端取样 → 逐点 IK</text>
+<text x="760" y="580" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">预检后执行短关节轨迹</text>
+<path d="M725 405 V425 H570 V450" fill="none" stroke="#C57926" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#aC57926)"/>
+<path d="M725 425 H880 V450" fill="none" stroke="#168477" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a168477)"/>
+<rect x="1060" y="295" width="340" height="130" rx="16" fill="white" stroke="#2866B4" stroke-width="2"/>
+<text x="1080" y="330" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#2866B4" text-anchor="start">夹爪目标：张开 / 闭合</text>
+<text x="1080" y="365" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">gripper() 独立控制</text>
+<text x="1080" y="395" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">不放进 dq 或 dp / dr</text>
+<rect x="1060" y="465" width="340" height="150" rx="16" fill="white" stroke="#2866B4" stroke-width="2"/>
+<text x="1080" y="500" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#2866B4" text-anchor="start">主动关节位置目标</text>
+<text x="1080" y="535" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">张开：0.72 rad</text>
+<text x="1080" y="565" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">闭合：0 rad</text>
+<text x="1080" y="595" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">接触与连杆约束产生夹持</text>
+<path d="M1230 425 V465" fill="none" stroke="#2866B4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a2866B4)"/>
+<path d="M215 615 V670" fill="none" stroke="#2866B4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a2866B4)"/>
+<path d="M570 615 V670" fill="none" stroke="#C57926" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#aC57926)"/>
+<path d="M880 615 V670" fill="none" stroke="#168477" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a168477)"/>
+<path d="M1230 615 V670" fill="none" stroke="#2866B4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a2866B4)"/>
+<rect x="40" y="670" width="1360" height="110" rx="16" fill="white" stroke="#2866B4" stroke-width="2"/>
+<text x="60" y="705" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#2866B4" text-anchor="start">Isaac Sim：关节驱动、轮地接触、夹爪与方块接触</text>
+<text x="60" y="740" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">执行器收到目标后推进物理；发送了命令，不代表实际已经到达。</text>
+<path d="M720 780 V815" fill="none" stroke="#168477" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a168477)"/>
+<rect x="260" y="815" width="920" height="66" rx="16" fill="#E8F5F0" stroke="#168477" stroke-width="2"/>
+<text x="720" y="856" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#168477" text-anchor="middle">反馈与验收：关节角 / TCP / 底盘位姿 / 方块抬升与落稳</text>
+<text x="40" y="920" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#61758A" text-anchor="start">实测状态用于后续控制和阶段判断；两种机械臂模式最终都发送关节位置目标，不是力矩控制。</text>
+</svg>

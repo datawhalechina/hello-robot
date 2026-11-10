@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="480" viewBox="0 0 900 480" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker><marker id="b" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/></marker><marker id="g" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/></marker></defs>
+<rect width="900" height="480" fill="#ffffff"/>
+<text x="450.0" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">G2 单臂关节限位、限位中心与 HOME 姿态（单位：度）</text>
+<line x1="120.0" y1="60" x2="120.0" y2="400" stroke="#e2e8f0"/>
+<text x="120.0" y="422" text-anchor="middle" font-size="13" fill="#475569">-180°</text>
+<line x1="236.7" y1="60" x2="236.7" y2="400" stroke="#e2e8f0"/>
+<text x="236.7" y="422" text-anchor="middle" font-size="13" fill="#475569">-120°</text>
+<line x1="353.3" y1="60" x2="353.3" y2="400" stroke="#e2e8f0"/>
+<text x="353.3" y="422" text-anchor="middle" font-size="13" fill="#475569">-60°</text>
+<line x1="470.0" y1="60" x2="470.0" y2="400" stroke="#e2e8f0"/>
+<text x="470.0" y="422" text-anchor="middle" font-size="13" fill="#475569">0°</text>
+<line x1="586.7" y1="60" x2="586.7" y2="400" stroke="#e2e8f0"/>
+<text x="586.7" y="422" text-anchor="middle" font-size="13" fill="#475569">60°</text>
+<line x1="703.3" y1="60" x2="703.3" y2="400" stroke="#e2e8f0"/>
+<text x="703.3" y="422" text-anchor="middle" font-size="13" fill="#475569">120°</text>
+<line x1="820.0" y1="60" x2="820.0" y2="400" stroke="#e2e8f0"/>
+<text x="820.0" y="422" text-anchor="middle" font-size="13" fill="#475569">180°</text>
+<text x="105" y="85" text-anchor="end" font-size="14" font-weight="700" fill="#0f172a">J1</text>
+<rect x="123.9" y="69" width="692.2" height="22" rx="4" fill="#bfdbfe"/>
+<line x1="470.0" y1="65" x2="470.0" y2="95" stroke="#64748b" stroke-width="2" stroke-dasharray="3 2"/>
+<path d="M470.0,71 L479.0,80 L470.0,89 L461.0,80 z" fill="#d97706" stroke="#fff" stroke-width="2"/>
+<text x="824.1" y="85" font-size="12" fill="#475569">[-178°, 178°]</text>
+<text x="105" y="130" text-anchor="end" font-size="14" font-weight="700" fill="#0f172a">J2</text>
+<rect x="236.7" y="114" width="466.7" height="22" rx="4" fill="#bfdbfe"/>
+<line x1="470.0" y1="110" x2="470.0" y2="140" stroke="#64748b" stroke-width="2" stroke-dasharray="3 2"/>
+<path d="M431.0,116 L440.0,125 L431.0,134 L422.0,125 z" fill="#d97706" stroke="#fff" stroke-width="2"/>
+<text x="711.3" y="130" font-size="12" fill="#475569">[-120°, 120°]</text>
+<text x="105" y="175" text-anchor="end" font-size="14" font-weight="700" fill="#0f172a">J3</text>
+<rect x="123.9" y="159" width="692.2" height="22" rx="4" fill="#bfdbfe"/>
+<line x1="470.0" y1="155" x2="470.0" y2="185" stroke="#64748b" stroke-width="2" stroke-dasharray="3 2"/>
+<path d="M470.0,161 L479.0,170 L470.0,179 L461.0,170 z" fill="#d97706" stroke="#fff" stroke-width="2"/>
+<text x="824.1" y="175" font-size="12" fill="#475569">[-178°, 178°]</text>
+<text x="105" y="220" text-anchor="end" font-size="14" font-weight="700" fill="#0f172a">J4</text>
+<rect x="188.1" y="204" width="398.6" height="22" rx="4" fill="#bfdbfe"/>
+<line x1="387.4" y1="200" x2="387.4" y2="230" stroke="#64748b" stroke-width="2" stroke-dasharray="3 2"/>
+<path d="M347.5,206 L356.5,215 L347.5,224 L338.5,215 z" fill="#d97706" stroke="#fff" stroke-width="2"/>
+<text x="594.7" y="220" font-size="12" fill="#475569">[-145°, 60°]</text>
+<text x="105" y="265" text-anchor="end" font-size="14" font-weight="700" fill="#0f172a">J5</text>
+<rect x="123.9" y="249" width="692.2" height="22" rx="4" fill="#bfdbfe"/>
+<line x1="470.0" y1="245" x2="470.0" y2="275" stroke="#64748b" stroke-width="2" stroke-dasharray="3 2"/>
+<path d="M470.0,251 L479.0,260 L470.0,269 L461.0,260 z" fill="#d97706" stroke="#fff" stroke-width="2"/>
+<text x="824.1" y="265" font-size="12" fill="#475569">[-178°, 178°]</text>
+<text x="105" y="310" text-anchor="end" font-size="14" font-weight="700" fill="#0f172a">J6</text>
+<rect x="353.3" y="294" width="233.3" height="22" rx="4" fill="#bfdbfe"/>
+<line x1="470.0" y1="290" x2="470.0" y2="320" stroke="#64748b" stroke-width="2" stroke-dasharray="3 2"/>
+<path d="M509.0,296 L518.0,305 L509.0,314 L500.0,305 z" fill="#d97706" stroke="#fff" stroke-width="2"/>
+<text x="594.7" y="310" font-size="12" fill="#475569">[-60°, 60°]</text>
+<text x="105" y="355" text-anchor="end" font-size="14" font-weight="700" fill="#0f172a">J7</text>
+<rect x="295.0" y="339" width="350.0" height="22" rx="4" fill="#bfdbfe"/>
+<line x1="470.0" y1="335" x2="470.0" y2="365" stroke="#64748b" stroke-width="2" stroke-dasharray="3 2"/>
+<path d="M470.0,341 L479.0,350 L470.0,359 L461.0,350 z" fill="#d97706" stroke="#fff" stroke-width="2"/>
+<text x="653.0" y="355" font-size="12" fill="#475569">[-90°, 90°]</text>
+<g font-size="13" fill="#0f172a">
+<rect x="120" y="440" width="22" height="14" rx="3" fill="#bfdbfe"/><text x="150" y="452">关节允许范围</text>
+<line x1="270" y1="447" x2="270" y2="447" /><line x1="262" y1="440" x2="262" y2="456" stroke="#64748b" stroke-width="2" stroke-dasharray="3 2"/><text x="272" y="452">限位中心 q_center</text>
+<path d="M420,439 L429,447 L420,455 L411,447 z" fill="#d97706"/><text x="436" y="452">HOME 姿态（J2 −20.1°，J4 −63.0°，J6 +20.1°）</text>
+</g>
+</svg>

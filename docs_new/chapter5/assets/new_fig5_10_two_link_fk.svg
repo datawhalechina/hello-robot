@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="540" viewBox="0 0 1000 540" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker><marker id="b" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/></marker><marker id="g" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/></marker></defs>
+<rect width="1000" height="540" fill="#ffffff"/>
+<text x="500.0" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">二连杆平面机械臂：正运动学与 Jacobian 列的几何意义</text>
+<line x1="100" y1="470" x2="590" y2="470" stroke="#cbd5e1" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="120" y1="490" x2="120" y2="90" stroke="#cbd5e1" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="598" y="475" font-size="14" fill="#64748b">x</text><text x="115" y="82" font-size="14" fill="#64748b" text-anchor="end">y</text>
+<path d="M120.0,470.0 L301.9,365.0 L301.9,190.0" fill="none" stroke="#2563eb" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="120.0" cy="470.0" r="8" fill="#fff" stroke="#2563eb" stroke-width="3"/>
+<circle cx="301.9" cy="365.0" r="8" fill="#fff" stroke="#2563eb" stroke-width="3"/>
+<circle cx="301.9" cy="190.0" r="8" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<path d="M180.0,470.0 A60,60 0 0 0 172.0,440.0" fill="none" stroke="#d97706" stroke-width="2"/>
+<text x="190" y="458" font-size="15" fill="#0f172a">q₁ = 30°</text>
+<line x1="301.9" y1="365.0" x2="379.8" y2="320.0" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
+<path d="M345.2,340.0 A50,50 0 0 0 301.9,315.0" fill="none" stroke="#d97706" stroke-width="2"/>
+<text x="337.9" y="317.0" font-size="15" fill="#0f172a">q₂ = 60°</text>
+<text x="220.9" y="441.5" font-size="14" fill="#0f172a">l₁ = 0.30 m</text>
+<text x="201.9" y="277.5" font-size="14" fill="#0f172a">l₂ = 0.25 m</text>
+<text x="313.9" y="387.0" font-size="13" fill="#64748b">肘 (0.260, 0.150)</text>
+<text x="315.9" y="210.0" font-size="14" font-weight="700" fill="#0f172a">末端 p = (0.260, 0.400)</text>
+<line x1="301.9" y1="190.0" x2="201.9" y2="125.1" stroke="#dc2626" stroke-width="3" marker-end="url(#b)"/>
+<text x="191.9" y="117.1" font-size="14" fill="#0f172a" text-anchor="end">J 第1列 (−0.400, 0.260)</text>
+<line x1="301.9" y1="190.0" x2="239.4" y2="190.0" stroke="#16a34a" stroke-width="3" marker-end="url(#g)"/>
+<text x="229.4" y="212.0" font-size="14" fill="#0f172a" text-anchor="end">J 第2列 (−0.250, 0)</text>
+<g font-size="14" fill="#0f172a">
+<rect x="560" y="70" width="410" height="420" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+<text x="580" y="100" font-weight="700" font-size="16">正运动学（FK）</text>
+<text x="580" y="128">x = l₁cos q₁ + l₂cos(q₁+q₂)</text>
+<text x="580" y="152">  = 0.30×0.866 + 0.25×0 = 0.260 m</text>
+<text x="580" y="180">y = l₁sin q₁ + l₂sin(q₁+q₂)</text>
+<text x="580" y="204">  = 0.30×0.5 + 0.25×1 = 0.400 m</text>
+<text x="580" y="244" font-weight="700" font-size="16">Jacobian（2×2）</text>
+<text x="580" y="272">J = [ −l₁s₁−l₂s₁₂   −l₂s₁₂ ]</text>
+<text x="580" y="296">      [  l₁c₁+l₂c₁₂     l₂c₁₂ ]</text>
+<text x="580" y="324">  = [ −0.400  −0.250 ;  0.260  0 ]</text>
+<text x="580" y="352">det J = l₁l₂ sin q₂ ≈ 0.065</text>
+<text x="580" y="390" font-weight="700" font-size="16">读图</text>
+<text x="580" y="416">第 i 列 = 只让关节 i 以 1 rad/s 转动时</text>
+<text x="580" y="440">末端的速度向量；它垂直于“关节→末端”</text>
+<text x="580" y="464">连线，长度等于这条连线的长度。</text>
+</g>
+</svg>

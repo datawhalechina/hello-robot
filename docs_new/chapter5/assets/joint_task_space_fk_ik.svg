@@ -1,0 +1,50 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500">
+  <title>关节空间与任务空间之间的正逆运动学关系</title>
+  <desc>展示七维关节角通过正运动学得到末端位姿，以及末端目标通过逆运动学转换成关节角。</desc>
+  <defs>
+    <marker id="a-blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker>
+    <marker id="a-violet" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#7c3aed"/></marker>
+    <style>
+      .t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.s{font-size:15px}.m{font-size:18px}.l{font-size:22px}
+    </style>
+  </defs>
+  <rect width="1000" height="500" fill="#f8fafc"/>
+  <text x="500" y="38" text-anchor="middle" class="t b" font-size="25">关节空间与任务空间：机器人最终执行的仍是关节命令</text>
+
+  <rect x="45" y="80" width="330" height="300" rx="24" fill="#dbeafe" stroke="#3b82f6" stroke-width="2.5"/>
+  <text x="210" y="117" text-anchor="middle" class="t b l">关节空间</text>
+  <text x="210" y="147" text-anchor="middle" class="t m">q = [q₁ q₂ q₃ q₄ q₅ q₆ q₇]ᵀ</text>
+  <g stroke="#1d4ed8" stroke-width="9" stroke-linecap="round" fill="none">
+    <path d="M85 320 L120 276 L163 290 L205 235 L252 252 L292 195 L335 218"/>
+  </g>
+  <g fill="#ffffff" stroke="#1d4ed8" stroke-width="3">
+    <circle cx="85" cy="320" r="11"/><circle cx="120" cy="276" r="11"/><circle cx="163" cy="290" r="11"/><circle cx="205" cy="235" r="11"/>
+    <circle cx="252" cy="252" r="11"/><circle cx="292" cy="195" r="11"/><circle cx="335" cy="218" r="11"/>
+  </g>
+  <text x="210" y="353" text-anchor="middle" class="t s">直接指定 7 个关节角：易执行、易检查限位</text>
+
+  <rect x="625" y="80" width="330" height="300" rx="24" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2.5"/>
+  <text x="790" y="117" text-anchor="middle" class="t b l">任务空间（笛卡尔空间）</text>
+  <g transform="translate(705,190)">
+    <line x1="0" y1="80" x2="120" y2="80" stroke="#ef4444" stroke-width="4" marker-end="url(#a-violet)"/>
+    <line x1="0" y1="80" x2="0" y2="-35" stroke="#16a34a" stroke-width="4" marker-end="url(#a-violet)"/>
+    <line x1="0" y1="80" x2="-55" y2="125" stroke="#2563eb" stroke-width="4" marker-end="url(#a-violet)"/>
+    <text x="128" y="86" class="t b s" fill="#ef4444">x</text><text x="8" y="-38" class="t b s" fill="#16a34a">z</text><text x="-70" y="142" class="t b s" fill="#2563eb">y</text>
+    <rect x="76" y="14" width="76" height="38" rx="9" fill="#f59e0b" stroke="#b45309" stroke-width="2"/>
+    <path d="M152 20 L182 8 M152 46 L182 58" stroke="#b45309" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <text x="790" y="326" text-anchor="middle" class="t m">T = [ R  p ; 0ᵀ  1 ]</text>
+  <text x="790" y="353" text-anchor="middle" class="t s">直观描述夹爪“到哪里、朝哪里”</text>
+
+  <line x1="385" y1="175" x2="615" y2="175" stroke="#2563eb" stroke-width="4" marker-end="url(#a-blue)"/>
+  <text x="500" y="152" text-anchor="middle" class="t b m" fill="#2563eb">正运动学 FK</text>
+  <text x="500" y="199" text-anchor="middle" class="t s">已知 q，唯一计算 T = FK(q)</text>
+
+  <line x1="615" y1="285" x2="385" y2="285" stroke="#7c3aed" stroke-width="4" marker-end="url(#a-violet)"/>
+  <text x="500" y="264" text-anchor="middle" class="t b m" fill="#7c3aed">逆运动学 IK</text>
+  <text x="500" y="310" text-anchor="middle" class="t s">给定目标 T，可能无解、一解或多解</text>
+
+  <rect x="115" y="414" width="770" height="55" rx="14" fill="#fff7ed" stroke="#f59e0b" stroke-width="2"/>
+  <text x="500" y="439" text-anchor="middle" class="t b m">任务目标不能直接驱动电机</text>
+  <text x="500" y="461" text-anchor="middle" class="t s">必须先由 IK 得到 qd，再生成连续关节轨迹并发送给关节 drive。</text>
+</svg>

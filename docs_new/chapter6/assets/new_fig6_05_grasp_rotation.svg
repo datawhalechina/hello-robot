@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="600" viewBox="0 0 1240 600" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#D33B3B"/></marker>
+    <marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#2E8B3E"/></marker>
+    <marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#2866B4"/></marker>
+    <marker id="mk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#33475B"/></marker>
+  </defs>
+  <rect width="1240" height="600" fill="#FFFFFF"/>
+  <text x="620" y="36" font-size="22" font-weight="700" fill="#1F3A56" text-anchor="middle">三个坐标系：世界系摆任务、arm_base_link 算运动学、夹爪 TCP 系描述“手的朝向”</text>
+
+  <!-- Panel A: GRASP_ROTATION -->
+  <rect x="20" y="60" width="580" height="520" rx="14" fill="#FFFFFF" stroke="#2866B4" stroke-width="2"/>
+  <text x="40" y="94" font-size="18" font-weight="700" fill="#2866B4">A. GRASP_ROTATION：每一列 = TCP 的一根轴在世界系中的方向</text>
+  <text x="40" y="128" font-size="16" fill="#33475B" font-family="Consolas, monospace">R = [[0, 1,  0],</text>
+  <text x="40" y="150" font-size="16" fill="#33475B" font-family="Consolas, monospace">     [1, 0,  0],</text>
+  <text x="40" y="172" font-size="16" fill="#33475B" font-family="Consolas, monospace">     [0, 0, -1]]</text>
+  <text x="250" y="128" font-size="14" fill="#D33B3B">第 1 列 (0,1,0)：TCP x 轴 = 世界 +y</text>
+  <text x="250" y="150" font-size="14" fill="#2E8B3E">第 2 列 (1,0,0)：TCP y 轴 = 世界 +x</text>
+  <text x="250" y="172" font-size="14" fill="#2866B4">第 3 列 (0,0,−1)：TCP z 轴 = 世界 −z</text>
+
+  <!-- world axes small (oblique) at 110,470 -->
+  <text x="70" y="230" font-size="14" font-weight="700" fill="#33475B">世界系 W</text>
+  <path d="M110 420 L190 420" stroke="#D33B3B" stroke-width="3" marker-end="url(#mr)"/><text x="196" y="425" font-size="13" fill="#D33B3B">x_W</text>
+  <path d="M110 420 L160 380" stroke="#2E8B3E" stroke-width="3" marker-end="url(#mg)"/><text x="166" y="376" font-size="13" fill="#2E8B3E">y_W</text>
+  <path d="M110 420 L110 340" stroke="#2866B4" stroke-width="3" marker-end="url(#mb)"/><text x="94" y="334" font-size="13" fill="#2866B4">z_W（向上）</text>
+
+  <!-- gripper sketch at 400,330 -->
+  <text x="340" y="230" font-size="14" font-weight="700" fill="#33475B">TCP 系（gripper_r_center_link）</text>
+  <rect x="380" y="250" width="80" height="34" rx="6" fill="#DDE3EA" stroke="#5B6B7C"/>
+  <rect x="368" y="284" width="16" height="64" rx="3" fill="#C9D2DC" stroke="#5B6B7C"/>
+  <rect x="456" y="284" width="16" height="64" rx="3" fill="#C9D2DC" stroke="#5B6B7C"/>
+  <rect x="400" y="330" width="40" height="40" fill="#E53935" fill-opacity="0.8"/>
+  <circle cx="420" cy="320" r="4" fill="#33475B"/>
+  <path d="M420 320 L470 280" stroke="#D33B3B" stroke-width="3" marker-end="url(#mr)"/><text x="476" y="276" font-size="13" fill="#D33B3B">x_T ∥ y_W</text>
+  <path d="M420 320 L500 320" stroke="#2E8B3E" stroke-width="3" marker-end="url(#mg)"/><text x="506" y="325" font-size="13" fill="#2E8B3E">y_T ∥ x_W</text>
+  <path d="M420 320 L420 410" stroke="#2866B4" stroke-width="3" marker-end="url(#mb)"/><text x="428" y="420" font-size="13" fill="#2866B4">z_T 朝下</text>
+  <text x="40" y="470" font-size="14" fill="#33475B">• 夹爪从正上方竖直接近（z_T 指向桌面）；</text>
+  <text x="40" y="494" font-size="14" fill="#33475B">• det(R) = +1，是合法旋转，不是镜像；</text>
+  <text x="40" y="518" font-size="14" fill="#33475B">• config.py 注释：“夹爪沿 y 方向夹紧”。</text>
+  <text x="40" y="552" font-size="12" fill="#8A96A3">手指示意只表达方向关系，不是 G2 夹爪的真实几何。</text>
+
+  <!-- Panel B: transform hypothetical -->
+  <rect x="620" y="60" width="600" height="520" rx="14" fill="#FFFFFF" stroke="#168477" stroke-width="2"/>
+  <text x="640" y="94" font-size="18" font-weight="700" fill="#168477">B. 假设性数值：为什么世界“向下”不能直接写进 dp</text>
+  <text x="640" y="124" font-size="14" fill="#33475B">设 arm_base_link 在世界中：位置 p_A = (0.80, −0.10, 1.00)，</text>
+  <text x="640" y="146" font-size="14" fill="#33475B">轴向 x_A = (1,0,0)，y_A = (0,0,1)，z_A = (0,−1,0)（即 R_A = Rx(90°)）</text>
+  <text x="640" y="168" font-size="12" fill="#8A96A3">（仅为演示代数而假设，G2 实际 R_A 必须运行时读取）</text>
+
+  <rect x="640" y="186" width="560" height="120" rx="10" fill="#EAF6F4"/>
+  <text x="656" y="212" font-size="14" font-weight="700" fill="#0E5A51">① 点的转换：预抓取点 W p_T = (1.27, −0.30, 1.08)</text>
+  <text x="656" y="238" font-size="14" fill="#33475B">W p_T − W p_A = (0.47, −0.20, 0.08)</text>
+  <text x="656" y="264" font-size="14" fill="#33475B">A p_T = R_Aᵀ(…) = (x_A·d, y_A·d, z_A·d) = (0.47, 0.08, 0.20)</text>
+  <text x="656" y="290" font-size="13" fill="#5B6B7C">同一个点，在两个坐标系里的三个数字完全不同。</text>
+
+  <rect x="640" y="318" width="560" height="120" rx="10" fill="#FDF3E7"/>
+  <text x="656" y="344" font-size="14" font-weight="700" fill="#7A4A12">② 位移的转换：世界向下 2 cm，v_W = (0, 0, −0.02)</text>
+  <text x="656" y="370" font-size="14" fill="#33475B">位移只旋转、不平移：A v = R_Aᵀ v_W = (0, −0.02, 0)</text>
+  <text x="656" y="396" font-size="14" fill="#33475B">正确写法：dp = (0, −0.02, 0)</text>
+  <text x="656" y="422" font-size="14" fill="#C0392B">错误写法 dp = (0, 0, −0.02) → 世界位移 = −0.02·z_A = (0, +0.02, 0)</text>
+
+  <rect x="640" y="450" width="560" height="110" rx="10" fill="#FBEDED"/>
+  <text x="656" y="476" font-size="14" font-weight="700" fill="#C0392B">后果：想“下探”，手却向世界 +y 侧移了 2 cm</text>
+  <text x="656" y="502" font-size="14" fill="#33475B">所以本章任务只写世界目标，交给 move_world()：</text>
+  <text x="656" y="526" font-size="14" fill="#33475B" font-family="Consolas, monospace">world_to_arm() → IK 或 delta_ee → 世界系误差验收</text>
+  <text x="656" y="548" font-size="12" fill="#8A96A3">工具系（TCP）增量同理也要换算，代码约定 dp/dr 都在 arm_base_link。</text>
+</svg>

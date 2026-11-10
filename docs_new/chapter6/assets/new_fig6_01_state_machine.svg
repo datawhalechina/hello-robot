@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="600" viewBox="0 0 1240 600" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#33475B"/>
+    </marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#C0392B"/>
+    </marker>
+  </defs>
+  <rect width="1240" height="600" fill="#FFFFFF"/>
+  <text x="620" y="38" font-size="23" font-weight="700" fill="#1F3A56" text-anchor="middle">task.py 的顺序状态机：每个阶段要么通过检查进入下一阶段，要么抛出异常终止</text>
+
+  <!-- legend -->
+  <rect x="60" y="62" width="22" height="16" rx="3" fill="#EEF4FB" stroke="#2866B4"/>
+  <text x="90" y="76" font-size="14" fill="#33475B">固定使用 relative_joint 或非机械臂动作</text>
+  <rect x="400" y="62" width="22" height="16" rx="3" fill="#FDF3E7" stroke="#C57926"/>
+  <text x="430" y="76" font-size="14" fill="#33475B">按 --mode 选择 relative_joint / delta_ee</text>
+  <rect x="740" y="62" width="22" height="16" rx="3" fill="#EAF6F4" stroke="#168477"/>
+  <text x="770" y="76" font-size="14" fill="#33475B">夹爪动作</text>
+  <rect x="880" y="62" width="22" height="16" rx="3" fill="#FFF9DB" stroke="#B08900"/>
+  <text x="910" y="76" font-size="14" fill="#33475B">结果检查</text>
+
+  <!-- Row 1 -->
+  <g font-size="15" text-anchor="middle">
+    <rect x="40" y="110" width="150" height="80" rx="10" fill="#EEF4FB" stroke="#2866B4" stroke-width="2"/>
+    <text x="115" y="140" font-weight="700" fill="#2866B4">prepare</text>
+    <text x="115" y="163" fill="#33475B">右臂回 HOME</text>
+    <text x="115" y="182" fill="#33475B">夹爪张开</text>
+
+    <rect x="230" y="110" width="150" height="80" rx="10" fill="#EEF4FB" stroke="#2866B4" stroke-width="2"/>
+    <text x="305" y="140" font-weight="700" fill="#2866B4">navigate ×2</text>
+    <text x="305" y="163" fill="#33475B">(0.35, 0, 0)</text>
+    <text x="305" y="182" fill="#33475B">(0.70, 0, 0)</text>
+
+    <rect x="420" y="110" width="150" height="80" rx="10" fill="#EEF4FB" stroke="#2866B4" stroke-width="2"/>
+    <text x="495" y="140" font-weight="700" fill="#2866B4">pregrasp</text>
+    <text x="495" y="163" fill="#33475B">红块上方</text>
+    <text x="495" y="182" fill="#33475B">TCP z = 1.080</text>
+
+    <rect x="610" y="110" width="150" height="80" rx="10" fill="#FDF3E7" stroke="#C57926" stroke-width="2"/>
+    <text x="685" y="140" font-weight="700" fill="#C57926">descend</text>
+    <text x="685" y="163" fill="#33475B">下探抓取点</text>
+    <text x="685" y="182" fill="#33475B">TCP z = 0.920</text>
+
+    <rect x="800" y="110" width="150" height="80" rx="10" fill="#EAF6F4" stroke="#168477" stroke-width="2"/>
+    <text x="875" y="140" font-weight="700" fill="#168477">close</text>
+    <text x="875" y="163" fill="#33475B">夹爪 → 0 rad</text>
+    <text x="875" y="182" fill="#33475B">等待 1.0 s</text>
+
+    <rect x="990" y="110" width="150" height="80" rx="10" fill="#FDF3E7" stroke="#C57926" stroke-width="2"/>
+    <text x="1065" y="140" font-weight="700" fill="#C57926">lift</text>
+    <text x="1065" y="163" fill="#33475B">抬回 z = 1.080</text>
+    <text x="1065" y="182" fill="#33475B">再等 0.4 s</text>
+  </g>
+  <path d="M190 150 L226 150" stroke="#33475B" stroke-width="2" marker-end="url(#g)"/>
+  <path d="M380 150 L416 150" stroke="#33475B" stroke-width="2" marker-end="url(#g)"/>
+  <path d="M570 150 L606 150" stroke="#33475B" stroke-width="2" marker-end="url(#g)"/>
+  <path d="M760 150 L796 150" stroke="#33475B" stroke-width="2" marker-end="url(#g)"/>
+  <path d="M950 150 L986 150" stroke="#33475B" stroke-width="2" marker-end="url(#g)"/>
+
+  <!-- lift check -->
+  <rect x="975" y="225" width="180" height="70" rx="10" fill="#FFF9DB" stroke="#B08900" stroke-width="2"/>
+  <text x="1065" y="252" font-size="14" fill="#5C4700" text-anchor="middle">抬升 ≥ 0.096 m</text>
+  <text x="1065" y="275" font-size="14" fill="#5C4700" text-anchor="middle">且 |块心 − TCP| ≤ 0.09 m</text>
+  <path d="M1065 190 L1065 221" stroke="#33475B" stroke-width="2" marker-end="url(#g)"/>
+  <path d="M1065 295 L1065 330 L1100 330 L1100 352" fill="none" stroke="#33475B" stroke-width="2" marker-end="url(#g)"/>
+  <text x="1112" y="322" font-size="13" fill="#33475B">通过</text>
+
+  <!-- Row 2 (right to left) -->
+  <g font-size="15" text-anchor="middle">
+    <rect x="1025" y="356" width="150" height="80" rx="10" fill="#FDF3E7" stroke="#C57926" stroke-width="2"/>
+    <text x="1100" y="386" font-weight="700" fill="#C57926">transfer</text>
+    <text x="1100" y="409" fill="#33475B">框上方</text>
+    <text x="1100" y="428" fill="#33475B">TCP z = 1.100</text>
+
+    <rect x="835" y="356" width="150" height="80" rx="10" fill="#FDF3E7" stroke="#C57926" stroke-width="2"/>
+    <text x="910" y="386" font-weight="700" fill="#C57926">place</text>
+    <text x="910" y="409" fill="#33475B">下放释放位</text>
+    <text x="910" y="428" fill="#33475B">TCP z = 0.940</text>
+
+    <rect x="645" y="356" width="150" height="80" rx="10" fill="#EAF6F4" stroke="#168477" stroke-width="2"/>
+    <text x="720" y="386" font-weight="700" fill="#168477">release</text>
+    <text x="720" y="409" fill="#33475B">夹爪 → 0.72 rad</text>
+    <text x="720" y="428" fill="#33475B">等待 1.0 s</text>
+
+    <rect x="455" y="356" width="150" height="80" rx="10" fill="#FDF3E7" stroke="#C57926" stroke-width="2"/>
+    <text x="530" y="386" font-weight="700" fill="#C57926">retreat</text>
+    <text x="530" y="409" fill="#33475B">回 z = 1.100</text>
+    <text x="530" y="428" fill="#33475B">等待 1.0 s</text>
+
+    <rect x="245" y="356" width="170" height="80" rx="10" fill="#FFF9DB" stroke="#B08900" stroke-width="2"/>
+    <text x="330" y="384" font-weight="700" fill="#5C4700">验收</text>
+    <text x="330" y="406" font-size="13" fill="#5C4700">连续 0.5 s 在框内</text>
+    <text x="330" y="426" font-size="13" fill="#5C4700">底盘漂移 ≤ 0.02 m</text>
+
+    <rect x="60" y="356" width="140" height="80" rx="40" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2"/>
+    <text x="130" y="395" font-weight="700" fill="#2E7D32">success</text>
+    <text x="130" y="418" font-size="13" fill="#2E7D32">返回结果字典</text>
+  </g>
+  <path d="M1025 396 L989 396" stroke="#33475B" stroke-width="2" marker-end="url(#g)"/>
+  <path d="M835 396 L799 396" stroke="#33475B" stroke-width="2" marker-end="url(#g)"/>
+  <path d="M645 396 L609 396" stroke="#33475B" stroke-width="2" marker-end="url(#g)"/>
+  <path d="M455 396 L419 396" stroke="#33475B" stroke-width="2" marker-end="url(#g)"/>
+  <path d="M245 396 L204 396" stroke="#33475B" stroke-width="2" marker-end="url(#g)"/>
+
+  <!-- failure -->
+  <rect x="340" y="500" width="560" height="74" rx="10" fill="#FBEDED" stroke="#C0392B" stroke-width="2"/>
+  <text x="620" y="530" font-size="16" font-weight="700" fill="#C0392B" text-anchor="middle">任一环节抛出 ValueError / RuntimeError</text>
+  <text x="620" y="556" font-size="14" fill="#7B241C" text-anchor="middle">停止底盘 → 记录 error 与 phase → 关闭仿真 → 非零退出码（不自动重抓）</text>
+  <path d="M1155 260 L1200 260 L1200 537 L904 537" fill="none" stroke="#C0392B" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#r)"/>
+  <text x="1190" y="480" font-size="13" fill="#C0392B" text-anchor="end">未通过</text>
+  <path d="M330 436 L420 496" fill="none" stroke="#C0392B" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#r)"/>
+  <path d="M720 436 L680 496" fill="none" stroke="#C0392B" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#r)"/>
+  <text x="742" y="474" font-size="13" fill="#C0392B">IK / 跟踪 / TCP 误差 / 航点超时</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520" viewBox="0 0 1000 520" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker><marker id="b" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/></marker><marker id="g" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/></marker></defs>
+<rect width="1000" height="520" fill="#ffffff"/>
+<text x="500.0" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">冗余自由度：末端不动，手臂内部姿态仍可变化（平面三连杆示意）</text>
+<line x1="100" y1="440" x2="560" y2="440" stroke="#cbd5e1" stroke-width="1.5"/>
+<path d="M140.0,440.0 L286.6,386.6 L331.1,264.5 L304.4,191.2" fill="none" stroke="#2563eb" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="140.0" cy="440.0" r="7" fill="#fff" stroke="#2563eb" stroke-width="3"/>
+<circle cx="286.6" cy="386.6" r="7" fill="#fff" stroke="#2563eb" stroke-width="3"/>
+<circle cx="331.1" cy="264.5" r="7" fill="#fff" stroke="#2563eb" stroke-width="3"/>
+<path d="M140.0,440.0 L271.2,355.6 L236.8,230.2 L304.4,191.2" fill="none" stroke="#d97706" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 7"/>
+<circle cx="140.0" cy="440.0" r="7" fill="#fff" stroke="#d97706" stroke-width="3"/>
+<circle cx="271.2" cy="355.6" r="7" fill="#fff" stroke="#d97706" stroke-width="3"/>
+<circle cx="236.8" cy="230.2" r="7" fill="#fff" stroke="#d97706" stroke-width="3"/>
+<circle cx="304.4" cy="191.2" r="9" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="318.4" y="179.2" font-size="14" font-weight="700" fill="#0f172a">同一末端位置 p</text>
+<g font-size="14" fill="#0f172a">
+<rect x="600" y="70" width="370" height="410" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+<text x="620" y="100" font-weight="700" font-size="16">数值（连杆 0.30 / 0.25 / 0.15 m）</text>
+<line x1="620" y1="126" x2="660" y2="126" stroke="#2563eb" stroke-width="5"/>
+<text x="670" y="131">A：q = (20.0°, 50.0°, 40.0°)</text>
+<line x1="620" y1="156" x2="660" y2="156" stroke="#d97706" stroke-width="5" stroke-dasharray="12 7"/>
+<text x="670" y="161">B：q = (32.8°, 72.6°, -75.3°)</text>
+<text x="620" y="196">两者末端都在 p = (0.316, 0.478) m</text>
+<text x="620" y="236" font-weight="700">为什么会这样？</text>
+<text x="620" y="262">平面位置只有 2 个约束 (x, y)，</text>
+<text x="620" y="286">关节却有 3 个 → 多出 1 个自由度。</text>
+<text x="620" y="310">G2 单臂：6 个位姿约束，7 个关节。</text>
+<text x="620" y="350" font-weight="700">零空间（null space）</text>
+<text x="620" y="376">满足 J·Δq ≈ 0 的关节变化：手臂在动，</text>
+<text x="620" y="400">末端（一阶近似下）不动。</text>
+<text x="620" y="436">本章用它把关节推向限位中心：</text>
+<text x="620" y="460">Δq_center = k_c · N · g_center</text>
+</g>
+</svg>

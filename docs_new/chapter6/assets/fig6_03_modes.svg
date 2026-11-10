@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="860" viewBox="0 0 1440 860" role="img" aria-labelledby="title desc">
+<title id="title">图 6-3｜终点一样，路径为什么可能不一样？</title><desc id="desc">相同起终 TCP 位姿的概念示意：不是 G2 实测轨迹，曲线形状也不是任何场景下的保证。</desc>
+<rect width="1440" height="860" fill="#F4F7FB"/>
+<defs>
+<marker id="a61758A" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#61758A"/></marker>
+<marker id="a2866B4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#2866B4"/></marker>
+<marker id="a168477" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#168477"/></marker>
+<marker id="aC57926" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#C57926"/></marker>
+<marker id="aD74B4B" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#D74B4B"/></marker>
+</defs>
+<text x="40" y="54" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="30" font-weight="700" fill="#18334B" text-anchor="start">图 6-3｜终点一样，路径为什么可能不一样？</text>
+<text x="40" y="94" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#61758A" text-anchor="start">相同起终 TCP 位姿的概念示意：不是 G2 实测轨迹，曲线形状也不是任何场景下的保证。</text>
+<rect x="40" y="140" width="660" height="575" rx="16" fill="white" stroke="#C57926" stroke-width="2"/>
+<text x="65" y="181" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#C57926" text-anchor="start">relative_joint：先规定关节变化</text>
+<text x="65" y="222" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">七维 dq → 关节插值 → 末端随运动学移动</text>
+<path d="M105 555 H640" fill="none" stroke="#D7E1EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="105" y="587" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#61758A" text-anchor="start">示意平面：不代表具体世界轴向</text>
+<path d="M155 300 L560 505" fill="none" stroke="#61758A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 7"/>
+<circle cx="155" cy="300" r="10" fill="white" stroke="#C57926" stroke-width="3"/>
+<circle cx="560" cy="505" r="10" fill="white" stroke="#C57926" stroke-width="3"/>
+<text x="135" y="275" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#C57926" text-anchor="start">A 起点</text>
+<text x="550" y="548" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#C57926" text-anchor="start">B 终点</text>
+<path d="M155 300 C430 265 160 570 560 505" fill="none" stroke="#C57926" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#aC57926)"/>
+<text x="330" y="344" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#C57926" text-anchor="start">可能弯曲</text>
+<text x="65" y="635" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">只约束关节插值；中间 TCP 位置和朝向</text>
+<text x="65" y="671" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">由 FK 决定，不额外要求沿直线走。</text>
+<rect x="740" y="140" width="660" height="575" rx="16" fill="white" stroke="#168477" stroke-width="2"/>
+<text x="765" y="181" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#168477" text-anchor="start">delta_ee：先规定末端变化</text>
+<text x="765" y="222" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">dp / dr → 末端取样 → IK → 短关节轨迹</text>
+<path d="M805 555 H1340" fill="none" stroke="#D7E1EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="805" y="587" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#61758A" text-anchor="start">示意平面：不代表具体世界轴向</text>
+<path d="M855 300 L1260 505" fill="none" stroke="#61758A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 7"/>
+<circle cx="855" cy="300" r="10" fill="white" stroke="#168477" stroke-width="3"/>
+<circle cx="1260" cy="505" r="10" fill="white" stroke="#168477" stroke-width="3"/>
+<text x="835" y="275" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#168477" text-anchor="start">A 起点</text>
+<text x="1250" y="548" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#168477" text-anchor="start">B 终点</text>
+<path d="M855 300 L1260 505" fill="none" stroke="#168477" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a168477)"/>
+<circle cx="922.5" cy="334.1666666666667" r="7" fill="white" stroke="#168477" stroke-width="3"/>
+<path d="M912.5 301.1666666666667 v-12 h20 v12" fill="none" stroke="#168477" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="990.0" cy="368.3333333333333" r="7" fill="white" stroke="#168477" stroke-width="3"/>
+<path d="M980.0 335.3333333333333 v-12 h20 v12" fill="none" stroke="#168477" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1057.5" cy="402.5" r="7" fill="white" stroke="#168477" stroke-width="3"/>
+<path d="M1047.5 369.5 v-12 h20 v12" fill="none" stroke="#168477" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1125.0" cy="436.66666666666663" r="7" fill="white" stroke="#168477" stroke-width="3"/>
+<path d="M1115.0 403.66666666666663 v-12 h20 v12" fill="none" stroke="#168477" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1192.5" cy="470.83333333333337" r="7" fill="white" stroke="#168477" stroke-width="3"/>
+<path d="M1182.5 437.83333333333337 v-12 h20 v12" fill="none" stroke="#168477" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1050" y="338" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#168477" text-anchor="start">中间位姿逐点求 IK</text>
+<text x="765" y="635" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">图中点位于期望直线上；点间实际运动</text>
+<text x="765" y="671" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">仍由关节轨迹执行，是离散近似。</text>
+<text x="40" y="792" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#61758A" text-anchor="start">虚线：起终点之间的直线参考。橙线：关节插值可能产生的 TCP 路径。绿点：末端模式的 IK 取样点。</text>
+<text x="40" y="820" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#61758A" text-anchor="start">两种模式都不自动避障；delta_ee 也不是一条无需 IK 的“直接挪动夹爪”指令。</text>
+</svg>

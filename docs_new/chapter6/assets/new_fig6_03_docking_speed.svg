@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#5B6B7C"/>
+    </marker>
+  </defs>
+  <rect width="1100" height="560" fill="#FFFFFF"/>
+  <text x="550" y="38" font-size="22" font-weight="700" fill="#1F3A56" text-anchor="middle">底盘从第一航点驶向最终航点：PoseController 的速度命令随剩余距离变化</text>
+  <text x="550" y="66" font-size="15" fill="#5B6B7C" text-anchor="middle">v_cmd = min(0.22, 1.2 × d)，到达容差 d ≤ 0.006 m 且 |e_ψ| ≤ 0.012 rad（偏航误差为零时）</text>
+
+  <!-- axes: d 0..0.35 -> x 100..700 ; v 0..0.22 -> y 440..200 -->
+  <path d="M100 440 L740 440" stroke="#5B6B7C" stroke-width="1.5" marker-end="url(#ax)"/>
+  <path d="M100 440 L100 160" stroke="#5B6B7C" stroke-width="1.5" marker-end="url(#ax)"/>
+  <text x="745" y="462" font-size="14" fill="#5B6B7C">剩余距离 d (m)</text>
+  <text x="108" y="160" font-size="14" fill="#5B6B7C">速度命令 v (m/s)</text>
+  <g font-size="12" fill="#5B6B7C" text-anchor="middle">
+    <text x="100" y="460">0</text>
+    <text x="271.4" y="460">0.10</text>
+    <text x="414.3" y="460">0.183</text>
+    <text x="528.6" y="460">0.25</text>
+    <text x="700" y="460">0.35</text>
+  </g>
+  <g font-size="12" fill="#5B6B7C" text-anchor="end">
+    <text x="94" y="444">0</text>
+    <text x="94" y="313">0.12</text>
+    <text x="94" y="204">0.22</text>
+  </g>
+  <rect x="100" y="180" width="10.3" height="260" fill="#E8F5E9"/>
+  <path d="M110.3 440 L110.3 180" stroke="#2E7D32" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="118" y="196" font-size="12" fill="#2E7D32">6 mm 容差区</text>
+  <path d="M100 200 L700 200" stroke="#E3E8EE" stroke-dasharray="4 4"/>
+  <path d="M414.3 440 L414.3 200" stroke="#E3E8EE" stroke-dasharray="4 4"/>
+  <path d="M100 440 L414.3 200 L700 200" fill="none" stroke="#6A4FB0" stroke-width="3.5"/>
+  <text x="560" y="190" font-size="14" fill="#6A4FB0" text-anchor="middle">限幅段：0.22 m/s</text>
+  <text x="250" y="300" font-size="14" fill="#6A4FB0" text-anchor="end">比例段：v = 1.2 d</text>
+  <circle cx="271.4" cy="309.1" r="6" fill="#FFFFFF" stroke="#6A4FB0" stroke-width="2.5"/>
+  <text x="282" y="330" font-size="12" fill="#4B3685">d = 0.10 → v = 0.12</text>
+  <circle cx="700" cy="200" r="6" fill="#FFFFFF" stroke="#6A4FB0" stroke-width="2.5"/>
+  <text x="700" y="225" font-size="12" fill="#4B3685" text-anchor="middle">起点 d = 0.35 → 1.2d = 0.42，被限为 0.22</text>
+
+  <!-- side notes -->
+  <rect x="790" y="120" width="290" height="320" rx="12" fill="#F7F5FC" stroke="#6A4FB0" stroke-width="1.5"/>
+  <text x="808" y="150" font-size="16" font-weight="700" fill="#4B3685">图上没画但真实存在的环节</text>
+  <text x="808" y="180" font-size="13" fill="#33475B">1. 第四章 G2BaseController 还限制</text>
+  <text x="826" y="200" font-size="13" fill="#33475B">线加速度 0.80 m/s²：0 → 0.22 m/s</text>
+  <text x="826" y="220" font-size="13" fill="#33475B">至少需要约 0.275 s。</text>
+  <text x="808" y="250" font-size="13" fill="#33475B">2. 四轮转向角需要时间对准，</text>
+  <text x="826" y="270" font-size="13" fill="#33475B">实际速度滞后于命令。</text>
+  <text x="808" y="300" font-size="13" fill="#33475B">3. 进入容差区后先 stop()，</text>
+  <text x="826" y="320" font-size="13" fill="#33475B">hold(0.5 s) 再复核一次；</text>
+  <text x="826" y="340" font-size="13" fill="#33475B">冲出容差区则继续控制。</text>
+  <text x="808" y="370" font-size="13" fill="#33475B">4. 循环上限 ⌈25 / dt⌉ = 3000 步，</text>
+  <text x="826" y="390" font-size="13" fill="#33475B">超出即抛出“固定航点超时”。</text>
+  <text x="808" y="420" font-size="12" fill="#8A96A3">本图为按公式画出的命令曲线，不是实测。</text>
+
+  <text x="100" y="510" font-size="14" fill="#33475B">读法：离目标越远，速度越早被“顶”到上限；进入 0.183 m 以内后速度与距离成正比减小，越靠近越慢，</text>
+  <text x="100" y="534" font-size="14" fill="#33475B">理论上永远“差一点点”——所以必须有容差 0.006 m，否则控制器永远不会宣布到达。</text>
+</svg>

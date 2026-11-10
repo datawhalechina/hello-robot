@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="980" viewBox="0 0 1440 980" role="img" aria-labelledby="title desc">
+<title id="title">图 6-5｜抓放分阶段：先抬起，再搬运，最后等它落稳</title><desc id="desc">横向表示任务进程，不是世界 x；高度按配置标注。连线连接目标，不代表 relative_joint 的实际路径。</desc>
+<rect width="1440" height="980" fill="#F4F7FB"/>
+<defs>
+<marker id="a61758A" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#61758A"/></marker>
+<marker id="a2866B4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#2866B4"/></marker>
+<marker id="a168477" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#168477"/></marker>
+<marker id="aC57926" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#C57926"/></marker>
+<marker id="aD74B4B" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#D74B4B"/></marker>
+</defs>
+<text x="40" y="54" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="30" font-weight="700" fill="#18334B" text-anchor="start">图 6-5｜抓放分阶段：先抬起，再搬运，最后等它落稳</text>
+<text x="40" y="94" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#61758A" text-anchor="start">横向表示任务进程，不是世界 x；高度按配置标注。连线连接目标，不代表 relative_joint 的实际路径。</text>
+<rect x="40" y="140" width="1360" height="470" rx="16" fill="white" stroke="#D7E1EC" stroke-width="2"/>
+<text x="65" y="180" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#2866B4" text-anchor="start">底盘已停稳后</text>
+<path d="M170 540 H1330" fill="none" stroke="#61758A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="68" y="546" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#61758A" text-anchor="start">桌面</text>
+<text x="55" y="578" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#61758A" text-anchor="start">z = 0.900</text>
+<path d="M210 260.99999999999994 L420 509.0" fill="none" stroke="#168477" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a168477)" stroke-dasharray="8 7"/>
+<path d="M420 509.0 L630 260.99999999999994" fill="none" stroke="#168477" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a168477)" stroke-dasharray="8 7"/>
+<path d="M630 260.99999999999994 L875 229.9999999999999" fill="none" stroke="#168477" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a168477)" stroke-dasharray="8 7"/>
+<path d="M875 229.9999999999999 L1090 478.0000000000001" fill="none" stroke="#168477" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a168477)" stroke-dasharray="8 7"/>
+<path d="M1090 478.0000000000001 L1300 229.9999999999999" fill="none" stroke="#168477" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a168477)" stroke-dasharray="8 7"/>
+<circle cx="210" cy="260.99999999999994" r="9" fill="white" stroke="#168477" stroke-width="3"/>
+<text x="210" y="213.99999999999994" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#168477" text-anchor="middle">① 预抓取</text>
+<text x="210" y="241.99999999999994" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#18334B" text-anchor="middle">z = 1.080</text>
+<circle cx="420" cy="509.0" r="9" fill="white" stroke="#168477" stroke-width="3"/>
+<text x="270" y="448" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#168477" text-anchor="middle">② 下探 / 夹紧</text>
+<text x="270" y="476" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#18334B" text-anchor="middle">z = 0.920</text>
+<circle cx="630" cy="260.99999999999994" r="9" fill="white" stroke="#168477" stroke-width="3"/>
+<text x="630" y="213.99999999999994" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#168477" text-anchor="middle">③ 抬升检查</text>
+<text x="630" y="241.99999999999994" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#18334B" text-anchor="middle">z = 1.080</text>
+<circle cx="875" cy="229.9999999999999" r="9" fill="white" stroke="#168477" stroke-width="3"/>
+<text x="875" y="182.9999999999999" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#168477" text-anchor="middle">④ 框上方</text>
+<text x="875" y="210.9999999999999" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#18334B" text-anchor="middle">z = 1.100</text>
+<circle cx="1090" cy="478.0000000000001" r="9" fill="white" stroke="#168477" stroke-width="3"/>
+<text x="1260" y="437" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#168477" text-anchor="middle">⑤ 下放 / 松爪</text>
+<text x="1260" y="465" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#18334B" text-anchor="middle">z = 0.940</text>
+<circle cx="1300" cy="229.9999999999999" r="9" fill="white" stroke="#168477" stroke-width="3"/>
+<text x="1300" y="182.9999999999999" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#168477" text-anchor="middle">⑥ 退出</text>
+<text x="1300" y="210.9999999999999" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#18334B" text-anchor="middle">z = 1.100</text>
+<rect x="402" y="478.0000000000001" width="36" height="61.999999999999886" rx="2" fill="#D74B4B" stroke="#D74B4B" stroke-width="2"/>
+<circle cx="420" cy="509.0" r="7" fill="white" stroke="#168477" stroke-width="3"/>
+<rect x="1015" y="527.6" width="155" height="12.399999999999977" rx="1" fill="#CFE2FB" stroke="#2866B4" stroke-width="2"/>
+<rect x="1015" y="457.8500000000001" width="10" height="69.74999999999994" rx="1" fill="#CFE2FB" stroke="#2866B4" stroke-width="2"/>
+<rect x="1160" y="457.8500000000001" width="10" height="69.74999999999994" rx="1" fill="#CFE2FB" stroke="#2866B4" stroke-width="2"/>
+<path d="M1114 484.0000000000001 V496.59999999999997" fill="none" stroke="#D74B4B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#aD74B4B)"/>
+<text x="1065" y="581" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#2866B4" text-anchor="middle">落稳中心 ≈ 0.928 m</text>
+<text x="282" y="566" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="400" fill="#D74B4B" text-anchor="start">红块中心 0.920 m</text>
+<rect x="40" y="645" width="420" height="190" rx="16" fill="white" stroke="#168477" stroke-width="2"/>
+<text x="60" y="680" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#168477" text-anchor="start">先确认真的拿起来</text>
+<text x="60" y="715" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">默认抬升目标：0.160 m</text>
+<text x="60" y="745" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">实际抬升 ≥ 0.096 m</text>
+<text x="60" y="775" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">红块与 TCP 距离 ≤ 0.090 m</text>
+<rect x="500" y="645" width="420" height="190" rx="16" fill="white" stroke="#2866B4" stroke-width="2"/>
+<text x="520" y="680" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#2866B4" text-anchor="start">再确认整块落入框内</text>
+<text x="520" y="715" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">不是只检查红块中心</text>
+<text x="520" y="745" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">底部接近框底板，速度足够小</text>
+<text x="520" y="775" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">退出后等待，并连续验收 0.5 s</text>
+<rect x="960" y="645" width="440" height="190" rx="16" fill="white" stroke="#C57926" stroke-width="2"/>
+<text x="980" y="680" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#C57926" text-anchor="start">两种模式从哪里开始不同</text>
+<text x="980" y="715" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">HOME 与预抓取：均用关节模式</text>
+<text x="980" y="745" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">下探 / 抬升 / 搬运 / 下放 / 退出：</text>
+<text x="980" y="775" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">使用命令行选择的模式</text>
+<text x="40" y="912" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#61758A" text-anchor="start">框上方 z = 0.940 + 0.160 = 1.100 m，比红块上方高 0.020 m；搬运目标并非严格等高。</text>
+<text x="40" y="940" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#61758A" text-anchor="start">释放 TCP 高度 0.940 m ≠ 最终方块中心高度 0.928 m；方块靠真实接触和重力完成抓放。</text>
+</svg>

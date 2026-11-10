@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="540" viewBox="0 0 1000 540" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker><marker id="b" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/></marker><marker id="g" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/></marker></defs>
+<rect width="1000" height="540" fill="#ffffff"/>
+<text x="500.0" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">二连杆逆运动学：同一目标点的两组解（肘下 / 肘上）与工作空间</text>
+<circle cx="120" cy="470" r="385.0" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+<circle cx="120" cy="470" r="35.0" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+<rect x="0" y="471" width="560" height="70" fill="#ffffff"/>
+<line x1="100" y1="470" x2="560" y2="470" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="397.2" y="184.8" font-size="13" fill="#64748b">外边界 r = l₁+l₂ = 0.55 m</text>
+<text x="162" y="464" font-size="12" fill="#64748b">内边界 r = |l₁−l₂| = 0.05 m</text>
+<path d="M120.0,470.0 L301.9,365.0 L301.9,190.0" fill="none" stroke="#2563eb" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M120.0,470.0 L142.0,261.2 L301.9,190.0" fill="none" stroke="#d97706" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 7"/>
+<circle cx="120.0" cy="470.0" r="7" fill="#fff" stroke="#2563eb" stroke-width="3"/>
+<circle cx="301.9" cy="365.0" r="7" fill="#fff" stroke="#2563eb" stroke-width="3"/>
+<circle cx="142.0" cy="261.2" r="7" fill="#fff" stroke="#d97706" stroke-width="3"/>
+<circle cx="301.9" cy="190.0" r="9" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<text x="315.9" y="182.0" font-size="14" font-weight="700" fill="#0f172a">目标 (0.260, 0.400)</text>
+<text x="313.9" y="385.0" font-size="13" fill="#0f172a">解 1 的肘</text>
+<text x="130.0" y="251.2" font-size="13" fill="#0f172a" text-anchor="end">解 2 的肘</text>
+<g font-size="14" fill="#0f172a">
+<rect x="560" y="70" width="410" height="420" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+<text x="580" y="100" font-weight="700" font-size="16">解析解（余弦定理）</text>
+<text x="580" y="128">cos q₂ = (x²+y²−l₁²−l₂²) / (2l₁l₂)</text>
+<text x="580" y="152">       = (0.2275−0.1525) / 0.15 = 0.5</text>
+<text x="580" y="176">q₂ = ±60°</text>
+<text x="580" y="204">q₁ = atan2(y,x) − atan2(l₂sin q₂, l₁+l₂cos q₂)</text>
+<text x="580" y="228">atan2(y,x) = 57.0°</text>
+<line x1="580" y1="258" x2="620" y2="258" stroke="#2563eb" stroke-width="5"/>
+<text x="630" y="263">解 1：q = (30.0°, 60.0°)</text>
+<line x1="580" y1="288" x2="620" y2="288" stroke="#d97706" stroke-width="5" stroke-dasharray="12 7"/>
+<text x="630" y="293">解 2：q = (84.0°, −60.0°)</text>
+<text x="580" y="336" font-weight="700" font-size="16">三种情况</text>
+<text x="580" y="362">|cos q₂| &lt; 1：两组解（本例）</text>
+<text x="580" y="386">|cos q₂| = 1：一组解，手臂伸直/折叠（奇异）</text>
+<text x="580" y="410">|cos q₂| &gt; 1：无解，目标在环形工作空间外</text>
+<text x="580" y="448">七轴 G2 的解更多（无穷多组），</text>
+<text x="580" y="472">所以本章改用数值 IK + 初值 + 零空间。</text>
+</g>
+</svg>

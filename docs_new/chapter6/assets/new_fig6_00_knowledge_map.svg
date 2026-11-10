@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#5B6B7C"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="660" fill="#FFFFFF"/>
+  <text x="600" y="40" font-size="24" font-weight="700" fill="#1F3A56" text-anchor="middle">第六章知识地图：从固定任务到可验收的移动抓放</text>
+
+  <!-- Part 1 -->
+  <rect x="440" y="70" width="320" height="96" rx="12" fill="#EEF4FB" stroke="#2866B4" stroke-width="2"/>
+  <text x="600" y="102" font-size="19" font-weight="700" fill="#2866B4" text-anchor="middle">第一部分 任务与状态机</text>
+  <text x="600" y="130" font-size="15" fill="#33475B" text-anchor="middle">固定场景 · 三层分工 · 动作序列</text>
+  <text x="600" y="152" font-size="14" fill="#5B6B7C" text-anchor="middle">config.py · task.py</text>
+
+  <!-- Part 2 -->
+  <rect x="60" y="230" width="330" height="120" rx="12" fill="#FDF3E7" stroke="#C57926" stroke-width="2"/>
+  <text x="225" y="262" font-size="19" font-weight="700" fill="#C57926" text-anchor="middle">第二部分 两种动作模式</text>
+  <text x="225" y="290" font-size="15" fill="#33475B" text-anchor="middle">relative_joint：q_goal = q + dq</text>
+  <text x="225" y="314" font-size="15" fill="#33475B" text-anchor="middle">delta_ee：dp/dr → 分段 IK</text>
+  <text x="225" y="338" font-size="14" fill="#5B6B7C" text-anchor="middle">control.py · MotionController</text>
+
+  <!-- Part 3 -->
+  <rect x="435" y="230" width="330" height="120" rx="12" fill="#EAF6F4" stroke="#168477" stroke-width="2"/>
+  <text x="600" y="262" font-size="19" font-weight="700" fill="#168477" text-anchor="middle">第三部分 坐标系</text>
+  <text x="600" y="290" font-size="15" fill="#33475B" text-anchor="middle">世界系 / arm_base_link / 夹爪系</text>
+  <text x="600" y="314" font-size="15" fill="#33475B" text-anchor="middle">world_to_arm() · GRASP_ROTATION</text>
+  <text x="600" y="338" font-size="14" fill="#5B6B7C" text-anchor="middle">environment.py · config.py</text>
+
+  <!-- Part 4 -->
+  <rect x="810" y="230" width="330" height="120" rx="12" fill="#F1EEF9" stroke="#6A4FB0" stroke-width="2"/>
+  <text x="975" y="262" font-size="19" font-weight="700" fill="#6A4FB0" text-anchor="middle">第四部分 底盘停靠</text>
+  <text x="975" y="290" font-size="15" fill="#33475B" text-anchor="middle">PoseController 比例控制</text>
+  <text x="975" y="314" font-size="15" fill="#33475B" text-anchor="middle">限速 · 容差 · 停车复核</text>
+  <text x="975" y="338" font-size="14" fill="#5B6B7C" text-anchor="middle">navigate() · 第四章底盘模块</text>
+
+  <!-- Part 5 -->
+  <rect x="290" y="410" width="620" height="96" rx="12" fill="#FBEDED" stroke="#C0392B" stroke-width="2"/>
+  <text x="600" y="442" font-size="19" font-weight="700" fill="#C0392B" text-anchor="middle">第五部分 夹爪接触抓取与成功判定</text>
+  <text x="600" y="470" font-size="15" fill="#33475B" text-anchor="middle">gripper() · 抬升检查 · cube_inside_box() · 连续稳定 · 底盘漂移</text>
+  <text x="600" y="492" font-size="14" fill="#5B6B7C" text-anchor="middle">control.py · task.py</text>
+
+  <!-- Part 6/7 -->
+  <rect x="290" y="560" width="620" height="76" rx="12" fill="#F4F6F8" stroke="#5B6B7C" stroke-width="2"/>
+  <text x="600" y="590" font-size="19" font-weight="700" fill="#33475B" text-anchor="middle">第六、七部分 代码结构与运行</text>
+  <text x="600" y="618" font-size="14" fill="#5B6B7C" text-anchor="middle">demo_pick_place.py · recording.py · 复用 code_chapter4 / code_chapter5</text>
+
+  <!-- arrows -->
+  <path d="M520 166 L260 226" fill="none" stroke="#5B6B7C" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M600 166 L600 226" fill="none" stroke="#5B6B7C" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M680 166 L940 226" fill="none" stroke="#5B6B7C" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M390 290 L431 290" fill="none" stroke="#5B6B7C" stroke-width="2" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <path d="M225 350 L400 406" fill="none" stroke="#5B6B7C" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M600 350 L600 406" fill="none" stroke="#5B6B7C" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M975 350 L800 406" fill="none" stroke="#5B6B7C" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M600 506 L600 556" fill="none" stroke="#5B6B7C" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="410" y="282" font-size="12" fill="#5B6B7C" text-anchor="middle">move_world</text>
+</svg>

@@ -1,0 +1,55 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
+  <title>正运动学链与几何 Jacobian</title>
+  <desc>展示七段关节变换的乘积，以及旋转关节 Jacobian 列的叉乘几何意义。</desc>
+  <defs>
+    <marker id="arr-gray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <marker id="arr-green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/></marker>
+    <marker id="arr-red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/></marker>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.s{font-size:15px}.m{font-size:18px}.l{font-size:22px}</style>
+  </defs>
+  <rect width="1100" height="620" fill="#f8fafc"/>
+  <text x="550" y="38" text-anchor="middle" class="t b" font-size="25">FK 给出当前几何状态，Jacobian 描述“微小关节运动如何推动末端”</text>
+
+  <rect x="40" y="75" width="1020" height="135" rx="20" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="550" y="106" text-anchor="middle" class="t b l">正运动学：沿机械臂链依次累乘</text>
+  <g class="t b" text-anchor="middle">
+    <rect x="80" y="132" width="100" height="52" rx="11" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="130" y="165" class="m">T₁(q₁)</text>
+    <rect x="225" y="132" width="100" height="52" rx="11" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="275" y="165" class="m">T₂(q₂)</text>
+    <text x="370" y="166" class="l">···</text>
+    <rect x="415" y="132" width="100" height="52" rx="11" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="465" y="165" class="m">T₇(q₇)</text>
+    <rect x="560" y="132" width="100" height="52" rx="11" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/><text x="610" y="165" class="s">Ttool</text>
+    <rect x="760" y="122" width="250" height="72" rx="14" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/><text x="885" y="151" class="m">Tbaseᵉᵉ(q)</text><text x="885" y="177" class="s">得到 Ree 与 pee</text>
+  </g>
+  <g stroke="#475569" stroke-width="3.5" marker-end="url(#arr-gray)"><line x1="180" y1="158" x2="217" y2="158"/><line x1="325" y1="158" x2="352" y2="158"/><line x1="387" y1="158" x2="407" y2="158"/><line x1="515" y1="158" x2="552" y2="158"/><line x1="660" y1="158" x2="752" y2="158"/></g>
+
+  <rect x="40" y="238" width="655" height="332" rx="22" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="367" y="272" text-anchor="middle" class="t b l">第 i 个旋转关节对末端速度的贡献</text>
+  <line x1="155" y1="485" x2="245" y2="405" stroke="#2563eb" stroke-width="12" stroke-linecap="round"/>
+  <line x1="245" y1="405" x2="380" y2="365" stroke="#2563eb" stroke-width="12" stroke-linecap="round"/>
+  <line x1="380" y1="365" x2="550" y2="320" stroke="#2563eb" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="245" cy="405" r="13" fill="#fff" stroke="#7c3aed" stroke-width="4"/>
+  <circle cx="550" cy="320" r="12" fill="#f59e0b" stroke="#b45309" stroke-width="3"/>
+  <text x="218" y="435" class="t b m">pi</text><text x="565" y="315" class="t b m">pee</text>
+  <line x1="245" y1="405" x2="535" y2="328" stroke="#16a34a" stroke-width="4" marker-end="url(#arr-green)"/>
+  <text x="360" y="346" class="t b m" fill="#16a34a">r = pee − pi</text>
+  <line x1="550" y1="320" x2="585" y2="435" stroke="#dc2626" stroke-width="5" marker-end="url(#arr-red)"/>
+  <text x="595" y="420" class="t b m" fill="#dc2626">切向速度</text><text x="595" y="444" class="t s">Jv,i q̇i</text>
+  <g transform="translate(245,405)"><circle cx="0" cy="0" r="31" fill="none" stroke="#7c3aed" stroke-width="3" stroke-dasharray="7 6"/><circle cx="0" cy="0" r="5" fill="#7c3aed"/><circle cx="0" cy="0" r="12" fill="none" stroke="#7c3aed" stroke-width="2"/></g>
+  <text x="112" y="357" class="t b m" fill="#7c3aed">zi：关节轴</text><text x="112" y="381" class="t s">垂直图面向外 ⊙</text>
+  <rect x="95" y="505" width="535" height="43" rx="11" fill="#ede9fe" stroke="#8b5cf6"/>
+  <text x="362" y="533" text-anchor="middle" class="t b m">Jv,i = zi × (pee − pi)，Jω,i = zi</text>
+
+  <rect x="730" y="238" width="330" height="332" rx="22" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="895" y="272" text-anchor="middle" class="t b l">7 个关节列拼成 Jacobian</text>
+  <rect x="785" y="305" width="220" height="145" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+  <rect x="785" y="305" width="220" height="72" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <rect x="785" y="377" width="220" height="73" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="895" y="338" text-anchor="middle" class="t b l">Jv</text><text x="895" y="364" text-anchor="middle" class="t s">3 × 7：线速度</text>
+  <text x="895" y="410" text-anchor="middle" class="t b l">Jω</text><text x="895" y="436" text-anchor="middle" class="t s">3 × 7：角速度</text>
+  <text x="895" y="485" text-anchor="middle" class="t b m">vee = J(q) q̇</text>
+  <text x="895" y="520" text-anchor="middle" class="t s">每一列 = 一个关节的瞬时贡献</text>
+  <text x="895" y="544" text-anchor="middle" class="t s">6 行任务速度，7 列关节速度</text>
+
+  <rect x="170" y="585" width="760" height="27" rx="8" fill="#fff7ed" stroke="#f59e0b"/>
+  <text x="550" y="604" text-anchor="middle" class="t s">直觉：关节离末端越远、力臂越长，同样的角速度通常产生越大的末端线速度。</text>
+</svg>

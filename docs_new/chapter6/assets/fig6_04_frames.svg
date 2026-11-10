@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="840" viewBox="0 0 1440 840" role="img" aria-labelledby="title desc">
+<title id="title">图 6-4｜“向下 2 cm”到底是沿哪个坐标系？</title><desc id="desc">用世界目标表达任务意图，再转换到机械臂基座系；不要把世界 z 直接当成 arm_base_link 的 z。</desc>
+<rect width="1440" height="840" fill="#F4F7FB"/>
+<defs>
+<marker id="a61758A" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#61758A"/></marker>
+<marker id="a2866B4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#2866B4"/></marker>
+<marker id="a168477" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#168477"/></marker>
+<marker id="aC57926" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#C57926"/></marker>
+<marker id="aD74B4B" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#D74B4B"/></marker>
+</defs>
+<text x="40" y="54" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="30" font-weight="700" fill="#18334B" text-anchor="start">图 6-4｜“向下 2 cm”到底是沿哪个坐标系？</text>
+<text x="40" y="94" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#61758A" text-anchor="start">用世界目标表达任务意图，再转换到机械臂基座系；不要把世界 z 直接当成 arm_base_link 的 z。</text>
+<rect x="40" y="145" width="410" height="265" rx="16" fill="white" stroke="#2866B4" stroke-width="2"/>
+<text x="60" y="180" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#2866B4" text-anchor="start">① 世界坐标系 W</text>
+<text x="60" y="215" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">假设当前 TCP：</text>
+<text x="60" y="245" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">(1.27, −0.30, 1.08) m</text>
+<text x="60" y="275" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">希望到达：</text>
+<text x="60" y="305" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">(1.27, −0.30, 1.06) m</text>
+<text x="60" y="335" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">世界位移：(0, 0, −0.02) m</text>
+<rect x="515" y="145" width="410" height="265" rx="16" fill="white" stroke="#168477" stroke-width="2"/>
+<text x="535" y="180" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#168477" text-anchor="start">② 机械臂基座坐标系 A</text>
+<text x="535" y="215" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">读取 arm_base_link 世界位姿</text>
+<text x="535" y="245" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">world_to_arm()</text>
+<text x="535" y="275" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">目标位置：先减原点，再转轴</text>
+<text x="535" y="305" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">目标朝向：转换到同一坐标系</text>
+<text x="535" y="335" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">不能只变换位置、不变换朝向</text>
+<path d="M450 277 H515" fill="none" stroke="#2866B4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a2866B4)"/>
+<rect x="990" y="145" width="410" height="265" rx="16" fill="white" stroke="#C57926" stroke-width="2"/>
+<text x="1010" y="180" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="700" fill="#C57926" text-anchor="start">③ 在 A 系内构造动作</text>
+<text x="1010" y="215" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">relative_joint：</text>
+<text x="1010" y="245" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">目标 IK − 当前关节角</text>
+<text x="1010" y="275" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">delta_ee：</text>
+<text x="1010" y="305" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">目标位置 − 当前 FK 位置</text>
+<text x="1010" y="335" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#18334B" text-anchor="start">旋转差 → 基座系旋转向量</text>
+<path d="M925 277 H990" fill="none" stroke="#168477" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a168477)"/>
+<rect x="40" y="455" width="690" height="235" rx="16" fill="white" stroke="#2866B4" stroke-width="2"/>
+<text x="65" y="495" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2866B4" text-anchor="start">固定基座时：位移只需旋转坐标轴</text>
+<text x="65" y="543" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="26" font-weight="400" fill="#18334B" text-anchor="start">Δp_A = R_WA 的转置 × Δp_W</text>
+<text x="65" y="584" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">绝对位置需要减去基座原点；位移不再减原点。</text>
+<text x="65" y="625" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="400" fill="#61758A" text-anchor="start">数值例子只说明世界目标，不假设真实基座轴向。</text>
+<rect x="770" y="455" width="630" height="235" rx="16" fill="white" stroke="#168477" stroke-width="2"/>
+<text x="795" y="495" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#168477" text-anchor="start">工具坐标系 T：跟着夹爪一起转</text>
+<text x="795" y="540" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">本章抓取姿态：TCP 的 +z 朝世界下方。</text>
+<text x="795" y="578" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#168477" text-anchor="start">但 delta_ee 的 dp / dr 都不是工具系增量！</text>
+<text x="795" y="616" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B" text-anchor="start">dr = 0：保持当前朝向，不是重置到零姿态。</text>
+<text x="40" y="772" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#61758A" text-anchor="start">W：世界；A：arm_base_link；T：gripper_r_center_link。R_WA 表示 A 相对于 W 的旋转。</text>
+<text x="40" y="800" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#61758A" text-anchor="start">坐标变换使用运行时实际位姿；底盘移动后应重新读取，不能沿用旧的基座变换。</text>
+</svg>

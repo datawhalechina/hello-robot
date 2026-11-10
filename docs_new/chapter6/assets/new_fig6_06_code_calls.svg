@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="k" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#33475B"/></marker>
+    <marker id="d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#8A96A3"/></marker>
+  </defs>
+  <rect width="1200" height="640" fill="#FFFFFF"/>
+  <text x="600" y="36" font-size="22" font-weight="700" fill="#1F3A56" text-anchor="middle">code_chapter6 模块调用关系（实线 = 调用，虚线 = 读取配置 / 跨章复用）</text>
+
+  <!-- entry -->
+  <rect x="440" y="62" width="320" height="70" rx="10" fill="#EEF4FB" stroke="#2866B4" stroke-width="2"/>
+  <text x="600" y="92" font-size="17" font-weight="700" fill="#2866B4" text-anchor="middle">demo_pick_place.py · main()</text>
+  <text x="600" y="117" font-size="13" fill="#33475B" text-anchor="middle">解析 --mode/--headless/--keep-open/--record</text>
+
+  <!-- layer 2 -->
+  <rect x="40" y="186" width="250" height="80" rx="10" fill="#F4F6F8" stroke="#5B6B7C" stroke-width="2"/>
+  <text x="165" y="216" font-size="16" font-weight="700" fill="#33475B" text-anchor="middle">recording.py</text>
+  <text x="165" y="242" font-size="13" fill="#33475B" text-anchor="middle">TrajectoryRecorder（约 20 Hz）</text>
+
+  <rect x="330" y="186" width="250" height="80" rx="10" fill="#EAF6F4" stroke="#168477" stroke-width="2"/>
+  <text x="455" y="216" font-size="16" font-weight="700" fill="#168477" text-anchor="middle">environment.py</text>
+  <text x="455" y="242" font-size="13" fill="#33475B" text-anchor="middle">PickPlaceEnvironment</text>
+
+  <rect x="620" y="186" width="250" height="80" rx="10" fill="#FDF3E7" stroke="#C57926" stroke-width="2"/>
+  <text x="745" y="216" font-size="16" font-weight="700" fill="#C57926" text-anchor="middle">control.py</text>
+  <text x="745" y="242" font-size="13" fill="#33475B" text-anchor="middle">MotionController</text>
+
+  <rect x="910" y="186" width="250" height="80" rx="10" fill="#FBEDED" stroke="#C0392B" stroke-width="2"/>
+  <text x="1035" y="216" font-size="16" font-weight="700" fill="#C0392B" text-anchor="middle">task.py</text>
+  <text x="1035" y="242" font-size="13" fill="#33475B" text-anchor="middle">run_task() · cube_inside_box()</text>
+
+  <path d="M500 132 L200 182" stroke="#33475B" stroke-width="2" marker-end="url(#k)"/>
+  <path d="M560 132 L470 182" stroke="#33475B" stroke-width="2" marker-end="url(#k)"/>
+  <path d="M640 132 L730 182" stroke="#33475B" stroke-width="2" marker-end="url(#k)"/>
+  <path d="M700 132 L1010 182" stroke="#33475B" stroke-width="2" marker-end="url(#k)"/>
+  <text x="270" y="166" font-size="12" fill="#5B6B7C">① 先建记录器</text>
+  <text x="430" y="166" font-size="12" fill="#5B6B7C">② 建场景</text>
+  <text x="700" y="166" font-size="12" fill="#5B6B7C">③ 建控制器</text>
+  <text x="900" y="166" font-size="12" fill="#5B6B7C">④ 执行任务</text>
+
+  <path d="M910 226 L874 226" stroke="#33475B" stroke-width="2" marker-end="url(#k)"/>
+  <text x="892" y="284" font-size="12" fill="#5B6B7C" text-anchor="middle">move_world/gripper/navigate</text>
+  <path d="M620 226 L584 226" stroke="#33475B" stroke-width="2" marker-end="url(#k)"/>
+  <text x="602" y="300" font-size="12" fill="#5B6B7C" text-anchor="middle">step/world_to_arm/tcp_pose/base_pose</text>
+  <path d="M700 266 C600 330 260 330 175 270" fill="none" stroke="#33475B" stroke-width="1.6" marker-end="url(#k)"/>
+  <text x="300" y="318" font-size="12" fill="#5B6B7C">每步 recorder.sample(motion)</text>
+
+  <!-- config -->
+  <rect x="440" y="360" width="320" height="64" rx="10" fill="#FFF9DB" stroke="#B08900" stroke-width="2"/>
+  <text x="600" y="388" font-size="16" font-weight="700" fill="#5C4700" text-anchor="middle">config.py</text>
+  <text x="600" y="410" font-size="13" fill="#5C4700" text-anchor="middle">场景常量 · GRASP_ROTATION · TaskConfig</text>
+  <path d="M455 266 L540 356" stroke="#8A96A3" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#d)"/>
+  <path d="M745 266 L660 356" stroke="#8A96A3" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#d)"/>
+  <path d="M1035 266 L760 380" stroke="#8A96A3" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#d)"/>
+
+  <!-- reused chapters -->
+  <rect x="40" y="470" width="540" height="140" rx="10" fill="#F7F5FC" stroke="#6A4FB0" stroke-width="2"/>
+  <text x="60" y="500" font-size="16" font-weight="700" fill="#6A4FB0">code_chapter4（底盘）</text>
+  <text x="60" y="526" font-size="13" fill="#33475B">base_controller.py：G2BaseController、PoseController</text>
+  <text x="60" y="548" font-size="13" fill="#33475B">kinematics.py：SwerveKinematics、Pose2D</text>
+  <text x="60" y="570" font-size="13" fill="#33475B">config.py：ROBOT_USD、ROBOT_PRIM_PATH、RobotGeometry、ControlLimits</text>
+
+  <rect x="620" y="470" width="540" height="140" rx="10" fill="#F7F5FC" stroke="#6A4FB0" stroke-width="2"/>
+  <text x="640" y="500" font-size="16" font-weight="700" fill="#6A4FB0">code_chapter5（机械臂）</text>
+  <text x="640" y="526" font-size="13" fill="#33475B">arm_controller.py：G2ArmController（make_trajectory、solve_ik、FK）</text>
+  <text x="640" y="548" font-size="13" fill="#33475B">kinematics.py：axis_rotation、orientation_error、quaternion_to_matrix</text>
+  <text x="640" y="570" font-size="13" fill="#33475B">config.py：HOME_JOINT_POSITIONS、ARM_JOINT_NAMES</text>
+
+  <path d="M700 266 C600 420 400 420 330 466" fill="none" stroke="#8A96A3" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#d)"/>
+  <path d="M790 266 C900 380 900 420 890 466" fill="none" stroke="#8A96A3" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#d)"/>
+  <path d="M1080 266 C1150 360 1100 440 1040 466" fill="none" stroke="#8A96A3" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#d)"/>
+  <path d="M400 266 C380 360 300 420 240 466" fill="none" stroke="#8A96A3" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#d)"/>
+</svg>

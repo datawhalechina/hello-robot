@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#5B6B7C"/>
+    </marker>
+    <marker id="dm" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#33475B"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="620" fill="#FFFFFF"/>
+  <text x="600" y="36" font-size="22" font-weight="700" fill="#1F3A56" text-anchor="middle">cube_inside_box() 的两项几何判定：整块在框内（俯视）+ 底面贴着底板（侧视）</text>
+
+  <!-- Top view: scale 2000 px/m ; box center (300,330) -->
+  <text x="300" y="80" font-size="17" font-weight="700" fill="#2866B4" text-anchor="middle">俯视：世界 XY，框中心 (1.18, −0.52)</text>
+  <rect x="96" y="126" width="408" height="408" fill="#DCE8F6" stroke="#2866B4" stroke-width="2"/>
+  <rect x="120" y="150" width="360" height="360" fill="#FFFFFF" stroke="#2866B4" stroke-width="2"/>
+  <rect x="124" y="154" width="352" height="352" fill="none" stroke="#2866B4" stroke-width="1" stroke-dasharray="5 4"/>
+  <rect x="164" y="194" width="272" height="272" fill="#E8F5E9" fill-opacity="0.6" stroke="#2E7D32" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <rect x="180.6" y="210.6" width="238.8" height="238.8" fill="none" stroke="#B08900" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <!-- final cube: dx=-0.0034 -> -6.8px ; dy=+0.0148 -> -29.6px -->
+  <rect x="253.2" y="260.4" width="80" height="80" fill="#E53935" fill-opacity="0.85" stroke="#8E1B1B" stroke-width="2"/>
+  <circle cx="293.2" cy="300.4" r="4" fill="#FFFFFF"/>
+  <circle cx="300" cy="330" r="4" fill="#2866B4"/>
+  <path d="M300 330 L293.2 300.4" stroke="#FFFFFF" stroke-width="1.5"/>
+  <!-- dimensions -->
+  <path d="M124 560 L476 560" stroke="#33475B" stroke-width="1.2" marker-start="url(#dm)" marker-end="url(#dm)"/>
+  <text x="300" y="580" font-size="13" fill="#33475B" text-anchor="middle">可用宽度 0.18 − 2×0.002 = 0.176 m（虚线 = 2 mm 余量）</text>
+  <text x="300" y="186" font-size="12" fill="#2E7D32" text-anchor="middle">绿框：方块未旋转时中心允许区，半宽 0.068 m</text>
+  <text x="300" y="485" font-size="12" fill="#8A6D00" text-anchor="middle">黄框：绕 z 转 45° 时中心允许区，半宽 ≈ 0.0597 m</text>
+  <text x="345" y="290" font-size="12" fill="#8E1B1B">落稳中心</text>
+  <text x="345" y="306" font-size="12" fill="#8E1B1B">(1.1766, −0.5052)</text>
+  <text x="510" y="122" font-size="12" fill="#2866B4">墙厚 0.012</text>
+  <path d="M600 200 L600 140" stroke="#5B6B7C" stroke-width="1.2" marker-end="url(#ax)"/>
+  <text x="608" y="150" font-size="12" fill="#5B6B7C">世界 +y</text>
+  <path d="M600 200 L660 200" stroke="#5B6B7C" stroke-width="1.2" marker-end="url(#ax)"/>
+  <text x="640" y="218" font-size="12" fill="#5B6B7C">世界 +x</text>
+
+  <!-- Side view -->
+  <text x="930" y="80" font-size="17" font-weight="700" fill="#2866B4" text-anchor="middle">侧视：高度判定（单位 m）</text>
+  <!-- z scale: 0.900 -> y 470 ; 1 mm = 4 px ; 0.908 -> 438 ; 0.948 -> 278 -->
+  <rect x="730" y="470" width="420" height="40" fill="#B9C2CC"/>
+  <text x="940" y="496" font-size="13" fill="#33475B" text-anchor="middle">桌面上表面 z = 0.900</text>
+  <rect x="760" y="438" width="360" height="32" fill="#6C9BD2"/>
+  <text x="940" y="459" font-size="13" fill="#FFFFFF" text-anchor="middle">底板 8 mm，上表面 z = 0.908</text>
+  <rect x="760" y="258" width="20" height="180" fill="#2866B4"/>
+  <rect x="1100" y="258" width="20" height="180" fill="#2866B4"/>
+  <text x="1130" y="300" font-size="12" fill="#2866B4">墙高 0.045</text>
+  <rect x="860" y="414" width="60" height="24" fill="#E8F5E9" stroke="#2E7D32" stroke-dasharray="4 3"/>
+  <rect x="860" y="438" width="60" height="24" fill="#E8F5E9" fill-opacity="0.5" stroke="#2E7D32" stroke-dasharray="4 3"/>
+  <text x="930" y="420" font-size="12" fill="#2E7D32">底面允许区 ±6 mm</text>
+  <rect x="860" y="278" width="160" height="160" fill="#E53935" fill-opacity="0.85" stroke="#8E1B1B" stroke-width="2"/>
+  <text x="940" y="350" font-size="14" fill="#FFFFFF" text-anchor="middle">落稳中心 z ≈ 0.928</text>
+  <text x="940" y="372" font-size="13" fill="#FFFFFF" text-anchor="middle">底面 = 0.928 − 0.020 = 0.908</text>
+  <path d="M1040 230 L1040 270" stroke="#C57926" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ax)"/>
+  <text x="1048" y="236" font-size="12" fill="#C57926">释放时 TCP 目标 z = 0.940</text>
+  <text x="1048" y="252" font-size="12" fill="#C57926">（块心约 0.940，离底板 12 mm）</text>
+
+  <text x="660" y="545" font-size="13" fill="#33475B">另两项动态条件：‖v_cube‖ ≤ 0.04 m/s，且以上全部条件</text>
+  <text x="660" y="565" font-size="13" fill="#33475B">连续满足 round(0.5/dt) = 60 个物理步（约 0.5 s）。</text>
+  <text x="660" y="590" font-size="12" fill="#8A96A3">俯视按 2000 px/m 等比绘制；侧视纵向 4 px/mm 放大，横向不等比。</text>
+</svg>

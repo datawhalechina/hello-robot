@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="620" viewBox="0 0 1280 620" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#5B6B7C"/>
+    </marker>
+    <marker id="gr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#168477"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="620" fill="#FFFFFF"/>
+  <text x="640" y="36" font-size="22" font-weight="700" fill="#1F3A56" text-anchor="middle">两种动作模式的数值例子：左边按时间插值一个关节，右边按末端位置分段取样</text>
+
+  <!-- Left panel -->
+  <rect x="20" y="60" width="610" height="540" rx="14" fill="#FFFFFF" stroke="#C57926" stroke-width="2"/>
+  <text x="40" y="94" font-size="19" font-weight="700" fill="#C57926">relative_joint：J1 从 0.20 rad “再转 0.05 rad”，T = 1 s</text>
+  <text x="40" y="120" font-size="14" fill="#33475B">q(τ) = q0 + s(τ)(q1 − q0)，s(τ) = 3τ² − 2τ³</text>
+  <!-- axes: x 80..520 (tau 0..1), y 460..220 (q 0.20..0.25) -->
+  <path d="M80 470 L80 200" stroke="#5B6B7C" stroke-width="1.5" marker-end="url(#ax)"/>
+  <path d="M80 460 L555 460" stroke="#5B6B7C" stroke-width="1.5" marker-end="url(#ax)"/>
+  <text x="560" y="482" font-size="14" fill="#5B6B7C">τ = t/T</text>
+  <text x="70" y="192" font-size="14" fill="#5B6B7C" text-anchor="middle">J1 目标角 (rad)</text>
+  <g font-size="12" fill="#5B6B7C" text-anchor="end">
+    <text x="74" y="464">0.200</text>
+    <text x="74" y="344">0.225</text>
+    <text x="74" y="224">0.250</text>
+  </g>
+  <g font-size="12" fill="#5B6B7C" text-anchor="middle">
+    <text x="80" y="480">0</text><text x="190" y="480">0.25</text><text x="300" y="480">0.5</text><text x="410" y="480">0.75</text><text x="520" y="480">1</text>
+  </g>
+  <path d="M80 220 L520 220" stroke="#E3E8EE" stroke-width="1" stroke-dasharray="4 4"/>
+  <path d="M80 340 L520 340" stroke="#E3E8EE" stroke-width="1" stroke-dasharray="4 4"/>
+  <path d="M80 460 L520 220" stroke="#B0BAC5" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="430" y="300" font-size="12" fill="#8A96A3">线性插值（对照）</text>
+  <path d="M80 460 C226.7 460 373.3 220 520 220" fill="none" stroke="#C57926" stroke-width="3.5"/>
+  <g fill="#FFFFFF" stroke="#C57926" stroke-width="2.5">
+    <circle cx="80" cy="460" r="6"/><circle cx="190" cy="422.5" r="6"/><circle cx="300" cy="340" r="6"/><circle cx="410" cy="257.5" r="6"/><circle cx="520" cy="220" r="6"/>
+  </g>
+  <g font-size="12" fill="#7A4A12">
+    <text x="198" y="440">0.2078125</text>
+    <text x="308" y="360">0.2250000</text>
+    <text x="300" y="250">0.2421875</text>
+    <text x="470" y="210">0.2500000</text>
+  </g>
+  <text x="40" y="520" font-size="14" fill="#33475B">起止速度为零：s′(0) = s′(1) = 0，关节平滑启动、平滑停下。</text>
+  <text x="40" y="545" font-size="14" fill="#33475B">实测停在 0.247 时再发 +0.05 → 新目标 0.297，而不是 0.300。</text>
+  <text x="40" y="570" font-size="14" fill="#33475B">中间 TCP 位置由 FK 决定，不保证是直线。</text>
+
+  <!-- Right panel -->
+  <rect x="650" y="60" width="610" height="540" rx="14" fill="#FFFFFF" stroke="#168477" stroke-width="2"/>
+  <text x="670" y="94" font-size="19" font-weight="700" fill="#168477">delta_ee：dp = (0.03, −0.02, 0.01) m，dr = 0</text>
+  <text x="670" y="120" font-size="14" fill="#33475B">‖dp‖ ≈ 0.03742 m → N = ⌈0.03742 / 0.012⌉ = 4 段，每段 ≈ 9.35 mm</text>
+  <text x="670" y="146" font-size="13" fill="#5B6B7C">arm_base_link 中的 x–y 投影（z 同步从 0.200 增至 0.210；示意，轴向不等比）</text>
+  <!-- x 0.40->720, 0.43->1140 ; y 0.10->200, 0.08->420 -->
+  <path d="M700 450 L1180 450" stroke="#5B6B7C" stroke-width="1.5" marker-end="url(#ax)"/>
+  <text x="1185" y="470" font-size="14" fill="#5B6B7C">x (m)</text>
+  <path d="M700 450 L700 180" stroke="#5B6B7C" stroke-width="1.5" marker-end="url(#ax)"/>
+  <text x="712" y="186" font-size="14" fill="#5B6B7C">y (m)</text>
+  <path d="M720 200 L1140 420" stroke="#168477" stroke-width="3" marker-end="url(#gr)"/>
+  <circle cx="720" cy="200" r="8" fill="#168477"/>
+  <text x="732" y="194" font-size="13" fill="#0E5A51">p0 = (0.4000, 0.1000, 0.2000)</text>
+  <g fill="#FFFFFF" stroke="#168477" stroke-width="2.5">
+    <circle cx="825" cy="255" r="7"/><circle cx="930" cy="310" r="7"/><circle cx="1035" cy="365" r="7"/><circle cx="1140" cy="420" r="7"/>
+  </g>
+  <g font-size="13" fill="#0E5A51">
+    <text x="838" y="250">α=0.25 (0.4075, 0.0950, 0.2025)</text>
+    <text x="943" y="305">α=0.50 (0.4150, 0.0900, 0.2050)</text>
+    <text x="1048" y="358">α=0.75</text>
+    <text x="1048" y="376">(0.4225, 0.0850, 0.2075)</text>
+    <text x="960" y="440">α=1.00 (0.4300, 0.0800, 0.2100)</text>
+  </g>
+  <text x="670" y="500" font-size="14" fill="#33475B">① 先对 4 个取样点逐个求 IK（上一点的解作下一点初值）；</text>
+  <text x="670" y="525" font-size="14" fill="#33475B">② 4 个都成功才开始下发；任一失败，整段一步都不动；</text>
+  <text x="670" y="550" font-size="14" fill="#33475B">③ T = 2 s 时每段分 0.5 s，段内仍用三次时间缩放关节轨迹。</text>
+  <text x="670" y="575" font-size="14" fill="#33475B">点位落在期望直线上，点间是关节插值 —— 离散近似直线。</text>
+</svg>
