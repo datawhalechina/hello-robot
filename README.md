@@ -22,7 +22,7 @@
 
 ## 🔗 相关链接
 
-- **在线阅读地址**：[https://github.com/datawhalechina/diy-llm](https://datawhalechina.github.io/hello-robot/)
+- **在线阅读地址**：[https://github.com/datawhalechina/hello-robot](https://datawhalechina.github.io/hello-robot/)
 - **一键部署平台**：算力自由
 
 ## ✨ 教程亮点
