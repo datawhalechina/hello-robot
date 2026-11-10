@@ -1,0 +1,57 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="660" viewBox="0 0 1100 660">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <marker id="loop" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/></marker>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:25px}.m{font-size:18px}.s{font-size:14px}.xs{font-size:12px}.box{stroke-width:2}</style>
+  </defs>
+  <rect width="1100" height="660" fill="#f8fafc"/>
+  <text x="550" y="38" text-anchor="middle" class="t b h">从 VLM 高层决策到 VLA 连续动作闭环</text>
+  <text x="550" y="66" text-anchor="middle" class="t s">VLM 通常把语义目标交给外部规划控制链；VLA 直接生成动作块，但仍需重新观察和安全检查</text>
+
+  <rect x="35" y="92" width="470" height="225" rx="20" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="270" y="124" text-anchor="middle" class="t b m">VLM：理解与高层决策</text>
+  <g class="box">
+    <rect x="58" y="155" width="100" height="72" rx="14" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect x="190" y="155" width="105" height="72" rx="14" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect x="327" y="155" width="145" height="72" rx="14" fill="#fef3c7" stroke="#f59e0b"/>
+  </g>
+  <g class="t" text-anchor="middle">
+    <text x="108" y="184" class="b s">图像 + 语言</text><text x="108" y="207" class="xs">场景语义输入</text>
+    <text x="242" y="184" class="b s">VLM</text><text x="242" y="207" class="xs">文本/结构化目标</text>
+    <text x="399" y="181" class="b s">规划器 + 控制器</text><text x="399" y="205" class="xs">Nav2、MoveIt 2、IK</text>
+  </g>
+  <g stroke="#475569" stroke-width="3" marker-end="url(#arrow)"><line x1="158" y1="191" x2="182" y2="191"/><line x1="295" y1="191" x2="319" y2="191"/></g>
+  <rect x="100" y="253" width="340" height="42" rx="10" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="270" y="279" text-anchor="middle" class="t s">优势：职责清晰、易加规则　局限：链路较长</text>
+
+  <rect x="535" y="92" width="530" height="455" rx="20" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="800" y="124" text-anchor="middle" class="t b m">VLA：观察直接条件化连续动作</text>
+  <g class="box">
+    <rect x="565" y="153" width="145" height="88" rx="15" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect x="747" y="153" width="140" height="88" rx="15" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect x="924" y="153" width="110" height="88" rx="15" fill="#ffedd5" stroke="#f97316"/>
+  </g>
+  <g class="t" text-anchor="middle">
+    <text x="637" y="181" class="b s">当前观察 oₜ</text><text x="637" y="204" class="xs">多路图像、语言</text><text x="637" y="222" class="xs">机器人 state</text>
+    <text x="817" y="181" class="b s">VLA 策略</text><text x="817" y="204" class="xs">视觉语言主干</text><text x="817" y="222" class="xs">+ 动作专家</text>
+    <text x="979" y="181" class="b s">动作块 Aₜ</text><text x="979" y="204" class="xs">H 步连续动作</text><text x="979" y="222" class="xs">aₜ … aₜ₊H₋₁</text>
+  </g>
+  <g stroke="#475569" stroke-width="3" marker-end="url(#arrow)"><line x1="710" y1="197" x2="739" y2="197"/><line x1="887" y1="197" x2="916" y2="197"/></g>
+
+  <rect x="835" y="292" width="199" height="82" rx="15" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  <text x="934" y="321" text-anchor="middle" class="t b s">只执行前 K 步</text><text x="934" y="345" text-anchor="middle" class="t s">K ≤ H</text><text x="934" y="363" text-anchor="middle" class="t xs">避免盲目播放整段轨迹</text>
+  <path d="M979 241 V284" fill="none" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="565" y="292" width="220" height="82" rx="15" fill="#ecfccb" stroke="#65a30d" stroke-width="2"/>
+  <text x="675" y="321" text-anchor="middle" class="t b s">机器人与环境变化</text><text x="675" y="345" text-anchor="middle" class="t s">关节运动、物体移动</text><text x="675" y="363" text-anchor="middle" class="t xs">产生新的图像与 state</text>
+  <path d="M835 333 H793" fill="none" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M565 333 H548 V197 H557" fill="none" stroke="#16a34a" stroke-width="4" marker-end="url(#loop)"/>
+  <text x="545" y="410" class="t b s" fill="#15803d">重新观察 → 再推理</text>
+
+  <rect x="565" y="446" width="469" height="70" rx="14" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+  <text x="799" y="473" text-anchor="middle" class="t b s">三个时间尺度不能混为一谈</text>
+  <text x="799" y="497" text-anchor="middle" class="t s">模型动作步 ≠ Isaac Sim 物理步 ≠ 相机采样帧</text>
+
+  <rect x="80" y="575" width="940" height="50" rx="13" fill="#eff6ff" stroke="#60a5fa"/>
+  <text x="550" y="606" text-anchor="middle" class="t s">动作块是效率与反馈之间的折中：K 越小反馈越及时，K 越大动作越连贯，但对过时计划更敏感</text>
+</svg>

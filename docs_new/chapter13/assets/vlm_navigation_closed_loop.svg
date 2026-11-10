@@ -1,0 +1,78 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <marker id="feedback" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0f766e"/></marker>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:26px}.m{font-size:17px}.s{font-size:14px}.xs{font-size:12px}.box{stroke-width:2}</style>
+  </defs>
+  <rect width="1200" height="720" fill="#f8fafc"/>
+  <text x="600" y="40" text-anchor="middle" class="t b h">第十三章语义导航：感知、语义决策、规划与执行闭环</text>
+  <text x="600" y="68" text-anchor="middle" class="t s">VLM 只运行在低频高层选择环；Nav2 与底盘控制运行在持续反馈闭环</text>
+
+  <text x="150" y="110" text-anchor="middle" class="t b m" fill="#2563eb">① 感知与几何</text>
+  <text x="475" y="110" text-anchor="middle" class="t b m" fill="#7c3aed">② 语义决策</text>
+  <text x="790" y="110" text-anchor="middle" class="t b m" fill="#d97706">③ 目标与规划</text>
+  <text x="1050" y="110" text-anchor="middle" class="t b m" fill="#15803d">④ 执行与反馈</text>
+
+  <rect x="40" y="140" width="220" height="92" rx="17" fill="#dbeafe" stroke="#3b82f6" class="box"/>
+  <text x="150" y="172" text-anchor="middle" class="t b m">G2 头部 RGB-D</text>
+  <text x="150" y="202" text-anchor="middle" class="t s">彩色图 + 深度图 + 相机参数</text>
+
+  <rect x="40" y="285" width="220" height="105" rx="17" fill="#e0f2fe" stroke="#0284c7" class="box"/>
+  <text x="150" y="318" text-anchor="middle" class="t b m">YOLO-World + HSV</text>
+  <text x="150" y="348" text-anchor="middle" class="t s">检测框、类别、颜色、置信度</text>
+  <text x="150" y="373" text-anchor="middle" class="t xs">RGB-D 反投影得到世界坐标</text>
+
+  <rect x="345" y="140" width="260" height="92" rx="17" fill="#ede9fe" stroke="#8b5cf6" class="box"/>
+  <text x="475" y="172" text-anchor="middle" class="t b m">观察板 + detections.json</text>
+  <text x="475" y="202" text-anchor="middle" class="t s">图像证据与结构化候选事实</text>
+
+  <rect x="345" y="285" width="260" height="105" rx="17" fill="#f3e8ff" stroke="#a855f7" class="box"/>
+  <text x="475" y="318" text-anchor="middle" class="t b m">Qwen3-VL</text>
+  <text x="475" y="348" text-anchor="middle" class="t s">结合用户指令选择目标</text>
+  <text x="475" y="373" text-anchor="middle" class="t xs">red / blue / yellow / none</text>
+
+  <rect x="680" y="140" width="220" height="92" rx="17" fill="#fee2e2" stroke="#ef4444" class="box"/>
+  <text x="790" y="172" text-anchor="middle" class="t b m">JSON 校验</text>
+  <text x="790" y="202" text-anchor="middle" class="t s">字段、枚举、候选一致性</text>
+
+  <rect x="680" y="285" width="220" height="105" rx="17" fill="#fef3c7" stroke="#f59e0b" class="box"/>
+  <text x="790" y="318" text-anchor="middle" class="t b m">安全距离目标位姿</text>
+  <text x="790" y="348" text-anchor="middle" class="t s">目标中心 → standoff Pose2D</text>
+  <text x="790" y="373" text-anchor="middle" class="t xs">位置可验证，朝向指向目标</text>
+
+  <rect x="980" y="140" width="180" height="92" rx="17" fill="#dcfce7" stroke="#22c55e" class="box"/>
+  <text x="1070" y="172" text-anchor="middle" class="t b m">Nav2</text>
+  <text x="1070" y="202" text-anchor="middle" class="t s">规划、避障、输出 /cmd_vel</text>
+
+  <rect x="980" y="285" width="180" height="105" rx="17" fill="#ecfccb" stroke="#65a30d" class="box"/>
+  <text x="1070" y="318" text-anchor="middle" class="t b m">G2BaseController</text>
+  <text x="1070" y="348" text-anchor="middle" class="t s">vx、vy、ωz</text>
+  <text x="1070" y="373" text-anchor="middle" class="t xs">→ 4 转向 + 4 驱动关节</text>
+
+  <g stroke="#475569" stroke-width="4" marker-end="url(#arrow)">
+    <line x1="150" y1="232" x2="150" y2="275"/>
+    <path d="M260 337 H310 V186 H335" fill="none"/>
+    <line x1="475" y1="232" x2="475" y2="275"/>
+    <path d="M605 337 H640 V186 H670" fill="none"/>
+    <line x1="790" y1="232" x2="790" y2="275"/>
+    <path d="M900 337 H940 V186 H970" fill="none"/>
+    <line x1="1070" y1="232" x2="1070" y2="275"/>
+  </g>
+
+  <rect x="55" y="465" width="1090" height="155" rx="22" fill="#ffffff" stroke="#94a3b8" class="box"/>
+  <text x="600" y="500" text-anchor="middle" class="t b m">Nav2 持续闭环所需的数据接口</text>
+  <g class="t" text-anchor="middle">
+    <rect x="95" y="530" width="155" height="55" rx="12" fill="#dbeafe" stroke="#3b82f6"/><text x="172" y="553" class="b s">/scan</text><text x="172" y="574" class="xs">障碍观测</text>
+    <rect x="285" y="530" width="155" height="55" rx="12" fill="#e0f2fe" stroke="#0284c7"/><text x="362" y="553" class="b s">/odom</text><text x="362" y="574" class="xs">实时位姿与速度</text>
+    <rect x="475" y="530" width="155" height="55" rx="12" fill="#ede9fe" stroke="#8b5cf6"/><text x="552" y="553" class="b s">TF</text><text x="552" y="574" class="xs">map / odom / base_link</text>
+    <rect x="665" y="530" width="155" height="55" rx="12" fill="#fef3c7" stroke="#f59e0b"/><text x="742" y="553" class="b s">/clock</text><text x="742" y="574" class="xs">仿真时间</text>
+    <rect x="855" y="530" width="245" height="55" rx="12" fill="#dcfce7" stroke="#22c55e"/><text x="977" y="553" class="b s">/navigate_to_pose</text><text x="977" y="574" class="xs">目标、反馈与执行结果</text>
+  </g>
+
+  <path d="M1070 390 V430 H172 V520" fill="none" stroke="#0f766e" stroke-width="4" marker-end="url(#feedback)"/>
+  <path d="M977 530 V430 H1070 V400" fill="none" stroke="#0f766e" stroke-width="4" marker-end="url(#feedback)"/>
+  <text x="600" y="447" text-anchor="middle" class="t b s" fill="#0f766e">机器人运动产生新位姿和雷达观测，再反馈给 Nav2</text>
+
+  <rect x="245" y="650" width="710" height="42" rx="12" fill="#fff7ed" stroke="#fb923c"/>
+  <text x="600" y="677" text-anchor="middle" class="t b s">职责分离：VLM 决定“去哪个目标”，几何决定“目标在哪里”，Nav2 决定“怎样安全到达”。</text>
+</svg>

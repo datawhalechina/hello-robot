@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" width="1100" height="560" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1100" height="560" fill="#ffffff"/>
+  <text x="550" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">make_standoff_goal：沿“机器人→目标”连线后退安全距离，朝向指向目标</text>
+
+  <!-- 坐标系：x 从 -4 到 1.2，y 从 -4.2 到 -2.6；比例 150 px/m -->
+  <rect x="40" y="70" width="720" height="380" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="50" y="92" font-size="13" fill="#64748b">map 坐标系（俯视，单位 m，示意比例）</text>
+
+  <!-- target blue at (0.60,-3.50) → px 40+ (0.6+4)*150 = 730 ; y: 70 + ( -2.6 - (-3.5))*... use mapping y_px = 70 + (-2.4 - y)*150 → -3.5 → 235 -->
+  <!-- robot (-3.60,-3.30) → x_px = 40+0.4*150=100 ; y_px = 70+0.9*150=205 -->
+  <!-- goal (-0.249,-3.460) → x_px = 40+3.751*150=602.6 ; y_px = 70+1.06*150=229 -->
+  <line x1="100" y1="205" x2="700" y2="235" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+
+  <!-- inflation zone around target -->
+  <circle cx="700" cy="235" r="102" fill="#fee2e2" fill-opacity="0.5" stroke="#f87171" stroke-dasharray="5 4"/>
+  <text x="700" y="360" text-anchor="middle" font-size="12" fill="#b91c1c">目标进入代价地图 + 膨胀区（示意）</text>
+  <rect x="664" y="199" width="72" height="72" fill="#2563eb" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="700" y="240" text-anchor="middle" font-size="13" fill="#ffffff" font-weight="700">blue</text>
+  <text x="700" y="292" text-anchor="middle" font-size="12" fill="#1e3a8a">目标 (0.60, −3.50)</text>
+
+  <!-- robot -->
+  <circle cx="100" cy="205" r="26" fill="#e2e8f0" stroke="#334155" stroke-width="2"/>
+  <text x="100" y="210" text-anchor="middle" font-size="13" fill="#0f172a" font-weight="700">G2</text>
+  <text x="100" y="252" text-anchor="middle" font-size="12" fill="#334155">机器人 (−3.60, −3.30)</text>
+
+  <!-- goal -->
+  <circle cx="573" cy="229" r="12" fill="#16a34a"/>
+  <line x1="573" y1="229" x2="640" y2="232" stroke="#16a34a" stroke-width="3" marker-end="url(#arrg)"/>
+  <text x="560" y="200" text-anchor="middle" font-size="13" fill="#15803d" font-weight="700">standoff 目标</text>
+  <text x="560" y="182" text-anchor="middle" font-size="12" fill="#15803d">(−0.25, −3.46, yaw≈−0.05)</text>
+
+  <!-- distance bracket -->
+  <path d="M573,262 L573,272 L700,278 L700,268" fill="none" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="636" y="300" text-anchor="middle" font-size="12" fill="#15803d">d = 0.85 m</text>
+  <path d="M100,175 L100,165 L700,195 L700,185" fill="none" stroke="#475569" stroke-width="1.5"/>
+  <text x="400" y="168" text-anchor="middle" font-size="12" fill="#334155">L = √(4.20² + 0.20²) ≈ 4.205 m</text>
+
+  <!-- bad goal -->
+  <text x="700" y="140" text-anchor="middle" font-size="12" fill="#b91c1c">✗ 终点设在中心：落在致命代价内 → 不可达</text>
+  <line x1="700" y1="146" x2="700" y2="196" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- right panel formulas -->
+  <rect x="790" y="70" width="280" height="380" rx="10" fill="#ecfdf5" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="930" y="100" text-anchor="middle" font-size="15" font-weight="700" fill="#15803d">计算步骤</text>
+  <g font-size="13" fill="#0f172a">
+    <text x="808" y="130">dx = 0.60 − (−3.60) = 4.20</text>
+    <text x="808" y="154">dy = −3.50 − (−3.30) = −0.20</text>
+    <text x="808" y="178">L = hypot(dx, dy) ≈ 4.2048</text>
+    <text x="808" y="208">ratio = min(d, L − 0.05) / L</text>
+    <text x="808" y="230">      = 0.85 / 4.2048 ≈ 0.2022</text>
+    <text x="808" y="260">gx = tx − dx·ratio ≈ −0.249</text>
+    <text x="808" y="284">gy = ty − dy·ratio ≈ −3.460</text>
+    <text x="808" y="314">yaw = atan2(ty − gy, tx − gx)</text>
+    <text x="808" y="336">    = atan2(−0.040, 0.849)</text>
+    <text x="808" y="358">    ≈ −0.048 rad</text>
+  </g>
+  <text x="808" y="392" font-size="12" fill="#334155">L &lt; d 时用 L − 0.05 封顶，</text>
+  <text x="808" y="412" font-size="12" fill="#334155">保证目标点仍在机器人与目标之间；</text>
+  <text x="808" y="432" font-size="12" fill="#334155">L &lt; 1e-6 时原地保持当前位姿。</text>
+
+  <text x="550" y="490" text-anchor="middle" font-size="14" fill="#334155">示例假设：原地扫描后 G2 位置仍近似在起点 SimulationConfig.robot_start，目标取 config.py 中 blue 的中心。</text>
+  <text x="550" y="516" text-anchor="middle" font-size="14" fill="#334155">实际运行时 target_xy 来自 RGB-D 定位结果 detection.world_xyz[:2]，会与真值有厘米级偏差。</text>
+</svg>

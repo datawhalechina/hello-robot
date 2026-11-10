@@ -1,0 +1,54 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:26px}.m{font-size:18px}.s{font-size:14px}.xs{font-size:13px}.box{stroke-width:2}</style>
+  </defs>
+  <rect width="1100" height="620" fill="#f8fafc"/>
+  <text x="550" y="40" text-anchor="middle" class="t b h">大模型从通用能力到机器人任务的落地路径</text>
+  <text x="550" y="68" text-anchor="middle" class="t s">训练阶段塑造能力，部署阶段用 Prompt、程序校验和确定性控制约束行为</text>
+
+  <rect x="45" y="105" width="250" height="145" rx="18" fill="#dbeafe" stroke="#3b82f6" class="box"/>
+  <text x="170" y="140" text-anchor="middle" class="t b m">① 预训练</text>
+  <text x="170" y="174" text-anchor="middle" class="t s">大规模文本 / 图文数据</text>
+  <text x="170" y="201" text-anchor="middle" class="t s">学习语言、知识与通用表示</text>
+  <text x="170" y="228" text-anchor="middle" class="t xs">目标：预测下一个 token</text>
+
+  <rect x="425" y="105" width="250" height="145" rx="18" fill="#dcfce7" stroke="#22c55e" class="box"/>
+  <text x="550" y="140" text-anchor="middle" class="t b m">② 指令微调</text>
+  <text x="550" y="174" text-anchor="middle" class="t s">system / user / assistant 样本</text>
+  <text x="550" y="201" text-anchor="middle" class="t s">学习遵循任务与回答格式</text>
+  <text x="550" y="228" text-anchor="middle" class="t xs">从“续写文本”转向“完成指令”</text>
+
+  <rect x="805" y="105" width="250" height="145" rx="18" fill="#fef3c7" stroke="#f59e0b" class="box"/>
+  <text x="930" y="140" text-anchor="middle" class="t b m">③ 偏好与安全对齐</text>
+  <text x="930" y="174" text-anchor="middle" class="t s">人工或模型偏好数据</text>
+  <text x="930" y="201" text-anchor="middle" class="t s">改善帮助性、安全性与稳定性</text>
+  <text x="930" y="228" text-anchor="middle" class="t xs">不能消除幻觉与分布外错误</text>
+
+  <g stroke="#475569" stroke-width="4" marker-end="url(#arrow)">
+    <line x1="295" y1="177" x2="415" y2="177"/>
+    <line x1="675" y1="177" x2="795" y2="177"/>
+  </g>
+
+  <line x1="550" y1="250" x2="550" y2="302" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="570" y="283" class="t b s">选择开源 Instruct 模型</text>
+
+  <rect x="65" y="330" width="970" height="225" rx="22" fill="#ffffff" stroke="#94a3b8" class="box"/>
+  <text x="550" y="365" text-anchor="middle" class="t b m">机器人部署：模型只是受约束的高层决策模块</text>
+
+  <rect x="100" y="400" width="170" height="95" rx="15" fill="#ede9fe" stroke="#8b5cf6" class="box"/>
+  <rect x="310" y="400" width="170" height="95" rx="15" fill="#e0f2fe" stroke="#0284c7" class="box"/>
+  <rect x="520" y="400" width="170" height="95" rx="15" fill="#fee2e2" stroke="#ef4444" class="box"/>
+  <rect x="730" y="400" width="170" height="95" rx="15" fill="#ecfccb" stroke="#65a30d" class="box"/>
+  <g class="t" text-anchor="middle">
+    <text x="185" y="433" class="b m">Prompt 约束</text><text x="185" y="462" class="s">限定角色、候选与输出</text><text x="185" y="483" class="xs">必要时再微调</text>
+    <text x="395" y="433" class="b m">程序校验</text><text x="395" y="462" class="s">JSON Schema、枚举检查</text><text x="395" y="483" class="xs">无效结果立即停止</text>
+    <text x="605" y="433" class="b m">规划与安全</text><text x="605" y="462" class="s">Nav2 / MoveIt 处理约束</text><text x="605" y="483" class="xs">碰撞、限位、可达性</text>
+    <text x="815" y="433" class="b m">底层执行</text><text x="815" y="462" class="s">控制器驱动机器人</text><text x="815" y="483" class="xs">高频闭环不交给 LLM</text>
+  </g>
+  <g stroke="#475569" stroke-width="3.5" marker-end="url(#arrow)">
+    <line x1="270" y1="447" x2="302" y2="447"/><line x1="480" y1="447" x2="512" y2="447"/><line x1="690" y1="447" x2="722" y2="447"/>
+  </g>
+  <rect x="300" y="522" width="500" height="42" rx="12" fill="#fff7ed" stroke="#fb923c"/>
+  <text x="550" y="549" text-anchor="middle" class="t b s">关键原则：语言概率不能替代传感器事实和控制系统验证</text>
+</svg>

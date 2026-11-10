@@ -1,0 +1,58 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <marker id="feedback" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/></marker>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:25px}.m{font-size:18px}.s{font-size:14px}.xs{font-size:12px}.box{stroke-width:2}</style>
+  </defs>
+  <rect width="1200" height="720" fill="#f8fafc"/>
+  <text x="600" y="40" text-anchor="middle" class="t b h">OpenPI 模型服务与 Isaac Sim 客户端的双进程闭环</text>
+  <text x="600" y="69" text-anchor="middle" class="t s">用 WebSocket 连接两套隔离环境，避免把 JAX/Flax/Torch 依赖强行装入 Isaac Sim Python</text>
+
+  <rect x="42" y="103" width="395" height="450" rx="22" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="3"/>
+  <text x="239" y="138" text-anchor="middle" class="t b m">进程 A：OpenPI .venv</text>
+  <text x="239" y="163" text-anchor="middle" class="t xs">模型加载、归一化与 GPU 推理</text>
+  <g class="box">
+    <rect x="82" y="196" width="315" height="70" rx="14" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect x="82" y="298" width="315" height="92" rx="14" fill="#ffedd5" stroke="#f97316"/>
+    <rect x="82" y="422" width="315" height="84" rx="14" fill="#dcfce7" stroke="#22c55e"/>
+  </g>
+  <g class="t" text-anchor="middle">
+    <text x="239" y="224" class="b s">serve_model.py</text><text x="239" y="247" class="xs">校验 checkpoint 路径与模型类型</text>
+    <text x="239" y="326" class="b s">params + norm_stats.json</text><text x="239" y="350" class="xs">识别 LoRA / 完整参数</text><text x="239" y="372" class="xs">创建 OpenPI π0.5 policy</text>
+    <text x="239" y="451" class="b s">WebSocket Policy Server</text><text x="239" y="475" class="xs">返回元数据与动作块</text><text x="239" y="494" class="xs">actions: [horizon, action_dim]</text>
+  </g>
+  <g stroke="#475569" stroke-width="3" marker-end="url(#arrow)"><line x1="239" y1="266" x2="239" y2="290"/><line x1="239" y1="390" x2="239" y2="414"/></g>
+
+  <rect x="465" y="154" width="270" height="345" rx="18" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="600" y="188" text-anchor="middle" class="t b m">WebSocket 数据合同</text>
+  <rect x="495" y="216" width="210" height="140" rx="13" fill="#eff6ff" stroke="#3b82f6"/>
+  <text x="600" y="243" text-anchor="middle" class="t b s">客户端请求</text>
+  <g class="t xs"><text x="520" y="269">images.top_head</text><text x="520" y="290">images.hand_left</text><text x="520" y="311">images.hand_right</text><text x="520" y="332">state　+　prompt</text></g>
+  <rect x="495" y="384" width="210" height="82" rx="13" fill="#fff7ed" stroke="#f97316"/>
+  <text x="600" y="412" text-anchor="middle" class="t b s">服务端响应</text><text x="600" y="440" text-anchor="middle" class="t s">连续动作块 actions</text>
+  <path d="M437 286 H487" fill="none" stroke="#3b82f6" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M495 425 H445" fill="none" stroke="#f97316" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="763" y="103" width="395" height="450" rx="22" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+  <text x="960" y="138" text-anchor="middle" class="t b m">进程 B：Isaac Sim Python</text>
+  <text x="960" y="163" text-anchor="middle" class="t xs">场景、相机、机器人关节与物理仿真</text>
+  <g class="box">
+    <rect x="803" y="196" width="315" height="70" rx="14" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect x="803" y="298" width="315" height="92" rx="14" fill="#e0f2fe" stroke="#0284c7"/>
+    <rect x="803" y="422" width="315" height="84" rx="14" fill="#dcfce7" stroke="#22c55e"/>
+  </g>
+  <g class="t" text-anchor="middle">
+    <text x="960" y="224" class="b s">run_inference.py</text><text x="960" y="247" class="xs">组织 Prompt、重规划循环与完成判定</text>
+    <text x="960" y="326" class="b s">simulation.py + robot.py</text><text x="960" y="350" class="xs">采集 3 路 RGB 与 16/21 维 state</text><text x="960" y="372" class="xs">检查并裁剪关节目标</text>
+    <text x="960" y="451" class="b s">vla_client.py / ChunkRunner</text><text x="960" y="475" class="xs">验证动作形状和有限值，执行前 K 步</text><text x="960" y="494" class="xs">检查物块是否真实进入盒子</text>
+  </g>
+  <g stroke="#475569" stroke-width="3" marker-end="url(#arrow)"><line x1="960" y1="266" x2="960" y2="290"/><line x1="960" y1="390" x2="960" y2="414"/></g>
+  <path d="M763 286 H743" fill="none" stroke="#3b82f6" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M735 425 H755" fill="none" stroke="#f97316" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <path d="M960 553 V613 H600 V507" fill="none" stroke="#16a34a" stroke-width="4" marker-end="url(#feedback)"/>
+  <text x="786" y="602" text-anchor="middle" class="t b s" fill="#15803d">执行 K 步 → 重新采图与读取 state → 再请求动作块</text>
+
+  <rect x="125" y="641" width="950" height="48" rx="13" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+  <text x="600" y="671" text-anchor="middle" class="t s">权重能加载 ≠ 动作可安全执行：checkpoint、norm_stats、相机键、关节顺序、动作含义和维度必须同时匹配</text>
+</svg>

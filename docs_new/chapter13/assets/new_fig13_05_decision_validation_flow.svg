@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 620" width="1100" height="620" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1100" height="620" fill="#ffffff"/>
+  <text x="550" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">决策的三道闸门：VLM 子进程 → validate_decision → 主程序候选检查</text>
+
+  <!-- start -->
+  <rect x="380" y="60" width="340" height="50" rx="25" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="550" y="91" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">--skip-vlm 吗？</text>
+
+  <line x1="380" y1="85" x2="200" y2="85" stroke="#475569" stroke-width="2"/>
+  <line x1="200" y1="85" x2="200" y2="138" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="290" y="77" text-anchor="middle" font-size="13" fill="#334155">是（调试）</text>
+  <rect x="60" y="140" width="280" height="60" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="200" y="166" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">keyword_target()</text>
+  <text x="200" y="188" text-anchor="middle" font-size="12" fill="#334155">reason="调试模式：颜色关键词匹配"</text>
+
+  <line x1="550" y1="110" x2="550" y2="138" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="565" y="130" font-size="13" fill="#334155">否</text>
+  <rect x="400" y="140" width="300" height="60" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="550" y="166" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">run_local_vlm()：子进程</text>
+  <text x="550" y="188" text-anchor="middle" font-size="12" fill="#334155">local_vlm.py → vlm_decision.json</text>
+
+  <!-- exception branch -->
+  <line x1="700" y1="170" x2="778" y2="170" stroke="#dc2626" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="740" y="160" text-anchor="middle" font-size="12" fill="#dc2626">异常</text>
+  <rect x="780" y="130" width="290" height="80" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="925" y="154" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">OSError / SubprocessError /</text>
+  <text x="925" y="174" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">JSONDecodeError</text>
+  <text x="925" y="196" text-anchor="middle" font-size="12" fill="#334155">→ keyword_target() 尝试安全降级</text>
+  <line x1="925" y1="210" x2="925" y2="248" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="780" y="250" width="290" height="70" rx="8" fill="#ffffff" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="925" y="276" text-anchor="middle" font-size="13" fill="#0f172a">唯一明确颜色 → fallback=True</text>
+  <text x="925" y="300" text-anchor="middle" font-size="13" fill="#b91c1c">否则 RuntimeError：无法安全降级</text>
+
+  <!-- gate 1 -->
+  <line x1="550" y1="200" x2="550" y2="238" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="330" y="240" width="440" height="120" rx="10" fill="#ecfdf5" stroke="#16a34a" stroke-width="2"/>
+  <text x="550" y="266" text-anchor="middle" font-size="15" font-weight="700" fill="#15803d">闸门 1+2：validate_decision（在子进程内）</text>
+  <text x="350" y="292" font-size="13" fill="#334155">extract_json：正则 \{[^{}]*\} 取第一个平坦 JSON 对象</text>
+  <text x="350" y="314" font-size="13" fill="#334155">target = lower().strip()；reason 截断为 30 字</text>
+  <text x="350" y="336" font-size="13" fill="#334155">target ∉ available（实际检测颜色） → 改写为 "none"</text>
+
+  <!-- gate 3 -->
+  <line x1="550" y1="360" x2="550" y2="398" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="200" y1="200" x2="200" y2="425" stroke="#475569" stroke-width="2"/>
+  <line x1="200" y1="425" x2="328" y2="425" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="925" y1="320" x2="925" y2="425" stroke="#475569" stroke-width="2"/>
+  <line x1="925" y1="425" x2="772" y2="425" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="330" y="400" width="440" height="56" rx="28" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="550" y="433" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">闸门 3：target_color ∈ observations ？</text>
+
+  <line x1="330" y1="428" x2="250" y2="500" stroke="#dc2626" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="260" y="470" font-size="13" fill="#dc2626">否</text>
+  <rect x="60" y="502" width="380" height="70" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="250" y="530" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">RuntimeError：VLM 没有选择当前可见的</text>
+  <text x="250" y="552" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">有效目标 → finally 中 base.stop() 停车</text>
+
+  <line x1="770" y1="428" x2="850" y2="500" stroke="#16a34a" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="830" y="470" font-size="13" fill="#16a34a">是</text>
+  <rect x="660" y="502" width="410" height="70" rx="8" fill="#ecfdf5" stroke="#16a34a" stroke-width="2"/>
+  <text x="865" y="530" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">--perception-only → 打印并结束</text>
+  <text x="865" y="552" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">否则 → 等待 Nav2 → make_standoff_goal</text>
+  <text x="550" y="604" text-anchor="middle" font-size="13" fill="#475569">坐标始终来自感知的 detection.world_xyz，VLM 输出中没有任何数字会进入 Nav2。</text>
+</svg>

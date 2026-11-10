@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="640" viewBox="0 0 1100 640">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>text{font-family:PingFang SC, Microsoft YaHei, sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:22px}.m{font-size:16px}.s{font-size:13px}</style>
+  </defs>
+  <rect width="1100" height="640" fill="#ffffff"/>
+  <text x="550" y="36" text-anchor="middle" class="b h">第十四章知识地图：原理部分 ↔ 代码模块</text>
+
+  <!-- theory column -->
+  <text x="270" y="78" text-anchor="middle" class="b m">原理</text>
+  <rect x="80" y="95" width="380" height="70" rx="12" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="270" y="124" text-anchor="middle" class="b m">第一部分 VLA 基础</text>
+  <text x="270" y="148" text-anchor="middle" class="s">行为克隆 · 动作块 · 闭环重规划 · 能力边界</text>
+
+  <rect x="80" y="190" width="380" height="90" rx="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="270" y="219" text-anchor="middle" class="b m">第二部分 π 系列模型详解</text>
+  <text x="270" y="243" text-anchor="middle" class="s">π0 flow matching · π0-FAST 动作分词</text>
+  <text x="270" y="264" text-anchor="middle" class="s">π0.5 协同训练 · π0.6 / π0.7 演进</text>
+
+  <rect x="80" y="305" width="380" height="70" rx="12" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+  <text x="270" y="334" text-anchor="middle" class="b m">第三部分 动作表示与归一化</text>
+  <text x="270" y="358" text-anchor="middle" class="s">absolute/delta · 32 维补齐 · 分位数归一化</text>
+
+  <rect x="80" y="400" width="380" height="70" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="270" y="429" text-anchor="middle" class="b m">第四部分 数据采集与微调</text>
+  <text x="270" y="453" text-anchor="middle" class="s">NPZ → LeRobot → norm_stats → LoRA</text>
+
+  <rect x="80" y="495" width="380" height="70" rx="12" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="270" y="524" text-anchor="middle" class="b m">第五、六部分 代码解析与运行</text>
+  <text x="270" y="548" text-anchor="middle" class="s">双进程部署 · 命令 · 结果与排查</text>
+
+  <!-- code column -->
+  <text x="830" y="78" text-anchor="middle" class="b m">代码（code/code_chapter14）</text>
+  <rect x="640" y="95" width="380" height="70" rx="12" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+  <text x="830" y="124" text-anchor="middle" class="b m">run_inference.py · vla_client.py</text>
+  <text x="830" y="148" text-anchor="middle" class="s">ChunkRunner：执行 K 步后重新观察</text>
+
+  <rect x="640" y="190" width="380" height="90" rx="12" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+  <text x="830" y="219" text-anchor="middle" class="b m">openpi/src/openpi/models/</text>
+  <text x="830" y="243" text-anchor="middle" class="s">pi0.py · pi0_fast.py · pi0_config.py</text>
+  <text x="830" y="264" text-anchor="middle" class="s">tokenizer.py · gemma.py</text>
+
+  <rect x="640" y="305" width="380" height="70" rx="12" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+  <text x="830" y="334" text-anchor="middle" class="b m">g2_policy.py · robot.py</text>
+  <text x="830" y="358" text-anchor="middle" class="s">G2Inputs / G2Outputs / G2DataConfig</text>
+
+  <rect x="640" y="400" width="380" height="70" rx="12" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+  <text x="830" y="429" text-anchor="middle" class="b m">collect_data.py · convert_dataset.py</text>
+  <text x="830" y="453" text-anchor="middle" class="s">compute_norm_stats.py · train.py</text>
+
+  <rect x="640" y="495" width="380" height="70" rx="12" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+  <text x="830" y="524" text-anchor="middle" class="b m">serve_model.py · openpi_runtime.py</text>
+  <text x="830" y="548" text-anchor="middle" class="s">config.py · download_checkpoint.sh</text>
+
+  <g stroke="#475569" stroke-width="2" marker-end="url(#arr)" fill="none">
+    <line x1="462" y1="130" x2="636" y2="130"/>
+    <line x1="462" y1="235" x2="636" y2="235"/>
+    <line x1="462" y1="340" x2="636" y2="340"/>
+    <line x1="462" y1="435" x2="636" y2="435"/>
+    <line x1="462" y1="530" x2="636" y2="530"/>
+    <line x1="270" y1="167" x2="270" y2="186"/>
+    <line x1="270" y1="282" x2="270" y2="301"/>
+    <line x1="270" y1="377" x2="270" y2="396"/>
+    <line x1="270" y1="472" x2="270" y2="491"/>
+  </g>
+  <text x="550" y="606" text-anchor="middle" class="s">左列从上到下是阅读顺序，箭头指向实现该原理的代码文件</text>
+</svg>

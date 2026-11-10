@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="540" viewBox="0 0 1100 540">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>text{font-family:PingFang SC, Microsoft YaHei, sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:22px}.m{font-size:16px}.s{font-size:13px}</style>
+  </defs>
+  <rect width="1100" height="540" fill="#ffffff"/>
+  <text x="550" y="36" text-anchor="middle" class="b h">π0.7 的"可引导"提示结构（依据官方博客 / arXiv 2604.15483；本章代码不包含）</text>
+
+  <rect x="40" y="70" width="300" height="400" rx="14" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+  <text x="190" y="100" text-anchor="middle" class="b m">提示（Prompt）中的上下文</text>
+  <rect x="60" y="115" width="260" height="56" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="190" y="138" text-anchor="middle" class="b s">当前相机图像（含历史帧）</text><text x="190" y="158" text-anchor="middle" class="s">前视、双腕、可选后视</text>
+  <rect x="60" y="181" width="260" height="56" rx="8" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2"/>
+  <text x="190" y="204" text-anchor="middle" class="b s">任务 + 子步骤语言</text><text x="190" y="224" text-anchor="middle" class="s">更详细的分步描述</text>
+  <rect x="60" y="247" width="260" height="56" rx="8" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+  <text x="190" y="270" text-anchor="middle" class="b s">子目标图像</text><text x="190" y="290" text-anchor="middle" class="s">可由世界模型在测试时生成</text>
+  <rect x="60" y="313" width="260" height="56" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="190" y="336" text-anchor="middle" class="b s">回合元数据</text><text x="190" y="356" text-anchor="middle" class="s">速度、质量等"怎么做"</text>
+  <rect x="60" y="379" width="260" height="56" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="190" y="402" text-anchor="middle" class="b s">控制模态标签</text><text x="190" y="422" text-anchor="middle" class="s">关节控制 / 末端控制</text>
+
+  <rect x="400" y="150" width="300" height="240" rx="14" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="550" y="190" text-anchor="middle" class="b m">π0.7 VLA</text>
+  <text x="550" y="222" text-anchor="middle" class="s">VLM 主干 + 动作专家</text>
+  <text x="550" y="250" text-anchor="middle" class="s">训练时对指令、图像、元数据</text>
+  <text x="550" y="274" text-anchor="middle" class="s">做随机 dropout</text>
+  <text x="550" y="306" text-anchor="middle" class="s">推理时可对元数据做</text>
+  <text x="550" y="330" text-anchor="middle" class="s">无分类器引导（CFG）</text>
+
+  <rect x="760" y="150" width="300" height="100" rx="14" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="910" y="190" text-anchor="middle" class="b m">连续动作块</text>
+  <text x="910" y="218" text-anchor="middle" class="s">"以什么方式做"可被提示控制</text>
+
+  <rect x="760" y="290" width="300" height="100" rx="14" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="910" y="322" text-anchor="middle" class="b m">高层策略 / 人类教练</text>
+  <text x="910" y="348" text-anchor="middle" class="s">异步更新子任务指令与子目标图像</text>
+  <text x="910" y="372" text-anchor="middle" class="s">动作模型总用最新上下文</text>
+
+  <g stroke="#475569" stroke-width="2" marker-end="url(#arr)" fill="none">
+    <line x1="342" y1="270" x2="396" y2="270"/><line x1="702" y1="200" x2="756" y2="200"/>
+    <path d="M760,340 C600,480 300,500 200,440"/>
+  </g>
+  <text x="550" y="505" text-anchor="middle" class="s">核心动机：把不同策略、不同熟练度的数据都纳入训练，再用上下文告诉模型要复现哪一种行为</text>
+</svg>

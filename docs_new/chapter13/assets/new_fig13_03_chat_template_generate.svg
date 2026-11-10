@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" width="1100" height="560" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1100" height="560" fill="#ffffff"/>
+  <text x="550" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">LocalQwen3VL.decide()：从聊天消息到校验后的决策</text>
+
+  <!-- step 1 messages -->
+  <rect x="30" y="70" width="250" height="200" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="155" y="98" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a">① messages 列表</text>
+  <rect x="48" y="112" width="214" height="44" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+  <text x="155" y="131" text-anchor="middle" font-size="13" fill="#1e3a8a">role = system</text>
+  <text x="155" y="148" text-anchor="middle" font-size="12" fill="#334155">SYSTEM_PROMPT（固定规则）</text>
+  <rect x="48" y="166" width="214" height="86" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+  <text x="155" y="186" text-anchor="middle" font-size="13" fill="#1e3a8a">role = user</text>
+  <text x="155" y="206" text-anchor="middle" font-size="12" fill="#334155">{"type":"image"} 观察板</text>
+  <text x="155" y="226" text-anchor="middle" font-size="12" fill="#334155">{"type":"text"} 指令 +</text>
+  <text x="155" y="243" text-anchor="middle" font-size="12" fill="#334155">检测摘要 JSON</text>
+
+  <!-- step 2 processor -->
+  <rect x="320" y="70" width="230" height="200" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+  <text x="435" y="98" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a">② apply_chat_template</text>
+  <text x="435" y="128" text-anchor="middle" font-size="12" fill="#334155">插入角色边界与视觉占位</text>
+  <text x="435" y="150" text-anchor="middle" font-size="12" fill="#334155">图像 → pixel 张量</text>
+  <text x="435" y="172" text-anchor="middle" font-size="12" fill="#334155">文本 → input_ids</text>
+  <text x="435" y="194" text-anchor="middle" font-size="12" fill="#334155">add_generation_prompt=True</text>
+  <text x="435" y="214" text-anchor="middle" font-size="12" fill="#334155">→ 末尾追加 assistant 起点</text>
+  <text x="435" y="246" text-anchor="middle" font-size="12" fill="#b91c1c">pop("token_type_ids")</text>
+
+  <!-- step 3 generate -->
+  <rect x="590" y="70" width="230" height="200" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="705" y="98" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a">③ model.generate</text>
+  <text x="705" y="128" text-anchor="middle" font-size="12" fill="#334155">do_sample = False（贪心）</text>
+  <text x="705" y="150" text-anchor="middle" font-size="12" fill="#334155">temperature/top_p/top_k = None</text>
+  <text x="705" y="172" text-anchor="middle" font-size="12" fill="#334155">max_new_tokens = 128</text>
+  <text x="705" y="194" text-anchor="middle" font-size="12" fill="#334155">torch.inference_mode()</text>
+  <text x="705" y="226" text-anchor="middle" font-size="12" fill="#334155">BF16（有 CUDA）/ FP32</text>
+  <text x="705" y="246" text-anchor="middle" font-size="12" fill="#334155">sdpa 注意力</text>
+
+  <!-- step 4 validate -->
+  <rect x="860" y="70" width="210" height="200" rx="10" fill="#ecfdf5" stroke="#16a34a" stroke-width="2"/>
+  <text x="965" y="98" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a">④ 裁剪 + 校验</text>
+  <text x="965" y="128" text-anchor="middle" font-size="12" fill="#334155">out[len(inp):] 只留新 token</text>
+  <text x="965" y="150" text-anchor="middle" font-size="12" fill="#334155">batch_decode</text>
+  <text x="965" y="172" text-anchor="middle" font-size="12" fill="#334155">skip_special_tokens=True</text>
+  <text x="965" y="204" text-anchor="middle" font-size="12" fill="#334155">validate_decision(</text>
+  <text x="965" y="222" text-anchor="middle" font-size="12" fill="#334155">text, available)</text>
+  <text x="965" y="250" text-anchor="middle" font-size="12" fill="#15803d">→ {target, reason, raw}</text>
+
+  <line x1="280" y1="170" x2="318" y2="170" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="550" y1="170" x2="588" y2="170" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="820" y1="170" x2="858" y2="170" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- sequence illustration -->
+  <text x="30" y="320" font-size="16" font-weight="700" fill="#1d4ed8">generate 返回的是“输入 + 新增”整条序列，因此需要按输入长度切掉前缀</text>
+  <g font-size="13">
+    <rect x="30" y="340" width="120" height="46" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="90" y="368" text-anchor="middle" fill="#0f172a">system 段</text>
+    <rect x="150" y="340" width="230" height="46" fill="#fde68a" stroke="#d97706"/>
+    <text x="265" y="368" text-anchor="middle" fill="#0f172a">视觉 token（观察板）</text>
+    <rect x="380" y="340" width="180" height="46" fill="#dbeafe" stroke="#3b82f6"/>
+    <text x="470" y="368" text-anchor="middle" fill="#0f172a">user 文本段</text>
+    <rect x="560" y="340" width="130" height="46" fill="#e2e8f0" stroke="#64748b"/>
+    <text x="625" y="368" text-anchor="middle" fill="#0f172a">assistant 起点</text>
+    <rect x="690" y="340" width="380" height="46" fill="#bbf7d0" stroke="#16a34a"/>
+    <text x="880" y="368" text-anchor="middle" fill="#0f172a">{"target":"blue","reason":"…"}  新增 token</text>
+  </g>
+  <path d="M30,400 L30,410 L690,410 L690,400" fill="none" stroke="#64748b" stroke-width="1.5"/>
+  <text x="360" y="432" text-anchor="middle" font-size="13" fill="#334155">len(inputs["input_ids"][0]) 个 token：解码时丢弃</text>
+  <path d="M690,400 L690,410 L1070,410 L1070,400" fill="none" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="880" y="432" text-anchor="middle" font-size="13" fill="#15803d">trimmed：只解码这一段</text>
+
+  <rect x="30" y="460" width="1040" height="76" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="50" y="488" font-size="14" font-weight="700" fill="#9a3412">为什么这样配置？</text>
+  <text x="50" y="514" font-size="13" fill="#334155">关闭采样 → 同一输入得到同一输出，便于复现与排错；限制新 token → JSON 一行即可，避免长篇推理拖慢和破坏格式；</text>
+  <text x="50" y="532" font-size="13" fill="#334155">local_files_only=True + HF_HUB_OFFLINE=1 → 运行期绝不联网下载；最终是否可执行由 validate_decision 决定，而不是模型自述。</text>
+</svg>

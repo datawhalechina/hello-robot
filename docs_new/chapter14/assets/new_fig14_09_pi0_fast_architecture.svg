@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>text{font-family:PingFang SC, Microsoft YaHei, sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:22px}.m{font-size:16px}.s{font-size:13px}</style>
+  </defs>
+  <rect width="1100" height="520" fill="#ffffff"/>
+  <text x="550" y="36" text-anchor="middle" class="b h">π0-FAST 结构：单个 PaliGemma，像写文字一样逐个生成动作 token</text>
+
+  <rect x="40" y="80" width="190" height="56" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="135" y="105" text-anchor="middle" class="b m">多路图像</text><text x="135" y="125" text-anchor="middle" class="s">SigLIP → 图像 token</text>
+  <rect x="40" y="150" width="190" height="56" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="135" y="175" text-anchor="middle" class="b m">"Task: …"</text><text x="135" y="195" text-anchor="middle" class="s">语言指令 token</text>
+  <rect x="40" y="220" width="190" height="56" rx="10" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+  <text x="135" y="245" text-anchor="middle" class="b m">"State: 128 192 …;"</text><text x="135" y="265" text-anchor="middle" class="s">状态离散成 256 档</text>
+  <rect x="40" y="290" width="190" height="56" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="135" y="315" text-anchor="middle" class="b m">"Action: a1 a2 … |"</text><text x="135" y="335" text-anchor="middle" class="s">FAST 动作 token</text>
+
+  <rect x="300" y="80" width="360" height="266" rx="14" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="480" y="115" text-anchor="middle" class="b m">PaliGemma（gemma_2b，无动作专家）</text>
+  <text x="480" y="145" text-anchor="middle" class="s">前缀（图像 + Task + State）：ar_mask = 0，双向注意力</text>
+  <text x="480" y="170" text-anchor="middle" class="s">后缀（Action: … |）：ar_mask = 1，因果注意力</text>
+  <text x="480" y="205" text-anchor="middle" class="s">训练：下一个 token 预测，交叉熵</text>
+  <text x="480" y="230" text-anchor="middle" class="s">loss_mask 只覆盖后缀</text>
+  <text x="480" y="265" text-anchor="middle" class="s">推理：预填充前缀 KV 缓存，</text>
+  <text x="480" y="290" text-anchor="middle" class="s">逐 token 解码，遇到 EOS 停止</text>
+  <text x="480" y="315" text-anchor="middle" class="s">（默认最多 256 步，temperature=0 取 argmax）</text>
+
+  <rect x="730" y="120" width="320" height="80" rx="12" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="890" y="150" text-anchor="middle" class="b m">输出 token 序列</text>
+  <text x="890" y="176" text-anchor="middle" class="s">截取 "Action: " 与 "|" 之间的部分</text>
+  <rect x="730" y="240" width="320" height="80" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="890" y="270" text-anchor="middle" class="b m">FAST 解码</text>
+  <text x="890" y="296" text-anchor="middle" class="s">逆 BPE → 逆 DCT → [H, D] 连续动作</text>
+
+  <g stroke="#475569" stroke-width="2" marker-end="url(#arr)" fill="none">
+    <line x1="232" y1="108" x2="296" y2="140"/><line x1="232" y1="178" x2="296" y2="190"/><line x1="232" y1="248" x2="296" y2="240"/><line x1="232" y1="318" x2="296" y2="300"/>
+    <line x1="662" y1="180" x2="726" y2="165"/><line x1="890" y1="202" x2="890" y2="236"/>
+  </g>
+  <rect x="40" y="385" width="1010" height="110" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="545" y="415" text-anchor="middle" class="b m">与 π0 的关键区别</text>
+  <text x="545" y="442" text-anchor="middle" class="s">没有动作专家，没有 flow matching；状态以文字形式进入前缀；损失是交叉熵而非速度场 MSE</text>
+  <text x="545" y="468" text-anchor="middle" class="s">推理步数 = 动作 token 数（可变长），每一步都要跑一次完整的 2B 主干</text>
+</svg>

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 640" width="1100" height="640" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1100" height="640" fill="#ffffff"/>
+  <text x="550" y="38" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">第十三章知识地图：从“模型原理”到“受约束的语义导航”</text>
+
+  <!-- 原理层 -->
+  <text x="40" y="82" font-size="16" font-weight="700" fill="#1d4ed8">原理层（第一～四部分）</text>
+  <rect x="40" y="95" width="235" height="120" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="157" y="125" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">第一部分 语言模型</text>
+  <text x="157" y="152" text-anchor="middle" font-size="13" fill="#334155">next-token / Transformer</text>
+  <text x="157" y="174" text-anchor="middle" font-size="13" fill="#334155">预训练 → SFT → 对齐</text>
+  <text x="157" y="196" text-anchor="middle" font-size="13" fill="#334155">幻觉与三层约束</text>
+
+  <rect x="305" y="95" width="235" height="120" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="422" y="125" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">第二部分 多模态</text>
+  <text x="422" y="152" text-anchor="middle" font-size="13" fill="#334155">patch → 视觉 token</text>
+  <text x="422" y="174" text-anchor="middle" font-size="13" fill="#334155">语义 / 空间 / 任务对齐</text>
+  <text x="422" y="196" text-anchor="middle" font-size="13" fill="#334155">VLM ≠ 视觉控制器</text>
+
+  <rect x="570" y="95" width="235" height="120" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="687" y="125" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">第三部分 Qwen3-VL</text>
+  <text x="687" y="152" text-anchor="middle" font-size="13" fill="#334155">MRoPE / DeepStack</text>
+  <text x="687" y="174" text-anchor="middle" font-size="13" fill="#334155">Processor 与聊天模板</text>
+  <text x="687" y="196" text-anchor="middle" font-size="13" fill="#334155">Instruct vs Thinking</text>
+
+  <rect x="835" y="95" width="225" height="120" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="947" y="125" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">第四部分 Prompt</text>
+  <text x="947" y="152" text-anchor="middle" font-size="13" fill="#334155">五要素与 JSON 契约</text>
+  <text x="947" y="174" text-anchor="middle" font-size="13" fill="#334155">注入防护与最小权限</text>
+  <text x="947" y="196" text-anchor="middle" font-size="13" fill="#334155">闭环数据流与降级</text>
+
+  <line x1="275" y1="155" x2="303" y2="155" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="540" y1="155" x2="568" y2="155" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="805" y1="155" x2="833" y2="155" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- 代码层 -->
+  <text x="40" y="270" font-size="16" font-weight="700" fill="#15803d">代码层（第五部分，code/code_chapter13）</text>
+  <rect x="40" y="285" width="1020" height="200" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+  <rect x="60" y="305" width="180" height="70" rx="8" fill="#ecfdf5" stroke="#16a34a" stroke-width="2"/>
+  <text x="150" y="334" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">感知</text>
+  <text x="150" y="358" text-anchor="middle" font-size="12" fill="#334155">sensors / perception / rgbd</text>
+
+  <rect x="290" y="305" width="180" height="70" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="380" y="334" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">语义决策</text>
+  <text x="380" y="358" text-anchor="middle" font-size="12" fill="#334155">local_vlm.py（子进程）</text>
+
+  <rect x="520" y="305" width="180" height="70" rx="8" fill="#ecfdf5" stroke="#16a34a" stroke-width="2"/>
+  <text x="610" y="334" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">目标与规划</text>
+  <text x="610" y="358" text-anchor="middle" font-size="12" fill="#334155">ros_bridge.py + Nav2</text>
+
+  <rect x="750" y="305" width="180" height="70" rx="8" fill="#ecfdf5" stroke="#16a34a" stroke-width="2"/>
+  <text x="840" y="334" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">底盘执行</text>
+  <text x="840" y="358" text-anchor="middle" font-size="12" fill="#334155">base_controller / kinematics</text>
+
+  <line x1="240" y1="340" x2="288" y2="340" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="470" y1="340" x2="518" y2="340" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="700" y1="340" x2="748" y2="340" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="60" y="400" width="870" height="60" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <text x="495" y="425" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">demo_vlm_navigation.py 总调度  ·  config.py 统一配置  ·  simulation.py 场景</text>
+  <text x="495" y="447" text-anchor="middle" font-size="12" fill="#334155">扫描 → 观察板 → VLM 子进程 → 校验 → standoff 目标 → 等待 Nav2 → 导航循环 → 停车</text>
+
+  <!-- 原理到代码映射 -->
+  <line x1="157" y1="215" x2="380" y2="303" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr)"/>
+  <line x1="422" y1="215" x2="160" y2="303" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr)"/>
+  <line x1="687" y1="215" x2="400" y2="303" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr)"/>
+  <line x1="947" y1="215" x2="620" y2="303" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr)"/>
+
+  <!-- 运行层 -->
+  <text x="40" y="530" font-size="16" font-weight="700" fill="#7c3aed">运行层（第六部分）：分层验证</text>
+  <rect x="40" y="545" width="320" height="60" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="200" y="570" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">第一层 --skip-vlm --perception-only</text>
+  <text x="200" y="592" text-anchor="middle" font-size="12" fill="#334155">仿真 + 感知 + 关键词选择</text>
+  <rect x="390" y="545" width="320" height="60" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="550" y="570" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">第二层 --perception-only</text>
+  <text x="550" y="592" text-anchor="middle" font-size="12" fill="#334155">加入本地 Qwen3-VL 决策</text>
+  <rect x="740" y="545" width="320" height="60" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="900" y="570" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">第三层 完整语义导航</text>
+  <text x="900" y="592" text-anchor="middle" font-size="12" fill="#334155">run_nav2.sh + run_demo.sh</text>
+  <line x1="360" y1="575" x2="388" y2="575" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="710" y1="575" x2="738" y2="575" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+</svg>

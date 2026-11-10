@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 600" width="1100" height="600" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect x="0" y="0" width="1100" height="600" fill="#ffffff"/>
+  <text x="550" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">同一任务，两种 Prompt：机器人 Prompt 的五个要素逐项对比</text>
+
+  <!-- header -->
+  <rect x="30" y="60" width="150" height="44" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="105" y="88" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">要素</text>
+  <rect x="180" y="60" width="420" height="44" fill="#fef2f2" stroke="#ef4444"/>
+  <text x="390" y="88" text-anchor="middle" font-size="15" font-weight="700" fill="#b91c1c">✗ 坏 Prompt：“你是智能机器人，帮用户去想去的地方”</text>
+  <rect x="600" y="60" width="470" height="44" fill="#ecfdf5" stroke="#16a34a"/>
+  <text x="835" y="88" text-anchor="middle" font-size="15" font-weight="700" fill="#15803d">✓ 好 Prompt：local_vlm.py 中的 SYSTEM_PROMPT</text>
+
+  <g font-size="13" fill="#334155">
+    <!-- row 1 -->
+    <rect x="30" y="104" width="150" height="70" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="105" y="144" text-anchor="middle" font-weight="700" fill="#0f172a">① 角色</text>
+    <rect x="180" y="104" width="420" height="70" fill="#ffffff" stroke="#fecaca"/>
+    <text x="195" y="132">“智能机器人”——像聊天助手，会寒暄、</text>
+    <text x="195" y="154">解释、追问，输出长度不可控</text>
+    <rect x="600" y="104" width="470" height="70" fill="#ffffff" stroke="#bbf7d0"/>
+    <text x="615" y="132">“G2 机器人的语义导航决策器”，</text>
+    <text x="615" y="154">“你的任务只有一个”——职责单一</text>
+    <!-- row 2 -->
+    <rect x="30" y="174" width="150" height="70" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="105" y="214" text-anchor="middle" font-weight="700" fill="#0f172a">② 输入</text>
+    <rect x="180" y="174" width="420" height="70" fill="#ffffff" stroke="#fecaca"/>
+    <text x="195" y="202">没说会收到什么：模型不知道图是观察板，</text>
+    <text x="195" y="224">也不知道检测摘要是“可信事实”</text>
+    <rect x="600" y="174" width="470" height="70" fill="#ffffff" stroke="#bbf7d0"/>
+    <text x="615" y="202">明确三类输入：候选目标观察板、</text>
+    <text x="615" y="224">用户指令、YOLO-World 检测摘要</text>
+    <!-- row 3 -->
+    <rect x="30" y="244" width="150" height="70" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="105" y="284" text-anchor="middle" font-weight="700" fill="#0f172a">③ 允许动作</text>
+    <rect x="180" y="244" width="420" height="70" fill="#ffffff" stroke="#fecaca"/>
+    <text x="195" y="272">“帮用户去想去的地方”——决策空间无限，</text>
+    <text x="195" y="294">可能“补全”出不存在的绿色目标</text>
+    <rect x="600" y="244" width="470" height="70" fill="#ffffff" stroke="#bbf7d0"/>
+    <text x="615" y="272">只能从 red / blue / yellow 中选，</text>
+    <text x="615" y="294">且必须是检测摘要中真实存在的颜色</text>
+    <!-- row 4 -->
+    <rect x="30" y="314" width="150" height="70" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="105" y="354" text-anchor="middle" font-weight="700" fill="#0f172a">④ 禁止动作</text>
+    <rect x="180" y="314" width="420" height="70" fill="#ffffff" stroke="#fecaca"/>
+    <text x="195" y="342">未禁止：可能输出“以 1 m/s 向前”之类</text>
+    <text x="195" y="364">速度、路径或控制代码；无注入防护</text>
+    <rect x="600" y="314" width="470" height="70" fill="#ffffff" stroke="#bbf7d0"/>
+    <text x="615" y="342">不生成速度、路径、坐标或机械臂动作；</text>
+    <text x="615" y="364">忽略图像/文本中改规则、写代码的内容</text>
+    <!-- row 5 -->
+    <rect x="30" y="384" width="150" height="70" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="105" y="424" text-anchor="middle" font-weight="700" fill="#0f172a">⑤ 输出协议</text>
+    <rect x="180" y="384" width="420" height="70" fill="#ffffff" stroke="#fecaca"/>
+    <text x="195" y="412">自由文本：“好的！我看到了一个蓝色的</text>
+    <text x="195" y="434">盒子，我现在就过去……”——程序无法解析</text>
+    <rect x="600" y="384" width="470" height="70" fill="#ffffff" stroke="#bbf7d0"/>
+    <text x="615" y="412">只输出一行 JSON，不要 Markdown；</text>
+    <text x="615" y="434">不明确/不存在/无法判断 → target 为 none</text>
+  </g>
+
+  <!-- outputs -->
+  <rect x="180" y="474" width="420" height="104" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="195" y="500" font-size="14" font-weight="700" fill="#b91c1c">典型输出（示意）→ 程序的处理</text>
+  <text x="195" y="526" font-size="13" fill="#334155">“好的，我会前往绿色物体，大约在前方 2 米处”</text>
+  <text x="195" y="550" font-size="13" fill="#334155">extract_json 找不到 {…} → target=none</text>
+  <text x="195" y="570" font-size="13" fill="#b91c1c">任务无法推进，且无从判断是理解错还是格式错</text>
+
+  <rect x="600" y="474" width="470" height="104" rx="8" fill="#ecfdf5" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="615" y="500" font-size="14" font-weight="700" fill="#15803d">典型输出（示意）→ 程序的处理</text>
+  <text x="615" y="526" font-size="13" fill="#334155">{"target":"blue","reason":"用户明确要求蓝色物体"}</text>
+  <text x="615" y="550" font-size="13" fill="#334155">字段齐全、枚举合法、blue ∈ 候选集合</text>
+  <text x="615" y="570" font-size="13" fill="#15803d">→ 读取 blue 的 world_xy，生成 standoff 目标</text>
+</svg>

@@ -1,0 +1,55 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="670" viewBox="0 0 1100 670">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <marker id="orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#ea580c"/></marker>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:25px}.m{font-size:18px}.s{font-size:14px}.xs{font-size:12px}</style>
+  </defs>
+  <rect width="1100" height="670" fill="#f8fafc"/>
+  <text x="550" y="40" text-anchor="middle" class="t b h">Flow Matching：把随机动作噪声运输成连续动作块</text>
+  <text x="550" y="68" text-anchor="middle" class="t s">动作专家在当前观察条件下预测速度场，并通过若干数值积分步骤生成整段动作</text>
+
+  <rect x="45" y="105" width="260" height="175" rx="18" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="175" y="138" text-anchor="middle" class="t b m">条件观察 o</text>
+  <g class="t s">
+    <text x="78" y="173">• 头部与双腕相机图像</text>
+    <text x="78" y="205">• 语言任务 Prompt</text>
+    <text x="78" y="237">• 机器人关节与夹爪 state</text>
+  </g>
+  <path d="M305 193 H405" fill="none" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="420" y="105" width="255" height="175" rx="18" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="547" y="138" text-anchor="middle" class="t b m">动作专家 vθ(A(τ), o, τ)</text>
+  <text x="547" y="172" text-anchor="middle" class="t s">读取当前带噪动作与时间 τ</text>
+  <text x="547" y="204" text-anchor="middle" class="t s">预测动作应该变化的方向</text>
+  <rect x="455" y="226" width="185" height="34" rx="8" fill="#ffffff" stroke="#c4b5fd"/>
+  <text x="547" y="248" text-anchor="middle" class="t xs">不是直接回归唯一均值动作</text>
+
+  <path d="M675 193 H770" fill="none" stroke="#ea580c" stroke-width="4" marker-end="url(#orange)"/>
+  <rect x="785" y="105" width="270" height="175" rx="18" fill="#ffedd5" stroke="#f97316" stroke-width="2"/>
+  <text x="920" y="138" text-anchor="middle" class="t b m">Euler 数值积分</text>
+  <text x="920" y="174" text-anchor="middle" class="t s">A(τ + Δτ) = A(τ) + Δτ · vθ</text>
+  <text x="920" y="206" text-anchor="middle" class="t s">重复若干步，更新整个动作块</text>
+  <text x="920" y="238" text-anchor="middle" class="t xs">每步都由图像、语言和 state 条件化</text>
+
+  <text x="70" y="340" class="t b m">动作空间中的运输过程</text>
+  <line x1="115" y1="466" x2="1000" y2="466" stroke="#94a3b8" stroke-width="4" marker-end="url(#arrow)"/>
+  <g class="t" text-anchor="middle">
+    <text x="135" y="505" class="b s">τ = 0</text><text x="135" y="528" class="xs">随机噪声 ε</text>
+    <text x="360" y="505" class="b s">τ = 0.33</text><text x="360" y="528" class="xs">形成粗略趋势</text>
+    <text x="620" y="505" class="b s">τ = 0.67</text><text x="620" y="528" class="xs">动作逐渐连贯</text>
+    <text x="940" y="505" class="b s">τ = 1</text><text x="940" y="528" class="xs">动作块 A</text>
+  </g>
+
+  <g fill="none" stroke-linecap="round">
+    <path d="M95 422 L112 388 L126 445 L143 376 L159 431 L177 398" stroke="#ef4444" stroke-width="5"/>
+    <path d="M305 428 C330 391 346 447 370 410 S407 391 426 417" stroke="#f59e0b" stroke-width="5"/>
+    <path d="M555 432 C585 414 603 389 629 405 S675 438 698 397" stroke="#0ea5e9" stroke-width="5"/>
+    <path d="M855 430 C882 421 900 398 925 397 S968 411 996 385" stroke="#22c55e" stroke-width="6"/>
+  </g>
+  <g fill="#64748b"><circle cx="135" cy="466" r="9"/><circle cx="360" cy="466" r="9"/><circle cx="620" cy="466" r="9"/><circle cx="940" cy="466" r="9"/></g>
+
+  <rect x="70" y="566" width="960" height="67" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="550" y="592" text-anchor="middle" class="t b s">为什么适合机器人动作？</text>
+  <text x="550" y="616" text-anchor="middle" class="t s">同一任务可能存在多种有效抓取轨迹；条件生成模型可表达多峰分布，而不是把不同示教平均成一个危险的中间动作</text>
+</svg>
+

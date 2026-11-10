@@ -1,0 +1,47 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:25px}.m{font-size:18px}.s{font-size:14px}.xs{font-size:12px}.box{stroke-width:2}</style>
+  </defs>
+  <rect width="1200" height="720" fill="#f8fafc"/>
+  <text x="600" y="40" text-anchor="middle" class="t b h">从 Isaac Sim 示教数据到 π0.5 微调 checkpoint</text>
+  <text x="600" y="69" text-anchor="middle" class="t s">采集、转换、归一化和训练必须共享同一套相机键、状态动作顺序与任务语义</text>
+
+  <g class="box">
+    <rect x="38" y="112" width="205" height="173" rx="18" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect x="274" y="112" width="205" height="173" rx="18" fill="#e0f2fe" stroke="#0284c7"/>
+    <rect x="510" y="112" width="205" height="173" rx="18" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect x="746" y="112" width="205" height="173" rx="18" fill="#ede9fe" stroke="#8b5cf6"/>
+    <rect x="982" y="112" width="180" height="173" rx="18" fill="#dcfce7" stroke="#22c55e"/>
+  </g>
+  <g class="t" text-anchor="middle">
+    <text x="140" y="145" class="b m">① 示教采集</text><text x="140" y="174" class="s">Isaac Sim + G2</text><text x="140" y="198" class="s">collect_data.py</text><text x="140" y="227" class="xs">ScriptedExpert / IK</text><text x="140" y="249" class="xs">同步记录观察与动作</text>
+    <text x="376" y="145" class="b m">② 原始回合</text><text x="376" y="174" class="s">episode_XXXX.npz</text><text x="376" y="201" class="xs">3 路图像、state、actions</text><text x="376" y="223" class="xs">prompt、target_color</text><text x="376" y="245" class="xs">success + manifest.json</text>
+    <text x="612" y="145" class="b m">③ LeRobot</text><text x="612" y="174" class="s">convert_dataset.py</text><text x="612" y="201" class="xs">observation.images.*</text><text x="612" y="223" class="xs">observation.state / action</text><text x="612" y="245" class="xs">task + episode 边界</text>
+    <text x="848" y="145" class="b m">④ 归一化统计</text><text x="848" y="174" class="s">compute_norm_stats.py</text><text x="848" y="201" class="xs">状态 / 动作统计量</text><text x="848" y="223" class="xs">norm_stats.json</text><text x="848" y="245" class="xs">随训练产物共同保存</text>
+    <text x="1072" y="145" class="b m">⑤ π0.5 微调</text><text x="1072" y="174" class="s">train.py</text><text x="1072" y="201" class="xs">OpenPI 原生训练循环</text><text x="1072" y="223" class="xs">LoRA（默认）/ 全参数</text><text x="1072" y="245" class="xs">params + assets</text>
+  </g>
+  <g stroke="#475569" stroke-width="4" marker-end="url(#arrow)">
+    <line x1="243" y1="198" x2="266" y2="198"/><line x1="479" y1="198" x2="502" y2="198"/><line x1="715" y1="198" x2="738" y2="198"/><line x1="951" y1="198" x2="974" y2="198"/>
+  </g>
+
+  <rect x="76" y="334" width="1048" height="175" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="600" y="367" text-anchor="middle" class="t b m">关键数据合同：名称改变了，语义和时间对齐不能改变</text>
+  <g class="t">
+    <text x="112" y="407" class="b s">NPZ 原始键</text>
+    <text x="112" y="437" class="s">head_image</text><text x="112" y="461" class="s">left_image / right_image</text><text x="112" y="485" class="s">state / actions / prompt</text>
+    <text x="475" y="407" class="b s">转换后的 LeRobot 键</text>
+    <text x="475" y="437" class="s">observation.images.top_head</text><text x="475" y="461" class="s">observation.images.hand_left / hand_right</text><text x="475" y="485" class="s">observation.state / action / task</text>
+    <text x="915" y="407" class="b s">本章 G2 布局</text>
+    <text x="915" y="437" class="s">16 维：双臂 14 + 双夹爪 2</text><text x="915" y="461" class="s">图像、state、action 同帧对应</text><text x="915" y="485" class="s">部署 Prompt 风格与训练一致</text>
+  </g>
+  <path d="M385 450 H457" fill="none" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M825 450 H897" fill="none" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="76" y="550" width="320" height="105" rx="15" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+  <text x="236" y="581" text-anchor="middle" class="t b s">数据筛选</text><text x="236" y="607" text-anchor="middle" class="t s">失败回合默认跳过</text><text x="236" y="630" text-anchor="middle" class="t xs">除非明确使用 --keep-failed</text>
+  <rect x="440" y="550" width="320" height="105" rx="15" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="600" y="581" text-anchor="middle" class="t b s">统计绑定</text><text x="600" y="607" text-anchor="middle" class="t s">norm_stats 与数据分布绑定</text><text x="600" y="630" text-anchor="middle" class="t xs">不可借用另一机器人或另一动作布局</text>
+  <rect x="804" y="550" width="320" height="105" rx="15" fill="#ecfdf5" stroke="#22c55e" stroke-width="2"/>
+  <text x="964" y="581" text-anchor="middle" class="t b s">微调起点</text><text x="964" y="607" text-anchor="middle" class="t s">优先从 G2 对齐权重继续 LoRA</text><text x="964" y="630" text-anchor="middle" class="t xs">降低小数据教学任务的适配成本</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="470" viewBox="0 0 1100 470">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>text{font-family:PingFang SC, Microsoft YaHei, sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:22px}.m{font-size:16px}.s{font-size:13px}</style>
+  </defs>
+  <rect width="1100" height="470" fill="#ffffff"/>
+  <text x="550" y="36" text-anchor="middle" class="b h">FAST 动作分词：归一化 → DCT → 缩放取整 → 展平 → BPE</text>
+
+  <rect x="30" y="80" width="180" height="150" rx="12" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="120" y="108" text-anchor="middle" class="b m">① 归一化动作块</text>
+  <text x="120" y="134" text-anchor="middle" class="s">[H, D] 连续数值</text>
+  <polyline points="50,205 70,195 90,185 110,175 130,165 150,155 170,145 190,135" fill="none" stroke="#7c3aed" stroke-width="3"/>
+
+  <rect x="240" y="80" width="190" height="150" rx="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="335" y="108" text-anchor="middle" class="b m">② 逐维 DCT</text>
+  <text x="335" y="134" text-anchor="middle" class="s">时间域 → 频率域</text>
+  <g fill="#2563eb"><rect x="262" y="160" width="14" height="60"/><rect x="282" y="190" width="14" height="30"/><rect x="302" y="219" width="14" height="1"/><rect x="322" y="216" width="14" height="4"/><rect x="342" y="219" width="14" height="1"/><rect x="362" y="219" width="14" height="1"/><rect x="382" y="219" width="14" height="1"/><rect x="402" y="219" width="14" height="1"/></g>
+  <text x="335" y="152" text-anchor="middle" class="s">能量集中在低频</text>
+
+  <rect x="460" y="80" width="190" height="150" rx="12" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+  <text x="555" y="108" text-anchor="middle" class="b m">③ 缩放 + 四舍五入</text>
+  <text x="555" y="134" text-anchor="middle" class="s">round(γ · 系数)</text>
+  <text x="555" y="170" text-anchor="middle" class="m">[10, −6, 0, −1,</text>
+  <text x="555" y="195" text-anchor="middle" class="m">0, 0, 0, 0]</text>
+  <text x="555" y="220" text-anchor="middle" class="s">大部分变成 0（有损）</text>
+
+  <rect x="680" y="80" width="190" height="150" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="775" y="108" text-anchor="middle" class="b m">④ 低频优先展平</text>
+  <text x="775" y="134" text-anchor="middle" class="s">各维度交错排列</text>
+  <text x="775" y="170" text-anchor="middle" class="s">d1k0, d2k0, …, dDk0,</text>
+  <text x="775" y="192" text-anchor="middle" class="s">d1k1, d2k1, …</text>
+  <text x="775" y="216" text-anchor="middle" class="s">得到整数序列</text>
+
+  <rect x="900" y="80" width="170" height="150" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="985" y="108" text-anchor="middle" class="b m">⑤ BPE 压缩</text>
+  <text x="985" y="134" text-anchor="middle" class="s">把常见组合</text>
+  <text x="985" y="156" text-anchor="middle" class="s">合并为一个 token</text>
+  <text x="985" y="190" text-anchor="middle" class="s">连续的 0 被压成</text>
+  <text x="985" y="212" text-anchor="middle" class="s">少量 token（无损）</text>
+
+  <g stroke="#475569" stroke-width="2" marker-end="url(#arr)"><line x1="212" y1="155" x2="236" y2="155"/><line x1="432" y1="155" x2="456" y2="155"/><line x1="652" y1="155" x2="676" y2="155"/><line x1="872" y1="155" x2="896" y2="155"/></g>
+
+  <rect x="30" y="270" width="1040" height="80" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="550" y="300" text-anchor="middle" class="b m">⑥ 映射到 PaliGemma 词表末尾（tokenizer.py：vocab_size − 1 − 128 − fast_token）</text>
+  <text x="550" y="326" text-anchor="middle" class="s">训练序列：Task: … , State: …;\n | Action: [FAST tokens] | ， 只有 "Action:" 之后的部分计算交叉熵</text>
+
+  <rect x="30" y="375" width="1040" height="70" rx="12" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="550" y="403" text-anchor="middle" class="b m">解码（推理）：逆 BPE → 还原整数矩阵 → 除以 γ → 逆 DCT → 连续动作块</text>
+  <text x="550" y="428" text-anchor="middle" class="s">只有第 ③ 步丢信息：示意例子中重建误差最大约 0.036（详见正文手算）</text>
+</svg>

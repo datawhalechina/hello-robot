@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>text{font-family:PingFang SC, Microsoft YaHei, sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:22px}.m{font-size:16px}.s{font-size:13px}</style>
+  </defs>
+  <rect width="1100" height="520" fill="#ffffff"/>
+  <text x="550" y="36" text-anchor="middle" class="b h">π0.6 结构示意（依据官方 model card 与 π*0.6 论文；本章代码不包含）</text>
+
+  <rect x="40" y="80" width="230" height="64" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="155" y="107" text-anchor="middle" class="b m">相机图像</text><text x="155" y="128" text-anchor="middle" class="s">SigLIP（约 400M）</text>
+  <rect x="40" y="160" width="230" height="64" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="155" y="187" text-anchor="middle" class="b m">任务 / 子任务语言</text><text x="155" y="208" text-anchor="middle" class="s">保留 π0.5 高低层设计</text>
+  <rect x="40" y="240" width="230" height="64" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="155" y="267" text-anchor="middle" class="b m">条件信息</text><text x="155" y="288" text-anchor="middle" class="s">π*0.6：优势指示 I∈{0,1}</text>
+
+  <rect x="330" y="80" width="330" height="224" rx="14" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="495" y="115" text-anchor="middle" class="b m">VLM 主干：Gemma 3（4B）</text>
+  <text x="495" y="148" text-anchor="middle" class="s">预测高层子任务文本</text>
+  <text x="495" y="174" text-anchor="middle" class="s">同时预测离散 FAST 动作 token</text>
+  <text x="495" y="210" text-anchor="middle" class="s">（知识隔离：保护主干语义）</text>
+
+  <rect x="720" y="80" width="340" height="150" rx="14" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="890" y="115" text-anchor="middle" class="b m">动作专家（约 860M）</text>
+  <text x="890" y="145" text-anchor="middle" class="s">层数与主干相同</text>
+  <text x="890" y="170" text-anchor="middle" class="s">动作 token 双向注意力</text>
+  <text x="890" y="195" text-anchor="middle" class="s">flow matching 连续动作块</text>
+  <rect x="720" y="250" width="340" height="54" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="890" y="283" text-anchor="middle" class="b s">关节角 + 夹爪动作块（π*0.6 论文：50 Hz）</text>
+
+  <g stroke="#475569" stroke-width="2" marker-end="url(#arr)" fill="none">
+    <line x1="272" y1="112" x2="326" y2="140"/><line x1="272" y1="192" x2="326" y2="192"/><line x1="272" y1="272" x2="326" y2="250"/>
+    <line x1="662" y1="155" x2="716" y2="155"/><line x1="890" y1="232" x2="890" y2="246"/>
+  </g>
+  <line x1="716" y1="200" x2="664" y2="230" stroke="#dc2626" stroke-width="3"/>
+  <line x1="680" y1="205" x2="700" y2="225" stroke="#dc2626" stroke-width="3"/>
+  <text x="690" y="250" text-anchor="middle" class="s" fill="#dc2626">stop-gradient</text>
+
+  <rect x="40" y="340" width="1020" height="155" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="550" y="370" text-anchor="middle" class="b m">训练要点</text>
+  <text x="550" y="398" text-anchor="middle" class="s">知识隔离（Knowledge Insulation）：主干用 FAST token 学动作，动作专家学连续动作，动作专家的梯度不回传主干</text>
+  <text x="550" y="424" text-anchor="middle" class="s">π*0.6 的 RECAP：示范数据 + 人工纠正 + 自主试错，价值函数估计优势，再以"优势指示"作为条件训练策略</text>
+  <text x="550" y="450" text-anchor="middle" class="s">推理时请求"优势为正"的行为（据 π*0.6 论文与第三方解读）</text>
+  <text x="550" y="476" text-anchor="middle" class="s">model card 给出：单张 H100 上生成一个动作块约 63 ms</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>text{font-family:PingFang SC, Microsoft YaHei, sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:22px}.m{font-size:16px}.s{font-size:13px}</style>
+  </defs>
+  <rect width="1100" height="560" fill="#ffffff"/>
+  <text x="550" y="36" text-anchor="middle" class="b h">一维玩具例子：Euler 积分从噪声走到动作（OpenPI 约定 t=1 噪声，t=0 动作）</text>
+
+  <!-- Panel A: x range [-1.5, 2.5] mapped to y: y = 420 - (x+1.5)*75 ; t from 1 (x=80) to 0 (x=480) -->
+  <text x="290" y="78" text-anchor="middle" class="b m">(a) 单一目标 A = 2，噪声 ε = −1，N = 4 步</text>
+  <line x1="80" y1="460" x2="500" y2="460" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="80" y1="460" x2="80" y2="100" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="505" y="480" class="s">t</text><text x="60" y="100" class="s">x</text>
+  <text x="80" y="480" text-anchor="middle" class="s">1.00</text><text x="180" y="480" text-anchor="middle" class="s">0.75</text><text x="280" y="480" text-anchor="middle" class="s">0.50</text><text x="380" y="480" text-anchor="middle" class="s">0.25</text><text x="480" y="480" text-anchor="middle" class="s">0.00</text>
+  <!-- y ticks: x=-1 -> 382.5, 0 -> 307.5, 1 -> 232.5, 2 -> 157.5 -->
+  <text x="72" y="387" text-anchor="end" class="s">−1</text><text x="72" y="312" text-anchor="end" class="s">0</text><text x="72" y="237" text-anchor="end" class="s">1</text><text x="72" y="162" text-anchor="end" class="s">2</text>
+  <line x1="80" y1="157.5" x2="490" y2="157.5" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="488" y="150" text-anchor="end" class="s" fill="#16a34a">目标动作 A = 2</text>
+  <polyline points="80,382.5 180,326.25 280,270 380,213.75 480,157.5" fill="none" stroke="#2563eb" stroke-width="3"/>
+  <g fill="#2563eb"><circle cx="80" cy="382.5" r="6"/><circle cx="180" cy="326.25" r="6"/><circle cx="280" cy="270" r="6"/><circle cx="380" cy="213.75" r="6"/><circle cx="480" cy="157.5" r="6"/></g>
+  <text x="92" y="400" class="s">−1.00</text><text x="190" y="345" class="s">−0.25</text><text x="290" y="290" class="s">0.50</text><text x="390" y="233" class="s">1.25</text><text x="430" y="140" class="s">2.00</text>
+  <text x="290" y="520" text-anchor="middle" class="s">每步 v = (x − A)/t = −3 恒定，dt = −0.25，x 每步增加 0.75</text>
+
+  <!-- Panel B: bimodal targets ±1; y = 300 - x*140 ; t axis x=620..1020 -->
+  <text x="820" y="78" text-anchor="middle" class="b m">(b) 双峰目标 A ∈ {−1, +1}，起点 x = 0.3</text>
+  <line x1="620" y1="460" x2="1040" y2="460" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="620" y1="460" x2="620" y2="100" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="1045" y="480" class="s">t</text><text x="600" y="100" class="s">x</text>
+  <text x="620" y="480" text-anchor="middle" class="s">1.00</text><text x="720" y="480" text-anchor="middle" class="s">0.75</text><text x="820" y="480" text-anchor="middle" class="s">0.50</text><text x="920" y="480" text-anchor="middle" class="s">0.25</text><text x="1020" y="480" text-anchor="middle" class="s">0.00</text>
+  <!-- x=1 -> 160 ; x=0 -> 300 ; x=-1 -> 440 -->
+  <text x="612" y="165" text-anchor="end" class="s">+1</text><text x="612" y="305" text-anchor="end" class="s">0</text><text x="612" y="445" text-anchor="end" class="s">−1</text>
+  <line x1="620" y1="160" x2="1030" y2="160" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="620" y1="440" x2="1030" y2="440" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <!-- N=4: 0.3,0.225,0.1832,0.2671,0.9967 -->
+  <polyline points="620,258 720,268.5 820,274.35 920,262.6 1020,160.46" fill="none" stroke="#2563eb" stroke-width="3"/>
+  <g fill="#2563eb"><circle cx="620" cy="258" r="6"/><circle cx="720" cy="268.5" r="6"/><circle cx="820" cy="274.35" r="6"/><circle cx="920" cy="262.6" r="6"/><circle cx="1020" cy="160.46" r="6"/></g>
+  <!-- N=2: 0.3, 0.15 (t=.5), 0.2913 (t=0) -->
+  <polyline points="620,258 820,279 1020,259.2" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="8 5"/>
+  <g fill="#dc2626"><circle cx="820" cy="279" r="5"/><circle cx="1020" cy="259.2" r="5"/></g>
+  <text x="1012" y="150" text-anchor="end" class="s" fill="#2563eb">N=4 → 0.9967</text>
+  <text x="1012" y="250" text-anchor="end" class="s" fill="#dc2626">N=2 → 0.2913</text>
+  <text x="820" y="520" text-anchor="middle" class="s">步数太少时停在两峰之间（≈ 均值回归的"平均动作"）；N=4 已贴近 +1，N=10 得到 1.0000</text>
+</svg>

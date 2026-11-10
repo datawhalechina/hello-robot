@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 640" width="1100" height="640" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1100" height="640" fill="#ffffff"/>
+  <text x="550" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">code_chapter13 模块调用关系（两个进程 + Nav2 进程）</text>
+
+  <!-- Isaac process frame -->
+  <rect x="20" y="60" width="700" height="560" rx="12" fill="#f8fafc" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="36" y="84" font-size="14" font-weight="700" fill="#1d4ed8">进程 A：Isaac Sim Python（run_demo.sh → python.sh）</text>
+
+  <rect x="230" y="100" width="280" height="56" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="370" y="124" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">demo_vlm_navigation.py</text>
+  <text x="370" y="144" text-anchor="middle" font-size="12" fill="#334155">main() 总调度</text>
+
+  <rect x="40" y="200" width="150" height="50" rx="8" fill="#ffffff" stroke="#64748b"/>
+  <text x="115" y="222" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">config.py</text>
+  <text x="115" y="240" text-anchor="middle" font-size="11" fill="#334155">路径/参数/目标</text>
+
+  <rect x="210" y="200" width="150" height="50" rx="8" fill="#ffffff" stroke="#64748b"/>
+  <text x="285" y="222" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">simulation.py</text>
+  <text x="285" y="240" text-anchor="middle" font-size="11" fill="#334155">G2Chapter13Simulation</text>
+
+  <rect x="380" y="200" width="150" height="50" rx="8" fill="#ffffff" stroke="#64748b"/>
+  <text x="455" y="222" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">sensors.py</text>
+  <text x="455" y="240" text-anchor="middle" font-size="11" fill="#334155">G2Sensors</text>
+
+  <rect x="550" y="200" width="150" height="50" rx="8" fill="#ffffff" stroke="#64748b"/>
+  <text x="625" y="222" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">perception.py</text>
+  <text x="625" y="240" text-anchor="middle" font-size="11" fill="#334155">YOLOWorldDetector</text>
+
+  <rect x="380" y="300" width="150" height="50" rx="8" fill="#ffffff" stroke="#64748b"/>
+  <text x="455" y="322" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">lidar.py</text>
+  <text x="455" y="340" text-anchor="middle" font-size="11" fill="#334155">DualRtxLidar</text>
+
+  <rect x="550" y="300" width="150" height="50" rx="8" fill="#ffffff" stroke="#64748b"/>
+  <text x="625" y="322" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">rgbd_geometry.py</text>
+  <text x="625" y="340" text-anchor="middle" font-size="11" fill="#334155">depth_pixels_to_world</text>
+
+  <rect x="40" y="400" width="150" height="50" rx="8" fill="#ffffff" stroke="#64748b"/>
+  <text x="115" y="422" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">base_controller.py</text>
+  <text x="115" y="440" text-anchor="middle" font-size="11" fill="#334155">G2BaseController</text>
+
+  <rect x="40" y="500" width="150" height="50" rx="8" fill="#ffffff" stroke="#64748b"/>
+  <text x="115" y="522" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">kinematics.py</text>
+  <text x="115" y="540" text-anchor="middle" font-size="11" fill="#334155">SwerveKinematics</text>
+
+  <rect x="210" y="400" width="150" height="50" rx="8" fill="#ffffff" stroke="#64748b"/>
+  <text x="285" y="422" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">ros_bridge.py</text>
+  <text x="285" y="440" text-anchor="middle" font-size="11" fill="#334155">Nav2Bridge / standoff</text>
+
+  <rect x="380" y="400" width="150" height="50" rx="8" fill="#fef3c7" stroke="#d97706"/>
+  <text x="455" y="422" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">local_vlm.py</text>
+  <text x="455" y="440" text-anchor="middle" font-size="11" fill="#334155">仅导入 keyword_target</text>
+
+  <!-- arrows from main -->
+  <line x1="300" y1="156" x2="130" y2="198" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="330" y1="156" x2="290" y2="198" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="400" y1="156" x2="450" y2="198" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="450" y1="156" x2="610" y2="198" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="455" y1="250" x2="455" y2="298" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="625" y1="250" x2="625" y2="298" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="240" y1="156" x2="120" y2="398" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="115" y1="450" x2="115" y2="498" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="320" y1="156" x2="290" y2="398" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="420" y1="156" x2="455" y2="398" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="210" y="500" width="490" height="100" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="225" y="524" font-size="13" font-weight="700" fill="#0f172a">循环中的数据流</text>
+  <text x="225" y="548" font-size="12" fill="#334155">sensors.capture_camera() → detector.detect() → observations</text>
+  <text x="225" y="570" font-size="12" fill="#334155">bridge.spin_once() → /cmd_vel → base.set_velocity() → base.update()</text>
+  <text x="225" y="592" font-size="12" fill="#334155">bridge.publish(/clock, /odom, TF, /scan) → simulation.step()</text>
+
+  <!-- VLM process -->
+  <rect x="760" y="60" width="320" height="250" rx="12" fill="#fffbeb" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="776" y="84" font-size="14" font-weight="700" fill="#b45309">进程 B：独立 VLM Python（VLM_PYTHON）</text>
+  <rect x="790" y="110" width="260" height="70" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="920" y="138" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">local_vlm.py main()</text>
+  <text x="920" y="160" text-anchor="middle" font-size="12" fill="#334155">LocalQwen3VL.decide()</text>
+  <rect x="790" y="200" width="260" height="90" rx="8" fill="#ffffff" stroke="#d97706"/>
+  <text x="920" y="224" text-anchor="middle" font-size="12" fill="#334155">torch + transformers</text>
+  <text x="920" y="246" text-anchor="middle" font-size="12" fill="#334155">Qwen3-VL-4B-Instruct/（本地权重）</text>
+  <text x="920" y="268" text-anchor="middle" font-size="12" fill="#334155">HF_HUB_OFFLINE=1</text>
+  <line x1="920" y1="180" x2="920" y2="198" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <path d="M510,120 C640,120 680,140 788,140" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="650" y="112" text-anchor="middle" font-size="11" fill="#b45309">subprocess.run（观察板 + detections.json）</text>
+  <path d="M788,165 C690,170 620,160 512,145" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="650" y="182" text-anchor="middle" font-size="11" fill="#15803d">读回 vlm_decision.json</text>
+
+  <!-- Nav2 process -->
+  <rect x="760" y="340" width="320" height="280" rx="12" fill="#ecfdf5" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="776" y="364" font-size="14" font-weight="700" fill="#15803d">进程 C：系统 ROS 2 Humble（run_nav2.sh）</text>
+  <rect x="790" y="380" width="260" height="56" rx="8" fill="#ffffff" stroke="#16a34a"/>
+  <text x="920" y="404" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">launch/nav2_navigation.launch.py</text>
+  <text x="920" y="424" text-anchor="middle" font-size="11" fill="#334155">map_server + navigation_launch + RViz</text>
+  <rect x="790" y="450" width="260" height="56" rx="8" fill="#ffffff" stroke="#16a34a"/>
+  <text x="920" y="474" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">config/nav2_params.yaml</text>
+  <text x="920" y="494" text-anchor="middle" font-size="11" fill="#334155">maps/chapter13_map.yaml</text>
+  <rect x="790" y="520" width="260" height="80" rx="8" fill="#ffffff" stroke="#16a34a"/>
+  <text x="920" y="544" text-anchor="middle" font-size="12" fill="#334155">订阅 /scan /odom TF /clock</text>
+  <text x="920" y="566" text-anchor="middle" font-size="12" fill="#334155">发布 /cmd_vel</text>
+  <text x="920" y="588" text-anchor="middle" font-size="12" fill="#334155">提供 /navigate_to_pose action</text>
+
+  <path d="M360,425 C560,470 650,560 788,560" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="600" y="482" text-anchor="middle" font-size="11" fill="#15803d">ROS 2 话题 / action（双向）</text>
+</svg>

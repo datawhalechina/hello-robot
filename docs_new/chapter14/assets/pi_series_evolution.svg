@@ -1,0 +1,44 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="630" viewBox="0 0 1100 630">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:25px}.m{font-size:18px}.s{font-size:14px}.xs{font-size:12px}</style>
+  </defs>
+  <rect width="1100" height="630" fill="#f8fafc"/>
+  <text x="550" y="40" text-anchor="middle" class="t b h">π 系列：动作表达、泛化能力与上下文持续演进</text>
+  <text x="550" y="68" text-anchor="middle" class="t s">这不是简单的“版本号越大越强”，而是针对动作生成、开放世界泛化和可引导执行的不同探索</text>
+
+  <line x1="105" y1="215" x2="995" y2="215" stroke="#64748b" stroke-width="5" marker-end="url(#arrow)"/>
+  <g>
+    <circle cx="150" cy="215" r="13" fill="#8b5cf6"/><circle cx="365" cy="215" r="13" fill="#f97316"/><circle cx="580" cy="215" r="13" fill="#2563eb"/><circle cx="795" cy="215" r="13" fill="#0f766e"/><circle cx="975" cy="215" r="13" fill="#16a34a"/>
+  </g>
+
+  <g>
+    <rect x="55" y="100" width="190" height="95" rx="15" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="150" y="131" text-anchor="middle" class="t b m">π0</text><text x="150" y="156" text-anchor="middle" class="t s">VLM 主干 + 动作专家</text><text x="150" y="178" text-anchor="middle" class="t xs">flow matching 连续动作块</text>
+
+    <rect x="270" y="240" width="190" height="105" rx="15" fill="#ffedd5" stroke="#f97316" stroke-width="2"/>
+    <text x="365" y="272" text-anchor="middle" class="t b m">π0-FAST</text><text x="365" y="297" text-anchor="middle" class="t s">FAST 动作 tokenizer</text><text x="365" y="319" text-anchor="middle" class="t xs">连续动作 → 离散 token</text><text x="365" y="337" text-anchor="middle" class="t xs">自回归生成</text>
+
+    <rect x="485" y="100" width="190" height="95" rx="15" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="580" y="131" text-anchor="middle" class="t b m">π0.5</text><text x="580" y="156" text-anchor="middle" class="t s">开放世界泛化</text><text x="580" y="178" text-anchor="middle" class="t xs">高层知识与低层动作协同</text>
+
+    <rect x="700" y="240" width="190" height="105" rx="15" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+    <text x="795" y="272" text-anchor="middle" class="t b m">π0.6</text><text x="795" y="297" text-anchor="middle" class="t s">更强视觉语言主干</text><text x="795" y="319" text-anchor="middle" class="t xs">连续 + 离散动作目标</text><text x="795" y="337" text-anchor="middle" class="t xs">加入执行方式元数据</text>
+
+    <rect x="900" y="100" width="155" height="95" rx="15" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+    <text x="977" y="131" text-anchor="middle" class="t b m">π0.7</text><text x="977" y="156" text-anchor="middle" class="t s">可引导执行</text><text x="977" y="178" text-anchor="middle" class="t xs">历史、子目标与质量上下文</text>
+  </g>
+
+  <rect x="70" y="395" width="960" height="82" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="550" y="425" text-anchor="middle" class="t b m">共同主线</text>
+  <text x="550" y="451" text-anchor="middle" class="t s">视觉与语言理解　→　融合机器人状态　→　生成可执行动作　→　在多机器人、多任务和不同执行方式间泛化</text>
+
+  <rect x="70" y="505" width="595" height="78" rx="15" fill="#ecfdf5" stroke="#22c55e" stroke-width="2"/>
+  <text x="367" y="534" text-anchor="middle" class="t b s">本章代码可直接对接的模型清单</text>
+  <text x="367" y="558" text-anchor="middle" class="t s">π0　|　π0-FAST　|　π0.5（案例主线）</text>
+
+  <rect x="695" y="505" width="335" height="78" rx="15" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+  <text x="862" y="534" text-anchor="middle" class="t b s">实现边界</text>
+  <text x="862" y="558" text-anchor="middle" class="t s">π0.6 / π0.7 仅作原理介绍</text>
+  <text x="862" y="576" text-anchor="middle" class="t xs">不可仅替换 checkpoint 路径运行</text>
+</svg>

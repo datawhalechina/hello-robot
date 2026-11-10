@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>text{font-family:PingFang SC, Microsoft YaHei, sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:22px}.m{font-size:15px}.s{font-size:12px}</style>
+  </defs>
+  <rect width="1100" height="560" fill="#ffffff"/>
+  <text x="550" y="34" text-anchor="middle" class="b h">code_chapter14 模块调用关系</text>
+
+  <text x="270" y="70" text-anchor="middle" class="b m">Isaac Sim Python</text>
+  <rect x="40" y="55" width="460" height="480" rx="14" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="830" y="70" text-anchor="middle" class="b m">OpenPI .venv</text>
+  <rect x="600" y="55" width="460" height="480" rx="14" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" stroke-dasharray="7 5"/>
+
+  <rect x="70" y="90" width="180" height="50" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="160" y="120" text-anchor="middle" class="b m">run_inference.py</text>
+  <rect x="290" y="90" width="180" height="50" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/><text x="380" y="120" text-anchor="middle" class="b m">collect_data.py</text>
+  <rect x="70" y="180" width="180" height="50" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2"/><text x="160" y="210" text-anchor="middle" class="m">vla_client.py</text>
+  <rect x="70" y="260" width="180" height="50" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2"/><text x="160" y="290" text-anchor="middle" class="m">task_intent.py</text>
+  <rect x="290" y="180" width="180" height="50" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2"/><text x="380" y="210" text-anchor="middle" class="m">expert.py</text>
+  <rect x="290" y="260" width="180" height="50" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2"/><text x="380" y="290" text-anchor="middle" class="m">kinematics.py</text>
+  <rect x="290" y="340" width="180" height="50" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2"/><text x="380" y="370" text-anchor="middle" class="m">dataset.py</text>
+  <rect x="70" y="340" width="180" height="50" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2"/><text x="160" y="370" text-anchor="middle" class="m">robot.py</text>
+  <rect x="70" y="420" width="400" height="50" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2"/><text x="270" y="450" text-anchor="middle" class="m">simulation.py（场景/物块/盒子/相机）</text>
+  <rect x="70" y="485" width="400" height="38" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/><text x="270" y="509" text-anchor="middle" class="s">config.py（所有模块共享的常量与路径）</text>
+
+  <rect x="630" y="90" width="180" height="50" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="720" y="120" text-anchor="middle" class="b m">serve_model.py</text>
+  <rect x="850" y="90" width="180" height="50" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/><text x="940" y="120" text-anchor="middle" class="b m">train.py</text>
+  <rect x="850" y="160" width="180" height="50" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/><text x="940" y="183" text-anchor="middle" class="m">convert_dataset.py</text><text x="940" y="201" text-anchor="middle" class="s">NPZ → LeRobot</text>
+  <rect x="850" y="230" width="180" height="50" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/><text x="940" y="260" text-anchor="middle" class="m">compute_norm_stats.py</text>
+  <rect x="630" y="230" width="180" height="50" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2"/><text x="720" y="260" text-anchor="middle" class="m">openpi_runtime.py</text>
+  <rect x="630" y="320" width="400" height="50" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2"/><text x="830" y="342" text-anchor="middle" class="m">g2_policy.py</text><text x="830" y="361" text-anchor="middle" class="s">MODEL_SPECS · G2Inputs/Outputs · G2DataConfig · make_*_config</text>
+  <rect x="630" y="410" width="400" height="60" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/><text x="830" y="435" text-anchor="middle" class="m">openpi（内嵌）</text><text x="830" y="455" text-anchor="middle" class="s">models/pi0.py · transforms · policy_config · WebsocketPolicyServer</text>
+
+  <g stroke="#475569" stroke-width="1.8" fill="none" marker-end="url(#arr)">
+    <line x1="160" y1="142" x2="160" y2="176"/>
+    <path d="M120,142 C60,200 60,250 112,262"/>
+    <path d="M100,142 C30,250 30,320 100,345"/>
+    <line x1="380" y1="142" x2="380" y2="176"/>
+    <line x1="380" y1="232" x2="380" y2="256"/>
+    <path d="M440,142 C500,220 500,310 450,343"/>
+    <path d="M250,215 C275,260 275,330 230,342"/>
+    <path d="M300,232 C270,280 270,330 252,350"/>
+    <line x1="160" y1="392" x2="160" y2="416"/>
+    <line x1="720" y1="142" x2="720" y2="226"/>
+    <line x1="720" y1="282" x2="720" y2="316"/>
+    <line x1="940" y1="282" x2="940" y2="316"/>
+    <line x1="1040" y1="115" x2="1040" y2="316"/>
+    <line x1="830" y1="372" x2="830" y2="406"/>
+    <line x1="812" y1="115" x2="846" y2="115"/>
+  </g>
+  <path d="M252,195 C400,40 500,40 626,108" stroke="#dc2626" stroke-width="3" fill="none" stroke-dasharray="8 5" marker-end="url(#arr)"/>
+  <text x="430" y="62" text-anchor="middle" class="b s" fill="#dc2626">WebSocket：images/state/prompt ⇄ actions</text>
+  <path d="M472,365 C560,365 560,185 846,185" stroke="#d97706" stroke-width="2.5" fill="none" stroke-dasharray="4 4" marker-end="url(#arr)"/>
+  <text x="560" y="300" text-anchor="middle" class="s" fill="#d97706">data/raw/*.npz</text>
+</svg>
