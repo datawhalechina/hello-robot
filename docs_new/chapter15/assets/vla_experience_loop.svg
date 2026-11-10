@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="820" viewBox="0 0 1440 820" role="img" aria-labelledby="title desc">
+  <title id="title">经验驱动的 VLA 强化学习微调闭环</title>
+  <desc id="desc">从初始策略、rollout、自动纠正、经验保存、Value 训练、Advantage 标注到策略微调，并进入下一轮采集的七步闭环。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/><stop offset="1" stop-color="#eef4ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#16325c" flood-opacity="0.12"/></filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 Z" fill="#4169a1"/></marker>
+    <style>
+      .title{font:700 34px 'Microsoft YaHei','PingFang SC','Noto Sans CJK SC',sans-serif;fill:#14233c}
+      .sub{font:400 18px 'Microsoft YaHei','PingFang SC','Noto Sans CJK SC',sans-serif;fill:#52647d}
+      .num{font:700 19px Arial,sans-serif;fill:#fff}
+      .h{font:700 21px 'Microsoft YaHei','PingFang SC','Noto Sans CJK SC',sans-serif;fill:#172b4d}
+      .p{font:400 16px 'Microsoft YaHei','PingFang SC','Noto Sans CJK SC',sans-serif;fill:#52647d}
+      .tag{font:700 15px 'Microsoft YaHei','PingFang SC','Noto Sans CJK SC',sans-serif}
+      .arrow{fill:none;stroke:#4169a1;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1440" height="820" rx="28" fill="url(#bg)"/>
+  <text x="720" y="58" text-anchor="middle" class="title">一轮经验驱动改进：从执行经验回到更好的策略</text>
+  <text x="720" y="91" text-anchor="middle" class="sub">采集时允许自动纠正，训练时利用全部经验，评测时彻底移除纠正器</text>
+
+  <!-- arrows behind cards -->
+  <path class="arrow" d="M330 245 H390"/>
+  <path class="arrow" d="M650 245 H710"/>
+  <path class="arrow" d="M970 245 H1030"/>
+  <path class="arrow" d="M1165 348 V430"/>
+  <path class="arrow" d="M1030 535 H970"/>
+  <path class="arrow" d="M710 535 H650"/>
+  <path class="arrow" d="M390 535 H330"/>
+  <path class="arrow" d="M70 535 H36 V120 H520 V140"/>
+
+  <!-- step cards -->
+  <g filter="url(#shadow)">
+    <rect x="70" y="150" width="260" height="196" rx="20" fill="#fff" stroke="#9bb7e7" stroke-width="2"/>
+    <circle cx="105" cy="184" r="20" fill="#315f9f"/><text x="105" y="191" text-anchor="middle" class="num">1</text>
+    <text x="140" y="191" class="h">载入策略</text>
+    <text x="95" y="235" class="p"><tspan x="95">π0.5 基础权重 / SFT</tspan><tspan x="95" dy="27">或上一轮 checkpoint</tspan></text>
+    <rect x="95" y="296" width="168" height="29" rx="14" fill="#eaf2ff"/><text x="179" y="316" text-anchor="middle" class="tag" fill="#315f9f">统一 16D 数据合同</text>
+
+    <rect x="390" y="150" width="260" height="196" rx="20" fill="#fff" stroke="#75b8ad" stroke-width="2"/>
+    <circle cx="425" cy="184" r="20" fill="#278477"/><text x="425" y="191" text-anchor="middle" class="num">2</text>
+    <text x="460" y="191" class="h">自主 Rollout</text>
+    <text x="415" y="235" class="p"><tspan x="415">策略在 Isaac Sim 中执行</tspan><tspan x="415" dy="27">记录图像、状态与动作</tspan></text>
+    <rect x="415" y="296" width="156" height="29" rx="14" fill="#e7f7f4"/><text x="493" y="316" text-anchor="middle" class="tag" fill="#278477">POLICY 控制</text>
+
+    <rect x="710" y="150" width="260" height="196" rx="20" fill="#fff" stroke="#efaa62" stroke-width="2"/>
+    <circle cx="745" cy="184" r="20" fill="#d9791f"/><text x="745" y="191" text-anchor="middle" class="num">3</text>
+    <text x="780" y="191" class="h">局部自动纠正</text>
+    <text x="735" y="235" class="p"><tspan x="735">危险、异常或停滞时</tspan><tspan x="735" dy="27">执行最短 IK 恢复片段</tspan></text>
+    <rect x="735" y="296" width="188" height="29" rx="14" fill="#fff2e4"/><text x="829" y="316" text-anchor="middle" class="tag" fill="#b86013">ACTIVE → RELEASE</text>
+
+    <rect x="1030" y="150" width="260" height="196" rx="20" fill="#fff" stroke="#a99bdc" stroke-width="2"/>
+    <circle cx="1065" cy="184" r="20" fill="#7457b5"/><text x="1065" y="191" text-anchor="middle" class="num">4</text>
+    <text x="1100" y="191" class="h">保存完整经验</text>
+    <text x="1055" y="235" class="p"><tspan x="1055">成功 + 失败</tspan><tspan x="1055" dy="27">自主动作 + 纠正动作</tspan></text>
+    <rect x="1055" y="296" width="194" height="29" rx="14" fill="#f1edff"/><text x="1152" y="316" text-anchor="middle" class="tag" fill="#6748aa">保留来源与控制状态</text>
+
+    <rect x="1030" y="440" width="260" height="196" rx="20" fill="#fff" stroke="#e38b9e" stroke-width="2"/>
+    <circle cx="1065" cy="474" r="20" fill="#c84f6a"/><text x="1065" y="481" text-anchor="middle" class="num">5</text>
+    <text x="1100" y="481" class="h">训练 Value</text>
+    <text x="1055" y="525" class="p"><tspan x="1055">累计读取截至当前轮</tspan><tspan x="1055" dy="27">的全部 episode 经验</tspan></text>
+    <rect x="1055" y="586" width="185" height="29" rx="14" fill="#ffedf1"/><text x="1148" y="606" text-anchor="middle" class="tag" fill="#b83e59">预测未来成功前景</text>
+
+    <rect x="710" y="440" width="260" height="196" rx="20" fill="#fff" stroke="#5ca9cf" stroke-width="2"/>
+    <circle cx="745" cy="474" r="20" fill="#267ca9"/><text x="745" y="481" text-anchor="middle" class="num">6</text>
+    <text x="780" y="481" class="h">标注 Advantage</text>
+    <text x="735" y="525" class="p"><tspan x="735">计算 50 步局部改善</tspan><tspan x="735" dy="27">任务内 top 30% 为正</tspan></text>
+    <rect x="735" y="586" width="180" height="29" rx="14" fill="#e7f5fb"/><text x="825" y="606" text-anchor="middle" class="tag" fill="#267ca9">positive / negative</text>
+
+    <rect x="390" y="440" width="260" height="196" rx="20" fill="#fff" stroke="#65aa70" stroke-width="2"/>
+    <circle cx="425" cy="474" r="20" fill="#3e8b49"/><text x="425" y="481" text-anchor="middle" class="num">7</text>
+    <text x="460" y="481" class="h">条件化微调 π0.5</text>
+    <text x="415" y="525" class="p"><tspan x="415">导出数据与归一化统计</tspan><tspan x="415" dy="27">继续训练 flow matching</tspan></text>
+    <rect x="415" y="586" width="183" height="29" rx="14" fill="#eaf7ec"/><text x="507" y="606" text-anchor="middle" class="tag" fill="#347d3f">推理固定请求 positive</text>
+
+    <rect x="70" y="440" width="260" height="196" rx="20" fill="#17365d"/>
+    <text x="200" y="486" text-anchor="middle" style="font:700 23px 'Microsoft YaHei','PingFang SC','Noto Sans CJK SC',sans-serif;fill:#fff">进入下一轮</text>
+    <text x="200" y="530" text-anchor="middle" style="font:400 16px 'Microsoft YaHei','PingFang SC','Noto Sans CJK SC',sans-serif;fill:#dce8f8"><tspan x="200">更新后的策略继续采集</tspan><tspan x="200" dy="27">新失败、新恢复与新成功</tspan></text>
+    <rect x="105" y="584" width="190" height="30" rx="15" fill="#2f5d8f"/><text x="200" y="605" text-anchor="middle" class="tag" fill="#fff">经验数据逐轮累积</text>
+  </g>
+
+  <g>
+    <rect x="365" y="709" width="710" height="70" rx="18" fill="#fff" stroke="#cad7ea"/>
+    <text x="720" y="738" text-anchor="middle" class="h">最终评测：只运行策略，不启用自动专家</text>
+    <text x="720" y="766" text-anchor="middle" class="p">训练采集能力 ≠ 策略独立成功率；报告必须满足 no_intervention = true</text>
+  </g>
+</svg>

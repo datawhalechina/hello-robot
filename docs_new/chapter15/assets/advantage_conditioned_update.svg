@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="900" viewBox="0 0 1500 900" role="img" aria-labelledby="title desc">
+  <title id="title">从 50 步 Advantage 到优势条件化策略更新</title>
+  <desc id="desc">先比较动作片段后的局部结果与执行前 Value，再按任务内分位数生成 positive 和 negative 条件，最后使用全部数据训练并在推理时固定 positive。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fbfdff"/><stop offset="1" stop-color="#edf3fb"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#17365d" flood-opacity="0.11"/></filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12Z" fill="#496b96"/></marker>
+    <style>
+      .title{font:700 34px 'Microsoft YaHei','PingFang SC','Noto Sans CJK SC',sans-serif;fill:#14233c}.sub{font:400 18px 'Microsoft YaHei','PingFang SC','Noto Sans CJK SC',sans-serif;fill:#596b82}.h{font:700 20px 'Microsoft YaHei','PingFang SC','Noto Sans CJK SC',sans-serif;fill:#192d4a}.p{font:400 16px 'Microsoft YaHei','PingFang SC','Noto Sans CJK SC',sans-serif;fill:#53657e}.small{font:400 14px 'Microsoft YaHei','PingFang SC','Noto Sans CJK SC',sans-serif;fill:#53657e}.mono{font:700 18px Consolas,monospace}.arrow{fill:none;stroke:#496b96;stroke-width:4;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1500" height="900" rx="28" fill="url(#bg)"/>
+  <text x="750" y="58" text-anchor="middle" class="title">Advantage：先评价“这段动作”，再把质量写进条件文本</text>
+  <text x="750" y="91" text-anchor="middle" class="sub">Value 是当前局面的基准；Advantage 衡量未来 50 步是否让结果比这个基准更好</text>
+
+  <!-- top calculation area -->
+  <g filter="url(#shadow)"><rect x="65" y="125" width="1370" height="345" rx="24" fill="#fff"/></g>
+  <text x="105" y="169" class="h">① 计算 N 步局部改善（实际 N = 50，图中用 5 步示例）</text>
+
+  <rect x="105" y="205" width="245" height="135" rx="18" fill="#edf3ff" stroke="#82a5db" stroke-width="2"/>
+  <text x="228" y="240" text-anchor="middle" class="h">执行前的 Value 基准</text>
+  <text x="228" y="287" text-anchor="middle" class="mono" fill="#315f9f">V(oₜ) = −0.60</text>
+  <text x="228" y="318" text-anchor="middle" class="small">当前局面本来有多难？</text>
+
+  <path class="arrow" d="M350 272 H430"/>
+  <rect x="430" y="205" width="260" height="135" rx="18" fill="#f5f7fa" stroke="#b2bfce" stroke-width="2"/>
+  <text x="560" y="240" text-anchor="middle" class="h">执行一段动作</text>
+  <text x="560" y="279" text-anchor="middle" class="mono" fill="#53657e">Σ r = −0.10</text>
+  <text x="560" y="313" text-anchor="middle" class="small">时间代价 + 中间奖励</text>
+
+  <!-- branch arrows -->
+  <path d="M690 250 H745 V215 H795" fill="none" stroke="#2d9a58" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M690 295 H745 V365 H795" fill="none" stroke="#d04c62" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="795" y="165" width="285" height="120" rx="18" fill="#eaf7ef" stroke="#58aa72" stroke-width="2"/>
+  <text x="938" y="200" text-anchor="middle" class="h" fill="#237f45">较好动作：对齐物块</text>
+  <text x="938" y="238" text-anchor="middle" class="mono" fill="#237f45">V(oₜ₊₅) = −0.25</text>
+  <text x="938" y="265" text-anchor="middle" class="small">局面明显改善</text>
+
+  <rect x="795" y="315" width="285" height="120" rx="18" fill="#fff0f1" stroke="#dc7081" stroke-width="2"/>
+  <text x="938" y="350" text-anchor="middle" class="h" fill="#b23b50">较差动作：撞飞物块</text>
+  <text x="938" y="388" text-anchor="middle" class="mono" fill="#b23b50">V(oₜ₊₅) = −0.75</text>
+  <text x="938" y="415" text-anchor="middle" class="small">局面进一步恶化</text>
+
+  <path class="arrow" d="M1080 225 H1145"/><path class="arrow" d="M1080 375 H1145"/>
+  <rect x="1145" y="165" width="245" height="120" rx="18" fill="#2f8d50"/>
+  <text x="1268" y="202" text-anchor="middle" class="h" style="fill:#fff">正 Advantage</text>
+  <text x="1268" y="239" text-anchor="middle" class="mono" fill="#fff">A = +0.25</text>
+  <text x="1268" y="267" text-anchor="middle" class="small" style="fill:#e9fff0">比基准预期更好</text>
+  <rect x="1145" y="315" width="245" height="120" rx="18" fill="#c54c61"/>
+  <text x="1268" y="352" text-anchor="middle" class="h" style="fill:#fff">负 Advantage</text>
+  <text x="1268" y="389" text-anchor="middle" class="mono" fill="#fff">A = −0.25</text>
+  <text x="1268" y="417" text-anchor="middle" class="small" style="fill:#fff0f3">比基准预期更差</text>
+
+  <rect x="372" y="376" width="365" height="59" rx="16" fill="#fff8e7" stroke="#e5c163"/>
+  <text x="555" y="412" text-anchor="middle" class="mono" fill="#815d0e">Aₜ⁽ᴺ⁾ = Σr + V(oₜ₊ᴺ) − V(oₜ)</text>
+
+  <!-- bottom pipeline -->
+  <text x="65" y="525" class="h">② 将连续 Advantage 变成训练条件</text>
+  <path class="arrow" d="M295 650 H345"/><path class="arrow" d="M620 650 H670"/><path class="arrow" d="M945 650 H995"/><path class="arrow" d="M1270 650 H1320"/>
+
+  <g filter="url(#shadow)">
+    <rect x="65" y="565" width="230" height="180" rx="20" fill="#fff" stroke="#8ca9d2" stroke-width="2"/>
+    <circle cx="98" cy="598" r="18" fill="#315f9f"/><text x="98" y="604" text-anchor="middle" style="font:700 15px Arial;fill:#fff">1</text>
+    <text x="130" y="605" class="h">按任务分别排序</text>
+    <text x="90" y="648" class="p"><tspan x="90">红 / 绿 / 蓝各自计算</tspan><tspan x="90" dy="28">70% 分位阈值 εℓ</tspan></text>
+    <rect x="90" y="705" width="180" height="25" rx="12" fill="#edf3ff"/><text x="180" y="723" text-anchor="middle" class="small" fill="#315f9f">避免简单任务压过难任务</text>
+
+    <rect x="345" y="565" width="275" height="180" rx="20" fill="#fff" stroke="#64a978" stroke-width="2"/>
+    <circle cx="378" cy="598" r="18" fill="#3a8c52"/><text x="378" y="604" text-anchor="middle" style="font:700 15px Arial;fill:#fff">2</text>
+    <text x="410" y="605" class="h">生成二值条件</text>
+    <rect x="375" y="638" width="215" height="34" rx="17" fill="#e8f7ed"/><text x="482" y="661" text-anchor="middle" class="mono" fill="#268047">top 30% → positive</text>
+    <rect x="375" y="685" width="215" height="34" rx="17" fill="#fff0f1"/><text x="482" y="708" text-anchor="middle" class="mono" fill="#b43e52">其余 → negative</text>
+    <text x="482" y="736" text-anchor="middle" class="small">ACTIVE 纠正帧强制 positive</text>
+
+    <rect x="670" y="565" width="275" height="180" rx="20" fill="#fff" stroke="#a68ed5" stroke-width="2"/>
+    <circle cx="703" cy="598" r="18" fill="#7052ad"/><text x="703" y="604" text-anchor="middle" style="font:700 15px Arial;fill:#fff">3</text>
+    <text x="735" y="605" class="h">写入 prompt</text>
+    <text x="807" y="648" text-anchor="middle" class="mono" fill="#3e8b49">Advantage: positive</text>
+    <text x="807" y="682" text-anchor="middle" class="mono" fill="#b43e52">Advantage: negative</text>
+    <text x="807" y="719" text-anchor="middle" class="small">30% 概率移除后缀，仅做条件 dropout</text>
+
+    <rect x="995" y="565" width="275" height="180" rx="20" fill="#fff" stroke="#df9b58" stroke-width="2"/>
+    <circle cx="1028" cy="598" r="18" fill="#d27620"/><text x="1028" y="604" text-anchor="middle" style="font:700 15px Arial;fill:#fff">4</text>
+    <text x="1060" y="605" class="h">训练全部动作数据</text>
+    <text x="1025" y="648" class="p"><tspan x="1025">positive 和 negative 都拟合</tspan><tspan x="1025" dy="28">仍使用 flow matching 损失</tspan></text>
+    <rect x="1025" y="705" width="215" height="25" rx="12" fill="#fff1e4"/><text x="1132" y="723" text-anchor="middle" class="small" fill="#a95111">不是对 negative 使用反向损失</text>
+
+    <rect x="1320" y="565" width="115" height="180" rx="20" fill="#17365d"/>
+    <circle cx="1378" cy="598" r="18" fill="#fff"/><text x="1378" y="604" text-anchor="middle" style="font:700 15px Arial;fill:#17365d">5</text>
+    <text x="1378" y="640" text-anchor="middle" class="h" style="fill:#fff">推理</text>
+    <text x="1378" y="679" text-anchor="middle" class="small" style="fill:#dfeafa"><tspan x="1378">固定请求</tspan><tspan x="1378" dy="24">positive</tspan></text>
+    <path d="M1350 719 H1406" stroke="#77d392" stroke-width="5"/><path d="M1395 708 L1408 719 L1395 730" fill="none" stroke="#77d392" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <rect x="65" y="790" width="1370" height="70" rx="18" fill="#fff" stroke="#cbd8e8"/>
+  <text x="750" y="820" text-anchor="middle" class="h">关键区别：Value 评价状态，Advantage 评价动作片段</text>
+  <text x="750" y="848" text-anchor="middle" class="p">困难状态中的有效恢复可以是 positive；简单状态中的低效动作也可以是 negative。</text>
+</svg>

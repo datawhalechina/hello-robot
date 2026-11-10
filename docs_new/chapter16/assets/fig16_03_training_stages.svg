@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="920" viewBox="0 0 1600 920" role="img" aria-labelledby="title desc">
+<title id="title">图 16-3｜从视频运动到 G2 控制：潜在动作与三阶段训练</title><desc id="desc">区分两件事：潜在动作表示学习提供运动标签；Stage 2 使用这些标签训练联合模型。</desc>
+<rect width="1600" height="920" fill="#F5F8FC"/>
+<text x="50.0" y="61.7" font-family="Noto Sans CJK SC, sans-serif" font-size="36" font-weight="700" fill="#18334B">图 16-3｜从视频运动到 G2 控制：潜在动作与三阶段训练</text>
+<text x="50.0" y="108.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#54697D">区分两件事：潜在动作表示学习提供运动标签；Stage 2 使用这些标签训练联合模型。</text>
+<text x="50.0" y="172.9" font-family="Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#18334B">潜在动作标签如何获得（完整算法背景，不是本章重训任务）</text>
+<rect x="50" y="205" width="330" height="115" rx="16" fill="#FFFFFF" stroke="#7452AE" stroke-width="2"/>
+<text x="70.0" y="244.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#7452AE">相邻视频帧</text>
+<text x="70.0" y="284.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">观察画面变化</text>
+<rect x="435" y="205" width="330" height="115" rx="16" fill="#FFFFFF" stroke="#7452AE" stroke-width="2"/>
+<text x="455.0" y="244.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#7452AE">光流与压缩特征</text>
+<text x="455.0" y="284.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">DPFlow → DC-AE</text>
+<rect x="820" y="205" width="330" height="115" rx="16" fill="#FFFFFF" stroke="#7452AE" stroke-width="2"/>
+<text x="840.0" y="244.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#7452AE">潜在动作表示</text>
+<text x="840.0" y="284.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">低维运动标签</text>
+<polyline points="380,262 435,262" fill="none" stroke="#54697D" stroke-width="3"/>
+<polygon points="435.0,262.0 423.5,268.0 423.5,256.0" fill="#54697D"/>
+<polyline points="765,262 820,262" fill="none" stroke="#54697D" stroke-width="3"/>
+<polygon points="820.0,262.0 808.5,268.0 808.5,256.0" fill="#54697D"/>
+<rect x="1200" y="205" width="350" height="115" rx="16" fill="#FFFFFF" stroke="#BC641D" stroke-width="2"/>
+<text x="1220.0" y="244.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#BC641D">不等于关节命令</text>
+<text x="1220.0" y="284.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">不能直接驱动 G2</text>
+<text x="50.0" y="392.9" font-family="Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#18334B">已有基础模型先验 + 分阶段机器人学习</text>
+<rect x="50" y="435" width="440" height="210" rx="16" fill="#FFFFFF" stroke="#087F8C" stroke-width="2"/>
+<text x="70.0" y="474.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#087F8C">Stage 1｜视频适应</text>
+<text x="70.0" y="514.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">继承预训练视频能力</text>
+<text x="70.0" y="548.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">学习操作场景的时序变化</text>
+<text x="70.0" y="582.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">重点：视频专家</text>
+<rect x="580" y="435" width="440" height="210" rx="16" fill="#FFFFFF" stroke="#7452AE" stroke-width="2"/>
+<text x="600.0" y="474.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#7452AE">Stage 2｜联合预训练</text>
+<text x="600.0" y="514.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">视频 + 语言 + 潜在动作</text>
+<text x="600.0" y="548.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">学习三专家之间的配合</text>
+<text x="600.0" y="582.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">产物：本章使用的 Stage 2 基座</text>
+<rect x="1110" y="435" width="440" height="210" rx="16" fill="#FFF2E6" stroke="#BC641D" stroke-width="2"/>
+<text x="1130.0" y="474.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#BC641D">Stage 3｜G2 适配</text>
+<text x="1130.0" y="514.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">G2 图像 + 实测状态 + 命令</text>
+<text x="1130.0" y="548.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">LoRA + 必要输入输出参数</text>
+<text x="1130.0" y="582.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">产物：G2 adapter</text>
+<polyline points="490,535 580,535" fill="none" stroke="#54697D" stroke-width="3"/>
+<polygon points="580.0,535.0 568.5,541.0 568.5,529.0" fill="#54697D"/>
+<polyline points="1020,535 1110,535" fill="none" stroke="#54697D" stroke-width="3"/>
+<polygon points="1110.0,535.0 1098.5,541.0 1098.5,529.0" fill="#54697D"/>
+<polyline points="985,320 985,370 800,370 800,435" fill="none" stroke="#7452AE" stroke-width="3"/>
+<polygon points="800.0,435.0 794.0,423.5 806.0,423.5" fill="#7452AE"/>
+<rect x="50" y="700" width="970" height="80" rx="16" fill="#E8EDF4" stroke="#E8EDF4" stroke-width="2"/>
+<text x="297.5" y="747.0" font-family="Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#18334B">本章复用这些阶段的成果，不从零重复训练</text>
+<rect x="1110" y="700" width="440" height="80" rx="16" fill="#FFE4CA" stroke="#FFE4CA" stroke-width="2"/>
+<text x="1230.0" y="747.0" font-family="Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#18334B">本章实际训练范围</text>
+<rect x="50" y="820" width="1500" height="62" rx="16" fill="#E8EFF7" stroke="#E8EFF7" stroke-width="2"/>
+<text x="72.0" y="858.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">部署恢复：Stage 2 基座 + G2 adapter + 配套模型资源；adapter 不能单独运行。</text>
+</svg>

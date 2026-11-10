@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040" role="img" aria-labelledby="title desc">
+<title id="title">图 16-5｜一条训练样本：当前状态与未来命令怎样对齐？</title><desc id="desc">示例取条件索引 c = 0；原始记录 30 Hz，16 个动作和 8 帧未来视频覆盖同一个约 1.6 秒窗口。</desc>
+<rect width="1600" height="1040" fill="#F5F8FC"/>
+<text x="50.0" y="61.7" font-family="Noto Sans CJK SC, sans-serif" font-size="36" font-weight="700" fill="#18334B">图 16-5｜一条训练样本：当前状态与未来命令怎样对齐？</text>
+<text x="50.0" y="108.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#54697D">示例取条件索引 c = 0；原始记录 30 Hz，16 个动作和 8 帧未来视频覆盖同一个约 1.6 秒窗口。</text>
+<rect x="50" y="150" width="700" height="130" rx="16" fill="#FFFFFF" stroke="#2463B5" stroke-width="2"/>
+<text x="70.0" y="189.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#2463B5">当前条件：取第 0 帧</text>
+<text x="70.0" y="229.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">三路相机图像 + qpos[0] + 任务文字</text>
+<text x="70.0" y="263.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">qpos 是实测状态，不是未来动作标签</text>
+<rect x="800" y="150" width="750" height="130" rx="16" fill="#FFFFFF" stroke="#BC641D" stroke-width="2"/>
+<text x="820.0" y="189.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#BC641D">未来监督：从命令与视频分别取数</text>
+<text x="820.0" y="229.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">commands[3, 6, …, 48]：未来绝对目标</text>
+<text x="820.0" y="263.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">videos[6, 12, …, 48]：对应未来画面</text>
+<text x="50.0" y="398.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#54697D">原始帧索引</text>
+<polyline points="245,390 1497,390" fill="none" stroke="#54697D" stroke-width="2"/>
+<rect x="238" y="383" width="14" height="14" rx="4" fill="#54697D" stroke="#54697D" stroke-width="2"/>
+<text x="239.2" y="362.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">0</text>
+<rect x="315" y="383" width="14" height="14" rx="4" fill="#54697D" stroke="#54697D" stroke-width="2"/>
+<text x="316.2" y="362.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">3</text>
+<rect x="392" y="383" width="14" height="14" rx="4" fill="#54697D" stroke="#54697D" stroke-width="2"/>
+<text x="393.2" y="362.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">6</text>
+<rect x="469" y="383" width="14" height="14" rx="4" fill="#54697D" stroke="#54697D" stroke-width="2"/>
+<text x="470.2" y="362.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">9</text>
+<rect x="546" y="383" width="14" height="14" rx="4" fill="#54697D" stroke="#54697D" stroke-width="2"/>
+<text x="541.3" y="362.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">12</text>
+<rect x="623" y="383" width="14" height="14" rx="4" fill="#54697D" stroke="#54697D" stroke-width="2"/>
+<text x="618.3" y="362.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">15</text>
+<rect x="700" y="383" width="14" height="14" rx="4" fill="#54697D" stroke="#54697D" stroke-width="2"/>
+<text x="695.3" y="362.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">18</text>
+<rect x="777" y="383" width="14" height="14" rx="4" fill="#54697D" stroke="#54697D" stroke-width="2"/>
+<text x="772.3" y="362.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">21</text>
+<rect x="854" y="383" width="14" height="14" rx="4" fill="#54697D" stroke="#54697D" stroke-width="2"/>
+<text x="849.3" y="362.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">24</text>
+<rect x="931" y="383" width="14" height="14" rx="4" fill="#54697D" stroke="#54697D" stroke-width="2"/>
+<text x="926.3" y="362.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">27</text>
+<rect x="1008" y="383" width="14" height="14" rx="4" fill="#54697D" stroke="#54697D" stroke-width="2"/>
+<text x="1003.3" y="362.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">30</text>
+<rect x="1085" y="383" width="14" height="14" rx="4" fill="#54697D" stroke="#54697D" stroke-width="2"/>
+<text x="1080.3" y="362.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">33</text>
+<rect x="1162" y="383" width="14" height="14" rx="4" fill="#54697D" stroke="#54697D" stroke-width="2"/>
+<text x="1157.3" y="362.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">36</text>
+<rect x="1239" y="383" width="14" height="14" rx="4" fill="#54697D" stroke="#54697D" stroke-width="2"/>
+<text x="1234.3" y="362.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">39</text>
+<rect x="1316" y="383" width="14" height="14" rx="4" fill="#54697D" stroke="#54697D" stroke-width="2"/>
+<text x="1311.3" y="362.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">42</text>
+<rect x="1393" y="383" width="14" height="14" rx="4" fill="#54697D" stroke="#54697D" stroke-width="2"/>
+<text x="1388.3" y="362.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">45</text>
+<rect x="1470" y="383" width="14" height="14" rx="4" fill="#54697D" stroke="#54697D" stroke-width="2"/>
+<text x="1465.3" y="362.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">48</text>
+<text x="50.0" y="513.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#BC641D">动作标签</text>
+<polyline points="245,505 1497,505" fill="none" stroke="#BC641D" stroke-width="2"/>
+<rect x="315" y="498" width="14" height="14" rx="4" fill="#BC641D" stroke="#BC641D" stroke-width="2"/>
+<text x="316.7" y="543.7" font-family="Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400" fill="#BC641D">1</text>
+<rect x="392" y="498" width="14" height="14" rx="4" fill="#BC641D" stroke="#BC641D" stroke-width="2"/>
+<text x="393.7" y="543.7" font-family="Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400" fill="#BC641D">2</text>
+<rect x="469" y="498" width="14" height="14" rx="4" fill="#BC641D" stroke="#BC641D" stroke-width="2"/>
+<text x="470.7" y="543.7" font-family="Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400" fill="#BC641D">3</text>
+<rect x="546" y="498" width="14" height="14" rx="4" fill="#BC641D" stroke="#BC641D" stroke-width="2"/>
+<text x="547.7" y="543.7" font-family="Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400" fill="#BC641D">4</text>
+<rect x="623" y="498" width="14" height="14" rx="4" fill="#BC641D" stroke="#BC641D" stroke-width="2"/>
+<text x="624.7" y="543.7" font-family="Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400" fill="#BC641D">5</text>
+<rect x="700" y="498" width="14" height="14" rx="4" fill="#BC641D" stroke="#BC641D" stroke-width="2"/>
+<text x="701.7" y="543.7" font-family="Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400" fill="#BC641D">6</text>
+<rect x="777" y="498" width="14" height="14" rx="4" fill="#BC641D" stroke="#BC641D" stroke-width="2"/>
+<text x="778.7" y="543.7" font-family="Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400" fill="#BC641D">7</text>
+<rect x="854" y="498" width="14" height="14" rx="4" fill="#BC641D" stroke="#BC641D" stroke-width="2"/>
+<text x="855.7" y="543.7" font-family="Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400" fill="#BC641D">8</text>
+<rect x="931" y="498" width="14" height="14" rx="4" fill="#BC641D" stroke="#BC641D" stroke-width="2"/>
+<text x="932.7" y="543.7" font-family="Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400" fill="#BC641D">9</text>
+<rect x="1008" y="498" width="14" height="14" rx="4" fill="#BC641D" stroke="#BC641D" stroke-width="2"/>
+<text x="1004.5" y="543.7" font-family="Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400" fill="#BC641D">10</text>
+<rect x="1085" y="498" width="14" height="14" rx="4" fill="#BC641D" stroke="#BC641D" stroke-width="2"/>
+<text x="1081.5" y="543.7" font-family="Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400" fill="#BC641D">11</text>
+<rect x="1162" y="498" width="14" height="14" rx="4" fill="#BC641D" stroke="#BC641D" stroke-width="2"/>
+<text x="1158.5" y="543.7" font-family="Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400" fill="#BC641D">12</text>
+<rect x="1239" y="498" width="14" height="14" rx="4" fill="#BC641D" stroke="#BC641D" stroke-width="2"/>
+<text x="1235.5" y="543.7" font-family="Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400" fill="#BC641D">13</text>
+<rect x="1316" y="498" width="14" height="14" rx="4" fill="#BC641D" stroke="#BC641D" stroke-width="2"/>
+<text x="1312.5" y="543.7" font-family="Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400" fill="#BC641D">14</text>
+<rect x="1393" y="498" width="14" height="14" rx="4" fill="#BC641D" stroke="#BC641D" stroke-width="2"/>
+<text x="1389.5" y="543.7" font-family="Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400" fill="#BC641D">15</text>
+<rect x="1470" y="498" width="14" height="14" rx="4" fill="#BC641D" stroke="#BC641D" stroke-width="2"/>
+<text x="1466.5" y="543.7" font-family="Noto Sans CJK SC, sans-serif" font-size="19" font-weight="400" fill="#BC641D">16</text>
+<text x="50.0" y="628.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#087F8C">未来图像</text>
+<polyline points="245,620 1497,620" fill="none" stroke="#087F8C" stroke-width="2"/>
+<rect x="392" y="613" width="14" height="14" rx="4" fill="#087F8C" stroke="#087F8C" stroke-width="2"/>
+<text x="393.5" y="659.6" font-family="Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#087F8C">1</text>
+<rect x="546" y="613" width="14" height="14" rx="4" fill="#087F8C" stroke="#087F8C" stroke-width="2"/>
+<text x="547.5" y="659.6" font-family="Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#087F8C">2</text>
+<rect x="700" y="613" width="14" height="14" rx="4" fill="#087F8C" stroke="#087F8C" stroke-width="2"/>
+<text x="701.5" y="659.6" font-family="Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#087F8C">3</text>
+<rect x="854" y="613" width="14" height="14" rx="4" fill="#087F8C" stroke="#087F8C" stroke-width="2"/>
+<text x="855.5" y="659.6" font-family="Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#087F8C">4</text>
+<rect x="1008" y="613" width="14" height="14" rx="4" fill="#087F8C" stroke="#087F8C" stroke-width="2"/>
+<text x="1009.5" y="659.6" font-family="Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#087F8C">5</text>
+<rect x="1162" y="613" width="14" height="14" rx="4" fill="#087F8C" stroke="#087F8C" stroke-width="2"/>
+<text x="1163.5" y="659.6" font-family="Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#087F8C">6</text>
+<rect x="1316" y="613" width="14" height="14" rx="4" fill="#087F8C" stroke="#087F8C" stroke-width="2"/>
+<text x="1317.5" y="659.6" font-family="Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#087F8C">7</text>
+<rect x="1470" y="613" width="14" height="14" rx="4" fill="#087F8C" stroke="#087F8C" stroke-width="2"/>
+<text x="1471.5" y="659.6" font-family="Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#087F8C">8</text>
+<text x="224.0" y="338.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#2463B5">当前</text>
+<text x="1452.6" y="338.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#2463B5">1.6 秒</text>
+<text x="50.0" y="721.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#18334B">动作：每 3 个原始帧取 1 个目标 → 10 Hz；视频：每 2 个目标对应 1 帧 → 5 Hz。</text>
+<rect x="50" y="775" width="700" height="120" rx="16" fill="#FFFFFF" stroke="#BC641D" stroke-width="2"/>
+<text x="70.0" y="813.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#BC641D">动作的两个“16”不能混淆</text>
+<text x="70.0" y="854.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">16 行 = 16 个未来时刻；16 列 = 每步关节接口</text>
+<rect x="800" y="775" width="750" height="120" rx="16" fill="#FFFFFF" stroke="#087F8C" stroke-width="2"/>
+<text x="820.0" y="813.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#087F8C">为什么要求至少 49 帧？</text>
+<text x="820.0" y="854.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">索引包含 0 到 48；当前帧不算未来动作</text>
+<rect x="50" y="950" width="1500" height="62" rx="16" fill="#E8EFF7" stroke="#E8EFF7" stroke-width="2"/>
+<text x="72.0" y="988.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">图中数字是采样索引，不是先把原始 NPZ 降采样后重新编号。</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="420" fill="#ffffff"/>
+  <text x="500" y="32" text-anchor="middle" font-size="21" font-weight="bold" fill="#222">三层评估：数据 → 模型 → 执行</text>
+
+  <rect x="30" y="60" width="290" height="270" rx="12" fill="#e8f1fb" stroke="#4a7fc1"/>
+  <text x="175" y="90" text-anchor="middle" font-size="17" font-weight="bold" fill="#1f4f8a">① 数据层</text>
+  <text x="175" y="118" text-anchor="middle" font-size="13" fill="#333">工具：inspect_data.py</text>
+  <text x="50" y="150" font-size="13" fill="#333">· 成功轨迹数、颜色是否均衡</text>
+  <text x="50" y="174" font-size="13" fill="#333">· train / validation 按 episode 分离</text>
+  <text x="50" y="198" font-size="13" fill="#333">· command − qpos 差异是否为 0</text>
+  <text x="50" y="222" font-size="13" fill="#333">  （为 0 说明误把状态当动作）</text>
+  <text x="50" y="246" font-size="13" fill="#333">· 五类文件同名齐全</text>
+  <text x="50" y="270" font-size="13" fill="#333">· 夹爪符号：−0.785 开，0 合</text>
+  <text x="175" y="312" text-anchor="middle" font-size="12" fill="#777">回答：喂给模型的东西对不对</text>
+
+  <rect x="355" y="60" width="290" height="270" rx="12" fill="#fdf0e2" stroke="#d98a2b"/>
+  <text x="500" y="90" text-anchor="middle" font-size="17" font-weight="bold" fill="#8a4f10">② 模型层（离线）</text>
+  <text x="500" y="118" text-anchor="middle" font-size="13" fill="#333">工具：训练日志、infer_future.py</text>
+  <text x="375" y="150" font-size="13" fill="#333">· video_loss / action_loss 有限</text>
+  <text x="375" y="174" font-size="13" fill="#333">· 动作形状 16×16、无 NaN</text>
+  <text x="375" y="198" font-size="13" fill="#333">· 相邻目标跳变是否异常</text>
+  <text x="375" y="222" font-size="13" fill="#333">· 未来视频是否选对颜色</text>
+  <text x="375" y="246" font-size="13" fill="#333">· 视频与动作的夹爪阶段一致</text>
+  <text x="500" y="312" text-anchor="middle" font-size="12" fill="#777">回答：模型“想象”得合不合理</text>
+
+  <rect x="680" y="60" width="290" height="270" rx="12" fill="#eef7ee" stroke="#4f9a57"/>
+  <text x="825" y="90" text-anchor="middle" font-size="17" font-weight="bold" fill="#2d6b33">③ 执行层（闭环）</text>
+  <text x="825" y="118" text-anchor="middle" font-size="13" fill="#333">工具：evaluate.py --execution-mode official</text>
+  <text x="700" y="150" font-size="13" fill="#333">· success / reason</text>
+  <text x="700" y="174" font-size="13" fill="#333">· replans、executed_actions</text>
+  <text x="700" y="198" font-size="13" fill="#333">· limited_fraction（关节裁剪）</text>
+  <text x="700" y="222" font-size="13" fill="#333">· inside_box、final_block_position</text>
+  <text x="700" y="246" font-size="13" fill="#333">· seconds（含推理等待）</text>
+  <text x="825" y="312" text-anchor="middle" font-size="12" fill="#777">回答：机器人真的做成了没有</text>
+
+  <line x1="320" y1="195" x2="353" y2="195" stroke="#555" stroke-width="2" marker-end="url(#e)"/>
+  <line x1="645" y1="195" x2="678" y2="195" stroke="#555" stroke-width="2" marker-end="url(#e)"/>
+  <text x="500" y="370" text-anchor="middle" font-size="14" fill="#444">只有三层同时检查，才能区分“模型不会做”与“数据、接口或执行方式出错”。</text>
+  <text x="500" y="394" text-anchor="middle" font-size="13" fill="#777">好看的未来视频 ≠ 成功的动作；loss 下降 ≠ 成功率提高。</text>
+</svg>

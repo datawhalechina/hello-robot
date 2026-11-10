@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="460" viewBox="0 0 1000 460" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#5b6b82"/></marker>
+  </defs>
+  <rect width="1000" height="460" fill="#ffffff"/>
+  <text x="500" y="36" text-anchor="middle" font-size="21" font-weight="700" fill="#1f2d3d">行为克隆只用成功示教 vs 经验驱动改进利用全部经验</text>
+
+  <!-- left panel -->
+  <rect x="25" y="60" width="460" height="370" rx="12" fill="#f8fafc" stroke="#c8d1dc"/>
+  <text x="255" y="90" text-anchor="middle" font-size="17" font-weight="700" fill="#1f2d3d">(a) 行为克隆 BC</text>
+  <circle cx="80" cy="330" r="10" fill="#3b6fc4"/><text x="80" y="360" text-anchor="middle" font-size="13" fill="#1f2d3d">起点</text>
+  <rect x="400" y="140" width="56" height="40" rx="4" fill="none" stroke="#2f9e57" stroke-width="2.5"/><text x="428" y="200" text-anchor="middle" font-size="13" fill="#2f9e57">盒子</text>
+  <path d="M80 330 C 180 250, 300 180, 420 162" stroke="#2f9e57" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <text x="250" y="200" font-size="13" fill="#2f9e57">专家示教轨迹（训练数据）</text>
+  <path d="M80 330 C 170 280, 240 280, 300 300" stroke="#d64545" stroke-width="2.5" stroke-dasharray="7 5" fill="none" marker-end="url(#a)"/>
+  <text x="320" y="306" font-size="13" fill="#d64545">部署时偏离</text>
+  <text x="320" y="324" font-size="13" fill="#d64545">→ 未见过的状态</text>
+  <text x="320" y="342" font-size="13" fill="#d64545">→ 误差累积</text>
+  <text x="45" y="405" font-size="13" fill="#5b6b82">失败、恢复、速度差异都没有被利用</text>
+
+  <!-- right panel -->
+  <rect x="515" y="60" width="460" height="370" rx="12" fill="#f8fafc" stroke="#c8d1dc"/>
+  <text x="745" y="90" text-anchor="middle" font-size="17" font-weight="700" fill="#1f2d3d">(b) 经验驱动改进</text>
+  <circle cx="570" cy="330" r="10" fill="#3b6fc4"/>
+  <rect x="890" y="140" width="56" height="40" rx="4" fill="none" stroke="#2f9e57" stroke-width="2.5"/>
+  <path d="M570 330 C 670 250, 790 180, 910 162" stroke="#2f9e57" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <text x="700" y="196" font-size="13" fill="#2f9e57">positive：好于预期</text>
+  <path d="M570 330 C 650 290, 720 290, 760 300" stroke="#d64545" stroke-width="2.5" fill="none"/>
+  <text x="640" y="325" font-size="13" fill="#d64545">negative：变差</text>
+  <path d="M760 300 C 800 260, 850 210, 905 175" stroke="#d9822b" stroke-width="3" fill="none" marker-end="url(#a)"/>
+  <text x="800" y="290" font-size="13" fill="#d9822b">自动纠正（ACTIVE）</text>
+  <text x="800" y="308" font-size="13" fill="#d9822b">→ 强制 positive</text>
+  <text x="535" y="380" font-size="13" fill="#5b6b82">Value 给每个状态一个“预期分”，Advantage 比较</text>
+  <text x="535" y="400" font-size="13" fill="#5b6b82">动作片段的实际结果与预期，失败经验也成为反例</text>
+</svg>

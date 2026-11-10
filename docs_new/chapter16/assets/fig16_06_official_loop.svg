@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="990" viewBox="0 0 1600 990" role="img" aria-labelledby="title desc">
+<title id="title">图 16-6｜official 闭环：完整执行动作块，再重新观察</title><desc id="desc">模型服务与 Isaac Sim 分进程运行；视频用于联合建模，真实执行结果才用于任务评价。</desc>
+<rect width="1600" height="990" fill="#F5F8FC"/>
+<text x="50.0" y="61.7" font-family="Noto Sans CJK SC, sans-serif" font-size="36" font-weight="700" fill="#18334B">图 16-6｜official 闭环：完整执行动作块，再重新观察</text>
+<text x="50.0" y="108.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#54697D">模型服务与 Isaac Sim 分进程运行；视频用于联合建模，真实执行结果才用于任务评价。</text>
+<rect x="50" y="150" width="660" height="605" rx="16" fill="#EBF2FC" stroke="#B5CEE9" stroke-width="2"/>
+<text x="80.0" y="199.8" font-family="Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#2463B5">Isaac Sim 进程</text>
+<rect x="890" y="150" width="660" height="605" rx="16" fill="#F0EBF8" stroke="#CBB9E5" stroke-width="2"/>
+<text x="920.0" y="199.8" font-family="Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#7452AE">Motus 推理服务</text>
+<rect x="90" y="240" width="580" height="125" rx="16" fill="#FFFFFF" stroke="#2463B5" stroke-width="2"/>
+<text x="110.0" y="279.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#2463B5">① 采集当前观察</text>
+<text x="110.0" y="319.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">三路相机 + 16 维实测状态 + 指令</text>
+<rect x="930" y="240" width="580" height="125" rx="16" fill="#FFFFFF" stroke="#7452AE" stroke-width="2"/>
+<text x="950.0" y="279.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#7452AE">② 同一次联合推理</text>
+<text x="950.0" y="319.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">生成未来视频 + 16 × 16 动作块</text>
+<polyline points="670,295 930,295" fill="none" stroke="#2463B5" stroke-width="3"/>
+<polygon points="930.0,295.0 918.5,301.0 918.5,289.0" fill="#2463B5"/>
+<text x="757.3" y="271.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">TCP 请求</text>
+<rect x="930" y="475" width="580" height="160" rx="16" fill="#FFFFFF" stroke="#7452AE" stroke-width="2"/>
+<text x="950.0" y="514.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#7452AE">③ 返回动作数组</text>
+<text x="950.0" y="554.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">服务仍计算并解码未来视频</text>
+<text x="950.0" y="588.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">但网络响应不包含视频</text>
+<polyline points="1220,365 1220,475" fill="none" stroke="#7452AE" stroke-width="3"/>
+<polygon points="1220.0,475.0 1214.0,463.5 1226.0,463.5" fill="#7452AE"/>
+<rect x="90" y="475" width="580" height="160" rx="16" fill="#FFFFFF" stroke="#BC641D" stroke-width="2"/>
+<text x="110.0" y="514.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#BC641D">④ 完整执行全部 16 个目标</text>
+<text x="110.0" y="554.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">物理关节范围裁剪 → 平滑插值</text>
+<text x="110.0" y="588.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">每目标默认 0.1 秒；块内不提前结束</text>
+<polyline points="930,530 670,530" fill="none" stroke="#BC641D" stroke-width="3"/>
+<polygon points="670.0,530.0 681.5,524.0 681.5,536.0" fill="#BC641D"/>
+<text x="757.3" y="506.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">TCP 响应</text>
+<rect x="250" y="800" width="1100" height="105" rx="16" fill="#FFFFFF" stroke="#087F8C" stroke-width="2"/>
+<text x="270.0" y="839.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#087F8C">⑤ 完整动作块结束后检查成功</text>
+<text x="270.0" y="879.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">成功则结束；未成功且未达到轮数上限，则重新观察并预测</text>
+<polyline points="670,610 745,610 745,778 800,778 800,800" fill="none" stroke="#087F8C" stroke-width="3"/>
+<polygon points="800.0,800.0 794.0,788.5 806.0,788.5" fill="#087F8C"/>
+<polyline points="250,850 25,850 25,302 90,302" fill="none" stroke="#087F8C" stroke-width="3"/>
+<polygon points="90.0,302.0 78.5,308.0 78.5,296.0" fill="#087F8C"/>
+<text x="92.0" y="706.5" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="400" fill="#18334B">推理等待期：默认保持请求时姿态，但仿真仍推进。</text>
+<rect x="50" y="925" width="1500" height="62" rx="16" fill="#E8EFF7" stroke="#E8EFF7" stroke-width="2"/>
+<text x="72.0" y="963.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">约 1.6 秒只是动作执行时长，不含模型推理等待；该流程没有候选动作打分或搜索。</text>
+</svg>

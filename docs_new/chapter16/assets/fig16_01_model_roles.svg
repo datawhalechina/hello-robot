@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="850" viewBox="0 0 1600 850" role="img" aria-labelledby="title desc">
+<title id="title">图 16-1｜VLA、世界模型与 Motus：动作到底是输入，还是输出？</title><desc id="desc">阅读方法：从左往右看；蓝色表示已知条件，橙色表示动作，青色表示未来观察。</desc>
+<rect width="1600" height="850" fill="#F5F8FC"/>
+<text x="50.0" y="61.7" font-family="Noto Sans CJK SC, sans-serif" font-size="36" font-weight="700" fill="#18334B">图 16-1｜VLA、世界模型与 Motus：动作到底是输入，还是输出？</text>
+<text x="50.0" y="108.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#54697D">阅读方法：从左往右看；蓝色表示已知条件，橙色表示动作，青色表示未来观察。</text>
+<text x="55.0" y="177.0" font-family="Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#18334B">① VLA 策略</text>
+<rect x="55" y="198" width="460" height="135" rx="16" fill="#FFFFFF" stroke="#2463B5" stroke-width="2"/>
+<text x="75.0" y="236.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#2463B5">已知条件</text>
+<text x="75.0" y="277.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">当前图像 + 实测状态</text>
+<text x="75.0" y="311.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">任务语言</text>
+<rect x="615" y="198" width="320" height="135" rx="16" fill="#FFFFFF" stroke="#7452AE" stroke-width="2"/>
+<text x="635.0" y="237.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#7452AE">策略映射</text>
+<text x="695.0" y="284.6" font-family="Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#18334B">不是候选动作搜索</text>
+<rect x="1035" y="198" width="510" height="135" rx="16" fill="#FFFFFF" stroke="#BC641D" stroke-width="2"/>
+<text x="1055.0" y="236.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#BC641D">生成结果</text>
+<text x="1055.0" y="277.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">未来动作 A</text>
+<text x="1055.0" y="311.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">回答：应该怎么做？</text>
+<polyline points="515,255 615,255" fill="none" stroke="#54697D" stroke-width="3"/>
+<polygon points="615.0,255.0 603.5,261.0 603.5,249.0" fill="#54697D"/>
+<polyline points="935,255 1035,255" fill="none" stroke="#54697D" stroke-width="3"/>
+<polygon points="1035.0,255.0 1023.5,261.0 1023.5,249.0" fill="#54697D"/>
+<text x="55.0" y="362.0" font-family="Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#18334B">② 动作条件世界模型</text>
+<rect x="55" y="383" width="460" height="135" rx="16" fill="#FFFFFF" stroke="#2463B5" stroke-width="2"/>
+<text x="75.0" y="421.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#2463B5">已知条件</text>
+<text x="75.0" y="462.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">当前观察 + 给定动作 A</text>
+<text x="75.0" y="496.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">可加入状态与任务语言</text>
+<rect x="615" y="383" width="320" height="135" rx="16" fill="#FFFFFF" stroke="#7452AE" stroke-width="2"/>
+<text x="635.0" y="422.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#7452AE">后果预测</text>
+<text x="695.0" y="469.6" font-family="Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#18334B">不是候选动作搜索</text>
+<rect x="1035" y="383" width="510" height="135" rx="16" fill="#FFFFFF" stroke="#087F8C" stroke-width="2"/>
+<text x="1055.0" y="421.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#087F8C">生成结果</text>
+<text x="1055.0" y="462.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">未来观察 / 隐状态</text>
+<text x="1055.0" y="496.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">回答：这样做会怎样？</text>
+<polyline points="515,440 615,440" fill="none" stroke="#54697D" stroke-width="3"/>
+<polygon points="615.0,440.0 603.5,446.0 603.5,434.0" fill="#54697D"/>
+<polyline points="935,440 1035,440" fill="none" stroke="#54697D" stroke-width="3"/>
+<polygon points="1035.0,440.0 1023.5,446.0 1023.5,434.0" fill="#54697D"/>
+<text x="55.0" y="547.0" font-family="Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#18334B">③ 本章 Motus 联合预测</text>
+<rect x="55" y="568" width="460" height="135" rx="16" fill="#FFFFFF" stroke="#2463B5" stroke-width="2"/>
+<text x="75.0" y="606.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#2463B5">已知条件</text>
+<text x="75.0" y="647.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">当前图像 + 实测状态</text>
+<text x="75.0" y="681.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">任务语言</text>
+<rect x="615" y="568" width="320" height="135" rx="16" fill="#FFFFFF" stroke="#7452AE" stroke-width="2"/>
+<text x="635.0" y="607.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#7452AE">联合生成</text>
+<text x="695.0" y="654.6" font-family="Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#18334B">不是候选动作搜索</text>
+<rect x="1035" y="568" width="510" height="135" rx="16" fill="#FFFFFF" stroke="#7452AE" stroke-width="2"/>
+<text x="1055.0" y="606.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#7452AE">生成结果</text>
+<text x="1055.0" y="647.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">未来动作 A + 未来视频</text>
+<text x="1055.0" y="681.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">回答：行动与相应未来</text>
+<polyline points="515,625 615,625" fill="none" stroke="#54697D" stroke-width="3"/>
+<polygon points="615.0,625.0 603.5,631.0 603.5,619.0" fill="#54697D"/>
+<polyline points="935,625 1035,625" fill="none" stroke="#54697D" stroke-width="3"/>
+<polygon points="1035.0,625.0 1023.5,631.0 1023.5,619.0" fill="#54697D"/>
+<rect x="50" y="760" width="1500" height="62" rx="16" fill="#E8EFF7" stroke="#E8EFF7" stroke-width="2"/>
+<text x="72.0" y="798.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">关键区别在条件关系和学习目标，而不在是否使用 Transformer、扩散或流匹配。</text>
+</svg>

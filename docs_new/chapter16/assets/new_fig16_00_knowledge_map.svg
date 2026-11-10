@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="560" fill="#ffffff"/>
+  <text x="500" y="34" text-anchor="middle" font-size="22" font-weight="bold" fill="#222">第十六章知识地图：从概念到 G2 闭环</text>
+
+  <!-- Row 1: concepts -->
+  <rect x="30" y="70" width="210" height="96" rx="10" fill="#e8f1fb" stroke="#4a7fc1"/>
+  <text x="135" y="100" text-anchor="middle" font-size="16" font-weight="bold" fill="#1f4f8a">第一部分</text>
+  <text x="135" y="124" text-anchor="middle" font-size="14" fill="#333">世界模型 vs VLA</text>
+  <text x="135" y="146" text-anchor="middle" font-size="14" fill="#333">五种条件模式</text>
+
+  <rect x="270" y="70" width="210" height="96" rx="10" fill="#e8f1fb" stroke="#4a7fc1"/>
+  <text x="375" y="100" text-anchor="middle" font-size="16" font-weight="bold" fill="#1f4f8a">第二部分</text>
+  <text x="375" y="124" text-anchor="middle" font-size="14" fill="#333">潜在动作</text>
+  <text x="375" y="146" text-anchor="middle" font-size="14" fill="#333">光流 → 低维运动表示</text>
+
+  <rect x="510" y="70" width="210" height="96" rx="10" fill="#e8f1fb" stroke="#4a7fc1"/>
+  <text x="615" y="100" text-anchor="middle" font-size="16" font-weight="bold" fill="#1f4f8a">第三部分</text>
+  <text x="615" y="124" text-anchor="middle" font-size="14" fill="#333">三专家 MoT 结构</text>
+  <text x="615" y="146" text-anchor="middle" font-size="14" fill="#333">联合注意力</text>
+
+  <rect x="750" y="70" width="220" height="96" rx="10" fill="#e8f1fb" stroke="#4a7fc1"/>
+  <text x="860" y="100" text-anchor="middle" font-size="16" font-weight="bold" fill="#1f4f8a">第四部分</text>
+  <text x="860" y="124" text-anchor="middle" font-size="14" fill="#333">三阶段训练</text>
+  <text x="860" y="146" text-anchor="middle" font-size="14" fill="#333">联合流匹配与推理</text>
+
+  <line x1="240" y1="118" x2="268" y2="118" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="480" y1="118" x2="508" y2="118" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="720" y1="118" x2="748" y2="118" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Row 2: G2 practice -->
+  <rect x="150" y="230" width="300" height="96" rx="10" fill="#fdf0e2" stroke="#d98a2b"/>
+  <text x="300" y="260" text-anchor="middle" font-size="16" font-weight="bold" fill="#8a4f10">第五部分 接到 G2 真实动作</text>
+  <text x="300" y="284" text-anchor="middle" font-size="14" fill="#333">qpos / command 分离、时间对齐</text>
+  <text x="300" y="306" text-anchor="middle" font-size="14" fill="#333">16 维接口重训 + LoRA</text>
+
+  <rect x="550" y="230" width="300" height="96" rx="10" fill="#fdf0e2" stroke="#d98a2b"/>
+  <text x="700" y="260" text-anchor="middle" font-size="16" font-weight="bold" fill="#8a4f10">第六部分 评估方式</text>
+  <text x="700" y="284" text-anchor="middle" font-size="14" fill="#333">离线未来视频 + 动作检查</text>
+  <text x="700" y="306" text-anchor="middle" font-size="14" fill="#333">official 完整动作块闭环</text>
+
+  <line x1="860" y1="166" x2="400" y2="228" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="450" y1="278" x2="548" y2="278" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Row 3: code modules -->
+  <text x="500" y="378" text-anchor="middle" font-size="15" fill="#555">对应代码（code/code_chapter16）</text>
+  <rect x="30" y="396" width="180" height="120" rx="8" fill="#eef7ee" stroke="#4f9a57"/>
+  <text x="120" y="420" text-anchor="middle" font-size="14" font-weight="bold" fill="#2d6b33">配置与数据</text>
+  <text x="120" y="444" text-anchor="middle" font-size="12" fill="#333">settings.py</text>
+  <text x="120" y="462" text-anchor="middle" font-size="12" fill="#333">collect_data.py</text>
+  <text x="120" y="480" text-anchor="middle" font-size="12" fill="#333">prepare_data.py</text>
+  <text x="120" y="498" text-anchor="middle" font-size="12" fill="#333">data_utils.py</text>
+
+  <rect x="225" y="396" width="180" height="120" rx="8" fill="#eef7ee" stroke="#4f9a57"/>
+  <text x="315" y="420" text-anchor="middle" font-size="14" font-weight="bold" fill="#2d6b33">数据适配</text>
+  <text x="315" y="444" text-anchor="middle" font-size="12" fill="#333">g2_dataset_adapter.py</text>
+  <text x="315" y="462" text-anchor="middle" font-size="12" fill="#333">inspect_data.py</text>
+  <text x="315" y="480" text-anchor="middle" font-size="12" fill="#333">Motus/data/...</text>
+
+  <rect x="420" y="396" width="180" height="120" rx="8" fill="#eef7ee" stroke="#4f9a57"/>
+  <text x="510" y="420" text-anchor="middle" font-size="14" font-weight="bold" fill="#2d6b33">模型与训练</text>
+  <text x="510" y="444" text-anchor="middle" font-size="12" fill="#333">Motus/models/motus.py</text>
+  <text x="510" y="462" text-anchor="middle" font-size="12" fill="#333">lora.py</text>
+  <text x="510" y="480" text-anchor="middle" font-size="12" fill="#333">train_stage3.py</text>
+  <text x="510" y="498" text-anchor="middle" font-size="12" fill="#333">train.sh</text>
+
+  <rect x="615" y="396" width="170" height="120" rx="8" fill="#eef7ee" stroke="#4f9a57"/>
+  <text x="700" y="420" text-anchor="middle" font-size="14" font-weight="bold" fill="#2d6b33">推理</text>
+  <text x="700" y="444" text-anchor="middle" font-size="12" fill="#333">motus_runtime.py</text>
+  <text x="700" y="462" text-anchor="middle" font-size="12" fill="#333">infer_future.py</text>
+  <text x="700" y="480" text-anchor="middle" font-size="12" fill="#333">serve_policy.py</text>
+
+  <rect x="800" y="396" width="170" height="120" rx="8" fill="#eef7ee" stroke="#4f9a57"/>
+  <text x="885" y="420" text-anchor="middle" font-size="14" font-weight="bold" fill="#2d6b33">仿真执行</text>
+  <text x="885" y="444" text-anchor="middle" font-size="12" fill="#333">evaluate.py</text>
+  <text x="885" y="462" text-anchor="middle" font-size="12" fill="#333">control.py</text>
+  <text x="885" y="480" text-anchor="middle" font-size="12" fill="#333">policy_rpc.py</text>
+  <text x="885" y="498" text-anchor="middle" font-size="12" fill="#333">task_runtime/</text>
+
+  <line x1="300" y1="326" x2="220" y2="394" stroke="#999" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arr)"/>
+  <line x1="300" y1="326" x2="315" y2="394" stroke="#999" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arr)"/>
+  <line x1="330" y1="326" x2="500" y2="394" stroke="#999" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arr)"/>
+  <line x1="700" y1="326" x2="700" y2="394" stroke="#999" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arr)"/>
+  <line x1="720" y1="326" x2="880" y2="394" stroke="#999" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arr)"/>
+  <line x1="860" y1="166" x2="560" y2="394" stroke="#999" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arr)"/>
+  <text x="500" y="545" text-anchor="middle" font-size="13" fill="#777">蓝色：完整 Motus 算法（本章复用预训练结果）；橙色：本章 G2 实践；绿色：代码模块</text>
+</svg>

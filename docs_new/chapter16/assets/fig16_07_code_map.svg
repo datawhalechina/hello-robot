@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1070" viewBox="0 0 1600 1070" role="img" aria-labelledby="title desc">
+<title id="title">图 16-7｜算法在代码中的对应：从示教到执行，一条链读懂工程</title><desc id="desc">阅读图例：实线表示主要数据流；模型源码、预训练权重与训练增量分开存放。</desc>
+<rect width="1600" height="1070" fill="#F5F8FC"/>
+<text x="50.0" y="61.7" font-family="Noto Sans CJK SC, sans-serif" font-size="36" font-weight="700" fill="#18334B">图 16-7｜算法在代码中的对应：从示教到执行，一条链读懂工程</text>
+<text x="50.0" y="108.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#54697D">阅读图例：实线表示主要数据流；模型源码、预训练权重与训练增量分开存放。</text>
+<rect x="50" y="170" width="450" height="150" rx="16" fill="#FFFFFF" stroke="#2463B5" stroke-width="2"/>
+<text x="70.0" y="208.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#2463B5">① 统一接口与配方</text>
+<text x="70.0" y="249.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">settings.py + configs/</text>
+<text x="70.0" y="283.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">状态 / 动作维度、帧率、LoRA 配方</text>
+<rect x="575" y="170" width="450" height="150" rx="16" fill="#FFFFFF" stroke="#2463B5" stroke-width="2"/>
+<text x="595.0" y="208.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#2463B5">② 示教与数据转换</text>
+<text x="595.0" y="249.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">collect_data.py → prepare_data.py</text>
+<text x="595.0" y="283.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">data_utils.py：图像与时间对齐</text>
+<rect x="1100" y="170" width="450" height="150" rx="16" fill="#FFFFFF" stroke="#2463B5" stroke-width="2"/>
+<text x="1120.0" y="208.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#2463B5">③ G2 数据适配</text>
+<text x="1120.0" y="249.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">g2_dataset_adapter.py</text>
+<text x="1120.0" y="283.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">实测状态与未来命令分开读取</text>
+<rect x="1100" y="435" width="450" height="150" rx="16" fill="#FFFFFF" stroke="#BC641D" stroke-width="2"/>
+<text x="1120.0" y="473.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#BC641D">④ 联合损失与参数更新</text>
+<text x="1120.0" y="514.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">train_stage3.py + lora.py</text>
+<text x="1120.0" y="548.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">Stage 3 LoRA → 保存 adapter</text>
+<rect x="575" y="435" width="450" height="150" rx="16" fill="#FFFFFF" stroke="#7452AE" stroke-width="2"/>
+<text x="595.0" y="473.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#7452AE">⑤ 恢复与联合推理</text>
+<text x="595.0" y="514.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">motus_runtime.py</text>
+<text x="595.0" y="548.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">Stage 2 基座 + adapter → 策略</text>
+<rect x="50" y="435" width="450" height="150" rx="16" fill="#FFFFFF" stroke="#087F8C" stroke-width="2"/>
+<text x="70.0" y="473.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#087F8C">⑥ 展示或执行</text>
+<text x="70.0" y="514.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">infer_future.py：未来展示</text>
+<text x="70.0" y="548.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">serve_policy.py：提供动作服务</text>
+<polyline points="500,245 575,245" fill="none" stroke="#54697D" stroke-width="3"/>
+<polygon points="575.0,245.0 563.5,251.0 563.5,239.0" fill="#54697D"/>
+<polyline points="1025,245 1100,245" fill="none" stroke="#54697D" stroke-width="3"/>
+<polygon points="1100.0,245.0 1088.5,251.0 1088.5,239.0" fill="#54697D"/>
+<polyline points="1325,320 1325,435" fill="none" stroke="#54697D" stroke-width="3"/>
+<polygon points="1325.0,435.0 1319.0,423.5 1331.0,423.5" fill="#54697D"/>
+<polyline points="1100,510 1025,510" fill="none" stroke="#54697D" stroke-width="3"/>
+<polygon points="1025.0,510.0 1036.5,504.0 1036.5,516.0" fill="#54697D"/>
+<polyline points="575,510 500,510" fill="none" stroke="#54697D" stroke-width="3"/>
+<polygon points="500.0,510.0 511.5,504.0 511.5,516.0" fill="#54697D"/>
+<rect x="50" y="670" width="1500" height="125" rx="16" fill="#FFFFFF" stroke="#087F8C" stroke-width="2"/>
+<text x="70.0" y="709.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#087F8C">在线分支：policy_rpc.py → evaluate.py → control.py → G2 仿真</text>
+<text x="70.0" y="749.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">传递观察与动作 → 检查 16 × 16 形状 → official 完整块执行 → 记录任务结果</text>
+<polyline points="275,585 275,670" fill="none" stroke="#087F8C" stroke-width="3"/>
+<polygon points="275.0,670.0 269.0,658.5 281.0,658.5" fill="#087F8C"/>
+<rect x="50" y="845" width="450" height="115" rx="16" fill="#FFFFFF" stroke="#7452AE" stroke-width="2"/>
+<text x="70.0" y="884.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#7452AE">Motus/</text>
+<text x="70.0" y="924.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">模型源码与训练设施</text>
+<rect x="575" y="845" width="450" height="115" rx="16" fill="#FFFFFF" stroke="#2463B5" stroke-width="2"/>
+<text x="595.0" y="884.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#2463B5">weights/Motus/</text>
+<text x="595.0" y="924.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">Stage 2 预训练参数</text>
+<rect x="1100" y="845" width="450" height="115" rx="16" fill="#FFFFFF" stroke="#BC641D" stroke-width="2"/>
+<text x="1120.0" y="884.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#BC641D">checkpoints/</text>
+<text x="1120.0" y="924.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">G2 LoRA 与可训练接口参数</text>
+<rect x="50" y="980" width="1500" height="62" rx="16" fill="#E8EFF7" stroke="#E8EFF7" stroke-width="2"/>
+<text x="72.0" y="1018.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">本章实际训练的是 Stage 3；潜在动作学习与 Stage 1、Stage 2 的能力通过基座复用。</text>
+</svg>

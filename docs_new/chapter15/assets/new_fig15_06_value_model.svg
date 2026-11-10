@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="440" viewBox="0 0 1000 440" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#3b4a5f"/></marker>
+  </defs>
+  <rect width="1000" height="440" fill="#ffffff"/>
+  <text x="500" y="34" text-anchor="middle" font-size="21" font-weight="700" fill="#1f2d3d">Pistar06Value 网络结构（value_model.py）</text>
+
+  <g font-size="14" fill="#1f2d3d">
+    <rect x="30" y="80" width="170" height="90" rx="10" fill="#eef4ff" stroke="#3b6fc4" stroke-width="1.5"/>
+    <text x="115" y="110" text-anchor="middle" font-weight="700">三路图像</text>
+    <text x="115" y="134" text-anchor="middle">head / left / right</text>
+    <text x="115" y="156" text-anchor="middle">B×3×C×H×W</text>
+
+    <rect x="250" y="80" width="170" height="90" rx="10" fill="#eef4ff" stroke="#3b6fc4" stroke-width="1.5"/>
+    <text x="335" y="110" text-anchor="middle" font-weight="700">SigLIP SO400M</text>
+    <text x="335" y="134" text-anchor="middle">逐相机编码</text>
+    <text x="335" y="156" text-anchor="middle">resize + 归一化</text>
+
+    <rect x="470" y="80" width="170" height="90" rx="10" fill="#eef4ff" stroke="#3b6fc4" stroke-width="1.5"/>
+    <text x="555" y="110" text-anchor="middle" font-weight="700">投影 → 512</text>
+    <text x="555" y="134" text-anchor="middle">Linear+GELU+Dropout</text>
+    <text x="555" y="156" text-anchor="middle">相机维平均</text>
+
+    <rect x="30" y="250" width="170" height="110" rx="10" fill="#eaf7ee" stroke="#2f9e57" stroke-width="1.5"/>
+    <text x="115" y="278" text-anchor="middle" font-weight="700">文本 prompt</text>
+    <text x="115" y="302" text-anchor="middle" font-size="12">Task: …, State: 32 个</text>
+    <text x="115" y="320" text-anchor="middle" font-size="12">离散 token(0~255)</text>
+    <text x="115" y="340" text-anchor="middle" font-size="12">\nValue:</text>
+
+    <rect x="250" y="260" width="170" height="90" rx="10" fill="#eaf7ee" stroke="#2f9e57" stroke-width="1.5"/>
+    <text x="335" y="290" text-anchor="middle" font-weight="700">Gemma 3 270M</text>
+    <text x="335" y="314" text-anchor="middle">last_hidden_state</text>
+    <text x="335" y="336" text-anchor="middle">mask 加权平均</text>
+
+    <rect x="470" y="260" width="170" height="90" rx="10" fill="#eaf7ee" stroke="#2f9e57" stroke-width="1.5"/>
+    <text x="555" y="290" text-anchor="middle" font-weight="700">投影 → 512</text>
+    <text x="555" y="314" text-anchor="middle">Linear+GELU+Dropout</text>
+
+    <rect x="690" y="165" width="130" height="100" rx="10" fill="#fff4e8" stroke="#d9822b" stroke-width="1.5"/>
+    <text x="755" y="198" text-anchor="middle" font-weight="700">拼接 1024</text>
+    <text x="755" y="222" text-anchor="middle">LayerNorm</text>
+    <text x="755" y="246" text-anchor="middle">MLP 1024→512→201</text>
+
+    <rect x="850" y="165" width="125" height="100" rx="10" fill="#f3edfb" stroke="#7d55c7" stroke-width="1.5"/>
+    <text x="912" y="198" text-anchor="middle" font-weight="700">201 logits</text>
+    <text x="912" y="222" text-anchor="middle">softmax</text>
+    <text x="912" y="246" text-anchor="middle">Σ p·c → V̂</text>
+  </g>
+  <g stroke="#3b4a5f" stroke-width="2" fill="none" marker-end="url(#a)">
+    <path d="M200 125 H246"/><path d="M420 125 H466"/>
+    <path d="M200 305 H246"/><path d="M420 305 H466"/>
+    <path d="M640 125 C 670 125, 670 200, 686 200"/>
+    <path d="M640 305 C 670 305, 670 235, 686 235"/>
+    <path d="M820 215 H846"/>
+  </g>
+  <text x="500" y="400" text-anchor="middle" font-size="14" fill="#5b6b82">训练：two_hot_cross_entropy(logits, two_hot(y))；推理：expected_from_logits(logits)</text>
+  <text x="500" y="422" text-anchor="middle" font-size="13" fill="#5b6b82">输入不含 success、未来动作、剩余长度或 episode 编号</text>
+</svg>

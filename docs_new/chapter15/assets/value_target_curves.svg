@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="780" viewBox="0 0 1440 780" role="img" aria-labelledby="title desc">
+  <title id="title">成功与失败轨迹的逐帧 Value target</title>
+  <desc id="desc">以最大任务长度 100、失败惩罚 100、当前 episode 长度 60 为例，成功轨迹 target 从负值上升到 0，失败轨迹带有额外惩罚并在最后到达负 0.5。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fbfdff"/><stop offset="1" stop-color="#f2f6fc"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#17365d" flood-opacity="0.1"/></filter>
+    <style>
+      .title{font:700 34px 'Microsoft YaHei','PingFang SC','Noto Sans CJK SC',sans-serif;fill:#14233c}.sub{font:400 18px 'Microsoft YaHei','PingFang SC','Noto Sans CJK SC',sans-serif;fill:#5a6b82}.axis{font:400 15px 'Microsoft YaHei','PingFang SC','Noto Sans CJK SC',sans-serif;fill:#53657e}.h{font:700 19px 'Microsoft YaHei','PingFang SC','Noto Sans CJK SC',sans-serif;fill:#1b2e4a}.p{font:400 16px 'Microsoft YaHei','PingFang SC','Noto Sans CJK SC',sans-serif;fill:#53657e}.mono{font:700 16px Consolas,monospace}.grid{stroke:#d8e1ed;stroke-width:1}.tick{stroke:#8091a8;stroke-width:2}
+    </style>
+  </defs>
+  <rect width="1440" height="780" rx="28" fill="url(#bg)"/>
+  <text x="720" y="58" text-anchor="middle" class="title">一个 episode 标签，如何变成每一帧的 Value target？</text>
+  <text x="720" y="91" text-anchor="middle" class="sub">示例：Tmax = 100，Cfail = 100，episode 长度 T = 60；越接近 0 表示成功前景越好</text>
+
+  <!-- chart card -->
+  <g filter="url(#shadow)"><rect x="72" y="125" width="930" height="570" rx="22" fill="#fff"/></g>
+  <!-- bands: plot x 165-930, y 170-620 -->
+  <rect x="165" y="170" width="765" height="225" fill="#eaf7ef"/>
+  <rect x="165" y="395" width="765" height="225" fill="#fff0f1"/>
+  <text x="895" y="196" text-anchor="end" class="axis" fill="#34844b">成功 target 常见区间 (−0.5, 0]</text>
+  <text x="895" y="423" text-anchor="end" class="axis" fill="#b54a5d">失败 target 常见区间 [−1, −0.5]</text>
+
+  <!-- grid -->
+  <line x1="165" y1="170" x2="930" y2="170" class="grid"/><line x1="165" y1="282.5" x2="930" y2="282.5" class="grid"/>
+  <line x1="165" y1="395" x2="930" y2="395" stroke="#8a6d77" stroke-width="2" stroke-dasharray="8 7"/>
+  <line x1="165" y1="507.5" x2="930" y2="507.5" class="grid"/><line x1="165" y1="620" x2="930" y2="620" class="grid"/>
+  <line x1="165" y1="170" x2="165" y2="620" class="tick"/><line x1="165" y1="620" x2="930" y2="620" class="tick"/>
+  <text x="145" y="176" text-anchor="end" class="axis">0</text><text x="145" y="288" text-anchor="end" class="axis">−0.25</text>
+  <text x="145" y="401" text-anchor="end" class="axis">−0.5</text><text x="145" y="513" text-anchor="end" class="axis">−0.75</text><text x="145" y="626" text-anchor="end" class="axis">−1</text>
+  <text x="92" y="397" transform="rotate(-90 92 397)" text-anchor="middle" class="h">逐帧 target  yₜ</text>
+
+  <!-- x ticks -->
+  <line x1="190" y1="620" x2="190" y2="629" class="tick"/><line x1="560" y1="620" x2="560" y2="629" class="tick"/><line x1="905" y1="620" x2="905" y2="629" class="tick"/>
+  <text x="190" y="652" text-anchor="middle" class="axis">第 0 帧</text><text x="560" y="652" text-anchor="middle" class="axis">第 30 帧</text><text x="905" y="652" text-anchor="middle" class="axis">最后一帧</text>
+  <text x="548" y="680" text-anchor="middle" class="h">episode 执行进度 →</text>
+
+  <!-- lines based on exact example values: y = 170 + -value*450 -->
+  <polyline points="190,302.75 560,235.25 905,170" fill="none" stroke="#2d9a58" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="190,527.75 560,460.25 905,395" fill="none" stroke="#d04c62" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#fff" stroke-width="4"><circle cx="190" cy="302.75" r="8" stroke="#2d9a58"/><circle cx="560" cy="235.25" r="8" stroke="#2d9a58"/><circle cx="905" cy="170" r="8" stroke="#2d9a58"/><circle cx="190" cy="527.75" r="8" stroke="#d04c62"/><circle cx="560" cy="460.25" r="8" stroke="#d04c62"/><circle cx="905" cy="395" r="8" stroke="#d04c62"/></g>
+  <g class="mono"><text x="205" y="291" fill="#238246">−0.295</text><text x="575" y="224" fill="#238246">−0.145</text><text x="890" y="157" text-anchor="end" fill="#238246">0</text><text x="205" y="550" fill="#bd3b51">−0.795</text><text x="575" y="482" fill="#bd3b51">−0.645</text><text x="890" y="384" text-anchor="end" fill="#bd3b51">−0.5</text></g>
+  <g><line x1="690" y1="135" x2="735" y2="135" stroke="#2d9a58" stroke-width="6"/><text x="748" y="141" class="axis">成功轨迹</text><line x1="825" y1="135" x2="870" y2="135" stroke="#d04c62" stroke-width="6"/><text x="883" y="141" class="axis">失败轨迹</text></g>
+
+  <!-- explanation card -->
+  <g filter="url(#shadow)"><rect x="1035" y="125" width="333" height="570" rx="22" fill="#fff"/></g>
+  <text x="1070" y="173" class="h">target 同时编码三件事</text>
+  <circle cx="1077" cy="220" r="17" fill="#315f9f"/><text x="1077" y="226" text-anchor="middle" style="font:700 15px Arial;fill:#fff">1</text>
+  <text x="1110" y="217" class="h">最终成败</text><text x="1110" y="242" class="p">失败额外减去 Cfail</text>
+  <circle cx="1077" cy="293" r="17" fill="#315f9f"/><text x="1077" y="299" text-anchor="middle" style="font:700 15px Arial;fill:#fff">2</text>
+  <text x="1110" y="290" class="h">距结束的步数</text><text x="1110" y="315" class="p">剩余越少，target 越高</text>
+  <circle cx="1077" cy="366" r="17" fill="#315f9f"/><text x="1077" y="372" text-anchor="middle" style="font:700 15px Arial;fill:#fff">3</text>
+  <text x="1110" y="363" class="h">完成速度</text><text x="1110" y="388" class="p">同为成功时，越快越好</text>
+
+  <rect x="1065" y="435" width="273" height="104" rx="16" fill="#f3f6fb"/>
+  <text x="1202" y="466" text-anchor="middle" class="mono" fill="#284c7a">成功：gₜ = −Rₜ</text>
+  <text x="1202" y="501" text-anchor="middle" class="mono" fill="#9c3548">失败：gₜ = −Rₜ − Cfail</text>
+  <text x="1202" y="528" text-anchor="middle" class="axis">归一化并裁剪到 [−1, 0]</text>
+
+  <rect x="1065" y="565" width="273" height="98" rx="16" fill="#fff6df" stroke="#e8c56d"/>
+  <text x="1202" y="595" text-anchor="middle" class="h" fill="#8b6411">不要误解 −0.5</text>
+  <text x="1202" y="624" text-anchor="middle" class="p"><tspan x="1202">它是此奖励设计的区间边界，</tspan><tspan x="1202" dy="25">不是 positive / negative 阈值。</tspan></text>
+
+  <text x="720" y="744" text-anchor="middle" class="sub">Value 网络学习从当前观察预测这些 target，而不是在部署时读取未来结果</text>
+</svg>

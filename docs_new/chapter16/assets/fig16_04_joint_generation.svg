@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="930" viewBox="0 0 1600 930" role="img" aria-labelledby="title desc">
+<title id="title">图 16-4｜联合流匹配：训练学习更新方向，推理从噪声生成结果</title><desc id="desc">上下两条生成轨迹相互联系；当前图像、实测状态与任务语言始终是已知条件。</desc>
+<rect width="1600" height="930" fill="#F5F8FC"/>
+<text x="50.0" y="61.7" font-family="Noto Sans CJK SC, sans-serif" font-size="36" font-weight="700" fill="#18334B">图 16-4｜联合流匹配：训练学习更新方向，推理从噪声生成结果</text>
+<text x="50.0" y="108.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#54697D">上下两条生成轨迹相互联系；当前图像、实测状态与任务语言始终是已知条件。</text>
+<rect x="50" y="150" width="1500" height="145" rx="16" fill="#FFFFFF" stroke="#2463B5" stroke-width="2"/>
+<text x="70.0" y="189.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#2463B5">训练：知道真值，制造带噪样本，再学习视频与动作的速度场</text>
+<text x="70.0" y="229.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">视频真值 + 视频噪声 → 带噪视频；动作真值 + 动作噪声 → 带噪动作</text>
+<text x="70.0" y="263.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">视频与动作分别采样噪声时间；联合目标 = 视频损失 + 动作损失（本章权重均为 1）</text>
+<text x="50.0" y="363.8" font-family="Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#18334B">推理：未知未来，从两组随机噪声共同出发</text>
+<rect x="50" y="410" width="300" height="110" rx="16" fill="#FFFFFF" stroke="#087F8C" stroke-width="2"/>
+<text x="70.0" y="448.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#087F8C">视频潜变量噪声</text>
+<text x="70.0" y="489.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">噪声端</text>
+<polyline points="350,465 455,465" fill="none" stroke="#087F8C" stroke-width="3"/>
+<polygon points="455.0,465.0 443.5,471.0 443.5,459.0" fill="#087F8C"/>
+<rect x="50" y="600" width="300" height="110" rx="16" fill="#FFFFFF" stroke="#BC641D" stroke-width="2"/>
+<text x="70.0" y="638.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#BC641D">16 × 16 动作噪声</text>
+<text x="70.0" y="679.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">噪声端</text>
+<polyline points="350,655 455,655" fill="none" stroke="#BC641D" stroke-width="3"/>
+<polygon points="455.0,655.0 443.5,661.0 443.5,649.0" fill="#BC641D"/>
+<rect x="455" y="410" width="300" height="110" rx="16" fill="#FFFFFF" stroke="#087F8C" stroke-width="2"/>
+<text x="475.0" y="448.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#087F8C">中间视频潜变量</text>
+<text x="475.0" y="489.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">联合速度场更新</text>
+<polyline points="755,465 860,465" fill="none" stroke="#087F8C" stroke-width="3"/>
+<polygon points="860.0,465.0 848.5,471.0 848.5,459.0" fill="#087F8C"/>
+<rect x="455" y="600" width="300" height="110" rx="16" fill="#FFFFFF" stroke="#BC641D" stroke-width="2"/>
+<text x="475.0" y="638.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#BC641D">中间动作变量</text>
+<text x="475.0" y="679.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">联合速度场更新</text>
+<polyline points="755,655 860,655" fill="none" stroke="#BC641D" stroke-width="3"/>
+<polygon points="860.0,655.0 848.5,661.0 848.5,649.0" fill="#BC641D"/>
+<polyline points="590,520 590,600" fill="none" stroke="#7452AE" stroke-width="3"/>
+<polygon points="590.0,600.0 584.0,588.5 596.0,588.5" fill="#7452AE"/>
+<polyline points="625,600 625,520" fill="none" stroke="#7452AE" stroke-width="3"/>
+<polygon points="625.0,520.0 631.0,531.5 619.0,531.5" fill="#7452AE"/>
+<rect x="860" y="410" width="300" height="110" rx="16" fill="#FFFFFF" stroke="#087F8C" stroke-width="2"/>
+<text x="880.0" y="448.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#087F8C">更接近视频结果</text>
+<text x="880.0" y="489.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">联合速度场更新</text>
+<polyline points="1160,465 1265,465" fill="none" stroke="#087F8C" stroke-width="3"/>
+<polygon points="1265.0,465.0 1253.5,471.0 1253.5,459.0" fill="#087F8C"/>
+<rect x="860" y="600" width="300" height="110" rx="16" fill="#FFFFFF" stroke="#BC641D" stroke-width="2"/>
+<text x="880.0" y="638.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#BC641D">更接近动作结果</text>
+<text x="880.0" y="679.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">联合速度场更新</text>
+<polyline points="1160,655 1265,655" fill="none" stroke="#BC641D" stroke-width="3"/>
+<polygon points="1265.0,655.0 1253.5,661.0 1253.5,649.0" fill="#BC641D"/>
+<polyline points="995,520 995,600" fill="none" stroke="#7452AE" stroke-width="3"/>
+<polygon points="995.0,600.0 989.0,588.5 1001.0,588.5" fill="#7452AE"/>
+<polyline points="1030,600 1030,520" fill="none" stroke="#7452AE" stroke-width="3"/>
+<polygon points="1030.0,520.0 1036.0,531.5 1024.0,531.5" fill="#7452AE"/>
+<rect x="1265" y="410" width="285" height="110" rx="16" fill="#FFFFFF" stroke="#087F8C" stroke-width="2"/>
+<text x="1285.0" y="448.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#087F8C">未来视频</text>
+<text x="1285.0" y="489.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">数据端</text>
+<rect x="1265" y="600" width="285" height="110" rx="16" fill="#FFFFFF" stroke="#BC641D" stroke-width="2"/>
+<text x="1285.0" y="638.2" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#BC641D">16 个动作目标</text>
+<text x="1285.0" y="679.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">数据端</text>
+<text x="50.0" y="781.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#18334B">生成时间：从高噪声走向低噪声；反复更新的是同一段未来，而不是每次追加一个动作。</text>
+<rect x="50" y="840" width="1500" height="62" rx="16" fill="#E8EFF7" stroke="#E8EFF7" stroke-width="2"/>
+<text x="72.0" y="878.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">10 次去噪迭代 ≠ 16 个控制目标 ≠ 8 帧未来视频；具体数值求解由模型实现负责。</text>
+</svg>

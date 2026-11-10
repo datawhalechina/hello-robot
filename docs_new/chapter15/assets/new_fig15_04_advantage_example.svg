@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="480" viewBox="0 0 1000 480" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#3b4a5f"/></marker>
+  </defs>
+  <rect width="1000" height="480" fill="#ffffff"/>
+  <text x="500" y="34" text-anchor="middle" font-size="21" font-weight="700" fill="#1f2d3d">5 步 Advantage 手算：同一状态下的较好动作与较差动作</text>
+
+  <!-- axis: value from 0 (top y=80) to -1 (bottom y=430); y = 80 + (-v)*350 -->
+  <line x1="120" y1="80" x2="120" y2="430" stroke="#5b6b82" stroke-width="1.5"/>
+  <g font-size="13" fill="#5b6b82" text-anchor="end">
+    <text x="112" y="85">0</text>
+    <text x="112" y="172">−0.25</text>
+    <text x="112" y="260">−0.50</text>
+    <text x="112" y="347">−0.75</text>
+    <text x="112" y="435">−1.00</text>
+  </g>
+  <g stroke="#e3e7ec" stroke-width="1">
+    <line x1="120" y1="167.5" x2="940" y2="167.5"/><line x1="120" y1="255" x2="940" y2="255"/><line x1="120" y1="342.5" x2="940" y2="342.5"/>
+  </g>
+  <text x="60" y="60" font-size="14" fill="#1f2d3d">Value</text>
+
+  <!-- start state V=-0.60 -> y=290 -->
+  <circle cx="200" cy="290" r="9" fill="#3b6fc4"/>
+  <text x="200" y="318" text-anchor="middle" font-size="14" fill="#1f2d3d">V(o_t) = −0.60</text>
+  <text x="200" y="338" text-anchor="middle" font-size="13" fill="#5b6b82">准备抓取红色物块</text>
+
+  <!-- good: Q = -0.10 + -0.25 = -0.35 -> y=202.5 ; V_t+5=-0.25 -> y=167.5 -->
+  <path d="M209 286 L520 172" stroke="#2f9e57" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+  <circle cx="530" cy="167.5" r="8" fill="#2f9e57"/>
+  <text x="545" y="160" font-size="14" fill="#2f9e57">较好动作：对齐到物块正上方</text>
+  <text x="545" y="180" font-size="13" fill="#1f2d3d">V(o_{t+5}) = −0.25</text>
+
+  <!-- bad: V_t+5=-0.75 -> y=342.5 -->
+  <path d="M209 294 L520 340" stroke="#d64545" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
+  <circle cx="530" cy="342.5" r="8" fill="#d64545"/>
+  <text x="545" y="338" font-size="14" fill="#d64545">较差动作：侧向扫动撞飞物块</text>
+  <text x="545" y="358" font-size="13" fill="#1f2d3d">V(o_{t+5}) = −0.75</text>
+
+  <!-- computation box -->
+  <rect x="560" y="385" width="390" height="80" rx="8" fill="#f6f7f9" stroke="#c8d1dc"/>
+  <text x="575" y="410" font-size="14" fill="#1f2d3d">5 步时间代价之和 Σr = −0.10</text>
+  <text x="575" y="432" font-size="14" fill="#2f9e57">好：A = −0.10 + (−0.25) − (−0.60) = +0.25</text>
+  <text x="575" y="454" font-size="14" fill="#d64545">差：A = −0.10 + (−0.75) − (−0.60) = −0.25</text>
+
+  <text x="200" y="110" font-size="13" fill="#5b6b82">A = Σr + V(o_{t+N}) − V(o_t)</text>
+  <text x="200" y="130" font-size="13" fill="#5b6b82">“实际局部结果” − “执行前的预期”</text>
+</svg>

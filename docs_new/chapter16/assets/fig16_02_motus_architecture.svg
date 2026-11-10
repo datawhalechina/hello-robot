@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1060" viewBox="0 0 1600 1060" role="img" aria-labelledby="title desc">
+<title id="title">图 16-2｜Motus 三专家结构：并行处理，通过联合注意力交换信息</title><desc id="desc">结构示意：三位专家不是先后调用的三个服务；G2 输入输出接口与本章配置一致。</desc>
+<rect width="1600" height="1060" fill="#F5F8FC"/>
+<text x="50.0" y="61.7" font-family="Noto Sans CJK SC, sans-serif" font-size="36" font-weight="700" fill="#18334B">图 16-2｜Motus 三专家结构：并行处理，通过联合注意力交换信息</text>
+<text x="50.0" y="108.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#54697D">结构示意：三位专家不是先后调用的三个服务；G2 输入输出接口与本章配置一致。</text>
+<rect x="50" y="150" width="470" height="135" rx="16" fill="#FFFFFF" stroke="#7452AE" stroke-width="2"/>
+<text x="70.0" y="189.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#7452AE">当前图像 + 任务语言</text>
+<text x="70.0" y="229.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">Qwen3-VL：冻结的视觉语言骨干</text>
+<text x="70.0" y="263.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">2048 维特征接口 → 投影至 512 维</text>
+<rect x="565" y="150" width="470" height="135" rx="16" fill="#FFFFFF" stroke="#087F8C" stroke-width="2"/>
+<text x="585.0" y="189.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#087F8C">当前图像 + 视频噪声</text>
+<text x="585.0" y="229.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">Wan VAE 编码当前视觉条件</text>
+<text x="585.0" y="263.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">未来视频在潜空间中生成</text>
+<rect x="1080" y="150" width="470" height="135" rx="16" fill="#FFFFFF" stroke="#BC641D" stroke-width="2"/>
+<text x="1100.0" y="189.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#BC641D">当前实测状态 + 动作噪声</text>
+<text x="1100.0" y="229.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">状态：16 维</text>
+<text x="1100.0" y="263.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">未来动作块：16 × 16</text>
+<polyline points="285,285 285,345" fill="none" stroke="#7452AE" stroke-width="3"/>
+<polygon points="285.0,345.0 279.0,333.5 291.0,333.5" fill="#7452AE"/>
+<rect x="50" y="345" width="470" height="135" rx="16" fill="#FFFFFF" stroke="#7452AE" stroke-width="2"/>
+<text x="70.0" y="384.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#7452AE">理解专家</text>
+<text x="70.0" y="424.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">隐藏宽度 512</text>
+<text x="70.0" y="458.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">把视觉语义接入生成过程</text>
+<polyline points="285,480 285,555" fill="none" stroke="#7452AE" stroke-width="3"/>
+<polygon points="285.0,555.0 279.0,543.5 291.0,543.5" fill="#7452AE"/>
+<polyline points="325,555 325,480" fill="none" stroke="#7452AE" stroke-width="3"/>
+<polygon points="325.0,480.0 331.0,491.5 319.0,491.5" fill="#7452AE"/>
+<polyline points="800,285 800,345" fill="none" stroke="#087F8C" stroke-width="3"/>
+<polygon points="800.0,345.0 794.0,333.5 806.0,333.5" fill="#087F8C"/>
+<rect x="565" y="345" width="470" height="135" rx="16" fill="#FFFFFF" stroke="#087F8C" stroke-width="2"/>
+<text x="585.0" y="384.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#087F8C">视频专家</text>
+<text x="585.0" y="424.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">Wan2.2 视频生成主干</text>
+<text x="585.0" y="458.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">预测视频潜变量的速度场</text>
+<polyline points="800,480 800,555" fill="none" stroke="#087F8C" stroke-width="3"/>
+<polygon points="800.0,555.0 794.0,543.5 806.0,543.5" fill="#087F8C"/>
+<polyline points="840,555 840,480" fill="none" stroke="#087F8C" stroke-width="3"/>
+<polygon points="840.0,480.0 846.0,491.5 834.0,491.5" fill="#087F8C"/>
+<polyline points="1315,285 1315,345" fill="none" stroke="#BC641D" stroke-width="3"/>
+<polygon points="1315.0,345.0 1309.0,333.5 1321.0,333.5" fill="#BC641D"/>
+<rect x="1080" y="345" width="470" height="135" rx="16" fill="#FFFFFF" stroke="#BC641D" stroke-width="2"/>
+<text x="1100.0" y="384.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#BC641D">动作专家</text>
+<text x="1100.0" y="424.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">隐藏宽度 1024</text>
+<text x="1100.0" y="458.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">预测动作变量的速度场</text>
+<polyline points="1315,480 1315,555" fill="none" stroke="#BC641D" stroke-width="3"/>
+<polygon points="1315.0,555.0 1309.0,543.5 1321.0,543.5" fill="#BC641D"/>
+<polyline points="1355,555 1355,480" fill="none" stroke="#BC641D" stroke-width="3"/>
+<polygon points="1355.0,480.0 1361.0,491.5 1349.0,491.5" fill="#BC641D"/>
+<rect x="50" y="555" width="1500" height="130" rx="16" fill="#FFFFFF" stroke="#2463B5" stroke-width="2"/>
+<text x="70.0" y="594.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#2463B5">MoT 联合注意力：每层共享信息，再回到各自分支计算</text>
+<text x="70.0" y="634.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">各分支投影 Q / K / V → 在兼容注意力空间交流 → 切分结果 → 各自残差与前馈网络</text>
+<text x="70.0" y="668.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">双向箭头表示信息交互，不表示三个专家共用全部参数。</text>
+<rect x="50" y="770" width="470" height="135" rx="16" fill="#FFFFFF" stroke="#7452AE" stroke-width="2"/>
+<text x="70.0" y="809.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#7452AE">任务语言的另一条路径</text>
+<text x="70.0" y="849.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">UMT5 文本特征</text>
+<text x="70.0" y="883.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">作为视频分支的文本条件</text>
+<rect x="565" y="770" width="470" height="135" rx="16" fill="#FFFFFF" stroke="#087F8C" stroke-width="2"/>
+<text x="585.0" y="809.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#087F8C">视频输出</text>
+<text x="585.0" y="849.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">预测潜变量 → VAE 解码</text>
+<text x="585.0" y="883.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">8 帧未来 RGB 图像</text>
+<rect x="1080" y="770" width="470" height="135" rx="16" fill="#FFFFFF" stroke="#BC641D" stroke-width="2"/>
+<text x="1100.0" y="809.1" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="700" fill="#BC641D">动作输出</text>
+<text x="1100.0" y="849.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">16 个绝对关节目标</text>
+<text x="1100.0" y="883.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">每个目标 16 维</text>
+<polyline points="800,685 800,770" fill="none" stroke="#087F8C" stroke-width="3"/>
+<polygon points="800.0,770.0 794.0,758.5 806.0,758.5" fill="#087F8C"/>
+<polyline points="1315,685 1315,770" fill="none" stroke="#BC641D" stroke-width="3"/>
+<polygon points="1315.0,770.0 1309.0,758.5 1321.0,758.5" fill="#BC641D"/>
+<rect x="50" y="960" width="1500" height="62" rx="16" fill="#E8EFF7" stroke="#E8EFF7" stroke-width="2"/>
+<text x="72.0" y="998.4" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#18334B">两个输出来自同一次联合推理；“速度场”是生成过程的数学量，不是机器人关节速度。</text>
+</svg>

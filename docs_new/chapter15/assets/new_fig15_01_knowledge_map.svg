@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#5b6b82"/></marker>
+  </defs>
+  <rect width="1000" height="600" fill="#ffffff"/>
+  <text x="500" y="38" text-anchor="middle" font-size="22" font-weight="700" fill="#1f2d3d">第十五章知识地图：原理（上行）与代码模块（下行）</text>
+
+  <!-- concept row -->
+  <g font-size="15" fill="#1f2d3d">
+    <rect x="30" y="80" width="170" height="90" rx="10" fill="#eef4ff" stroke="#3b6fc4" stroke-width="2"/>
+    <text x="115" y="112" text-anchor="middle" font-weight="700">第一部分</text>
+    <text x="115" y="136" text-anchor="middle">行为克隆的局限</text>
+    <text x="115" y="156" text-anchor="middle">为何不用 PPO</text>
+
+    <rect x="225" y="80" width="170" height="90" rx="10" fill="#eef4ff" stroke="#3b6fc4" stroke-width="2"/>
+    <text x="310" y="112" text-anchor="middle" font-weight="700">第二部分</text>
+    <text x="310" y="136" text-anchor="middle">MDP / 回报</text>
+    <text x="310" y="156" text-anchor="middle">Value / Advantage</text>
+
+    <rect x="420" y="80" width="170" height="90" rx="10" fill="#fff4e8" stroke="#d9822b" stroke-width="2"/>
+    <text x="505" y="112" text-anchor="middle" font-weight="700">第三部分</text>
+    <text x="505" y="136" text-anchor="middle">经验采集循环</text>
+    <text x="505" y="156" text-anchor="middle">三态控制权 / 自动纠正</text>
+
+    <rect x="615" y="80" width="170" height="90" rx="10" fill="#eaf7ee" stroke="#2f9e57" stroke-width="2"/>
+    <text x="700" y="112" text-anchor="middle" font-weight="700">第四部分</text>
+    <text x="700" y="136" text-anchor="middle">Value target</text>
+    <text x="700" y="156" text-anchor="middle">201-bin 分布式 Value</text>
+
+    <rect x="810" y="80" width="170" height="90" rx="10" fill="#f3edfb" stroke="#7d55c7" stroke-width="2"/>
+    <text x="895" y="112" text-anchor="middle" font-weight="700">第五部分</text>
+    <text x="895" y="136" text-anchor="middle">50 步 Advantage</text>
+    <text x="895" y="156" text-anchor="middle">优势条件化更新</text>
+  </g>
+  <g stroke="#5b6b82" stroke-width="2" fill="none" marker-end="url(#a)">
+    <path d="M200 125 H222"/><path d="M395 125 H417"/><path d="M590 125 H612"/><path d="M785 125 H807"/>
+    <path d="M895 170 V215 H505 V180"/>
+  </g>
+  <text x="700" y="208" text-anchor="middle" font-size="13" fill="#5b6b82">新策略进入下一轮采集（多轮迭代）</text>
+
+  <rect x="225" y="235" width="560" height="44" rx="8" fill="#f6f7f9" stroke="#9aa5b4" stroke-dasharray="6 4"/>
+  <text x="505" y="263" text-anchor="middle" font-size="15" fill="#1f2d3d">第六部分：与 π0.6 / π*0.6 (RECAP) 的对照——本章复现的是方法闭环，而非模型权重</text>
+
+  <!-- code row -->
+  <g font-size="13" fill="#1f2d3d">
+    <rect x="30" y="330" width="170" height="200" rx="10" fill="#ffffff" stroke="#3b6fc4" stroke-width="1.5"/>
+    <text x="115" y="356" text-anchor="middle" font-weight="700" font-size="14">配置与环境</text>
+    <text x="115" y="382" text-anchor="middle">config.py</text>
+    <text x="115" y="404" text-anchor="middle">simulation.py</text>
+    <text x="115" y="426" text-anchor="middle">robot.py</text>
+    <text x="115" y="448" text-anchor="middle">kinematics.py</text>
+
+    <rect x="225" y="330" width="170" height="200" rx="10" fill="#ffffff" stroke="#3b6fc4" stroke-width="1.5"/>
+    <text x="310" y="356" text-anchor="middle" font-weight="700" font-size="14">数学核心</text>
+    <text x="310" y="382" text-anchor="middle">value_math.py</text>
+    <text x="310" y="404" text-anchor="middle">value_targets()</text>
+    <text x="310" y="426" text-anchor="middle">dense_rewards()</text>
+    <text x="310" y="448" text-anchor="middle">n_step_advantage()</text>
+    <text x="310" y="470" text-anchor="middle">acp_labels()</text>
+
+    <rect x="420" y="330" width="170" height="200" rx="10" fill="#ffffff" stroke="#d9822b" stroke-width="1.5"/>
+    <text x="505" y="356" text-anchor="middle" font-weight="700" font-size="14">经验采集</text>
+    <text x="505" y="382" text-anchor="middle">collect_demos.py</text>
+    <text x="505" y="404" text-anchor="middle">collect_rollouts.py</text>
+    <text x="505" y="426" text-anchor="middle">hil.py / rollout_core.py</text>
+    <text x="505" y="448" text-anchor="middle">auto_expert.py</text>
+    <text x="505" y="470" text-anchor="middle">policy_client.py</text>
+    <text x="505" y="492" text-anchor="middle">dataset.py</text>
+
+    <rect x="615" y="330" width="170" height="200" rx="10" fill="#ffffff" stroke="#2f9e57" stroke-width="1.5"/>
+    <text x="700" y="356" text-anchor="middle" font-weight="700" font-size="14">价值学习</text>
+    <text x="700" y="382" text-anchor="middle">value_model.py</text>
+    <text x="700" y="404" text-anchor="middle">train_value.py</text>
+    <text x="700" y="426" text-anchor="middle">label_advantages.py</text>
+
+    <rect x="810" y="330" width="170" height="200" rx="10" fill="#ffffff" stroke="#7d55c7" stroke-width="1.5"/>
+    <text x="895" y="356" text-anchor="middle" font-weight="700" font-size="14">策略更新与评测</text>
+    <text x="895" y="382" text-anchor="middle">acp.py</text>
+    <text x="895" y="404" text-anchor="middle">export_dataset.py</text>
+    <text x="895" y="426" text-anchor="middle">compute_norm_stats.py</text>
+    <text x="895" y="448" text-anchor="middle">pi05_adapter.py</text>
+    <text x="895" y="470" text-anchor="middle">train_policy.py</text>
+    <text x="895" y="492" text-anchor="middle">serve_policy.py</text>
+    <text x="895" y="514" text-anchor="middle">evaluate.py</text>
+  </g>
+  <g stroke="#9aa5b4" stroke-width="1.5" stroke-dasharray="4 4" fill="none">
+    <path d="M115 170 V330"/><path d="M310 170 V235"/><path d="M310 279 V330"/><path d="M505 279 V330"/><path d="M700 279 V330"/><path d="M895 279 V330"/>
+  </g>
+  <text x="500" y="570" text-anchor="middle" font-size="14" fill="#5b6b82">第七、八部分：代码结构解析与运行（run_pipeline.py 串联全部阶段）</text>
+</svg>

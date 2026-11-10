@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="1000" height="420" fill="#ffffff"/>
+  <text x="500" y="34" text-anchor="middle" font-size="21" font-weight="700" fill="#1f2d3d">分布式 Value：two-hot 训练目标与期望值读出</text>
+
+  <!-- left: two-hot -->
+  <text x="250" y="72" text-anchor="middle" font-size="16" font-weight="700" fill="#1f2d3d">(a) target y = −0.296 的 two-hot 编码</text>
+  <line x1="60" y1="300" x2="450" y2="300" stroke="#5b6b82" stroke-width="1.5"/>
+  <g fill="#c8d1dc">
+    <rect x="80" y="296" width="30" height="4" rx="1"/>
+    <rect x="130" y="296" width="30" height="4" rx="1"/>
+    <rect x="390" y="296" width="30" height="4" rx="1"/>
+  </g>
+  <rect x="190" y="252" width="40" height="48" rx="4" fill="#3b6fc4"/>
+  <rect x="270" y="108" width="40" height="192" rx="4" fill="#3b6fc4"/>
+  <text x="210" y="244" text-anchor="middle" font-size="14" fill="#1f2d3d">0.2</text>
+  <text x="290" y="100" text-anchor="middle" font-size="14" fill="#1f2d3d">0.8</text>
+  <text x="210" y="322" text-anchor="middle" font-size="13" fill="#1f2d3d">bin 140</text>
+  <text x="210" y="340" text-anchor="middle" font-size="13" fill="#5b6b82">c = −0.300</text>
+  <text x="290" y="322" text-anchor="middle" font-size="13" fill="#1f2d3d">bin 141</text>
+  <text x="290" y="340" text-anchor="middle" font-size="13" fill="#5b6b82">c = −0.295</text>
+  <text x="135" y="322" text-anchor="middle" font-size="13" fill="#5b6b82">…</text>
+  <text x="405" y="322" text-anchor="middle" font-size="13" fill="#5b6b82">…</text>
+  <text x="250" y="378" text-anchor="middle" font-size="13" fill="#1f2d3d">201 个 bin 均匀覆盖 [−1, 0]，间距 0.005</text>
+  <text x="250" y="398" text-anchor="middle" font-size="13" fill="#1f2d3d">0.2×(−0.300) + 0.8×(−0.295) = −0.296</text>
+
+  <line x1="500" y1="60" x2="500" y2="400" stroke="#e3e7ec"/>
+
+  <!-- right: bimodal prediction -->
+  <text x="750" y="72" text-anchor="middle" font-size="16" font-weight="700" fill="#1f2d3d">(b) 不确定状态的预测分布</text>
+  <line x1="560" y1="300" x2="950" y2="300" stroke="#5b6b82" stroke-width="1.5"/>
+  <rect x="610" y="160" width="40" height="140" rx="4" fill="#d64545"/>
+  <rect x="860" y="160" width="40" height="140" rx="4" fill="#2f9e57"/>
+  <text x="630" y="152" text-anchor="middle" font-size="14" fill="#1f2d3d">p = 0.5</text>
+  <text x="880" y="152" text-anchor="middle" font-size="14" fill="#1f2d3d">p = 0.5</text>
+  <text x="630" y="322" text-anchor="middle" font-size="13" fill="#1f2d3d">−0.7（偏失败）</text>
+  <text x="880" y="322" text-anchor="middle" font-size="13" fill="#1f2d3d">−0.1（偏成功）</text>
+  <line x1="755" y1="120" x2="755" y2="300" stroke="#3b4a5f" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="755" y="112" text-anchor="middle" font-size="14" fill="#3b4a5f">期望 V̂ = −0.4</text>
+  <text x="750" y="378" text-anchor="middle" font-size="13" fill="#1f2d3d">分布同时保留“可能成功/可能失败”两种前景</text>
+  <text x="750" y="398" text-anchor="middle" font-size="13" fill="#1f2d3d">Advantage 只使用期望值 Σ p_b · c_b</text>
+</svg>

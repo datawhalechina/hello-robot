@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="1000" height="470" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+    <marker id="cr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/>
+    </marker>
+    <marker id="cg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2d6b33"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="470" fill="#ffffff"/>
+  <text x="500" y="32" text-anchor="middle" font-size="21" font-weight="bold" fill="#222">一维流匹配手算：某一个关节目标从噪声走回数据</text>
+
+  <!-- axes: x = sigma (1 at left .. 0 at right), y = value -->
+  <line x1="120" y1="380" x2="900" y2="380" stroke="#333" stroke-width="1.5" marker-end="url(#c)"/>
+  <line x1="120" y1="400" x2="120" y2="70" stroke="#333" stroke-width="1.5" marker-end="url(#c)"/>
+  <text x="910" y="398" font-size="14" fill="#333">σ</text>
+  <text x="80" y="66" font-size="14" fill="#333">取值 (rad)</text>
+
+  <!-- sigma ticks: sigma=1 at x=160, sigma=0 at x=860; x = 860 - 700*sigma -->
+  <line x1="160" y1="380" x2="160" y2="386" stroke="#333"/>
+  <text x="160" y="404" text-anchor="middle" font-size="13" fill="#333">1（纯噪声）</text>
+  <line x1="650" y1="380" x2="650" y2="386" stroke="#333"/>
+  <text x="650" y="404" text-anchor="middle" font-size="13" fill="#333">0.3</text>
+  <line x1="860" y1="380" x2="860" y2="386" stroke="#333"/>
+  <text x="860" y="404" text-anchor="middle" font-size="13" fill="#333">0（干净）</text>
+
+  <!-- value axis: y = 300 - 300*value ... value -0.2 -> 360; 0.45 -> 165; 0.255 -> 223.5 ; 0 -> 300 -->
+  <line x1="114" y1="300" x2="120" y2="300" stroke="#333"/>
+  <text x="108" y="304" text-anchor="end" font-size="13" fill="#333">0</text>
+  <line x1="114" y1="360" x2="120" y2="360" stroke="#333"/>
+  <text x="108" y="364" text-anchor="end" font-size="13" fill="#333">−0.2</text>
+  <line x1="114" y1="165" x2="120" y2="165" stroke="#333"/>
+  <text x="108" y="169" text-anchor="end" font-size="13" fill="#333">0.45</text>
+  <line x1="114" y1="223.5" x2="120" y2="223.5" stroke="#333"/>
+  <text x="108" y="227" text-anchor="end" font-size="13" fill="#333">0.255</text>
+  <line x1="120" y1="300" x2="880" y2="300" stroke="#ddd" stroke-dasharray="3,3"/>
+
+  <!-- straight path from (160,360) to (860,165) -->
+  <line x1="160" y1="360" x2="860" y2="165" stroke="#4a7fc1" stroke-width="3"/>
+  <circle cx="160" cy="360" r="7" fill="#7f8c8d"/>
+  <text x="172" y="352" font-size="13" fill="#555">ε = −0.2</text>
+  <circle cx="860" cy="165" r="7" fill="#2d6b33"/>
+  <text x="840" y="150" text-anchor="end" font-size="13" fill="#2d6b33">A = 0.45（真实命令）</text>
+  <circle cx="650" cy="223.5" r="7" fill="#d98a2b"/>
+  <text x="640" y="250" text-anchor="end" font-size="13" fill="#8a4f10">A_σ = 0.7×0.45 + 0.3×(−0.2) = 0.255</text>
+
+  <!-- euler step arrow -->
+  <path d="M650,223.5 L852,167" fill="none" stroke="#2d6b33" stroke-width="2.5" stroke-dasharray="7,4" marker-end="url(#cg)"/>
+  <text x="700" y="120" font-size="13" fill="#2d6b33">Euler：0.255 + (−0.65)×(−0.3) = 0.45</text>
+
+  <!-- velocity annotation -->
+  <line x1="650" y1="223.5" x2="560" y2="248.6" stroke="#c0392b" stroke-width="2.5" marker-end="url(#cr)"/>
+  <text x="420" y="290" font-size="13" fill="#c0392b">训练目标 u* = ε − A = −0.65</text>
+  <text x="420" y="308" font-size="12" fill="#c0392b">（σ 增大的方向，指向噪声）</text>
+
+  <text x="500" y="440" text-anchor="middle" font-size="14" fill="#444">训练：在路径上随机取一点，让网络回归速度 u*；推理：以 Δσ&lt;0 反向积分，从噪声回到动作。</text>
+  <text x="500" y="460" text-anchor="middle" font-size="13" fill="#777">数字为教学示例，不来自真实模型输出。</text>
+</svg>

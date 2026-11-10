@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="560" fill="#ffffff"/>
+  <text x="500" y="32" text-anchor="middle" font-size="21" font-weight="bold" fill="#222">两类潜在动作学习路线对比</text>
+
+  <!-- Top: IDM/FDM + VQ -->
+  <rect x="20" y="52" width="960" height="210" rx="12" fill="#f6f8fc" stroke="#b8c6de"/>
+  <text x="40" y="80" font-size="16" font-weight="bold" fill="#1f4f8a">（a）背景路线：逆动力学 + 前向动力学 + 离散化（如 Genie、LAPA 一类工作）</text>
+
+  <rect x="50" y="110" width="110" height="56" rx="6" fill="#e8f1fb" stroke="#4a7fc1"/>
+  <text x="105" y="135" text-anchor="middle" font-size="14" fill="#333">帧 o_t</text>
+  <text x="105" y="155" text-anchor="middle" font-size="14" fill="#333">帧 o_t+1</text>
+
+  <rect x="210" y="110" width="150" height="56" rx="6" fill="#dbe8f8" stroke="#4a7fc1"/>
+  <text x="285" y="134" text-anchor="middle" font-size="14" font-weight="bold" fill="#1f4f8a">逆动力学编码器</text>
+  <text x="285" y="154" text-anchor="middle" font-size="12" fill="#333">IDM：看前后两帧</text>
+
+  <rect x="410" y="110" width="140" height="56" rx="6" fill="#fff3d6" stroke="#d1a032"/>
+  <text x="480" y="134" text-anchor="middle" font-size="14" font-weight="bold" fill="#8a6510">VQ 码本</text>
+  <text x="480" y="154" text-anchor="middle" font-size="12" fill="#333">取最近的离散码 z</text>
+
+  <rect x="600" y="110" width="160" height="56" rx="6" fill="#dbe8f8" stroke="#4a7fc1"/>
+  <text x="680" y="134" text-anchor="middle" font-size="14" font-weight="bold" fill="#1f4f8a">前向动力学解码器</text>
+  <text x="680" y="154" text-anchor="middle" font-size="12" fill="#333">FDM：o_t + z → ô_t+1</text>
+
+  <rect x="810" y="110" width="140" height="56" rx="6" fill="#e8f1fb" stroke="#4a7fc1"/>
+  <text x="880" y="134" text-anchor="middle" font-size="14" fill="#333">重建下一帧</text>
+  <text x="880" y="154" text-anchor="middle" font-size="12" fill="#333">‖ô_t+1 − o_t+1‖²</text>
+
+  <line x1="160" y1="138" x2="208" y2="138" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="360" y1="138" x2="408" y2="138" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="550" y1="138" x2="598" y2="138" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="760" y1="138" x2="808" y2="138" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M105,166 C105,215 640,215 670,168" fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#a)"/>
+  <text x="360" y="222" text-anchor="middle" font-size="12" fill="#777">当前帧 o_t 也送入解码器；瓶颈迫使 z 只编码“发生了什么变化”</text>
+  <text x="500" y="250" text-anchor="middle" font-size="13" fill="#555">特点：潜在动作是有限个离散码，可当作“动作词表”；监督来自像素重建</text>
+
+  <!-- Bottom: Motus -->
+  <rect x="20" y="282" width="960" height="250" rx="12" fill="#fdf7ef" stroke="#e0b98a"/>
+  <text x="40" y="310" font-size="16" font-weight="bold" fill="#8a4f10">（b）Motus 路线：光流 → 压缩 → 连续低维潜在动作（论文描述）</text>
+
+  <rect x="40" y="340" width="100" height="56" rx="6" fill="#fdf0e2" stroke="#d98a2b"/>
+  <text x="90" y="364" text-anchor="middle" font-size="14" fill="#333">相邻</text>
+  <text x="90" y="384" text-anchor="middle" font-size="14" fill="#333">视频帧</text>
+
+  <rect x="175" y="340" width="120" height="56" rx="6" fill="#fde3c6" stroke="#d98a2b"/>
+  <text x="235" y="364" text-anchor="middle" font-size="14" font-weight="bold" fill="#8a4f10">DPFlow</text>
+  <text x="235" y="384" text-anchor="middle" font-size="12" fill="#333">光流估计</text>
+
+  <rect x="330" y="340" width="120" height="56" rx="6" fill="#fdf0e2" stroke="#d98a2b"/>
+  <text x="390" y="364" text-anchor="middle" font-size="14" fill="#333">光流 RGB</text>
+  <text x="390" y="384" text-anchor="middle" font-size="12" fill="#333">像素位移可视化</text>
+
+  <rect x="485" y="340" width="130" height="56" rx="6" fill="#fde3c6" stroke="#d98a2b"/>
+  <text x="550" y="364" text-anchor="middle" font-size="14" font-weight="bold" fill="#8a4f10">DC-AE</text>
+  <text x="550" y="384" text-anchor="middle" font-size="12" fill="#333">4 × 512 维 token</text>
+
+  <rect x="650" y="340" width="130" height="56" rx="6" fill="#fde3c6" stroke="#d98a2b"/>
+  <text x="715" y="364" text-anchor="middle" font-size="14" font-weight="bold" fill="#8a4f10">轻量编码器</text>
+  <text x="715" y="384" text-anchor="middle" font-size="12" fill="#333">高斯后验 + KL</text>
+
+  <rect x="815" y="340" width="140" height="56" rx="6" fill="#fff3d6" stroke="#d1a032"/>
+  <text x="885" y="364" text-anchor="middle" font-size="14" font-weight="bold" fill="#8a6510">14 维连续向量</text>
+  <text x="885" y="384" text-anchor="middle" font-size="12" fill="#333">潜在动作 z</text>
+
+  <line x1="140" y1="368" x2="173" y2="368" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="295" y1="368" x2="328" y2="368" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="450" y1="368" x2="483" y2="368" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="615" y1="368" x2="648" y2="368" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="780" y1="368" x2="813" y2="368" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="140" y="425" width="300" height="50" rx="6" fill="#ffffff" stroke="#bbb" stroke-dasharray="4,3"/>
+  <text x="290" y="446" text-anchor="middle" font-size="13" fill="#333">L_recon：从 z 重建光流表示</text>
+  <text x="290" y="465" text-anchor="middle" font-size="12" fill="#777">约 90% 样本只有视频</text>
+  <rect x="470" y="425" width="300" height="50" rx="6" fill="#ffffff" stroke="#bbb" stroke-dasharray="4,3"/>
+  <text x="620" y="446" text-anchor="middle" font-size="13" fill="#333">λ_a‖a_real − a_pred‖²：动作对齐</text>
+  <text x="620" y="465" text-anchor="middle" font-size="12" fill="#777">约 10% 样本有真实动作</text>
+  <line x1="850" y1="396" x2="700" y2="423" stroke="#999" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="850" y1="396" x2="400" y2="423" stroke="#999" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="500" y="510" text-anchor="middle" font-size="13" fill="#555">特点：不用离散码本；用光流突出“哪里动、往哪动”，并用少量真实动作把潜在空间往控制量方向拉</text>
+</svg>
