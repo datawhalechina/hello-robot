@@ -1587,7 +1587,7 @@ outputs/vlm_decision.json
 
 最终效果如下所示：
 
-<img src="assets/vlm_picture.png"/>
+<img src="./assets/vlm_picture.png"/>
 
 <p align="center"><b>图 13-13</b> 完整语义导航运行效果</p>
 
