@@ -1,0 +1,80 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>
+      .t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.title{font-size:26px;font-weight:700}.h{font-size:19px;font-weight:700}.m{font-size:16px}.s{font-size:14px}.card{fill:#fff;stroke:#cbd5e1;stroke-width:2}.grid{stroke:#cbd5e1;stroke-width:1}
+    </style>
+  </defs>
+  <rect width="1200" height="640" fill="#f8fafc"/>
+  <text x="600" y="38" text-anchor="middle" class="t title">从 YOLO 实例掩码到二维语义图</text>
+  <text x="600" y="66" text-anchor="middle" class="t m">实例模型输出“每个物体一张概率掩码”；控制接口常需要“每个像素一个类别编号”。</text>
+
+  <g transform="translate(22,96)">
+    <rect width="275" height="415" rx="16" class="card"/>
+    <text x="137" y="34" text-anchor="middle" class="t h">① 独立实例概率</text>
+    <text x="137" y="58" text-anchor="middle" class="t s">每个实例都有 class、conf、P(u,v)</text>
+    <rect x="28" y="78" width="219" height="127" rx="10" fill="#eef2ff" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="42" y="101" class="t s">person：class_id=0，conf=0.86</text>
+    <g fill="#7c3aed" opacity="0.75"><circle cx="108" cy="135" r="19"/><rect x="92" y="153" width="32" height="40" rx="12"/></g>
+    <g class="t s"><text x="153" y="137">中心概率高</text><text x="153" y="161">边缘概率低</text></g>
+    <rect x="28" y="226" width="219" height="127" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+    <text x="42" y="249" class="t s">box：class_id=1，conf=0.64</text>
+    <rect x="79" y="275" width="78" height="55" rx="5" fill="#f97316" opacity="0.70"/>
+    <text x="169" y="302" class="t s">与 person</text><text x="169" y="323" class="t s">局部重叠</text>
+    <text x="137" y="390" text-anchor="middle" class="t m">此时仍保留实例身份</text>
+  </g>
+
+  <line x1="303" y1="300" x2="349" y2="300" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(358,96)">
+    <rect width="235" height="415" rx="16" class="card"/>
+    <text x="117" y="34" text-anchor="middle" class="t h">② 掩码二值化</text>
+    <rect x="27" y="76" width="181" height="70" rx="11" fill="#ecfeff" stroke="#06b6d4" stroke-width="2"/>
+    <text x="117" y="106" text-anchor="middle" class="t h">P(u,v) ≥ Tm</text>
+    <text x="117" y="131" text-anchor="middle" class="t s">默认 Tm = 0.5</text>
+    <g transform="translate(42,174)">
+      <rect width="151" height="110" rx="8" fill="#0f172a"/>
+      <circle cx="61" cy="38" r="19" fill="#fff"/><rect x="44" y="57" width="34" height="42" rx="12" fill="#fff"/>
+      <rect x="75" y="62" width="57" height="37" fill="#fff"/>
+    </g>
+    <text x="117" y="318" text-anchor="middle" class="t m">1：进入实例掩码</text>
+    <text x="117" y="345" text-anchor="middle" class="t m">0：实例外或低概率</text>
+    <text x="117" y="388" text-anchor="middle" class="t s">Tm 降低：区域变大；提高：区域收缩</text>
+  </g>
+
+  <line x1="599" y1="300" x2="645" y2="300" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(654,96)">
+    <rect width="225" height="415" rx="16" class="card"/>
+    <text x="112" y="34" text-anchor="middle" class="t h">③ 按置信度写入</text>
+    <text x="112" y="62" text-anchor="middle" class="t s">低分先写，高分后写</text>
+    <rect x="32" y="91" width="161" height="76" rx="11" fill="#ffedd5" stroke="#f97316" stroke-width="2"/>
+    <text x="112" y="121" text-anchor="middle" class="t h">box 0.64</text><text x="112" y="146" text-anchor="middle" class="t s">semantic_id = 2</text>
+    <line x1="112" y1="171" x2="112" y2="216" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="32" y="224" width="161" height="76" rx="11" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="112" y="254" text-anchor="middle" class="t h">person 0.86</text><text x="112" y="279" text-anchor="middle" class="t s">semantic_id = 1</text>
+    <rect x="27" y="330" width="171" height="54" rx="9" fill="#fef2f2"/>
+    <text x="112" y="352" text-anchor="middle" class="t s">重叠像素最终由</text><text x="112" y="374" text-anchor="middle" class="t h">高置信度实例覆盖</text>
+  </g>
+
+  <line x1="885" y1="300" x2="931" y2="300" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(940,96)">
+    <rect width="238" height="415" rx="16" class="card"/>
+    <text x="119" y="34" text-anchor="middle" class="t h">④ 单张语义编号图 S</text>
+    <text x="119" y="61" text-anchor="middle" class="t s">0 背景；class_id + 1 为前景</text>
+    <g transform="translate(34,88)">
+      <rect width="170" height="170" fill="#0f172a" stroke="#64748b" stroke-width="2"/>
+      <g fill="#7c3aed"><circle cx="72" cy="55" r="25"/><rect x="50" y="78" width="48" height="68" rx="16"/></g>
+      <rect x="94" y="92" width="60" height="54" fill="#f97316"/>
+      <rect x="94" y="92" width="18" height="54" fill="#7c3aed"/>
+      <g class="grid"><line x1="34" y1="0" x2="34" y2="170"/><line x1="68" y1="0" x2="68" y2="170"/><line x1="102" y1="0" x2="102" y2="170"/><line x1="136" y1="0" x2="136" y2="170"/><line x1="0" y1="34" x2="170" y2="34"/><line x1="0" y1="68" x2="170" y2="68"/><line x1="0" y1="102" x2="170" y2="102"/><line x1="0" y1="136" x2="170" y2="136"/></g>
+    </g>
+    <g transform="translate(38,284)" class="t s"><rect width="18" height="18" fill="#0f172a"/><text x="27" y="15">0 background</text><rect x="0" y="28" width="18" height="18" fill="#7c3aed"/><text x="27" y="43">1 person</text><rect x="0" y="56" width="18" height="18" fill="#f97316"/><text x="27" y="71">2 box</text></g>
+    <text x="119" y="387" text-anchor="middle" class="t m">形状：H × W，整数类型</text>
+  </g>
+
+  <rect x="80" y="540" width="1040" height="72" rx="14" fill="#fff7ed" stroke="#fb923c" stroke-width="2"/>
+  <text x="600" y="568" text-anchor="middle" class="t h">合并后的语义图适合控制接口，但会丢失独立实例身份</text>
+  <text x="600" y="594" text-anchor="middle" class="t m">若任务需要区分“第 1 个人”和“第 2 个人”或严格保存遮挡关系，应继续使用独立实例掩码。</text>
+</svg>

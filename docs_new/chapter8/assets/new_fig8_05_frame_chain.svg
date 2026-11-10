@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="450" viewBox="0 0 1000 450" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<defs><marker id="a_blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2f6690"/></marker><marker id="a_green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2a9d8f"/></marker><marker id="a_orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#d9822b"/></marker><marker id="a_gray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6b7b8c"/></marker><marker id="a_red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#c0392b"/></marker><marker id="a_ink" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1f2d3d"/></marker><marker id="a_purple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#7b5ea7"/></marker></defs>
+<rect x="0" y="0" width="1000" height="450" fill="#ffffff"/>
+<text x="500.0" y="34.0" font-size="22" text-anchor="middle" fill="#1f2d3d" font-weight="bold">一个激光点的坐标链：lidar_left → base_link → map → 栅格 / 体素</text>
+<rect x="30.0" y="70.0" width="280.0" height="170.0" rx="10" fill="#eaf2fb" stroke="#2f6690" stroke-width="2"/>
+<text x="170.0" y="130.9" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">lidar_left 坐标系</text>
+<text x="170.0" y="152.3" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">量测 d=4 m, α=30°, β=0°</text>
+<text x="170.0" y="172.6" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">p_l = (3.464, 2.000, 0.000)</text>
+<text x="170.0" y="192.9" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">o_l = (0, 0, 0)</text>
+<rect x="360.0" y="70.0" width="280.0" height="170.0" rx="10" fill="#fdf1e6" stroke="#d9822b" stroke-width="2"/>
+<text x="500.0" y="130.9" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">base_link 坐标系</text>
+<text x="500.0" y="152.3" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">p_b = R_bl · p_l + t_bl</text>
+<text x="500.0" y="172.6" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">p_b = (3.634, 2.210, 0.340)</text>
+<text x="500.0" y="192.9" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">o_b = (0.170, 0.210, 0.340)</text>
+<rect x="690.0" y="70.0" width="280.0" height="170.0" rx="10" fill="#e8f6f3" stroke="#2a9d8f" stroke-width="2"/>
+<text x="830.0" y="130.9" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">map 坐标系</text>
+<text x="830.0" y="152.3" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">位姿 (x, y, ψ) = (5.0, 2.0, 90°)</text>
+<text x="830.0" y="172.6" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">p_m = (2.790, 5.634, 0.340)</text>
+<text x="830.0" y="192.9" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">o_m = (4.790, 2.170, 0.340)</text>
+<line x1="310.0" y1="155.0" x2="356.0" y2="155.0" stroke="#d9822b" stroke-width="2" marker-end="url(#a_orange)"/>
+<line x1="640.0" y1="155.0" x2="686.0" y2="155.0" stroke="#2a9d8f" stroke-width="2" marker-end="url(#a_green)"/>
+<text x="335.0" y="60.0" font-size="13" text-anchor="middle" fill="#d9822b" font-weight="normal">外参（静态 TF）</text>
+<text x="665.0" y="60.0" font-size="13" text-anchor="middle" fill="#2a9d8f" font-weight="normal">位姿（动态 TF）</text>
+<rect x="30.0" y="300.0" width="300.0" height="110.0" rx="10" fill="#fdecea" stroke="#c0392b" stroke-width="2"/>
+<text x="180.0" y="341.1" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">易错点</text>
+<text x="180.0" y="362.4" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">2D 射线起点是雷达在 map 中的位置</text>
+<text x="180.0" y="382.7" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">(4.790, 2.170)，不是机器人中心 (5.0, 2.0)</text>
+<rect x="360.0" y="300.0" width="300.0" height="110.0" rx="10" fill="#f1ecf8" stroke="#7b5ea7" stroke-width="2"/>
+<text x="510.0" y="341.1" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">2D 栅格 r = 0.05 m</text>
+<text x="510.0" y="362.4" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">起点格 (95, 43) → 终点格 (55, 112)</text>
+<text x="510.0" y="382.7" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">Bresenham 共 70 格：69 自由 + 1 占据</text>
+<rect x="690.0" y="300.0" width="280.0" height="110.0" rx="10" fill="#f1ecf8" stroke="#7b5ea7" stroke-width="2"/>
+<text x="830.0" y="341.1" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">3D 体素 s = 0.08 m</text>
+<text x="830.0" y="362.4" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">体素键 (34, 70, 4)</text>
+<text x="830.0" y="382.7" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">累计 xyz、intensity 与观测次数</text>
+<line x1="780.0" y1="240.0" x2="560.0" y2="296.0" stroke="#7b5ea7" stroke-width="2" marker-end="url(#a_purple)"/>
+<line x1="830.0" y1="240.0" x2="830.0" y2="296.0" stroke="#7b5ea7" stroke-width="2" marker-end="url(#a_purple)"/>
+</svg>

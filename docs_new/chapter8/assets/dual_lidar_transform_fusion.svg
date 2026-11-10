@@ -1,0 +1,26 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#315b7d"/></marker>
+    <style>.title{font:700 24px Arial,"Microsoft YaHei",sans-serif;fill:#17324d}.label{font:18px Arial,"Microsoft YaHei",sans-serif;fill:#17324d}.small{font:15px Arial,"Microsoft YaHei",sans-serif;fill:#38546b}.frame{fill:#eef7ff;stroke:#4b83ad;stroke-width:2}.step{fill:#f7fbfe;stroke:#7ba3bf;stroke-width:2}</style>
+  </defs>
+  <rect width="1000" height="500" rx="18" fill="#fbfdff" stroke="#c8d7e3"/>
+  <text x="500" y="40" text-anchor="middle" class="title">双雷达点云的坐标统一与融合</text>
+  <rect x="55" y="95" width="220" height="90" rx="14" class="frame"/>
+  <text x="165" y="130" text-anchor="middle" class="label">左雷达点云</text><text x="165" y="160" text-anchor="middle" class="small">lidar_left</text>
+  <rect x="55" y="300" width="220" height="90" rx="14" class="frame"/>
+  <text x="165" y="335" text-anchor="middle" class="label">右雷达点云</text><text x="165" y="365" text-anchor="middle" class="small">lidar_right</text>
+  <rect x="370" y="105" width="250" height="270" rx="18" fill="#eefaf5" stroke="#2a9d8f" stroke-width="2"/>
+  <text x="495" y="145" text-anchor="middle" class="label">外参变换到 base_link</text>
+  <text x="495" y="190" text-anchor="middle" class="small">p_b = R_bl p_l + t_bl</text>
+  <text x="495" y="235" text-anchor="middle" class="small">保留每个点对应的雷达原点</text>
+  <text x="495" y="280" text-anchor="middle" class="small">有限值与量程过滤</text>
+  <text x="495" y="325" text-anchor="middle" class="small">抽样 + 单帧体素降采样</text>
+  <rect x="735" y="165" width="215" height="145" rx="16" fill="#fff4e8" stroke="#d18b47" stroke-width="2"/>
+  <text x="842" y="205" text-anchor="middle" class="label">融合 XYZI 点云</text>
+  <text x="842" y="242" text-anchor="middle" class="small">统一坐标、统一字段</text>
+  <text x="842" y="275" text-anchor="middle" class="small">供 2D / 3D 建图使用</text>
+  <line x1="275" y1="140" x2="370" y2="175" stroke="#315b7d" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="275" y1="345" x2="370" y2="305" stroke="#315b7d" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="620" y1="240" x2="735" y2="240" stroke="#315b7d" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="500" y="445" text-anchor="middle" class="small">融合不是简单拼接：必须先保证外参、坐标系和时间语义一致</text>
+</svg>

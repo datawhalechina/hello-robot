@@ -1,0 +1,67 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="620" viewBox="0 0 1160 620">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#315b7d"/></marker>
+    <style>
+      .title{font:700 25px Arial,"Microsoft YaHei",sans-serif;fill:#17324d}
+      .label{font:700 17px Arial,"Microsoft YaHei",sans-serif;fill:#17324d}
+      .small{font:14px Arial,"Microsoft YaHei",sans-serif;fill:#38546b}
+      .box1{fill:#eef7ff;stroke:#4b83ad;stroke-width:2}
+      .box2{fill:#eefaf5;stroke:#2a9d8f;stroke-width:2}
+      .box3{fill:#fff4e8;stroke:#d18b47;stroke-width:2}
+      .arrow{stroke:#315b7d;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1160" height="620" rx="18" fill="#fbfdff" stroke="#c8d7e3"/>
+  <text x="580" y="42" text-anchor="middle" class="title">一帧激光扫描进入地图的完整算法循环</text>
+
+  <rect x="45" y="95" width="180" height="100" rx="15" class="box1"/>
+  <text x="135" y="128" text-anchor="middle" class="label">1. 获取扫描</text>
+  <text x="135" y="158" text-anchor="middle" class="small">左右雷达 XYZ + intensity</text>
+  <text x="135" y="181" text-anchor="middle" class="small">记录各自射线原点</text>
+
+  <rect x="275" y="95" width="180" height="100" rx="15" class="box1"/>
+  <text x="365" y="128" text-anchor="middle" class="label">2. 点云预处理</text>
+  <text x="365" y="158" text-anchor="middle" class="small">无效值、量程、抽样</text>
+  <text x="365" y="181" text-anchor="middle" class="small">体素降采样与外参融合</text>
+
+  <rect x="505" y="95" width="180" height="100" rx="15" class="box3"/>
+  <text x="595" y="128" text-anchor="middle" class="label">3. 预测机器人位姿</text>
+  <text x="595" y="158" text-anchor="middle" class="small">轮速 / IMU / 上一帧</text>
+  <text x="595" y="181" text-anchor="middle" class="small">得到 T_pred</text>
+
+  <rect x="735" y="95" width="180" height="100" rx="15" class="box3"/>
+  <text x="825" y="128" text-anchor="middle" class="label">4. 点云匹配修正</text>
+  <text x="825" y="158" text-anchor="middle" class="small">scan-to-scan / scan-to-map</text>
+  <text x="825" y="181" text-anchor="middle" class="small">得到当前位姿 T_k</text>
+
+  <rect x="965" y="95" width="150" height="100" rx="15" class="box2"/>
+  <text x="1040" y="128" text-anchor="middle" class="label">5. 坐标变换</text>
+  <text x="1040" y="158" text-anchor="middle" class="small">base_link → map</text>
+  <text x="1040" y="181" text-anchor="middle" class="small">p_m = T_k p_b</text>
+
+  <line x1="225" y1="145" x2="275" y2="145" class="arrow"/>
+  <line x1="455" y1="145" x2="505" y2="145" class="arrow"/>
+  <line x1="685" y1="145" x2="735" y2="145" class="arrow"/>
+  <line x1="915" y1="145" x2="965" y2="145" class="arrow"/>
+
+  <rect x="215" y="295" width="290" height="120" rx="17" class="box2"/>
+  <text x="360" y="330" text-anchor="middle" class="label">6A. 更新 2D 占据栅格</text>
+  <text x="360" y="361" text-anchor="middle" class="small">高度筛选 → 最近角度射线</text>
+  <text x="360" y="386" text-anchor="middle" class="small">沿途自由，终点占据，累加 log-odds</text>
+
+  <rect x="655" y="295" width="290" height="120" rx="17" class="box2"/>
+  <text x="800" y="330" text-anchor="middle" class="label">6B. 更新 3D 体素地图</text>
+  <text x="800" y="361" text-anchor="middle" class="small">高度 / 地面过滤 → 体素索引</text>
+  <text x="800" y="386" text-anchor="middle" class="small">累计 XYZI 和计数，输出均值点</text>
+
+  <path d="M1040 195 C1040 245 800 245 800 295" class="arrow"/>
+  <path d="M1040 195 C1040 260 360 235 360 295" class="arrow"/>
+
+  <rect x="325" y="485" width="510" height="90" rx="17" fill="#f3effb" stroke="#8168a8" stroke-width="2"/>
+  <text x="580" y="520" text-anchor="middle" class="label">7. 关键帧、回环和全局优化</text>
+  <text x="580" y="551" text-anchor="middle" class="small">发现回到旧位置 → 添加回环约束 → 优化历史位姿 → 重新构建地图</text>
+
+  <path d="M360 415 C360 455 470 455 470 485" class="arrow"/>
+  <path d="M800 415 C800 455 690 455 690 485" class="arrow"/>
+  <path d="M325 530 C120 530 80 300 135 195" class="arrow"/>
+</svg>

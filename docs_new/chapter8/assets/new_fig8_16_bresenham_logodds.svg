@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="440" viewBox="0 0 1000 440" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<defs><marker id="a_blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2f6690"/></marker><marker id="a_green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2a9d8f"/></marker><marker id="a_orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#d9822b"/></marker><marker id="a_gray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6b7b8c"/></marker><marker id="a_red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#c0392b"/></marker><marker id="a_ink" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1f2d3d"/></marker><marker id="a_purple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#7b5ea7"/></marker></defs>
+<rect x="0" y="0" width="1000" height="440" fill="#ffffff"/>
+<text x="500.0" y="34.0" font-size="22" text-anchor="middle" fill="#1f2d3d" font-weight="bold">Bresenham 射线离散化 + log-odds 证据累计</text>
+<rect x="70.0" y="300.0" width="60.0" height="60.0" rx="0" fill="#d8f0e6" stroke="#b8c4cf" stroke-width="1"/>
+<text x="100.0" y="335.0" font-size="12" text-anchor="middle" fill="#1f2d3d" font-weight="normal">(0,0)</text>
+<rect x="70.0" y="240.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="70.0" y="180.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="70.0" y="120.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="130.0" y="300.0" width="60.0" height="60.0" rx="0" fill="#d8f0e6" stroke="#b8c4cf" stroke-width="1"/>
+<text x="160.0" y="335.0" font-size="12" text-anchor="middle" fill="#1f2d3d" font-weight="normal">(1,0)</text>
+<rect x="130.0" y="240.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="130.0" y="180.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="130.0" y="120.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="190.0" y="300.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="190.0" y="240.0" width="60.0" height="60.0" rx="0" fill="#d8f0e6" stroke="#b8c4cf" stroke-width="1"/>
+<text x="220.0" y="275.0" font-size="12" text-anchor="middle" fill="#1f2d3d" font-weight="normal">(2,1)</text>
+<rect x="190.0" y="180.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="190.0" y="120.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="250.0" y="300.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="250.0" y="240.0" width="60.0" height="60.0" rx="0" fill="#d8f0e6" stroke="#b8c4cf" stroke-width="1"/>
+<text x="280.0" y="275.0" font-size="12" text-anchor="middle" fill="#1f2d3d" font-weight="normal">(3,1)</text>
+<rect x="250.0" y="180.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="250.0" y="120.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="310.0" y="300.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="310.0" y="240.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="310.0" y="180.0" width="60.0" height="60.0" rx="0" fill="#d8f0e6" stroke="#b8c4cf" stroke-width="1"/>
+<text x="340.0" y="215.0" font-size="12" text-anchor="middle" fill="#1f2d3d" font-weight="normal">(4,2)</text>
+<rect x="310.0" y="120.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="370.0" y="300.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="370.0" y="240.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="370.0" y="180.0" width="60.0" height="60.0" rx="0" fill="#3b3b3b" stroke="#b8c4cf" stroke-width="1"/>
+<text x="400.0" y="215.0" font-size="12" text-anchor="middle" fill="#ffffff" font-weight="normal">(5,2)</text>
+<rect x="370.0" y="120.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="430.0" y="300.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="430.0" y="240.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="430.0" y="180.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<rect x="430.0" y="120.0" width="60.0" height="60.0" rx="0" fill="#ffffff" stroke="#b8c4cf" stroke-width="1"/>
+<line x1="100.0" y1="330.0" x2="400.0" y2="210.0" stroke="#c0392b" stroke-width="2"/>
+<text x="100.0" y="380.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">0</text>
+<text x="160.0" y="380.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">1</text>
+<text x="220.0" y="380.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">2</text>
+<text x="280.0" y="380.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">3</text>
+<text x="340.0" y="380.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">4</text>
+<text x="400.0" y="380.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">5</text>
+<text x="460.0" y="380.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">6</text>
+<text x="58.0" y="334.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">0</text>
+<text x="58.0" y="274.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">1</text>
+<text x="58.0" y="214.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">2</text>
+<text x="58.0" y="154.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">3</text>
+<text x="280.0" y="406.0" font-size="13" text-anchor="middle" fill="#6b7b8c" font-weight="normal">起点 (0,0) → 终点 (5,2)：5 个自由格 + 1 个占据格</text>
+<text x="540.0" y="80.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="bold">ΔL_occ = logit(0.70) = +0.847</text>
+<text x="790.0" y="80.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="bold">ΔL_free = logit(0.35) = −0.619</text>
+<text x="540.0" y="116.0" font-size="14" text-anchor="start" fill="#2f6690" font-weight="bold">该格的观测序列</text>
+<text x="710.0" y="116.0" font-size="14" text-anchor="start" fill="#2f6690" font-weight="bold">L</text>
+<text x="785.0" y="116.0" font-size="14" text-anchor="start" fill="#2f6690" font-weight="bold">p</text>
+<text x="855.0" y="116.0" font-size="14" text-anchor="start" fill="#2f6690" font-weight="bold">输出</text>
+<text x="540.0" y="146.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">占据 ×1</text>
+<text x="710.0" y="146.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">0.847</text>
+<text x="785.0" y="146.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">0.700</text>
+<text x="855.0" y="146.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">占据 (≥0.65)</text>
+<text x="540.0" y="176.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">占据 ×2</text>
+<text x="710.0" y="176.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">1.695</text>
+<text x="785.0" y="176.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">0.845</text>
+<text x="855.0" y="176.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">占据</text>
+<text x="540.0" y="206.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">自由 ×1</text>
+<text x="710.0" y="206.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">−0.619</text>
+<text x="785.0" y="206.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">0.350</text>
+<text x="855.0" y="206.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">灰（不确定）</text>
+<text x="540.0" y="236.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">自由 ×2</text>
+<text x="710.0" y="236.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">−1.238</text>
+<text x="785.0" y="236.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">0.225</text>
+<text x="855.0" y="236.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">自由 (≤0.25)</text>
+<text x="540.0" y="266.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">占据 + 自由</text>
+<text x="710.0" y="266.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">0.228</text>
+<text x="785.0" y="266.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">0.557</text>
+<text x="855.0" y="266.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">灰</text>
+<text x="540.0" y="296.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">占据 ×2 + 自由</text>
+<text x="710.0" y="296.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">1.076</text>
+<text x="785.0" y="296.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">0.746</text>
+<text x="855.0" y="296.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">仍为占据</text>
+<text x="540.0" y="326.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">饱和上限</text>
+<text x="710.0" y="326.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">+5.000</text>
+<text x="785.0" y="326.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">0.993</text>
+<text x="855.0" y="326.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">限幅 ±5</text>
+<text x="540.0" y="370.0" font-size="13" text-anchor="start" fill="#6b7b8c" font-weight="normal">p = 1 / (1 + e^(−L))；从未更新的格保持“未知”</text>
+</svg>

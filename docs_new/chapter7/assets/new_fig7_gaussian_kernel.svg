@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 330" width="940" height="330" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="940" height="330" fill="#ffffff"/>
+  <text x="470" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">高斯滤波手算：3×3 核把一个孤立噪点从 90 压到 30</text>
+
+  <!-- patch -->
+  <text x="150" y="70" text-anchor="middle" font-size="14" fill="#333">灰度邻域 I</text>
+  <g font-size="16" text-anchor="middle">
+    <rect x="60" y="85" width="60" height="60" fill="#F2F2F2" stroke="#999"/><text x="90" y="121">10</text>
+    <rect x="120" y="85" width="60" height="60" fill="#F2F2F2" stroke="#999"/><text x="150" y="121">10</text>
+    <rect x="180" y="85" width="60" height="60" fill="#F2F2F2" stroke="#999"/><text x="210" y="121">10</text>
+    <rect x="60" y="145" width="60" height="60" fill="#F2F2F2" stroke="#999"/><text x="90" y="181">10</text>
+    <rect x="120" y="145" width="60" height="60" fill="#FFD9D2" stroke="#C0392B" stroke-width="2"/><text x="150" y="181" fill="#C0392B">90</text>
+    <rect x="180" y="145" width="60" height="60" fill="#F2F2F2" stroke="#999"/><text x="210" y="181">10</text>
+    <rect x="60" y="205" width="60" height="60" fill="#F2F2F2" stroke="#999"/><text x="90" y="241">10</text>
+    <rect x="120" y="205" width="60" height="60" fill="#F2F2F2" stroke="#999"/><text x="150" y="241">10</text>
+    <rect x="180" y="205" width="60" height="60" fill="#F2F2F2" stroke="#999"/><text x="210" y="241">10</text>
+  </g>
+
+  <text x="290" y="182" text-anchor="middle" font-size="26" fill="#333">⊛</text>
+
+  <!-- kernel -->
+  <text x="430" y="70" text-anchor="middle" font-size="14" fill="#333">高斯核 K（×1/16）</text>
+  <g font-size="16" text-anchor="middle">
+    <rect x="340" y="85" width="60" height="60" fill="#EEF4FB" stroke="#4A78B5"/><text x="370" y="121">1</text>
+    <rect x="400" y="85" width="60" height="60" fill="#DCE8F7" stroke="#4A78B5"/><text x="430" y="121">2</text>
+    <rect x="460" y="85" width="60" height="60" fill="#EEF4FB" stroke="#4A78B5"/><text x="490" y="121">1</text>
+    <rect x="340" y="145" width="60" height="60" fill="#DCE8F7" stroke="#4A78B5"/><text x="370" y="181">2</text>
+    <rect x="400" y="145" width="60" height="60" fill="#B9D1EE" stroke="#4A78B5"/><text x="430" y="181">4</text>
+    <rect x="460" y="145" width="60" height="60" fill="#DCE8F7" stroke="#4A78B5"/><text x="490" y="181">2</text>
+    <rect x="340" y="205" width="60" height="60" fill="#EEF4FB" stroke="#4A78B5"/><text x="370" y="241">1</text>
+    <rect x="400" y="205" width="60" height="60" fill="#DCE8F7" stroke="#4A78B5"/><text x="430" y="241">2</text>
+    <rect x="460" y="205" width="60" height="60" fill="#EEF4FB" stroke="#4A78B5"/><text x="490" y="241">1</text>
+  </g>
+
+  <line x1="540" y1="175" x2="600" y2="175" stroke="#555" stroke-width="1.8" marker-end="url(#ak)"/>
+
+  <rect x="610" y="85" width="300" height="180" rx="10" fill="#EEF8EE" stroke="#3E8E41"/>
+  <text x="760" y="115" text-anchor="middle" font-size="14" fill="#333">中心输出 I'(中心)</text>
+  <text x="760" y="148" text-anchor="middle" font-size="14" fill="#333">= (10×(1+2+1+2+2+1+2+1) + 90×4) / 16</text>
+  <text x="760" y="178" text-anchor="middle" font-size="14" fill="#333">= (120 + 360) / 16</text>
+  <text x="760" y="214" text-anchor="middle" font-size="20" font-weight="bold" fill="#2B6B2E">= 30</text>
+  <text x="760" y="248" text-anchor="middle" font-size="12" fill="#666">核权重之和为 1，平坦区域保持 10 不变</text>
+
+  <text x="470" y="305" text-anchor="middle" font-size="13" fill="#555">本章代码默认 5×5 核（blur_kernel=5），原理相同：离中心越近权重越大，核越大越平滑也越模糊</text>
+</svg>

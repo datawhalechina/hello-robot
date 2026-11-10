@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 400" width="940" height="400" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3E8E41"/></marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2E5FA8"/></marker>
+    <marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="940" height="400" fill="#ffffff"/>
+  <text x="470" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">外参：把相机坐标系中的点换到机器人基座 / 世界坐标系</text>
+
+  <!-- base frame -->
+  <text x="170" y="70" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">机器人基座系 {B}</text>
+  <circle cx="170" cy="220" r="4" fill="#333"/>
+  <line x1="170" y1="220" x2="270" y2="250" stroke="#C0392B" stroke-width="2.5" marker-end="url(#ar)"/>
+  <text x="276" y="258" font-size="14" fill="#C0392B">x 向前</text>
+  <line x1="170" y1="220" x2="90" y2="255" stroke="#3E8E41" stroke-width="2.5" marker-end="url(#ag)"/>
+  <text x="40" y="275" font-size="14" fill="#3E8E41">y 向左</text>
+  <line x1="170" y1="220" x2="170" y2="110" stroke="#2E5FA8" stroke-width="2.5" marker-end="url(#ab)"/>
+  <text x="178" y="112" font-size="14" fill="#2E5FA8">z 向上</text>
+
+  <!-- optical frame -->
+  <text x="700" y="70" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">相机光学系 {C}（视觉常用约定）</text>
+  <circle cx="700" cy="200" r="4" fill="#333"/>
+  <line x1="700" y1="200" x2="620" y2="235" stroke="#C0392B" stroke-width="2.5" marker-end="url(#ar)"/>
+  <text x="560" y="250" font-size="14" fill="#C0392B">x 向右</text>
+  <line x1="700" y1="200" x2="700" y2="300" stroke="#3E8E41" stroke-width="2.5" marker-end="url(#ag)"/>
+  <text x="708" y="305" font-size="14" fill="#3E8E41">y 向下</text>
+  <line x1="700" y1="200" x2="800" y2="230" stroke="#2E5FA8" stroke-width="2.5" marker-end="url(#ab)"/>
+  <text x="806" y="238" font-size="14" fill="#2E5FA8">z 向前（光轴）</text>
+
+  <!-- transform arrow -->
+  <path d="M600,150 Q435,90 280,150" fill="none" stroke="#555" stroke-width="1.8" marker-end="url(#ak)"/>
+  <text x="440" y="100" text-anchor="middle" font-size="15" fill="#333">T_BC = [ R_BC | t_BC ]</text>
+  <text x="440" y="125" text-anchor="middle" font-size="13" fill="#555">P_B = R_BC · P_C + t_BC</text>
+
+  <rect x="60" y="320" width="820" height="62" rx="8" fill="#F7F9FC" stroke="#bbb"/>
+  <text x="470" y="345" text-anchor="middle" font-size="13" fill="#333">无俯仰、相机朝正前方时：x_B = z_C，y_B = −x_C，z_B = −y_C，再加上相机安装位置 t_BC</text>
+  <text x="470" y="368" text-anchor="middle" font-size="13" fill="#333">链式求世界坐标：T_WC = T_WB · T_B,head · T_head,C（G2 头部会转动，T_BC 需按当前关节角实时计算）</text>
+</svg>

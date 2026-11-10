@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<defs><marker id="a_blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2f6690"/></marker><marker id="a_green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2a9d8f"/></marker><marker id="a_orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#d9822b"/></marker><marker id="a_gray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6b7b8c"/></marker><marker id="a_red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#c0392b"/></marker><marker id="a_ink" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1f2d3d"/></marker><marker id="a_purple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#7b5ea7"/></marker></defs>
+<rect x="0" y="0" width="1000" height="380" fill="#ffffff"/>
+<text x="500.0" y="34.0" font-size="22" text-anchor="middle" fill="#1f2d3d" font-weight="bold">位姿图优化小例子：3 个节点、2 条里程计边、1 条回环边</text>
+<text x="30.0" y="155.0" font-size="15" text-anchor="start" fill="#1f2d3d" font-weight="bold">优化前</text>
+<circle cx="200.0" cy="150.0" r="18" fill="#fdf1e6" stroke="#d9822b" stroke-width="2.5"/>
+<text x="200.0" y="155.0" font-size="14" text-anchor="middle" fill="#d9822b" font-weight="bold">x0</text>
+<text x="200.0" y="192.0" font-size="14" text-anchor="middle" fill="#1f2d3d" font-weight="normal">0.000</text>
+<circle cx="500.0" cy="150.0" r="18" fill="#fdf1e6" stroke="#d9822b" stroke-width="2.5"/>
+<text x="500.0" y="155.0" font-size="14" text-anchor="middle" fill="#d9822b" font-weight="bold">x1</text>
+<text x="500.0" y="192.0" font-size="14" text-anchor="middle" fill="#1f2d3d" font-weight="normal">1.000</text>
+<circle cx="800.0" cy="150.0" r="18" fill="#fdf1e6" stroke="#d9822b" stroke-width="2.5"/>
+<text x="800.0" y="155.0" font-size="14" text-anchor="middle" fill="#d9822b" font-weight="bold">x2</text>
+<text x="800.0" y="192.0" font-size="14" text-anchor="middle" fill="#1f2d3d" font-weight="normal">2.000</text>
+<line x1="218.0" y1="150.0" x2="478.0" y2="150.0" stroke="#2f6690" stroke-width="2.5" marker-end="url(#a_blue)"/>
+<text x="350.0" y="140.0" font-size="13" text-anchor="middle" fill="#2f6690" font-weight="normal">odom z=1.0, Ω=80</text>
+<line x1="518.0" y1="150.0" x2="778.0" y2="150.0" stroke="#2f6690" stroke-width="2.5" marker-end="url(#a_blue)"/>
+<text x="650.0" y="140.0" font-size="13" text-anchor="middle" fill="#2f6690" font-weight="normal">odom z=1.0, Ω=80</text>
+<path d="M 200.0,132 Q 500.0,40 796.0,130" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="7 4" marker-end="url(#a_red)"/>
+<text x="500.0" y="82.0" font-size="13" text-anchor="middle" fill="#c0392b" font-weight="normal">loop z=1.9, Ω=180（初始残差 0.1）</text>
+<text x="30.0" y="295.0" font-size="15" text-anchor="start" fill="#1f2d3d" font-weight="bold">优化后</text>
+<circle cx="200.0" cy="290.0" r="18" fill="#e8f6f3" stroke="#2a9d8f" stroke-width="2.5"/>
+<text x="200.0" y="295.0" font-size="14" text-anchor="middle" fill="#2a9d8f" font-weight="bold">x0</text>
+<text x="200.0" y="332.0" font-size="14" text-anchor="middle" fill="#1f2d3d" font-weight="normal">0.000</text>
+<circle cx="487.7" cy="290.0" r="18" fill="#e8f6f3" stroke="#2a9d8f" stroke-width="2.5"/>
+<text x="487.7" y="295.0" font-size="14" text-anchor="middle" fill="#2a9d8f" font-weight="bold">x1</text>
+<text x="487.7" y="332.0" font-size="14" text-anchor="middle" fill="#1f2d3d" font-weight="normal">0.959</text>
+<circle cx="775.5" cy="290.0" r="18" fill="#e8f6f3" stroke="#2a9d8f" stroke-width="2.5"/>
+<text x="775.5" y="295.0" font-size="14" text-anchor="middle" fill="#2a9d8f" font-weight="bold">x2</text>
+<text x="775.5" y="332.0" font-size="14" text-anchor="middle" fill="#1f2d3d" font-weight="normal">1.918</text>
+<line x1="218.0" y1="290.0" x2="465.7" y2="290.0" stroke="#2f6690" stroke-width="2.5" marker-end="url(#a_blue)"/>
+<line x1="505.7" y1="290.0" x2="753.5" y2="290.0" stroke="#2f6690" stroke-width="2.5" marker-end="url(#a_blue)"/>
+<line x1="500.0" y1="195.0" x2="487.7" y2="268.0" stroke="#6b7b8c" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="800.0" y1="195.0" x2="775.5" y2="268.0" stroke="#6b7b8c" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="30.0" y="360.0" font-size="14" text-anchor="start" fill="#6b7b8c" font-weight="normal">x0 固定（规范自由度）；误差按权重分摊：两条里程计边各缩短 0.041，回环边残差从 0.1 降到 0.018</text>
+</svg>

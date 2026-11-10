@@ -1,0 +1,53 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
+  <defs>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker>
+    <marker id="arrowSlate" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>
+      .t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.title{font-size:26px;font-weight:700}.h{font-size:20px;font-weight:700}.m{font-size:17px}.s{font-size:15px}.mono{font-family:Consolas,'Courier New',monospace}.card{fill:#ffffff;stroke:#cbd5e1;stroke-width:2}.soft{fill:#f8fafc;stroke:#94a3b8;stroke-width:2}
+    </style>
+  </defs>
+  <rect width="1100" height="620" fill="#f8fafc"/>
+  <text x="550" y="38" text-anchor="middle" class="t title">图像矩阵、像素坐标与颜色格式</text>
+
+  <rect x="35" y="68" width="665" height="475" rx="18" class="card"/>
+  <text x="367" y="100" text-anchor="middle" class="t h">图像平面：左上角为原点</text>
+  <rect x="90" y="135" width="555" height="325" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
+  <g stroke="#bae6fd" stroke-width="1">
+    <line x1="145" y1="135" x2="145" y2="460"/><line x1="200" y1="135" x2="200" y2="460"/><line x1="255" y1="135" x2="255" y2="460"/>
+    <line x1="90" y1="190" x2="645" y2="190"/><line x1="90" y1="245" x2="645" y2="245"/><line x1="90" y1="300" x2="645" y2="300"/>
+  </g>
+  <line x1="90" y1="135" x2="622" y2="135" stroke="#2563eb" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <line x1="90" y1="135" x2="90" y2="438" stroke="#2563eb" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <text x="624" y="158" class="t h" style="fill:#2563eb">u（列，向右）</text>
+  <text x="105" y="442" class="t h" style="fill:#2563eb">v（行，向下）</text>
+  <circle cx="430" cy="330" r="9" fill="#dc2626"/>
+  <line x1="430" y1="135" x2="430" y2="330" stroke="#dc2626" stroke-width="2" stroke-dasharray="7 6"/>
+  <line x1="90" y1="330" x2="430" y2="330" stroke="#dc2626" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="445" y="321" class="t h" style="fill:#b91c1c">像素 (u, v)</text>
+  <text x="101" y="126" class="t m">(0, 0)</text>
+  <text x="367" y="490" text-anchor="middle" class="t m">分辨率写作 W × H，例如 640 × 400</text>
+  <rect x="115" y="505" width="505" height="26" rx="8" fill="#fff7ed"/>
+  <text x="367" y="524" text-anchor="middle" class="t s">NumPy 形状顺序相反：image.shape = (H, W, C) = (400, 640, 3)</text>
+
+  <rect x="725" y="68" width="340" height="475" rx="18" class="card"/>
+  <text x="895" y="100" text-anchor="middle" class="t h">颜色通道与 OpenCV 输入</text>
+
+  <text x="755" y="137" class="t m">Isaac Sim 输出</text>
+  <g transform="translate(785,155)">
+    <rect x="0" y="0" width="210" height="42" rx="9" fill="#fee2e2" stroke="#ef4444"/><text x="105" y="27" text-anchor="middle" class="t h" style="fill:#b91c1c">R</text>
+    <rect x="12" y="39" width="210" height="42" rx="9" fill="#dcfce7" stroke="#22c55e"/><text x="117" y="66" text-anchor="middle" class="t h" style="fill:#15803d">G</text>
+    <rect x="24" y="78" width="210" height="42" rx="9" fill="#dbeafe" stroke="#3b82f6"/><text x="129" y="105" text-anchor="middle" class="t h" style="fill:#1d4ed8">B</text>
+    <rect x="36" y="117" width="210" height="42" rx="9" fill="#e2e8f0" stroke="#64748b"/><text x="141" y="144" text-anchor="middle" class="t h">A（透明度）</text>
+  </g>
+
+  <line x1="895" y1="326" x2="895" y2="365" stroke="#475569" stroke-width="3" marker-end="url(#arrowSlate)"/>
+  <rect x="770" y="372" width="250" height="45" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
+  <text x="895" y="400" text-anchor="middle" class="t m">去 A；浮点数缩放到 0～255</text>
+  <line x1="895" y1="418" x2="895" y2="451" stroke="#475569" stroke-width="3" marker-end="url(#arrowSlate)"/>
+  <rect x="770" y="458" width="250" height="48" rx="10" fill="#ecfeff" stroke="#0891b2" stroke-width="2"/>
+  <text x="895" y="488" text-anchor="middle" class="t h">RGB → BGR（uint8）</text>
+  <text x="895" y="530" text-anchor="middle" class="t s">再交给 OpenCV 处理和显示</text>
+
+  <rect x="85" y="565" width="930" height="38" rx="10" fill="#fef2f2" stroke="#f87171" stroke-width="2"/>
+  <text x="550" y="590" text-anchor="middle" class="t m">易错点：把 RGB 当 BGR 会交换红蓝；把 0～1 浮点图直接转 uint8 会让画面接近全黑。</text>
+</svg>

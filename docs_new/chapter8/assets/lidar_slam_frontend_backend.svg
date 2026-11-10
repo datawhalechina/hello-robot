@@ -1,0 +1,17 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#315b7d"/></marker>
+    <style>.title{font:700 24px Arial,"Microsoft YaHei",sans-serif;fill:#17324d}.label{font:17px Arial,"Microsoft YaHei",sans-serif;fill:#17324d}.small{font:14px Arial,"Microsoft YaHei",sans-serif;fill:#38546b}.box{fill:#eef7ff;stroke:#4b83ad;stroke-width:2}.back{fill:#eefaf5;stroke:#2a9d8f;stroke-width:2}.warn{fill:#fff4e8;stroke:#d18b47;stroke-width:2}</style>
+  </defs>
+  <rect width="1100" height="520" rx="18" fill="#fbfdff" stroke="#c8d7e3"/>
+  <text x="550" y="40" text-anchor="middle" class="title">教学版 LiDAR SLAM：前端产生约束，后端消除累计漂移</text>
+  <rect x="45" y="105" width="180" height="90" rx="14" class="box"/><text x="135" y="140" text-anchor="middle" class="label">双雷达扫描</text><text x="135" y="170" text-anchor="middle" class="small">融合点云</text>
+  <rect x="285" y="105" width="180" height="90" rx="14" class="box"/><text x="375" y="140" text-anchor="middle" class="label">漂移里程计</text><text x="375" y="170" text-anchor="middle" class="small">相邻位姿增量</text>
+  <rect x="525" y="105" width="180" height="90" rx="14" class="box"/><text x="615" y="140" text-anchor="middle" class="label">关键帧</text><text x="615" y="170" text-anchor="middle" class="small">距离 / 转角触发</text>
+  <rect x="765" y="105" width="280" height="90" rx="14" class="warn"/><text x="905" y="137" text-anchor="middle" class="label">回环检测</text><text x="905" y="166" text-anchor="middle" class="small">扫描描述子筛选 + 2D ICP 验证</text>
+  <line x1="225" y1="150" x2="285" y2="150" stroke="#315b7d" stroke-width="3" marker-end="url(#arrow)"/><line x1="465" y1="150" x2="525" y2="150" stroke="#315b7d" stroke-width="3" marker-end="url(#arrow)"/><line x1="705" y1="150" x2="765" y2="150" stroke="#315b7d" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="235" y="300" width="275" height="110" rx="16" class="back"/><text x="372" y="338" text-anchor="middle" class="label">SE(2) 位姿图优化</text><text x="372" y="370" text-anchor="middle" class="small">里程计边 + 回环边</text><text x="372" y="396" text-anchor="middle" class="small">固定第 0 节点，迭代修正轨迹</text>
+  <rect x="600" y="300" width="275" height="110" rx="16" class="back"/><text x="737" y="338" text-anchor="middle" class="label">使用优化位姿重建地图</text><text x="737" y="370" text-anchor="middle" class="small">重新积分全部关键帧</text><text x="737" y="396" text-anchor="middle" class="small">减少重影与闭环错位</text>
+  <path d="M905 195 C905 255 500 250 500 300" fill="none" stroke="#315b7d" stroke-width="3" marker-end="url(#arrow)"/><line x1="510" y1="355" x2="600" y2="355" stroke="#315b7d" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="550" y="475" text-anchor="middle" class="small">本章用人为漂移里程计展示问题；真实系统还需要 IMU、去畸变和持续 scan-to-map 前端</text>
+</svg>

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+  <text x="480" y="34" text-anchor="middle" font-size="20" font-weight="bold" fill="#222">第七章知识地图：从相机像素到可用的视觉结果</text>
+
+  <!-- Part 1 -->
+  <rect x="40" y="70" width="260" height="96" rx="10" fill="#EEF4FB" stroke="#4A78B5" stroke-width="1.5"/>
+  <text x="170" y="98" text-anchor="middle" font-size="16" font-weight="bold" fill="#1F4E8C">第一部分 数字图像</text>
+  <text x="170" y="122" text-anchor="middle" font-size="13" fill="#333">(H,W,C) 数组 / (u,v) 像素坐标</text>
+  <text x="170" y="142" text-anchor="middle" font-size="13" fill="#333">RGBA → uint8 → BGR</text>
+  <text x="170" y="160" text-anchor="middle" font-size="12" fill="#777">config.py · camera.py</text>
+
+  <!-- Part 2 -->
+  <rect x="660" y="70" width="260" height="96" rx="10" fill="#FFF6E8" stroke="#C98A2B" stroke-width="1.5"/>
+  <text x="790" y="98" text-anchor="middle" font-size="16" font-weight="bold" fill="#8A5A12">第二部分 相机模型</text>
+  <text x="790" y="122" text-anchor="middle" font-size="13" fill="#333">内参 K / 外参 T</text>
+  <text x="790" y="142" text-anchor="middle" font-size="13" fill="#333">像素 + 深度 → 3D 点</text>
+  <text x="790" y="160" text-anchor="middle" font-size="12" fill="#777">为第九章视觉引导做准备</text>
+
+  <line x1="300" y1="118" x2="655" y2="118" stroke="#555" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+  <text x="478" y="108" text-anchor="middle" font-size="12" fill="#555">像素坐标的几何含义</text>
+
+  <!-- three algorithms -->
+  <rect x="40" y="230" width="260" height="110" rx="10" fill="#EEF8EE" stroke="#3E8E41" stroke-width="1.5"/>
+  <text x="170" y="258" text-anchor="middle" font-size="16" font-weight="bold" fill="#2B6B2E">第三部分 传统 CV</text>
+  <text x="170" y="282" text-anchor="middle" font-size="13" fill="#333">灰度 · 高斯 · Otsu · Canny</text>
+  <text x="170" y="302" text-anchor="middle" font-size="13" fill="#333">HSV · 形态学 · 轮廓</text>
+  <text x="170" y="326" text-anchor="middle" font-size="12" fill="#777">cv_utils.py</text>
+
+  <rect x="350" y="230" width="260" height="110" rx="10" fill="#EEF8EE" stroke="#3E8E41" stroke-width="1.5"/>
+  <text x="480" y="258" text-anchor="middle" font-size="16" font-weight="bold" fill="#2B6B2E">第四部分 YOLO 检测</text>
+  <text x="480" y="282" text-anchor="middle" font-size="13" fill="#333">类别 · 置信度 · 检测框</text>
+  <text x="480" y="302" text-anchor="middle" font-size="13" fill="#333">conf · IoU/NMS · imgsz</text>
+  <text x="480" y="326" text-anchor="middle" font-size="12" fill="#777">yolo_vision.py</text>
+
+  <rect x="660" y="230" width="260" height="110" rx="10" fill="#EEF8EE" stroke="#3E8E41" stroke-width="1.5"/>
+  <text x="790" y="258" text-anchor="middle" font-size="16" font-weight="bold" fill="#2B6B2E">第五部分 图像分割</text>
+  <text x="790" y="282" text-anchor="middle" font-size="13" fill="#333">HSV 语义分割 / YOLO 实例掩码</text>
+  <text x="790" y="302" text-anchor="middle" font-size="13" fill="#333">实例 → 语义图 S(u,v)</text>
+  <text x="790" y="326" text-anchor="middle" font-size="12" fill="#777">segmentation.py</text>
+
+  <line x1="170" y1="166" x2="170" y2="225" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+  <path d="M200,166 L460,225" fill="none" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+  <path d="M240,166 L740,225" fill="none" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="610" y1="285" x2="655" y2="285" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="632" y="276" text-anchor="middle" font-size="11" fill="#555">掩码</text>
+  <path d="M790,230 L790,170" fill="none" stroke="#C98A2B" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+  <text x="800" y="205" font-size="11" fill="#8A5A12">质心/框中心 + 深度</text>
+
+  <!-- Part 6/7 -->
+  <rect x="40" y="400" width="420" height="120" rx="10" fill="#F4F0FA" stroke="#7759A8" stroke-width="1.5"/>
+  <text x="250" y="428" text-anchor="middle" font-size="16" font-weight="bold" fill="#553A88">第六部分 代码结构与实现解析</text>
+  <text x="250" y="454" text-anchor="middle" font-size="13" fill="#333">demo_common.py：场景 + G2 + 相机 + 扫描</text>
+  <text x="250" y="476" text-anchor="middle" font-size="13" fill="#333">simulation.py · scan_controller.py（复用第四章）</text>
+  <text x="250" y="498" text-anchor="middle" font-size="13" fill="#333">demo_cv_basics / demo_yolo_detection / demo_semantic_segmentation</text>
+
+  <rect x="500" y="400" width="420" height="120" rx="10" fill="#F4F0FA" stroke="#7759A8" stroke-width="1.5"/>
+  <text x="710" y="428" text-anchor="middle" font-size="16" font-weight="bold" fill="#553A88">第七部分 代码运行</text>
+  <text x="710" y="454" text-anchor="middle" font-size="13" fill="#333">Isaac Sim python.sh 运行三个示例</text>
+  <text x="710" y="476" text-anchor="middle" font-size="13" fill="#333">结果保存到 outputs/chapter7</text>
+  <text x="710" y="498" text-anchor="middle" font-size="13" fill="#333">参数调节 · 结果判读 · 故障排查</text>
+
+  <line x1="480" y1="340" x2="480" y2="395" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="490" y="372" font-size="12" fill="#555">组合成演示程序</text>
+  <line x1="460" y1="460" x2="495" y2="460" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+</svg>

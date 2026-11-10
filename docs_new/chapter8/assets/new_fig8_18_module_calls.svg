@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<defs><marker id="a_blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2f6690"/></marker><marker id="a_green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2a9d8f"/></marker><marker id="a_orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#d9822b"/></marker><marker id="a_gray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6b7b8c"/></marker><marker id="a_red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#c0392b"/></marker><marker id="a_ink" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1f2d3d"/></marker><marker id="a_purple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#7b5ea7"/></marker></defs>
+<rect x="0" y="0" width="1000" height="560" fill="#ffffff"/>
+<text x="500.0" y="34.0" font-size="22" text-anchor="middle" fill="#1f2d3d" font-weight="bold">第八章代码模块调用关系</text>
+<rect x="40.0" y="55.0" width="260.0" height="60.0" rx="10" fill="#f1ecf8" stroke="#7b5ea7" stroke-width="2"/>
+<text x="170.0" y="81.2" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">demo_add_dual_lidar.py</text>
+<text x="170.0" y="102.6" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">示例一：只检查双雷达</text>
+<rect x="370.0" y="55.0" width="300.0" height="60.0" rx="10" fill="#f1ecf8" stroke="#7b5ea7" stroke-width="2"/>
+<text x="520.0" y="81.2" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">demo_2d / demo_3d_mapping.py</text>
+<text x="520.0" y="102.6" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">示例二、三：选择地图类型</text>
+<rect x="370.0" y="150.0" width="300.0" height="60.0" rx="10" fill="#fdf1e6" stroke="#d9822b" stroke-width="2"/>
+<text x="520.0" y="176.2" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">demo_common.py</text>
+<text x="520.0" y="197.6" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">add_common_arguments · run_mapping</text>
+<rect x="20.0" y="260.0" width="225.0" height="75.0" rx="10" fill="#eaf2fb" stroke="#2f6690" stroke-width="2"/>
+<text x="132.5" y="283.6" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">simulation.py</text>
+<text x="132.5" y="304.9" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">G2MappingSimulation</text>
+<text x="132.5" y="325.2" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">SquarePatrol</text>
+<rect x="265.0" y="260.0" width="225.0" height="75.0" rx="10" fill="#eaf2fb" stroke="#2f6690" stroke-width="2"/>
+<text x="377.5" y="293.7" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">lidar.py</text>
+<text x="377.5" y="315.1" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">DualRtxLidar.capture()</text>
+<rect x="510.0" y="260.0" width="225.0" height="75.0" rx="10" fill="#fdf1e6" stroke="#d9822b" stroke-width="2"/>
+<text x="622.5" y="283.6" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">slam.py</text>
+<text x="622.5" y="304.9" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">DriftedOdometry</text>
+<text x="622.5" y="325.2" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">MappingBackend · PoseGraphSLAM</text>
+<rect x="755.0" y="260.0" width="225.0" height="75.0" rx="10" fill="#f1ecf8" stroke="#7b5ea7" stroke-width="2"/>
+<text x="867.5" y="293.7" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">ros2_visualization.py</text>
+<text x="867.5" y="315.1" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">MappingRos2Publisher</text>
+<rect x="265.0" y="385.0" width="225.0" height="60.0" rx="10" fill="#eaf2fb" stroke="#2f6690" stroke-width="2"/>
+<text x="377.5" y="411.2" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">pointcloud.py</text>
+<text x="377.5" y="432.6" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">PointCloudProcessor</text>
+<rect x="510.0" y="385.0" width="110.0" height="60.0" rx="10" fill="#e8f6f3" stroke="#2a9d8f" stroke-width="2"/>
+<text x="565.0" y="411.2" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">mapping_2d.py</text>
+<text x="565.0" y="432.6" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">OccupancyGrid2D</text>
+<rect x="630.0" y="385.0" width="110.0" height="60.0" rx="10" fill="#e8f6f3" stroke="#2a9d8f" stroke-width="2"/>
+<text x="685.0" y="411.2" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">mapping_3d.py</text>
+<text x="685.0" y="432.6" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">VoxelMap3D</text>
+<rect x="780.0" y="385.0" width="200.0" height="60.0" rx="10" fill="#f1ecf8" stroke="#7b5ea7" stroke-width="2"/>
+<text x="880.0" y="411.2" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">tf_broadcaster.py</text>
+<text x="880.0" y="432.6" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">缺 tf2_ros 时的替代</text>
+<rect x="265.0" y="480.0" width="475.0" height="55.0" rx="10" fill="#f3f5f7" stroke="#6b7b8c" stroke-width="2"/>
+<text x="502.5" y="503.7" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">geometry.py</text>
+<text x="502.5" y="525.1" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">Pose2D · compose · between · quaternion_wxyz_to_matrix</text>
+<rect x="20.0" y="480.0" width="225.0" height="55.0" rx="10" fill="#f3f5f7" stroke="#6b7b8c" stroke-width="2"/>
+<text x="132.5" y="503.7" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">config.py</text>
+<text x="132.5" y="525.1" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">路径 · 外参 · 参数 dataclass</text>
+<line x1="520.0" y1="115.0" x2="520.0" y2="146.0" stroke="#7b5ea7" stroke-width="2" marker-end="url(#a_purple)"/>
+<line x1="150.0" y1="115.0" x2="132.0" y2="256.0" stroke="#7b5ea7" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a_purple)"/>
+<line x1="220.0" y1="115.0" x2="370.0" y2="256.0" stroke="#7b5ea7" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a_purple)"/>
+<line x1="300.0" y1="100.0" x2="800.0" y2="256.0" stroke="#7b5ea7" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a_purple)"/>
+<line x1="520.0" y1="210.0" x2="132.0" y2="256.0" stroke="#d9822b" stroke-width="2" marker-end="url(#a_orange)"/>
+<line x1="520.0" y1="210.0" x2="377.0" y2="256.0" stroke="#d9822b" stroke-width="2" marker-end="url(#a_orange)"/>
+<line x1="520.0" y1="210.0" x2="622.0" y2="256.0" stroke="#d9822b" stroke-width="2" marker-end="url(#a_orange)"/>
+<line x1="520.0" y1="210.0" x2="867.0" y2="256.0" stroke="#d9822b" stroke-width="2" marker-end="url(#a_orange)"/>
+<line x1="377.0" y1="335.0" x2="377.0" y2="381.0" stroke="#2f6690" stroke-width="2" marker-end="url(#a_blue)"/>
+<line x1="565.0" y1="335.0" x2="565.0" y2="381.0" stroke="#d9822b" stroke-width="2" marker-end="url(#a_orange)"/>
+<line x1="660.0" y1="335.0" x2="685.0" y2="381.0" stroke="#d9822b" stroke-width="2" marker-end="url(#a_orange)"/>
+<line x1="880.0" y1="335.0" x2="880.0" y2="381.0" stroke="#7b5ea7" stroke-width="2" marker-end="url(#a_purple)"/>
+<line x1="377.0" y1="445.0" x2="420.0" y2="476.0" stroke="#6b7b8c" stroke-width="1.5" marker-end="url(#a_gray)"/>
+<line x1="620.0" y1="445.0" x2="560.0" y2="476.0" stroke="#6b7b8c" stroke-width="1.5" marker-end="url(#a_gray)"/>
+<text x="60.0" y="140.0" font-size="12" text-anchor="start" fill="#7b5ea7" font-weight="normal">虚线：示例一直接调用</text>
+<text x="20.0" y="470.0" font-size="12" text-anchor="start" fill="#6b7b8c" font-weight="normal">所有模块共享 →</text>
+</svg>

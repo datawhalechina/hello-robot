@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="470" viewBox="0 0 1000 470" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<defs><marker id="a_blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2f6690"/></marker><marker id="a_green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2a9d8f"/></marker><marker id="a_orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#d9822b"/></marker><marker id="a_gray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6b7b8c"/></marker><marker id="a_red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#c0392b"/></marker><marker id="a_ink" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1f2d3d"/></marker><marker id="a_purple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#7b5ea7"/></marker></defs>
+<rect x="0" y="0" width="1000" height="470" fill="#ffffff"/>
+<text x="500.0" y="34.0" font-size="22" text-anchor="middle" fill="#1f2d3d" font-weight="bold">SquarePatrol 闭环轨迹与漂移里程计（漂移已放大示意）</text>
+<path d="M 135.0,382.0 L 465.0,382.0 L 465.0,118.0 L 135.0,118.0 L 135.0,382.0" fill="none" stroke="#2f6690" stroke-width="3"/>
+<path d="M 135.0,382.0 L 471.6,376.5 L 457.3,104.8 L 121.8,126.8 L 162.5,409.5" fill="none" stroke="#d9822b" stroke-width="3" stroke-dasharray="9 5"/>
+<circle cx="135.0" cy="382.0" r="7" fill="#2a9d8f" stroke="#2a9d8f" stroke-width="1.5"/>
+<text x="123.0" y="408.0" font-size="13" text-anchor="end" fill="#2a9d8f" font-weight="normal">起点 (-1.5, -1.2)</text>
+<circle cx="162.5" cy="409.5" r="7" fill="#d9822b" stroke="#d9822b" stroke-width="1.5"/>
+<text x="174.5" y="427.5" font-size="13" text-anchor="start" fill="#d9822b" font-weight="normal">漂移终点</text>
+<path d="M 162.5,409.5 Q 168.0,360.0 138.3,378.0" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="4 3" marker-end="url(#a_red)"/>
+<text x="173.5" y="349.0" font-size="13" text-anchor="start" fill="#c0392b" font-weight="normal">回环约束</text>
+<text x="475.0" y="404.0" font-size="12" text-anchor="start" fill="#2f6690" font-weight="normal">(1.5,-1.2)</text>
+<text x="475.0" y="108.0" font-size="12" text-anchor="start" fill="#2f6690" font-weight="normal">(1.5,1.2)</text>
+<text x="125.0" y="108.0" font-size="12" text-anchor="end" fill="#2f6690" font-weight="normal">(-1.5,1.2)</text>
+<line x1="40.0" y1="440.0" x2="80.0" y2="440.0" stroke="#2f6690" stroke-width="3"/>
+<text x="88.0" y="445.0" font-size="13" text-anchor="start" fill="#1f2d3d" font-weight="normal">参考轨迹</text>
+<line x1="170.0" y1="440.0" x2="210.0" y2="440.0" stroke="#d9822b" stroke-width="3" stroke-dasharray="9 5"/>
+<text x="218.0" y="445.0" font-size="13" text-anchor="start" fill="#1f2d3d" font-weight="normal">漂移里程计</text>
+<text x="600.0" y="80.0" font-size="16" text-anchor="start" fill="#1f2d3d" font-weight="bold">一圈的参数（simulation.py / config.py）</text>
+<text x="600.0" y="108.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">每边 300 帧直行 + 75 帧原地转 90°</text>
+<text x="600.0" y="132.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">一圈 4 × 375 = 1500 帧，周长 10.8 m</text>
+<text x="600.0" y="156.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">--max-frames 1560 = 一圈 + 再走 60 帧经过起点</text>
+<text x="600.0" y="196.0" font-size="16" text-anchor="start" fill="#1f2d3d" font-weight="bold">航向漂移手算（不含随机噪声）</text>
+<text x="600.0" y="224.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">转角放大：4 × (π/2) × 0.008 ≈ 0.0503 rad</text>
+<text x="600.0" y="248.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">距离偏置：10.8 m × 0.002 rad/m ≈ 0.0216 rad</text>
+<text x="600.0" y="272.0" font-size="14" text-anchor="start" fill="#c0392b" font-weight="normal">合计 ≈ 0.0719 rad ≈ 4.1°</text>
+<text x="600.0" y="312.0" font-size="16" text-anchor="start" fill="#1f2d3d" font-weight="bold">用真实代码累计一圈（默认参数、seed=8）</text>
+<text x="600.0" y="340.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">终点位置误差 ≈ 0.109 m</text>
+<text x="600.0" y="364.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">终点航向误差 ≈ 0.075 rad ≈ 4.3°</text>
+<text x="600.0" y="400.0" font-size="14" text-anchor="start" fill="#d9822b" font-weight="normal">→ 每帧误差很小，但整圈无法闭合</text>
+</svg>

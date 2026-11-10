@@ -1,0 +1,73 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <defs>
+    <style>
+      .t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.title{font-size:26px;font-weight:700}.h{font-size:20px;font-weight:700}.m{font-size:16px}.s{font-size:14px}.panel{fill:#fff;stroke:#cbd5e1;stroke-width:2}.frame{fill:#e2e8f0;stroke:#94a3b8;stroke-width:2}
+    </style>
+    <g id="scene">
+      <rect x="0" y="0" width="230" height="255" rx="8" class="frame"/>
+      <rect x="0" y="190" width="230" height="65" fill="#cbd5e1"/>
+      <circle cx="48" cy="72" r="16" fill="#64748b"/><rect x="35" y="90" width="26" height="65" rx="10" fill="#64748b"/><line x1="41" y1="155" x2="34" y2="188" stroke="#475569" stroke-width="8"/><line x1="55" y1="155" x2="63" y2="188" stroke="#475569" stroke-width="8"/>
+      <circle cx="102" cy="82" r="15" fill="#64748b"/><rect x="90" y="98" width="24" height="58" rx="9" fill="#64748b"/><line x1="95" y1="156" x2="89" y2="188" stroke="#475569" stroke-width="8"/><line x1="108" y1="156" x2="115" y2="188" stroke="#475569" stroke-width="8"/>
+      <rect x="139" y="135" width="40" height="54" fill="#a16207"/><path d="M139 135 L159 122 L179 135 L159 148Z" fill="#ca8a04"/>
+      <rect x="181" y="151" width="35" height="38" fill="#b45309"/><path d="M181 151 L198 140 L216 151 L198 161Z" fill="#d97706"/>
+    </g>
+  </defs>
+  <rect width="1200" height="600" fill="#f8fafc"/>
+  <text x="600" y="38" text-anchor="middle" class="t title">同一幅图像，不同视觉任务输出的信息粒度</text>
+  <text x="600" y="66" text-anchor="middle" class="t m">从“整张图是什么”逐步细化到“每个独立物体覆盖哪些像素”。</text>
+
+  <g transform="translate(18,92)">
+    <rect width="276" height="445" rx="16" class="panel"/>
+    <text x="138" y="34" text-anchor="middle" class="t h">图像分类</text>
+    <use href="#scene" x="23" y="58"/>
+    <rect x="46" y="332" width="184" height="48" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="138" y="362" text-anchor="middle" class="t h">仓库场景 0.91</text>
+    <text x="138" y="408" text-anchor="middle" class="t m">整张图一个主要类别</text>
+  </g>
+
+  <g transform="translate(314,92)">
+    <rect width="276" height="445" rx="16" class="panel"/>
+    <text x="138" y="34" text-anchor="middle" class="t h">目标检测</text>
+    <use href="#scene" x="23" y="58"/>
+    <g fill="none" stroke-width="3">
+      <rect x="52" y="113" width="39" height="139" stroke="#7c3aed"/><rect x="101" y="124" width="48" height="128" stroke="#7c3aed"/>
+      <rect x="158" y="180" width="48" height="75" stroke="#ea580c"/><rect x="201" y="194" width="44" height="61" stroke="#ea580c"/>
+    </g>
+    <g class="t s" font-weight="700"><text x="53" y="108" style="fill:#6d28d9">person .88</text><text x="158" y="175" style="fill:#c2410c">box .81</text></g>
+    <text x="138" y="355" text-anchor="middle" class="t h">类别 + 置信度 + 矩形框</text>
+    <text x="138" y="408" text-anchor="middle" class="t m">知道“是什么、在哪里”</text>
+  </g>
+
+  <g transform="translate(610,92)">
+    <rect width="276" height="445" rx="16" class="panel"/>
+    <text x="138" y="34" text-anchor="middle" class="t h">语义分割</text>
+    <use href="#scene" x="23" y="58" opacity="0.28"/>
+    <g opacity="0.78">
+      <circle cx="71" cy="130" r="18" fill="#8b5cf6"/><rect x="58" y="148" width="26" height="68" rx="10" fill="#8b5cf6"/><path d="M64 213 L56 248 L70 250 L74 215 M78 213 L88 248 L102 246 L83 211" fill="#8b5cf6"/>
+      <circle cx="125" cy="140" r="17" fill="#8b5cf6"/><rect x="113" y="156" width="24" height="62" rx="9" fill="#8b5cf6"/><path d="M118 215 L111 248 L124 250 L128 218 M132 215 L140 248 L153 246 L136 214" fill="#8b5cf6"/>
+      <polygon points="162,193 182,180 202,193 182,207" fill="#f97316"/><rect x="162" y="193" width="40" height="54" fill="#f97316"/>
+      <polygon points="204,209 221,198 239,209 221,220" fill="#f97316"/><rect x="204" y="209" width="35" height="38" fill="#f97316"/>
+    </g>
+    <text x="138" y="355" text-anchor="middle" class="t h">每个像素一个类别</text>
+    <text x="138" y="384" text-anchor="middle" class="t s">两个人都属于 person</text>
+    <text x="138" y="408" text-anchor="middle" class="t m">同类实例不一定分开</text>
+  </g>
+
+  <g transform="translate(906,92)">
+    <rect width="276" height="445" rx="16" class="panel"/>
+    <text x="138" y="34" text-anchor="middle" class="t h">实例分割</text>
+    <use href="#scene" x="23" y="58" opacity="0.25"/>
+    <g opacity="0.82">
+      <circle cx="71" cy="130" r="18" fill="#7c3aed"/><rect x="58" y="148" width="26" height="68" rx="10" fill="#7c3aed"/><path d="M64 213 L56 248 L70 250 L74 215 M78 213 L88 248 L102 246 L83 211" fill="#7c3aed"/>
+      <circle cx="125" cy="140" r="17" fill="#06b6d4"/><rect x="113" y="156" width="24" height="62" rx="9" fill="#06b6d4"/><path d="M118 215 L111 248 L124 250 L128 218 M132 215 L140 248 L153 246 L136 214" fill="#06b6d4"/>
+      <polygon points="162,193 182,180 202,193 182,207" fill="#f97316"/><rect x="162" y="193" width="40" height="54" fill="#f97316"/>
+      <polygon points="204,209 221,198 239,209 221,220" fill="#eab308"/><rect x="204" y="209" width="35" height="38" fill="#eab308"/>
+    </g>
+    <g class="t s" font-weight="700"><text x="48" y="105" style="fill:#6d28d9">person #1</text><text x="110" y="112" style="fill:#0891b2">#2</text><text x="158" y="175" style="fill:#c2410c">box #1</text></g>
+    <text x="138" y="355" text-anchor="middle" class="t h">类别 + 框 + 独立掩码</text>
+    <text x="138" y="408" text-anchor="middle" class="t m">同类物体也逐个区分</text>
+  </g>
+
+  <rect x="128" y="554" width="944" height="32" rx="9" fill="#eef2ff"/>
+  <text x="600" y="576" text-anchor="middle" class="t m">输出越精细，越适合定位和操作；但模型、标注与计算成本通常也更高。</text>
+</svg>

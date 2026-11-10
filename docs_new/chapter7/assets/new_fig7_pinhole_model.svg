@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 420" width="940" height="420" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#444"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="940" height="420" fill="#ffffff"/>
+  <text x="470" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">针孔相机模型（侧视图）：相似三角形把 3D 点压到像平面</text>
+
+  <!-- optical axis -->
+  <line x1="80" y1="200" x2="640" y2="200" stroke="#444" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="648" y="205" font-size="14" fill="#444">Z（光轴，向前）</text>
+  <!-- y axis down -->
+  <line x1="100" y1="200" x2="100" y2="340" stroke="#444" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="108" y="345" font-size="14" fill="#444">Y（向下）</text>
+  <circle cx="100" cy="200" r="5" fill="#C0392B"/>
+  <text x="70" y="190" font-size="14" fill="#C0392B">O 光心</text>
+
+  <!-- image plane at f -->
+  <line x1="240" y1="80" x2="240" y2="330" stroke="#4A78B5" stroke-width="3"/>
+  <text x="248" y="80" font-size="13" fill="#1F4E8C">像平面（Z = f）</text>
+  <line x1="100" y1="365" x2="240" y2="365" stroke="#666" stroke-width="1" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <text x="170" y="385" text-anchor="middle" font-size="13" fill="#444">焦距 f</text>
+
+  <!-- 3D point -->
+  <circle cx="560" cy="300" r="6" fill="#3E8E41"/>
+  <text x="572" y="305" font-size="14" fill="#2B6B2E">P = (X, Y, Z)</text>
+  <line x1="100" y1="200" x2="560" y2="300" stroke="#3E8E41" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <!-- projected point: y = f*Y/Z: (240-100)/(560-100)*100 = 30.4 -->
+  <circle cx="240" cy="230.4" r="5" fill="#C98A2B"/>
+  <text x="150" y="252" font-size="13" fill="#8A5A12">p（成像点）</text>
+  <line x1="560" y1="200" x2="560" y2="300" stroke="#999" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="566" y="255" font-size="13" fill="#555">Y</text>
+  <line x1="100" y1="215" x2="560" y2="215" stroke="#999" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="330" y="232" font-size="13" fill="#555">Z</text>
+
+  <!-- formulas -->
+  <rect x="680" y="70" width="240" height="250" rx="10" fill="#F7F9FC" stroke="#4A78B5"/>
+  <text x="800" y="100" text-anchor="middle" font-size="15" font-weight="bold" fill="#1F4E8C">相似三角形</text>
+  <text x="800" y="130" text-anchor="middle" font-size="14" fill="#333">y / f = Y / Z</text>
+  <text x="800" y="155" text-anchor="middle" font-size="14" fill="#333">x / f = X / Z</text>
+  <text x="800" y="190" text-anchor="middle" font-size="15" font-weight="bold" fill="#1F4E8C">换成像素单位</text>
+  <text x="800" y="220" text-anchor="middle" font-size="14" fill="#333">u = fx · X / Z + cx</text>
+  <text x="800" y="245" text-anchor="middle" font-size="14" fill="#333">v = fy · Y / Z + cy</text>
+  <text x="800" y="280" text-anchor="middle" font-size="12" fill="#666">fx, fy：以像素为单位的焦距</text>
+  <text x="800" y="300" text-anchor="middle" font-size="12" fill="#666">(cx, cy)：主点，光轴穿过图像处</text>
+</svg>

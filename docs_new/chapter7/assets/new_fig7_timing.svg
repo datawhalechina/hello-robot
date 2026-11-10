@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 330" width="940" height="330" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect x="0" y="0" width="940" height="330" fill="#ffffff"/>
+  <text x="470" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">不同节拍的模块：物理 120 Hz、相机 30 Hz、视觉每 N 帧处理一次（理想示意）</text>
+
+  <!-- axis -->
+  <line x1="160" y1="270" x2="900" y2="270" stroke="#888" stroke-width="1"/>
+  <text x="160" y="292" text-anchor="middle" font-size="12" fill="#555">0</text>
+  <text x="880" y="292" text-anchor="middle" font-size="12" fill="#555">100 ms</text>
+  <text x="520" y="315" text-anchor="middle" font-size="12" fill="#555">时间（每格 = 1 个物理步 ≈ 8.33 ms，共 12 步）</text>
+
+  <!-- physics: 12 ticks, spacing 60 starting at 160 -->
+  <text x="20" y="85" font-size="14" fill="#1F4E8C">物理步 120 Hz</text>
+  <g fill="#4A78B5">
+    <rect x="175" y="70" width="30" height="22" rx="3"/><rect x="235" y="70" width="30" height="22" rx="3"/>
+    <rect x="295" y="70" width="30" height="22" rx="3"/><rect x="355" y="70" width="30" height="22" rx="3"/>
+    <rect x="415" y="70" width="30" height="22" rx="3"/><rect x="475" y="70" width="30" height="22" rx="3"/>
+    <rect x="535" y="70" width="30" height="22" rx="3"/><rect x="595" y="70" width="30" height="22" rx="3"/>
+    <rect x="655" y="70" width="30" height="22" rx="3"/><rect x="715" y="70" width="30" height="22" rx="3"/>
+    <rect x="775" y="70" width="30" height="22" rx="3"/><rect x="835" y="70" width="30" height="22" rx="3"/>
+  </g>
+  <g font-size="11" fill="#fff" text-anchor="middle">
+    <text x="190" y="86">1</text><text x="250" y="86">2</text><text x="310" y="86">3</text><text x="370" y="86">4</text>
+    <text x="430" y="86">5</text><text x="490" y="86">6</text><text x="550" y="86">7</text><text x="610" y="86">8</text>
+    <text x="670" y="86">9</text><text x="730" y="86">10</text><text x="790" y="86">11</text><text x="850" y="86">12</text>
+  </g>
+
+  <!-- camera every 4 -->
+  <text x="20" y="145" font-size="14" fill="#8A5A12">相机 30 Hz</text>
+  <g fill="#E0A23B">
+    <rect x="355" y="130" width="30" height="22" rx="3"/>
+    <rect x="595" y="130" width="30" height="22" rx="3"/>
+    <rect x="835" y="130" width="30" height="22" rx="3"/>
+  </g>
+  <text x="520" y="170" text-anchor="middle" font-size="12" fill="#8A5A12">每 4 个物理步出一帧新图像（120 / 30 = 4）</text>
+
+  <!-- process every 6 -->
+  <text x="20" y="215" font-size="14" fill="#2B6B2E">YOLO process_every=6</text>
+  <g fill="#3E8E41">
+    <rect x="475" y="200" width="30" height="22" rx="3"/>
+    <rect x="835" y="200" width="30" height="22" rx="3"/>
+  </g>
+  <text x="520" y="245" text-anchor="middle" font-size="12" fill="#2B6B2E">frame % 6 == 0 时才取图推理：120 / 6 = 20 Hz（理论触发频率）</text>
+</svg>

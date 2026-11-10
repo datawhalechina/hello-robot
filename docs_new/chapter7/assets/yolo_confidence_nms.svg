@@ -1,0 +1,63 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="600" viewBox="0 0 1160 600">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>
+      .t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.title{font-size:26px;font-weight:700}.h{font-size:19px;font-weight:700}.m{font-size:16px}.s{font-size:14px}.card{fill:#fff;stroke:#cbd5e1;stroke-width:2}
+    </style>
+  </defs>
+  <rect width="1160" height="600" fill="#f8fafc"/>
+  <text x="580" y="38" text-anchor="middle" class="t title">YOLO 候选框如何经过置信度过滤与 NMS</text>
+  <text x="580" y="66" text-anchor="middle" class="t m">先删除“不太像目标”的框，再处理“同一目标周围重复出现”的框。</text>
+
+  <g transform="translate(25,96)">
+    <rect width="300" height="365" rx="16" class="card"/>
+    <text x="150" y="34" text-anchor="middle" class="t h">① 模型产生多个候选</text>
+    <rect x="35" y="60" width="230" height="205" rx="8" fill="#e2e8f0"/>
+    <circle cx="148" cy="145" r="32" fill="#64748b"/><rect x="117" y="174" width="62" height="70" rx="16" fill="#64748b"/>
+    <rect x="92" y="105" width="105" height="150" fill="none" stroke="#16a34a" stroke-width="4"/>
+    <rect x="105" y="116" width="94" height="139" fill="none" stroke="#2563eb" stroke-width="3"/>
+    <rect x="78" y="91" width="132" height="169" fill="none" stroke="#f97316" stroke-width="3"/>
+    <rect x="146" y="154" width="78" height="91" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="7 5"/>
+    <text x="40" y="291" class="t s" style="fill:#15803d">A: 0.87</text><text x="112" y="291" class="t s" style="fill:#1d4ed8">B: 0.72</text><text x="184" y="291" class="t s" style="fill:#c2410c">C: 0.56</text>
+    <text x="40" y="320" class="t s" style="fill:#b91c1c">D: 0.18（低置信度）</text>
+  </g>
+
+  <line x1="333" y1="278" x2="390" y2="278" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="361" y="250" text-anchor="middle" class="t s">conf</text>
+
+  <g transform="translate(400,96)">
+    <rect width="345" height="365" rx="16" class="card"/>
+    <text x="172" y="34" text-anchor="middle" class="t h">② conf 阈值过滤</text>
+    <rect x="28" y="60" width="289" height="88" rx="12" fill="#ecfdf5" stroke="#34d399" stroke-width="2"/>
+    <text x="172" y="91" text-anchor="middle" class="t h">保留：A 0.87、B 0.72、C 0.56</text>
+    <text x="172" y="121" text-anchor="middle" class="t m">默认 conf = 0.25</text>
+    <rect x="28" y="166" width="289" height="66" rx="12" fill="#fef2f2" stroke="#f87171" stroke-width="2"/>
+    <text x="172" y="206" text-anchor="middle" class="t h">删除：D 0.18</text>
+    <text x="172" y="270" text-anchor="middle" class="t m">下一步比较同类别候选框的重叠程度</text>
+    <g transform="translate(78,288)">
+      <rect x="0" y="0" width="78" height="52" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <rect x="37" y="15" width="78" height="52" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+      <rect x="37" y="15" width="41" height="37" fill="#facc15" opacity="0.75"/>
+      <text x="150" y="32" class="t s">IoU = 交集 / 并集</text><text x="150" y="55" class="t s">越接近 1，框越重合</text>
+    </g>
+  </g>
+
+  <line x1="753" y1="278" x2="810" y2="278" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="781" y="250" text-anchor="middle" class="t s">NMS</text>
+
+  <g transform="translate(820,96)">
+    <rect width="315" height="365" rx="16" class="card"/>
+    <text x="157" y="34" text-anchor="middle" class="t h">③ 非极大值抑制</text>
+    <rect x="42" y="60" width="230" height="205" rx="8" fill="#e2e8f0"/>
+    <circle cx="155" cy="145" r="32" fill="#64748b"/><rect x="124" y="174" width="62" height="70" rx="16" fill="#64748b"/>
+    <rect x="99" y="105" width="105" height="150" fill="none" stroke="#16a34a" stroke-width="5"/>
+    <rect x="98" y="82" width="76" height="27" rx="6" fill="#16a34a"/>
+    <text x="136" y="101" text-anchor="middle" class="t s" style="fill:#fff">person 0.87</text>
+    <text x="157" y="297" text-anchor="middle" class="t m">先保留最高分 A</text>
+    <text x="157" y="324" text-anchor="middle" class="t m">删除与 A 高度重叠的 B、C</text>
+  </g>
+
+  <rect x="68" y="490" width="1024" height="84" rx="14" fill="#fff7ed" stroke="#fb923c" stroke-width="2"/>
+  <text x="580" y="519" text-anchor="middle" class="t h">两个阈值控制的是不同风险</text>
+  <text x="580" y="546" text-anchor="middle" class="t m">conf 太高：弱目标可能漏检；conf 太低：误检增多。IoU 阈值不合适：相邻真目标可能被合并，或同一目标留下多个框。</text>
+</svg>

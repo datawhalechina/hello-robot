@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 380" width="940" height="380" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect x="0" y="0" width="940" height="380" fill="#ffffff"/>
+  <text x="470" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">Canny 双阈值与滞后连接：沿一条候选边缘的 7 个像素（low=80, high=160）</text>
+
+  <!-- axis: y = 300 - G -->
+  <line x1="80" y1="300" x2="640" y2="300" stroke="#444" stroke-width="1.5"/>
+  <line x1="80" y1="300" x2="80" y2="70" stroke="#444" stroke-width="1.5"/>
+  <text x="50" y="185" font-size="13" fill="#444" text-anchor="middle" transform="rotate(-90 50 185)">梯度幅值 G</text>
+  <line x1="80" y1="140" x2="640" y2="140" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="646" y="144" font-size="13" fill="#C0392B">high = 160</text>
+  <line x1="80" y1="220" x2="640" y2="220" stroke="#C98A2B" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="646" y="224" font-size="13" fill="#8A5A12">low = 80</text>
+
+  <!-- bars: values 200,120,110,170,60,130,50 ; x start 110 step 75 width 40 -->
+  <rect x="110" y="100" width="40" height="200" fill="#2B6B2E"/>
+  <rect x="185" y="180" width="40" height="120" fill="#7DBE80"/>
+  <rect x="260" y="190" width="40" height="110" fill="#7DBE80"/>
+  <rect x="335" y="130" width="40" height="170" fill="#2B6B2E"/>
+  <rect x="410" y="240" width="40" height="60" fill="#CCCCCC"/>
+  <rect x="485" y="170" width="40" height="130" fill="#E8B4AA"/>
+  <rect x="560" y="250" width="40" height="50" fill="#CCCCCC"/>
+  <g font-size="12" text-anchor="middle" fill="#333">
+    <text x="130" y="94">200</text><text x="205" y="174">120</text><text x="280" y="184">110</text>
+    <text x="355" y="124">170</text><text x="430" y="234">60</text><text x="505" y="164">130</text><text x="580" y="244">50</text>
+    <text x="130" y="318">p1</text><text x="205" y="318">p2</text><text x="280" y="318">p3</text><text x="355" y="318">p4</text>
+    <text x="430" y="318">p5</text><text x="505" y="318">p6</text><text x="580" y="318">p7</text>
+  </g>
+  <g font-size="12" text-anchor="middle">
+    <text x="130" y="340" fill="#2B6B2E">强→保留</text><text x="205" y="340" fill="#2B6B2E">弱,连强→留</text>
+    <text x="280" y="340" fill="#2B6B2E">弱,连强→留</text><text x="355" y="340" fill="#2B6B2E">强→保留</text>
+    <text x="430" y="340" fill="#888">低→删</text><text x="505" y="340" fill="#C0392B">弱,孤立→删</text><text x="580" y="340" fill="#888">低→删</text>
+  </g>
+
+  <rect x="700" y="80" width="220" height="200" rx="8" fill="#F7F9FC" stroke="#bbb"/>
+  <text x="810" y="106" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">判定规则</text>
+  <text x="716" y="134" font-size="12" fill="#333">G ≥ high：强边缘，直接保留</text>
+  <text x="716" y="160" font-size="12" fill="#333">low ≤ G &lt; high：弱边缘，</text>
+  <text x="716" y="180" font-size="12" fill="#333">　只有与强边缘相连才保留</text>
+  <text x="716" y="206" font-size="12" fill="#333">G &lt; low：直接丢弃</text>
+  <text x="716" y="240" font-size="12" fill="#555">p2、p3 借助 p1/p4 “连”上</text>
+  <text x="716" y="260" font-size="12" fill="#555">p6 两侧都被丢弃，成为孤点</text>
+  <text x="470" y="368" text-anchor="middle" font-size="12" fill="#666">（数值为教学示意；真实 Canny 在二维 8 邻域内做连接，且先经过非极大值抑制）</text>
+</svg>

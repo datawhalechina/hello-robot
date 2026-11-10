@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="450" viewBox="0 0 1000 450" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<defs><marker id="a_blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2f6690"/></marker><marker id="a_green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2a9d8f"/></marker><marker id="a_orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#d9822b"/></marker><marker id="a_gray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6b7b8c"/></marker><marker id="a_red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#c0392b"/></marker><marker id="a_ink" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1f2d3d"/></marker><marker id="a_purple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#7b5ea7"/></marker></defs>
+<rect x="0" y="0" width="1000" height="450" fill="#ffffff"/>
+<text x="500.0" y="34.0" font-size="22" text-anchor="middle" fill="#1f2d3d" font-weight="bold">PointCloud 数据契约：三组等长数组（示意数值）</text>
+<rect x="70.0" y="62.0" width="320.0" height="36.0" rx="4" fill="#2f6690" stroke="#2f6690" stroke-width="2"/>
+<text x="230.0" y="86.0" font-size="16" text-anchor="middle" fill="#ffffff" font-weight="bold">xyz  (N×3, float32)</text>
+<rect x="410.0" y="62.0" width="130.0" height="36.0" rx="4" fill="#d9822b" stroke="#d9822b" stroke-width="2"/>
+<text x="475.0" y="86.0" font-size="16" text-anchor="middle" fill="#ffffff" font-weight="bold">intensity  (N)</text>
+<rect x="560.0" y="62.0" width="320.0" height="36.0" rx="4" fill="#2a9d8f" stroke="#2a9d8f" stroke-width="2"/>
+<text x="720.0" y="86.0" font-size="16" text-anchor="middle" fill="#ffffff" font-weight="bold">origin  (N×3)</text>
+<text x="50.0" y="124.0" font-size="14" text-anchor="end" fill="#6b7b8c" font-weight="normal">i=0</text>
+<rect x="70.0" y="98.0" width="320.0" height="40.0" rx="0" fill="#eaf2fb" stroke="#2f6690" stroke-width="1"/>
+<text x="230.0" y="124.0" font-size="15" text-anchor="middle" fill="#1f2d3d" font-weight="normal">(3.634, 2.210, 0.340)</text>
+<rect x="410.0" y="98.0" width="130.0" height="40.0" rx="0" fill="#fdf1e6" stroke="#d9822b" stroke-width="1"/>
+<text x="475.0" y="124.0" font-size="15" text-anchor="middle" fill="#1f2d3d" font-weight="normal">12.0</text>
+<rect x="560.0" y="98.0" width="320.0" height="40.0" rx="0" fill="#e8f6f3" stroke="#2a9d8f" stroke-width="1"/>
+<text x="720.0" y="124.0" font-size="15" text-anchor="middle" fill="#1f2d3d" font-weight="normal">(0.170, 0.210, 0.340)</text>
+<text x="895.0" y="124.0" font-size="14" text-anchor="start" fill="#2f6690" font-weight="normal">左雷达</text>
+<text x="50.0" y="164.0" font-size="14" text-anchor="end" fill="#6b7b8c" font-weight="normal">i=1</text>
+<rect x="70.0" y="138.0" width="320.0" height="40.0" rx="0" fill="#eaf2fb" stroke="#2f6690" stroke-width="1"/>
+<text x="230.0" y="164.0" font-size="15" text-anchor="middle" fill="#1f2d3d" font-weight="normal">(1.020, -0.410, 0.520)</text>
+<rect x="410.0" y="138.0" width="130.0" height="40.0" rx="0" fill="#fdf1e6" stroke="#d9822b" stroke-width="1"/>
+<text x="475.0" y="164.0" font-size="15" text-anchor="middle" fill="#1f2d3d" font-weight="normal">35.5</text>
+<rect x="560.0" y="138.0" width="320.0" height="40.0" rx="0" fill="#e8f6f3" stroke="#2a9d8f" stroke-width="1"/>
+<text x="720.0" y="164.0" font-size="15" text-anchor="middle" fill="#1f2d3d" font-weight="normal">(0.170, 0.210, 0.340)</text>
+<text x="895.0" y="164.0" font-size="14" text-anchor="start" fill="#2f6690" font-weight="normal">左雷达</text>
+<text x="50.0" y="204.0" font-size="14" text-anchor="end" fill="#6b7b8c" font-weight="normal">i=2</text>
+<rect x="70.0" y="178.0" width="320.0" height="40.0" rx="0" fill="#eaf2fb" stroke="#2f6690" stroke-width="1"/>
+<text x="230.0" y="204.0" font-size="15" text-anchor="middle" fill="#1f2d3d" font-weight="normal">(-2.230, -1.200, 0.840)</text>
+<rect x="410.0" y="178.0" width="130.0" height="40.0" rx="0" fill="#fdf1e6" stroke="#d9822b" stroke-width="1"/>
+<text x="475.0" y="204.0" font-size="15" text-anchor="middle" fill="#1f2d3d" font-weight="normal">8.2</text>
+<rect x="560.0" y="178.0" width="320.0" height="40.0" rx="0" fill="#e8f6f3" stroke="#2a9d8f" stroke-width="1"/>
+<text x="720.0" y="204.0" font-size="15" text-anchor="middle" fill="#1f2d3d" font-weight="normal">(-0.230, -0.200, 0.340)</text>
+<text x="895.0" y="204.0" font-size="14" text-anchor="start" fill="#c0392b" font-weight="normal">右雷达</text>
+<text x="50.0" y="244.0" font-size="14" text-anchor="end" fill="#6b7b8c" font-weight="normal">i=3</text>
+<rect x="70.0" y="218.0" width="320.0" height="40.0" rx="0" fill="#eaf2fb" stroke="#2f6690" stroke-width="1"/>
+<text x="230.0" y="244.0" font-size="15" text-anchor="middle" fill="#1f2d3d" font-weight="normal">(-4.100, 0.600, 1.100)</text>
+<rect x="410.0" y="218.0" width="130.0" height="40.0" rx="0" fill="#fdf1e6" stroke="#d9822b" stroke-width="1"/>
+<text x="475.0" y="244.0" font-size="15" text-anchor="middle" fill="#1f2d3d" font-weight="normal">20.7</text>
+<rect x="560.0" y="218.0" width="320.0" height="40.0" rx="0" fill="#e8f6f3" stroke="#2a9d8f" stroke-width="1"/>
+<text x="720.0" y="244.0" font-size="15" text-anchor="middle" fill="#1f2d3d" font-weight="normal">(-0.230, -0.200, 0.340)</text>
+<text x="895.0" y="244.0" font-size="14" text-anchor="start" fill="#c0392b" font-weight="normal">右雷达</text>
+<text x="70.0" y="300.0" font-size="15" text-anchor="start" fill="#1f2d3d" font-weight="normal">• xyz：命中点坐标，单位 m，坐标系 base_link（已做外参变换）</text>
+<text x="70.0" y="328.0" font-size="15" text-anchor="start" fill="#1f2d3d" font-weight="normal">• intensity：回波强度，只把 NaN/Inf 置 0，不按帧拉伸（避免 RViz 闪烁）</text>
+<text x="70.0" y="356.0" font-size="15" text-anchor="start" fill="#1f2d3d" font-weight="normal">• origin：每个点对应雷达的射线起点 = 该雷达外参平移 t；融合后仍能区分左右雷达</text>
+<text x="70.0" y="384.0" font-size="15" text-anchor="start" fill="#1f2d3d" font-weight="normal">• xyzi() → N×4，发布为 PointCloud2：字段 x、y、z、intensity，各 FLOAT32，point_step = 16 字节</text>
+<text x="70.0" y="420.0" font-size="15" text-anchor="start" fill="#6b7b8c" font-weight="normal">同一行 i 的 xyz[i]、intensity[i]、origin[i] 描述同一条激光射线</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="400" viewBox="0 0 1060 400" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<defs><marker id="a_blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2f6690"/></marker><marker id="a_green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2a9d8f"/></marker><marker id="a_orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#d9822b"/></marker><marker id="a_gray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6b7b8c"/></marker><marker id="a_red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#c0392b"/></marker><marker id="a_ink" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1f2d3d"/></marker><marker id="a_purple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#7b5ea7"/></marker></defs>
+<rect x="0" y="0" width="1060" height="400" fill="#ffffff"/>
+<text x="530.0" y="34.0" font-size="22" text-anchor="middle" fill="#1f2d3d" font-weight="bold">VoxelMap3D：体素哈希表累计“和”与“次数”，导出时取均值（s = 0.08 m）</text>
+<rect x="60.0" y="170.0" width="160.0" height="160.0" rx="0" fill="#f7fbff" stroke="#2f6690" stroke-width="2"/>
+<rect x="220.0" y="170.0" width="160.0" height="160.0" rx="0" fill="#f7fbff" stroke="#2f6690" stroke-width="2"/>
+<text x="140.0" y="354.0" font-size="14" text-anchor="middle" fill="#2f6690" font-weight="normal">键 (12, 25, 6)</text>
+<text x="300.0" y="354.0" font-size="14" text-anchor="middle" fill="#2f6690" font-weight="normal">键 (13, 25, 6)</text>
+<text x="60.0" y="374.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">x=0.96</text>
+<text x="220.0" y="374.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">x=1.04</text>
+<text x="380.0" y="374.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">x=1.12</text>
+<circle cx="160.0" cy="290.0" r="6" fill="#d9822b" stroke="#d9822b" stroke-width="1.5"/>
+<text x="169.0" y="282.0" font-size="12" text-anchor="start" fill="#d9822b" font-weight="normal">a: I=10</text>
+<circle cx="240.0" cy="210.0" r="6" fill="#d9822b" stroke="#d9822b" stroke-width="1.5"/>
+<text x="249.0" y="202.0" font-size="12" text-anchor="start" fill="#d9822b" font-weight="normal">b: I=20</text>
+<circle cx="280.0" cy="270.0" r="6" fill="#d9822b" stroke="#d9822b" stroke-width="1.5"/>
+<text x="289.0" y="262.0" font-size="12" text-anchor="start" fill="#d9822b" font-weight="normal">c: I=30</text>
+<circle cx="260.0" cy="240.0" r="7" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+<text x="264.0" y="266.0" font-size="12" text-anchor="middle" fill="#c0392b" font-weight="normal">均值</text>
+<text x="60.0" y="120.0" font-size="13" text-anchor="start" fill="#6b7b8c" font-weight="normal">俯视；三点 z = 0.50、0.54、0.52 都落在 z 索引 6</text>
+<text x="440.0" y="90.0" font-size="15" text-anchor="start" fill="#1f2d3d" font-weight="bold">_sum_by_voxel / _count_by_voxel（Python 字典）</text>
+<text x="440.0" y="126.0" font-size="14" text-anchor="start" fill="#2f6690" font-weight="bold">键</text>
+<text x="580.0" y="126.0" font-size="14" text-anchor="start" fill="#2f6690" font-weight="bold">累计和 (Σx, Σy, Σz, ΣI)</text>
+<text x="890.0" y="126.0" font-size="14" text-anchor="start" fill="#2f6690" font-weight="bold">次数 n</text>
+<text x="440.0" y="160.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">(12, 25, 6)</text>
+<text x="580.0" y="160.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">(1.01, 2.02, 0.50, 10)</text>
+<text x="890.0" y="160.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">1</text>
+<text x="440.0" y="194.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">(13, 25, 6)</text>
+<text x="580.0" y="194.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">(2.12, 4.09, 1.06, 50)</text>
+<text x="890.0" y="194.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">2</text>
+<text x="440.0" y="240.0" font-size="15" text-anchor="start" fill="#1f2d3d" font-weight="bold">points() 导出：均值 = 累计和 / n</text>
+<text x="440.0" y="268.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">(12, 25, 6) → (1.01, 2.02, 0.50, 10)</text>
+<text x="440.0" y="294.0" font-size="14" text-anchor="start" fill="#c0392b" font-weight="normal">(13, 25, 6) → (1.06, 2.045, 0.53, 25)</text>
+<text x="440.0" y="336.0" font-size="13" text-anchor="start" fill="#6b7b8c" font-weight="normal">a 与 b 只差 4 cm，却因跨越 x = 1.04 的体素边界被分进两个体素</text>
+<text x="440.0" y="358.0" font-size="13" text-anchor="start" fill="#6b7b8c" font-weight="normal">体素数达到 max_voxels = 800000 后不再插入新键</text>
+</svg>

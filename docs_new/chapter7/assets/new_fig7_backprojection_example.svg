@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 420" width="940" height="420" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="940" height="420" fill="#ffffff"/>
+  <text x="470" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">手算反投影：像素 (480, 260) + 深度 2.0 m → 相机系 → 基座系</text>
+
+  <!-- image 640x400 scaled 0.6 => 384x240 at (40,70) -->
+  <rect x="40" y="70" width="384" height="240" fill="#F2F5F9" stroke="#4A78B5" stroke-width="1.5"/>
+  <text x="44" y="64" font-size="12" fill="#555">(0,0)</text>
+  <text x="380" y="328" font-size="12" fill="#555">640×400</text>
+  <!-- principal point (320,200)->(232,190) -->
+  <circle cx="232" cy="190" r="5" fill="#C0392B"/>
+  <text x="160" y="182" font-size="12" fill="#C0392B">主点 (320,200)</text>
+  <!-- pixel (480,260)->(328,226) -->
+  <circle cx="328" cy="226" r="6" fill="#3E8E41"/>
+  <text x="336" y="246" font-size="12" fill="#2B6B2E">(480,260)</text>
+  <line x1="232" y1="190" x2="324" y2="190" stroke="#555" stroke-width="1.2" marker-end="url(#ak)"/>
+  <text x="278" y="183" text-anchor="middle" font-size="12" fill="#333">Δu=160</text>
+  <line x1="328" y1="190" x2="328" y2="220" stroke="#555" stroke-width="1.2" marker-end="url(#ak)"/>
+  <text x="334" y="210" font-size="12" fill="#333">Δv=60</text>
+  <text x="232" y="350" text-anchor="middle" font-size="13" fill="#333">假设内参：fx = fy = 320，cx = 320，cy = 200</text>
+  <text x="232" y="372" text-anchor="middle" font-size="13" fill="#333">深度图在该像素读到 Z = 2.0 m</text>
+
+  <!-- step boxes -->
+  <rect x="470" y="70" width="440" height="120" rx="10" fill="#EEF8EE" stroke="#3E8E41"/>
+  <text x="690" y="96" text-anchor="middle" font-size="15" font-weight="bold" fill="#2B6B2E">① 相机光学系（内参反投影）</text>
+  <text x="690" y="122" text-anchor="middle" font-size="14" fill="#333">X_C = (480−320)×2.0/320 = 1.000 m</text>
+  <text x="690" y="146" text-anchor="middle" font-size="14" fill="#333">Y_C = (260−200)×2.0/320 = 0.375 m</text>
+  <text x="690" y="170" text-anchor="middle" font-size="14" fill="#333">Z_C = 2.000 m</text>
+
+  <line x1="690" y1="190" x2="690" y2="225" stroke="#555" stroke-width="1.5" marker-end="url(#ak)"/>
+
+  <rect x="470" y="230" width="440" height="140" rx="10" fill="#FFF6E8" stroke="#C98A2B"/>
+  <text x="690" y="256" text-anchor="middle" font-size="15" font-weight="bold" fill="#8A5A12">② 基座系（外参，假设 t_BC = (0.10, 0, 1.50) m）</text>
+  <text x="690" y="282" text-anchor="middle" font-size="14" fill="#333">x_B = Z_C + 0.10 = 2.100 m</text>
+  <text x="690" y="306" text-anchor="middle" font-size="14" fill="#333">y_B = −X_C + 0 = −1.000 m（在右侧）</text>
+  <text x="690" y="330" text-anchor="middle" font-size="14" fill="#333">z_B = −Y_C + 1.50 = 1.125 m</text>
+  <text x="690" y="356" text-anchor="middle" font-size="12" fill="#777">校验：u = 320×1.0/2.0+320 = 480 ✓  v = 320×0.375/2.0+200 = 260 ✓</text>
+</svg>

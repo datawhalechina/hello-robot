@@ -1,0 +1,83 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="570" viewBox="0 0 1200 570">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>
+      .t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.title{font-size:26px;font-weight:700}.h{font-size:18px;font-weight:700}.m{font-size:15px}.s{font-size:13px}.card{fill:#fff;stroke:#cbd5e1;stroke-width:2}
+    </style>
+  </defs>
+  <rect width="1200" height="570" fill="#f8fafc"/>
+  <text x="600" y="38" text-anchor="middle" class="t title">传统计算机视觉流水线：从像素到结构</text>
+  <text x="600" y="66" text-anchor="middle" class="t m">每一步回答不同问题；中间结果不是“重复图片”，而是逐步提取亮度、边缘、颜色和形状信息。</text>
+
+  <g>
+    <rect x="18" y="95" width="150" height="365" rx="16" class="card"/>
+    <text x="93" y="126" text-anchor="middle" class="t h">1 原始 BGR</text>
+    <rect x="38" y="150" width="110" height="120" rx="8" fill="#bfdbfe"/>
+    <circle cx="73" cy="197" r="22" fill="#ef4444"/><rect x="101" y="181" width="34" height="48" fill="#22c55e"/>
+    <path d="M38 249 L75 215 L104 239 L124 218 L148 246 V270 H38Z" fill="#64748b"/>
+    <text x="93" y="304" text-anchor="middle" class="t m">保留颜色与纹理</text><text x="93" y="331" text-anchor="middle" class="t s">H × W × 3</text>
+  </g>
+
+  <g>
+    <rect x="187" y="95" width="150" height="365" rx="16" class="card"/>
+    <text x="262" y="126" text-anchor="middle" class="t h">2 灰度化</text>
+    <rect x="207" y="150" width="110" height="120" rx="8" fill="#cbd5e1"/>
+    <circle cx="242" cy="197" r="22" fill="#64748b"/><rect x="270" y="181" width="34" height="48" fill="#94a3b8"/>
+    <path d="M207 249 L244 215 L273 239 L293 218 L317 246 V270 H207Z" fill="#475569"/>
+    <text x="262" y="304" text-anchor="middle" class="t m">只保留亮度</text><text x="262" y="331" text-anchor="middle" class="t s">H × W</text>
+  </g>
+
+  <g>
+    <rect x="356" y="95" width="150" height="365" rx="16" class="card"/>
+    <text x="431" y="126" text-anchor="middle" class="t h">3 高斯滤波</text>
+    <rect x="376" y="150" width="110" height="120" rx="8" fill="#d8dee8"/>
+    <circle cx="411" cy="197" r="24" fill="#7c8798" opacity="0.78"/><rect x="439" y="179" width="36" height="51" rx="4" fill="#9aa4b2" opacity="0.85"/>
+    <path d="M376 249 Q415 211 447 239 Q468 215 486 246 V270 H376Z" fill="#5f6b7a" opacity="0.85"/>
+    <text x="431" y="304" text-anchor="middle" class="t m">抑制细小噪声</text><text x="431" y="331" text-anchor="middle" class="t s">核大：更平滑，也更模糊</text>
+  </g>
+
+  <g>
+    <rect x="525" y="95" width="150" height="365" rx="16" class="card"/>
+    <text x="600" y="126" text-anchor="middle" class="t h">4 Otsu 二值化</text>
+    <rect x="545" y="150" width="110" height="120" rx="8" fill="#fff" stroke="#cbd5e1"/>
+    <circle cx="580" cy="197" r="22" fill="#0f172a"/><rect x="608" y="181" width="34" height="48" fill="#0f172a"/>
+    <path d="M545 249 L582 215 L611 239 L631 218 L655 246 V270 H545Z" fill="#0f172a"/>
+    <text x="600" y="304" text-anchor="middle" class="t m">前景 / 背景</text><text x="600" y="331" text-anchor="middle" class="t s">像素只有 0 或 255</text>
+  </g>
+
+  <g>
+    <rect x="694" y="95" width="150" height="365" rx="16" class="card"/>
+    <text x="769" y="126" text-anchor="middle" class="t h">5 Canny 边缘</text>
+    <rect x="714" y="150" width="110" height="120" rx="8" fill="#0f172a"/>
+    <circle cx="749" cy="197" r="22" fill="none" stroke="#f8fafc" stroke-width="3"/><rect x="777" y="181" width="34" height="48" fill="none" stroke="#f8fafc" stroke-width="3"/>
+    <path d="M714 249 L751 215 L780 239 L800 218 L824 246" fill="none" stroke="#f8fafc" stroke-width="3"/>
+    <text x="769" y="304" text-anchor="middle" class="t m">寻找强度突变</text><text x="769" y="331" text-anchor="middle" class="t s">输出细边缘线</text>
+  </g>
+
+  <g>
+    <rect x="863" y="95" width="150" height="365" rx="16" class="card"/>
+    <text x="938" y="126" text-anchor="middle" class="t h">6 HSV 掩码</text>
+    <rect x="883" y="150" width="110" height="120" rx="8" fill="#111827"/>
+    <circle cx="918" cy="197" r="22" fill="#fff"/><rect x="946" y="181" width="34" height="48" fill="#111827" stroke="#334155"/>
+    <path d="M883 249 L920 215 L949 239 L969 218 L993 246 V270 H883Z" fill="#111827"/>
+    <text x="938" y="304" text-anchor="middle" class="t m">按颜色区间选像素</text><text x="938" y="331" text-anchor="middle" class="t s">形态学清理小孔和噪点</text>
+  </g>
+
+  <g>
+    <rect x="1032" y="95" width="150" height="365" rx="16" class="card"/>
+    <text x="1107" y="126" text-anchor="middle" class="t h">7 轮廓与框</text>
+    <rect x="1052" y="150" width="110" height="120" rx="8" fill="#e0f2fe"/>
+    <circle cx="1087" cy="197" r="22" fill="#ef4444"/><rect x="1115" y="181" width="34" height="48" fill="#22c55e"/>
+    <rect x="1061" y="170" width="52" height="53" fill="none" stroke="#facc15" stroke-width="4"/><rect x="1108" y="173" width="48" height="64" fill="none" stroke="#facc15" stroke-width="4"/>
+    <text x="1107" y="304" text-anchor="middle" class="t m">面积、质心、外接框</text><text x="1107" y="331" text-anchor="middle" class="t s">变成可计算结构</text>
+  </g>
+
+  <g stroke="#475569" stroke-width="3" marker-end="url(#arrow)">
+    <line x1="168" y1="272" x2="181" y2="272"/><line x1="337" y1="272" x2="350" y2="272"/><line x1="506" y1="272" x2="519" y2="272"/>
+    <line x1="675" y1="272" x2="688" y2="272"/><line x1="844" y1="272" x2="857" y2="272"/><line x1="1013" y1="272" x2="1026" y2="272"/>
+  </g>
+
+  <rect x="100" y="485" width="1000" height="60" rx="14" fill="#fff7ed" stroke="#fb923c" stroke-width="2"/>
+  <text x="600" y="510" text-anchor="middle" class="t h">理解重点：这些分支并非必须串行用于同一个任务</text>
+  <text x="600" y="534" text-anchor="middle" class="t m">灰度 / 边缘适合形状分析；HSV 适合颜色目标；轮廓把二值掩码转换成面积、中心和外接框。</text>
+</svg>

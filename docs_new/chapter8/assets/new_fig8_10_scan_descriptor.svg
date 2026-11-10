@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="470" viewBox="0 0 1000 470" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<defs><marker id="a_blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2f6690"/></marker><marker id="a_green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2a9d8f"/></marker><marker id="a_orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#d9822b"/></marker><marker id="a_gray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6b7b8c"/></marker><marker id="a_red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#c0392b"/></marker><marker id="a_ink" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1f2d3d"/></marker><marker id="a_purple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#7b5ea7"/></marker></defs>
+<rect x="0" y="0" width="1000" height="470" fill="#ffffff"/>
+<text x="500.0" y="34.0" font-size="22" text-anchor="middle" fill="#1f2d3d" font-weight="bold">扫描描述子：60 个方位角区间的最近距离（归一化到 20 m）</text>
+<circle cx="240.0" cy="250.0" r="180" fill="#fbfdff" stroke="#6b7b8c" stroke-width="1.5"/>
+<line x1="240.0" y1="250.0" x2="60.0" y2="250.0" stroke="#6b7b8c" stroke-width="1.2"/>
+<line x1="240.0" y1="250.0" x2="61.0" y2="268.8" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="63.9" y2="287.4" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="68.8" y2="305.6" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="75.6" y2="323.2" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="84.1" y2="340.0" stroke="#6b7b8c" stroke-width="1.2"/>
+<line x1="240.0" y1="250.0" x2="94.4" y2="355.8" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="106.2" y2="370.4" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="119.6" y2="383.8" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="134.2" y2="395.6" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="150.0" y2="405.9" stroke="#6b7b8c" stroke-width="1.2"/>
+<line x1="240.0" y1="250.0" x2="166.8" y2="414.4" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="184.4" y2="421.2" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="202.6" y2="426.1" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="221.2" y2="429.0" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="240.0" y2="430.0" stroke="#6b7b8c" stroke-width="1.2"/>
+<line x1="240.0" y1="250.0" x2="258.8" y2="429.0" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="277.4" y2="426.1" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="295.6" y2="421.2" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="313.2" y2="414.4" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="330.0" y2="405.9" stroke="#6b7b8c" stroke-width="1.2"/>
+<line x1="240.0" y1="250.0" x2="345.8" y2="395.6" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="360.4" y2="383.8" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="373.8" y2="370.4" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="385.6" y2="355.8" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="395.9" y2="340.0" stroke="#6b7b8c" stroke-width="1.2"/>
+<line x1="240.0" y1="250.0" x2="404.4" y2="323.2" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="411.2" y2="305.6" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="416.1" y2="287.4" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="419.0" y2="268.8" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="420.0" y2="250.0" stroke="#6b7b8c" stroke-width="1.2"/>
+<line x1="240.0" y1="250.0" x2="419.0" y2="231.2" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="416.1" y2="212.6" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="411.2" y2="194.4" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="404.4" y2="176.8" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="395.9" y2="160.0" stroke="#6b7b8c" stroke-width="1.2"/>
+<line x1="240.0" y1="250.0" x2="385.6" y2="144.2" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="373.8" y2="129.6" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="360.4" y2="116.2" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="345.8" y2="104.4" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="330.0" y2="94.1" stroke="#6b7b8c" stroke-width="1.2"/>
+<line x1="240.0" y1="250.0" x2="313.2" y2="85.6" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="295.6" y2="78.8" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="277.4" y2="73.9" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="258.8" y2="71.0" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="240.0" y2="70.0" stroke="#6b7b8c" stroke-width="1.2"/>
+<line x1="240.0" y1="250.0" x2="221.2" y2="71.0" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="202.6" y2="73.9" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="184.4" y2="78.8" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="166.8" y2="85.6" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="150.0" y2="94.1" stroke="#6b7b8c" stroke-width="1.2"/>
+<line x1="240.0" y1="250.0" x2="134.2" y2="104.4" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="119.6" y2="116.2" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="106.2" y2="129.6" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="94.4" y2="144.2" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="84.1" y2="160.0" stroke="#6b7b8c" stroke-width="1.2"/>
+<line x1="240.0" y1="250.0" x2="75.6" y2="176.8" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="68.8" y2="194.4" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="63.9" y2="212.6" stroke="#6b7b8c" stroke-width="0.6"/>
+<line x1="240.0" y1="250.0" x2="61.0" y2="231.2" stroke="#6b7b8c" stroke-width="0.6"/>
+<path d="M 240,250 L 420.0,250.0 A 180,180 0 0 0 419.0,231.2 Z" fill="#fdecea" stroke="#c0392b" stroke-width="1"/>
+<path d="M 240,250 L 240.0,70.0 A 180,180 0 0 0 221.2,71.0 Z" fill="#fdf1e6" stroke="#d9822b" stroke-width="1"/>
+<path d="M 240,250 L 60.0,250.0 A 180,180 0 0 0 61.0,268.8 Z" fill="#eaf2fb" stroke="#2f6690" stroke-width="1"/>
+<circle cx="258.0" cy="250.0" r="5" fill="#c0392b" stroke="#c0392b" stroke-width="1.5"/>
+<circle cx="276.0" cy="250.0" r="5" fill="#c0392b" stroke="#c0392b" stroke-width="1.5"/>
+<circle cx="240.0" cy="160.0" r="5" fill="#d9822b" stroke="#d9822b" stroke-width="1.5"/>
+<circle cx="60.0" cy="250.0" r="5" fill="#2f6690" stroke="#2f6690" stroke-width="1.5"/>
+<text x="280.0" y="272.0" font-size="13" text-anchor="start" fill="#c0392b" font-weight="normal">(2,0)、(4,0) → bin 30</text>
+<text x="250.0" y="155.0" font-size="13" text-anchor="start" fill="#d9822b" font-weight="normal">(0,10) → bin 45</text>
+<text x="66.0" y="274.0" font-size="13" text-anchor="start" fill="#2f6690" font-weight="normal">(-25,0) → bin 0</text>
+<text x="66.0" y="292.0" font-size="13" text-anchor="start" fill="#2f6690" font-weight="normal">截断为 20 m → 值 1.0</text>
+<text x="240.0" y="458.0" font-size="13" text-anchor="middle" fill="#6b7b8c" font-weight="normal">俯视：机器人在圆心，半径 20 m，每格 6°</text>
+<line x1="465.0" y1="400.0" x2="960.0" y2="400.0" stroke="#6b7b8c" stroke-width="1.5"/>
+<line x1="465.0" y1="400.0" x2="465.0" y2="130.0" stroke="#6b7b8c" stroke-width="1.5"/>
+<text x="460.0" y="405.0" font-size="12" text-anchor="end" fill="#6b7b8c" font-weight="normal">0.0</text>
+<text x="460.0" y="275.0" font-size="12" text-anchor="end" fill="#6b7b8c" font-weight="normal">0.5</text>
+<text x="460.0" y="145.0" font-size="12" text-anchor="end" fill="#6b7b8c" font-weight="normal">1.0</text>
+<rect x="470.0" y="140.0" width="7" height="260.0" fill="#2f6690"/>
+<rect x="478.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="486.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="494.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="502.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="510.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="518.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="526.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="534.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="542.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="550.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="558.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="566.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="574.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="582.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="590.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="598.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="606.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="614.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="622.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="630.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="638.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="646.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="654.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="662.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="670.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="678.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="686.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="694.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="702.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="710.0" y="374.0" width="7" height="26.0" fill="#c0392b"/>
+<rect x="718.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="726.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="734.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="742.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="750.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="758.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="766.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="774.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="782.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="790.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="798.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="806.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="814.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="822.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="830.0" y="270.0" width="7" height="130.0" fill="#d9822b"/>
+<rect x="838.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="846.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="854.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="862.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="870.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="878.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="886.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="894.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="902.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="910.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="918.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="926.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="934.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<rect x="942.0" y="140.0" width="7" height="260.0" fill="#d5dde5"/>
+<text x="473.5" y="418.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">0</text>
+<text x="713.5" y="418.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">30</text>
+<text x="833.5" y="418.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">45</text>
+<text x="945.5" y="418.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">59</text>
+<text x="710.0" y="440.0" font-size="13" text-anchor="middle" fill="#6b7b8c" font-weight="normal">bin 编号（灰色 = 空区间，默认值 1）</text>
+<text x="470.0" y="80.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">bin 30 = min(2, 4) / 20 = 0.1；bin 45 = 10 / 20 = 0.5</text>
+<text x="470.0" y="104.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">两描述子距离 D = mean|dₐ − d_b|，阈值 0.34</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<defs><marker id="a_blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2f6690"/></marker><marker id="a_green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2a9d8f"/></marker><marker id="a_orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#d9822b"/></marker><marker id="a_gray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6b7b8c"/></marker><marker id="a_red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#c0392b"/></marker><marker id="a_ink" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1f2d3d"/></marker><marker id="a_purple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#7b5ea7"/></marker></defs>
+<rect x="0" y="0" width="1000" height="420" fill="#ffffff"/>
+<text x="500.0" y="34.0" font-size="22" text-anchor="middle" fill="#1f2d3d" font-weight="bold">体素降采样：每个体素只保留离体素中心最近的点（俯视，s = 0.10 m）</text>
+<rect x="90.0" y="130.0" width="200.0" height="200.0" rx="0" fill="#f7fbff" stroke="#2f6690" stroke-width="2"/>
+<rect x="290.0" y="130.0" width="200.0" height="200.0" rx="0" fill="#f7fbff" stroke="#2f6690" stroke-width="2"/>
+<text x="190.0" y="356.0" font-size="14" text-anchor="middle" fill="#2f6690" font-weight="normal">体素 (0, 0, 0)</text>
+<text x="390.0" y="356.0" font-size="14" text-anchor="middle" fill="#2f6690" font-weight="normal">体素 (1, 0, 0)</text>
+<text x="90.0" y="378.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">x=0.0</text>
+<text x="290.0" y="378.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">x=0.1</text>
+<text x="490.0" y="378.0" font-size="12" text-anchor="middle" fill="#6b7b8c" font-weight="normal">x=0.2</text>
+<text x="82.0" y="135.0" font-size="12" text-anchor="end" fill="#6b7b8c" font-weight="normal">y=0.1</text>
+<text x="82.0" y="335.0" font-size="12" text-anchor="end" fill="#6b7b8c" font-weight="normal">y=0</text>
+<line x1="183.0" y1="230.0" x2="197.0" y2="230.0" stroke="#6b7b8c" stroke-width="2"/>
+<line x1="190.0" y1="223.0" x2="190.0" y2="237.0" stroke="#6b7b8c" stroke-width="2"/>
+<line x1="383.0" y1="230.0" x2="397.0" y2="230.0" stroke="#6b7b8c" stroke-width="2"/>
+<line x1="390.0" y1="223.0" x2="390.0" y2="237.0" stroke="#6b7b8c" stroke-width="2"/>
+<circle cx="130.0" cy="270.0" r="7" fill="#ffffff" stroke="#6b7b8c" stroke-width="2"/>
+<text x="141.0" y="261.0" font-size="13" text-anchor="start" fill="#6b7b8c" font-weight="normal">p0</text>
+<circle cx="210.0" cy="250.0" r="8" fill="#c0392b" stroke="#c0392b" stroke-width="1.5"/>
+<text x="221.0" y="241.0" font-size="13" text-anchor="start" fill="#c0392b" font-weight="normal">p1</text>
+<circle cx="270.0" cy="310.0" r="7" fill="#ffffff" stroke="#6b7b8c" stroke-width="2"/>
+<text x="281.0" y="301.0" font-size="13" text-anchor="start" fill="#6b7b8c" font-weight="normal">p2</text>
+<circle cx="350.0" cy="230.0" r="8" fill="#c0392b" stroke="#c0392b" stroke-width="1.5"/>
+<text x="361.0" y="221.0" font-size="13" text-anchor="start" fill="#c0392b" font-weight="normal">p3</text>
+<circle cx="450.0" cy="170.0" r="7" fill="#ffffff" stroke="#6b7b8c" stroke-width="2"/>
+<text x="461.0" y="161.0" font-size="13" text-anchor="start" fill="#6b7b8c" font-weight="normal">p4</text>
+<text x="560.0" y="90.0" font-size="16" text-anchor="start" fill="#1f2d3d" font-weight="bold">① 体素索引 k = ⌊p / s⌋</text>
+<text x="560.0" y="116.0" font-size="15" text-anchor="start" fill="#1f2d3d" font-weight="normal">p0、p1、p2 → (0,0,0)；p3、p4 → (1,0,0)</text>
+<text x="560.0" y="156.0" font-size="16" text-anchor="start" fill="#1f2d3d" font-weight="bold">② 到体素中心的平方距离（中心 = (k+0.5)·s）</text>
+<text x="560.0" y="182.0" font-size="15" text-anchor="start" fill="#1f2d3d" font-weight="normal">体素 (0,0,0) 中心 (0.05, 0.05, 0.05)：</text>
+<text x="560.0" y="206.0" font-size="15" text-anchor="start" fill="#1f2d3d" font-weight="normal">p0: 0.0038   p1: 0.0027   p2: 0.0057</text>
+<text x="560.0" y="230.0" font-size="15" text-anchor="start" fill="#1f2d3d" font-weight="normal">体素 (1,0,0) 中心 (0.15, 0.05, 0.05)：</text>
+<text x="560.0" y="254.0" font-size="15" text-anchor="start" fill="#1f2d3d" font-weight="normal">p3: 0.0029   p4: 0.0043</text>
+<text x="560.0" y="294.0" font-size="16" text-anchor="start" fill="#1f2d3d" font-weight="bold">③ 每个体素保留距离最小者</text>
+<text x="560.0" y="320.0" font-size="15" text-anchor="start" fill="#c0392b" font-weight="normal">保留 p1、p3（红色实心），5 个点 → 2 个点</text>
+<text x="560.0" y="360.0" font-size="13" text-anchor="start" fill="#6b7b8c" font-weight="normal">+ 灰色十字为体素中心；本例所有点 z = 0</text>
+</svg>

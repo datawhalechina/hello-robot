@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="470" viewBox="0 0 1000 470" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<defs><marker id="a_blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2f6690"/></marker><marker id="a_green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2a9d8f"/></marker><marker id="a_orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#d9822b"/></marker><marker id="a_gray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6b7b8c"/></marker><marker id="a_red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#c0392b"/></marker><marker id="a_ink" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1f2d3d"/></marker><marker id="a_purple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#7b5ea7"/></marker></defs>
+<rect x="0" y="0" width="1000" height="470" fill="#ffffff"/>
+<text x="500.0" y="34.0" font-size="22" text-anchor="middle" fill="#1f2d3d" font-weight="bold">同一雷达、同一方位角区间只保留最近点（避免“穿墙”）</text>
+<text x="40.0" y="72.0" font-size="14" text-anchor="start" fill="#6b7b8c" font-weight="normal">俯视（1° 区间放大显示）</text>
+<circle cx="80.0" cy="220.0" r="8" fill="#2f6690" stroke="#2f6690" stroke-width="1.5"/>
+<text x="80.0" y="248.0" font-size="13" text-anchor="middle" fill="#2f6690" font-weight="normal">雷达原点 o</text>
+<line x1="80.0" y1="220.0" x2="640.0" y2="151.2" stroke="#6b7b8c" stroke-width="1" stroke-dasharray="5 4"/>
+<line x1="80.0" y1="220.0" x2="640.0" y2="288.8" stroke="#6b7b8c" stroke-width="1" stroke-dasharray="5 4"/>
+<rect x="300.0" y="185.0" width="45.0" height="60.0" rx="2" fill="#e9d8c4" stroke="#d9822b" stroke-width="2"/>
+<text x="322.0" y="176.0" font-size="13" text-anchor="middle" fill="#d9822b" font-weight="normal">箱子</text>
+<line x1="620.0" y1="80.0" x2="620.0" y2="330.0" stroke="#6b7b8c" stroke-width="6"/>
+<text x="620.0" y="72.0" font-size="13" text-anchor="middle" fill="#6b7b8c" font-weight="normal">墙</text>
+<line x1="80.0" y1="220.0" x2="296.0" y2="213.0" stroke="#2a9d8f" stroke-width="2.5" marker-end="url(#a_green)"/>
+<circle cx="300.0" cy="213.0" r="7" fill="#c0392b" stroke="#c0392b" stroke-width="1.5"/>
+<text x="300.0" y="268.0" font-size="13" text-anchor="middle" fill="#c0392b" font-weight="normal">最近点：保留</text>
+<line x1="80.0" y1="220.0" x2="612.0" y2="236.0" stroke="#6b7b8c" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#a_gray)"/>
+<circle cx="620.0" cy="236.0" r="6" fill="#ffffff" stroke="#6b7b8c" stroke-width="2"/>
+<circle cx="620.0" cy="204.0" r="6" fill="#ffffff" stroke="#6b7b8c" stroke-width="2"/>
+<text x="470.0" y="300.0" font-size="13" text-anchor="middle" fill="#c0392b" font-weight="normal">若保留远点：射线穿过箱子所在栅格</text>
+<text x="470.0" y="318.0" font-size="13" text-anchor="middle" fill="#c0392b" font-weight="normal">→ 箱子被误更新为“自由”</text>
+<text x="40.0" y="362.0" font-size="14" text-anchor="start" fill="#6b7b8c" font-weight="normal">侧视：高位线束越过箱子打到墙</text>
+<line x1="60.0" y1="450.0" x2="640.0" y2="450.0" stroke="#6b7b8c" stroke-width="2"/>
+<circle cx="80.0" cy="410.0" r="7" fill="#2f6690" stroke="#2f6690" stroke-width="1.5"/>
+<rect x="300.0" y="420.0" width="45.0" height="30.0" rx="2" fill="#e9d8c4" stroke="#d9822b" stroke-width="2"/>
+<line x1="620.0" y1="372.0" x2="620.0" y2="450.0" stroke="#6b7b8c" stroke-width="6"/>
+<line x1="80.0" y1="410.0" x2="297.0" y2="432.0" stroke="#2a9d8f" stroke-width="2" marker-end="url(#a_green)"/>
+<line x1="80.0" y1="410.0" x2="612.0" y2="384.0" stroke="#6b7b8c" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#a_gray)"/>
+<text x="690.0" y="90.0" font-size="15" text-anchor="start" fill="#1f2d3d" font-weight="bold">_select_nearest_angular_rays()</text>
+<text x="690.0" y="120.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">① 按 origin 分组（四舍五入到 0.01 m）</text>
+<text x="690.0" y="144.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">② 方位角 θ = atan2(Δy, Δx)</text>
+<text x="690.0" y="168.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">③ bin = ⌊(θ + π) / Δθ⌋，Δθ = 1°</text>
+<text x="690.0" y="192.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">④ 每组每 bin 保留水平距离最小点</text>
+<text x="690.0" y="236.0" font-size="15" text-anchor="start" fill="#1f2d3d" font-weight="bold">小例子（同一原点）</text>
+<text x="690.0" y="262.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">(1, 0)：θ=0°，r=1.0 → bin 180</text>
+<text x="690.0" y="286.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">(3, 0.02)：θ≈0.38° → bin 180</text>
+<text x="690.0" y="310.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">(1, 0.005)：θ≈0.29° → bin 180</text>
+<text x="690.0" y="334.0" font-size="14" text-anchor="start" fill="#1f2d3d" font-weight="normal">(0, 2)：θ=90° → bin 270</text>
+<text x="690.0" y="362.0" font-size="14" text-anchor="start" fill="#c0392b" font-weight="normal">结果：保留 (1, 0) 与 (0, 2) 两条射线</text>
+</svg>

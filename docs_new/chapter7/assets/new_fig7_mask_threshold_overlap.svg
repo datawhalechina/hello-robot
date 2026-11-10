@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" width="960" height="380" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="380" fill="#ffffff"/>
+  <text x="480" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">手算 yolo_to_semantic_map：两个 4×4 概率掩码，mask_threshold = 0.5</text>
+
+  <!-- Instance A grid: x0=40,y0=80, cell 44 -->
+  <text x="128" y="66" text-anchor="middle" font-size="13" font-weight="bold" fill="#1F4E8C">实例 A：class_id=0，conf=0.82</text>
+  <g font-size="13" text-anchor="middle" stroke="#999">
+    <rect x="40" y="80" width="44" height="44" fill="#fff"/><rect x="84" y="80" width="44" height="44" fill="#B9D1EE"/><rect x="128" y="80" width="44" height="44" fill="#B9D1EE"/><rect x="172" y="80" width="44" height="44" fill="#fff"/>
+    <rect x="40" y="124" width="44" height="44" fill="#fff"/><rect x="84" y="124" width="44" height="44" fill="#B9D1EE"/><rect x="128" y="124" width="44" height="44" fill="#B9D1EE"/><rect x="172" y="124" width="44" height="44" fill="#fff"/>
+    <rect x="40" y="168" width="44" height="44" fill="#fff"/><rect x="84" y="168" width="44" height="44" fill="#B9D1EE"/><rect x="128" y="168" width="44" height="44" fill="#B9D1EE"/><rect x="172" y="168" width="44" height="44" fill="#fff"/>
+    <rect x="40" y="212" width="44" height="44" fill="#fff"/><rect x="84" y="212" width="44" height="44" fill="#fff"/><rect x="128" y="212" width="44" height="44" fill="#fff"/><rect x="172" y="212" width="44" height="44" fill="#fff"/>
+  </g>
+  <g font-size="13" text-anchor="middle" fill="#333">
+    <text x="62" y="107">0.1</text><text x="106" y="107">0.6</text><text x="150" y="107">0.7</text><text x="194" y="107">0.2</text>
+    <text x="62" y="151">0.2</text><text x="106" y="151">0.9</text><text x="150" y="151">0.8</text><text x="194" y="151">0.4</text>
+    <text x="62" y="195">0.1</text><text x="106" y="195">0.7</text><text x="150" y="195">0.6</text><text x="194" y="195">0.3</text>
+    <text x="62" y="239">0.0</text><text x="106" y="239">0.2</text><text x="150" y="239">0.3</text><text x="194" y="239">0.1</text>
+  </g>
+
+  <!-- Instance B grid: x0=260 -->
+  <text x="348" y="66" text-anchor="middle" font-size="13" font-weight="bold" fill="#8A5A12">实例 B：class_id=2，conf=0.60</text>
+  <g stroke="#999">
+    <rect x="260" y="80" width="44" height="44" fill="#fff"/><rect x="304" y="80" width="44" height="44" fill="#fff"/><rect x="348" y="80" width="44" height="44" fill="#fff"/><rect x="392" y="80" width="44" height="44" fill="#fff"/>
+    <rect x="260" y="124" width="44" height="44" fill="#fff"/><rect x="304" y="124" width="44" height="44" fill="#fff"/><rect x="348" y="124" width="44" height="44" fill="#F6D9A8"/><rect x="392" y="124" width="44" height="44" fill="#F6D9A8"/>
+    <rect x="260" y="168" width="44" height="44" fill="#fff"/><rect x="304" y="168" width="44" height="44" fill="#fff"/><rect x="348" y="168" width="44" height="44" fill="#F6D9A8"/><rect x="392" y="168" width="44" height="44" fill="#F6D9A8"/>
+    <rect x="260" y="212" width="44" height="44" fill="#fff"/><rect x="304" y="212" width="44" height="44" fill="#fff"/><rect x="348" y="212" width="44" height="44" fill="#F6D9A8"/><rect x="392" y="212" width="44" height="44" fill="#F6D9A8"/>
+  </g>
+  <g font-size="13" text-anchor="middle" fill="#333">
+    <text x="282" y="107">0.0</text><text x="326" y="107">0.1</text><text x="370" y="107">0.2</text><text x="414" y="107">0.1</text>
+    <text x="282" y="151">0.0</text><text x="326" y="151">0.3</text><text x="370" y="151">0.6</text><text x="414" y="151">0.7</text>
+    <text x="282" y="195">0.1</text><text x="326" y="195">0.4</text><text x="370" y="195">0.8</text><text x="414" y="195">0.9</text>
+    <text x="282" y="239">0.0</text><text x="326" y="239">0.2</text><text x="370" y="239">0.7</text><text x="414" y="239">0.6</text>
+  </g>
+
+  <line x1="450" y1="168" x2="520" y2="168" stroke="#555" stroke-width="1.6" marker-end="url(#ak)"/>
+  <text x="485" y="158" text-anchor="middle" font-size="11" fill="#555">先写 B</text>
+  <text x="485" y="188" text-anchor="middle" font-size="11" fill="#555">再写 A</text>
+
+  <!-- semantic map: x0=530 -->
+  <text x="618" y="66" text-anchor="middle" font-size="13" font-weight="bold" fill="#2B6B2E">语义图 S（id = class_id + 1）</text>
+  <g stroke="#999">
+    <rect x="530" y="80" width="44" height="44" fill="#fff"/><rect x="574" y="80" width="44" height="44" fill="#B9D1EE"/><rect x="618" y="80" width="44" height="44" fill="#B9D1EE"/><rect x="662" y="80" width="44" height="44" fill="#fff"/>
+    <rect x="530" y="124" width="44" height="44" fill="#fff"/><rect x="574" y="124" width="44" height="44" fill="#B9D1EE"/><rect x="618" y="124" width="44" height="44" fill="#B9D1EE" stroke="#C0392B" stroke-width="2.5"/><rect x="662" y="124" width="44" height="44" fill="#F6D9A8"/>
+    <rect x="530" y="168" width="44" height="44" fill="#fff"/><rect x="574" y="168" width="44" height="44" fill="#B9D1EE"/><rect x="618" y="168" width="44" height="44" fill="#B9D1EE" stroke="#C0392B" stroke-width="2.5"/><rect x="662" y="168" width="44" height="44" fill="#F6D9A8"/>
+    <rect x="530" y="212" width="44" height="44" fill="#fff"/><rect x="574" y="212" width="44" height="44" fill="#fff"/><rect x="618" y="212" width="44" height="44" fill="#F6D9A8"/><rect x="662" y="212" width="44" height="44" fill="#F6D9A8"/>
+  </g>
+  <g font-size="15" text-anchor="middle" fill="#333" font-weight="bold">
+    <text x="552" y="108">0</text><text x="596" y="108">1</text><text x="640" y="108">1</text><text x="684" y="108">0</text>
+    <text x="552" y="152">0</text><text x="596" y="152">1</text><text x="640" y="152">1</text><text x="684" y="152">3</text>
+    <text x="552" y="196">0</text><text x="596" y="196">1</text><text x="640" y="196">1</text><text x="684" y="196">3</text>
+    <text x="552" y="240">0</text><text x="596" y="240">0</text><text x="640" y="240">3</text><text x="684" y="240">3</text>
+  </g>
+
+  <rect x="730" y="80" width="210" height="176" rx="8" fill="#F7F9FC" stroke="#bbb"/>
+  <text x="742" y="106" font-size="12" fill="#333">argsort([0.82, 0.60]) = [1, 0]</text>
+  <text x="742" y="130" font-size="12" fill="#333">→ 先写 B（id=3），再写 A（id=1）</text>
+  <text x="742" y="156" font-size="12" fill="#C0392B">红框：两实例重叠的 2 个像素</text>
+  <text x="742" y="176" font-size="12" fill="#C0392B">最终归高置信度的 A</text>
+  <text x="742" y="204" font-size="12" fill="#333">面积：A₁ = 6，A₃ = 4</text>
+  <text x="742" y="228" font-size="12" fill="#333">质心 id1：(ū, v̄) = (1.5, 1.0)</text>
+  <text x="742" y="248" font-size="12" fill="#333">质心 id3：(ū, v̄) = (2.75, 2.25)</text>
+
+  <text x="480" y="300" text-anchor="middle" font-size="13" fill="#333">蓝底 = A 中 P ≥ 0.5 的像素（6 个）；橙底 = B 中 P ≥ 0.5 的像素（6 个）</text>
+  <text x="480" y="324" text-anchor="middle" font-size="13" fill="#333">若把阈值降到 0.3，A 的掩码扩大到 9 个像素；升到 0.7，只剩 4 个像素</text>
+  <text x="480" y="350" text-anchor="middle" font-size="12" fill="#666">像素坐标约定：列号 = u（向右），行号 = v（向下），左上角为 (0,0)</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" width="960" height="300" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="300" fill="#ffffff"/>
+  <text x="480" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">单阶段检测器的教学视角：一次前向推理 + 后处理 → 本章的 YOLOPrediction</text>
+
+  <g font-size="13" text-anchor="middle">
+    <rect x="20" y="90" width="120" height="80" rx="8" fill="#F2F2F2" stroke="#888"/>
+    <text x="80" y="122" font-weight="bold" fill="#333">BGR 图像</text>
+    <text x="80" y="144" fill="#555">缩放/填充到</text>
+    <text x="80" y="160" fill="#555">imgsz=640</text>
+
+    <rect x="170" y="90" width="130" height="80" rx="8" fill="#EEF4FB" stroke="#4A78B5"/>
+    <text x="235" y="122" font-weight="bold" fill="#1F4E8C">特征提取</text>
+    <text x="235" y="146" fill="#555">边缘→纹理→语义</text>
+
+    <rect x="330" y="90" width="130" height="80" rx="8" fill="#EEF4FB" stroke="#4A78B5"/>
+    <text x="395" y="122" font-weight="bold" fill="#1F4E8C">多尺度融合</text>
+    <text x="395" y="146" fill="#555">兼顾大/小目标</text>
+
+    <rect x="490" y="90" width="130" height="80" rx="8" fill="#EEF4FB" stroke="#4A78B5"/>
+    <text x="555" y="118" font-weight="bold" fill="#1F4E8C">检测头</text>
+    <text x="555" y="140" fill="#555">框 + 类别分数</text>
+    <text x="555" y="158" fill="#555">(+ 掩码，分割权重)</text>
+
+    <rect x="650" y="90" width="130" height="80" rx="8" fill="#FFF6E8" stroke="#C98A2B"/>
+    <text x="715" y="118" font-weight="bold" fill="#8A5A12">后处理</text>
+    <text x="715" y="140" fill="#555">conf 过滤</text>
+    <text x="715" y="158" fill="#555">IoU / NMS 去重</text>
+
+    <rect x="810" y="80" width="135" height="100" rx="8" fill="#EEF8EE" stroke="#3E8E41"/>
+    <text x="877" y="106" font-weight="bold" fill="#2B6B2E">YOLOPrediction</text>
+    <text x="877" y="128" fill="#555">detections:</text>
+    <text x="877" y="146" fill="#555">xyxy/conf/cls/name</text>
+    <text x="877" y="166" fill="#555">masks: (N,H,W)</text>
+  </g>
+  <line x1="140" y1="130" x2="168" y2="130" stroke="#555" stroke-width="1.5" marker-end="url(#ak)"/>
+  <line x1="300" y1="130" x2="328" y2="130" stroke="#555" stroke-width="1.5" marker-end="url(#ak)"/>
+  <line x1="460" y1="130" x2="488" y2="130" stroke="#555" stroke-width="1.5" marker-end="url(#ak)"/>
+  <line x1="620" y1="130" x2="648" y2="130" stroke="#555" stroke-width="1.5" marker-end="url(#ak)"/>
+  <line x1="780" y1="130" x2="808" y2="130" stroke="#555" stroke-width="1.5" marker-end="url(#ak)"/>
+
+  <rect x="170" y="200" width="610" height="36" rx="6" fill="none" stroke="#4A78B5" stroke-dasharray="6 4"/>
+  <text x="475" y="223" text-anchor="middle" font-size="13" fill="#1F4E8C">Ultralytics 内部完成：self.model.predict(source, conf, iou, imgsz)</text>
+  <text x="877" y="223" text-anchor="middle" font-size="12" fill="#2B6B2E">yolo_vision.py 整理</text>
+  <text x="480" y="275" text-anchor="middle" font-size="12" fill="#666">模块划分为教学抽象，不代表 yolo26 权重的具体网络结构</text>
+</svg>

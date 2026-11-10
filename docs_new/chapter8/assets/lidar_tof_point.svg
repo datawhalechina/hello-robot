@@ -1,0 +1,23 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#315b7d"/></marker>
+    <style>
+      .title{font:700 25px Arial,"Microsoft YaHei",sans-serif;fill:#17324d}.label{font:18px Arial,"Microsoft YaHei",sans-serif;fill:#17324d}.small{font:15px Arial,"Microsoft YaHei",sans-serif;fill:#38546b}.box{fill:#eef7ff;stroke:#4b83ad;stroke-width:2}.ray{stroke:#e76f51;stroke-width:3;marker-end:url(#arrow)}.return{stroke:#2a9d8f;stroke-width:3;stroke-dasharray:8 6;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1000" height="420" rx="18" fill="#fbfdff" stroke="#c8d7e3"/>
+  <text x="500" y="42" text-anchor="middle" class="title">激光雷达从飞行时间得到一个三维点</text>
+  <rect x="65" y="145" width="190" height="120" rx="16" class="box"/>
+  <text x="160" y="188" text-anchor="middle" class="label">激光发射与接收</text>
+  <text x="160" y="222" text-anchor="middle" class="small">记录发射时刻与回波时刻</text>
+  <rect x="745" y="125" width="175" height="160" rx="10" fill="#f8eadc" stroke="#bb7b45" stroke-width="2"/>
+  <text x="832" y="205" text-anchor="middle" class="label">墙面 / 物体</text>
+  <line x1="255" y1="175" x2="745" y2="175" class="ray"/>
+  <line x1="745" y1="235" x2="255" y2="235" class="return"/>
+  <text x="500" y="153" text-anchor="middle" class="small">发射光束</text>
+  <text x="500" y="263" text-anchor="middle" class="small">反射回波</text>
+  <rect x="320" y="310" width="360" height="76" rx="14" fill="#eefaf5" stroke="#2a9d8f" stroke-width="2"/>
+  <text x="500" y="340" text-anchor="middle" class="label">距离 d = c Δt / 2</text>
+  <text x="500" y="369" text-anchor="middle" class="small">结合方位角 α、俯仰角 β，转换为点 (x, y, z)</text>
+  <line x1="500" y1="285" x2="500" y2="310" stroke="#315b7d" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>

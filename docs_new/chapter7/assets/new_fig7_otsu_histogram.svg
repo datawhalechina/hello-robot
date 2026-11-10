@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 360" width="940" height="360" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect x="0" y="0" width="940" height="360" fill="#ffffff"/>
+  <text x="470" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">Otsu 手算：10 个像素、两个候选阈值，选类间方差更大的那个</text>
+
+  <!-- axes -->
+  <line x1="70" y1="280" x2="470" y2="280" stroke="#444" stroke-width="1.5"/>
+  <line x1="70" y1="280" x2="70" y2="70" stroke="#444" stroke-width="1.5"/>
+  <text x="270" y="320" text-anchor="middle" font-size="13" fill="#444">灰度值（0～255）</text>
+  <text x="40" y="170" text-anchor="middle" font-size="13" fill="#444" transform="rotate(-90 40 170)">像素个数</text>
+  <!-- scale: x = 70 + g*1.5 ; y height 40 per pixel -->
+  <rect x="88" y="120" width="24" height="160" fill="#4A78B5"/>
+  <text x="100" y="300" text-anchor="middle" font-size="12">20</text>
+  <text x="100" y="112" text-anchor="middle" font-size="12">4</text>
+  <rect x="208" y="200" width="24" height="80" fill="#8FAFD8"/>
+  <text x="220" y="300" text-anchor="middle" font-size="12">100</text>
+  <text x="220" y="192" text-anchor="middle" font-size="12">2</text>
+  <rect x="358" y="120" width="24" height="160" fill="#E0A23B"/>
+  <text x="370" y="300" text-anchor="middle" font-size="12">200</text>
+  <text x="370" y="112" text-anchor="middle" font-size="12">4</text>
+
+  <line x1="160" y1="80" x2="160" y2="280" stroke="#999" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="160" y="76" text-anchor="middle" font-size="12" fill="#777">方案 A：T=20</text>
+  <line x1="295" y1="80" x2="295" y2="280" stroke="#C0392B" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="295" y="76" text-anchor="middle" font-size="12" fill="#C0392B">方案 B：T=100</text>
+
+  <rect x="510" y="70" width="400" height="100" rx="8" fill="#F7F7F7" stroke="#999"/>
+  <text x="710" y="94" text-anchor="middle" font-size="14" font-weight="bold" fill="#555">方案 A：{20×4} | {100×2, 200×4}</text>
+  <text x="710" y="118" text-anchor="middle" font-size="13" fill="#333">w0=0.4, μ0=20；w1=0.6, μ1=166.67</text>
+  <text x="710" y="146" text-anchor="middle" font-size="13" fill="#333">σb² = 0.4×0.6×(146.67)² ≈ 5162.7</text>
+
+  <rect x="510" y="185" width="400" height="100" rx="8" fill="#FFF1EE" stroke="#C0392B"/>
+  <text x="710" y="209" text-anchor="middle" font-size="14" font-weight="bold" fill="#C0392B">方案 B：{20×4, 100×2} | {200×4}</text>
+  <text x="710" y="233" text-anchor="middle" font-size="13" fill="#333">w0=0.6, μ0=46.67；w1=0.4, μ1=200</text>
+  <text x="710" y="261" text-anchor="middle" font-size="13" fill="#333">σb² = 0.6×0.4×(153.33)² ≈ 5642.7  ← 更大，选它</text>
+
+  <text x="710" y="318" text-anchor="middle" font-size="13" fill="#555">结果：灰度 ≤ 100 → 0（背景），灰度 &gt; 100 → 255（前景）</text>
+</svg>

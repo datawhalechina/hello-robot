@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="530" viewBox="0 0 1000 530" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<defs><marker id="a_blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2f6690"/></marker><marker id="a_green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2a9d8f"/></marker><marker id="a_orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#d9822b"/></marker><marker id="a_gray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6b7b8c"/></marker><marker id="a_red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#c0392b"/></marker><marker id="a_ink" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1f2d3d"/></marker><marker id="a_purple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#7b5ea7"/></marker></defs>
+<rect x="0" y="0" width="1000" height="530" fill="#ffffff"/>
+<text x="500.0" y="34.0" font-size="22" text-anchor="middle" fill="#1f2d3d" font-weight="bold">第八章知识地图：从一束激光到一张地图</text>
+<rect x="40.0" y="60.0" width="280.0" height="100.0" rx="10" fill="#eaf2fb" stroke="#2f6690" stroke-width="2"/>
+<text x="180.0" y="96.1" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">第一部分 激光雷达与点云</text>
+<text x="180.0" y="117.4" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">ToF 测距 · 球坐标 · XYZI</text>
+<text x="180.0" y="137.7" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">lidar.py · pointcloud.py</text>
+<rect x="360.0" y="60.0" width="280.0" height="100.0" rx="10" fill="#eaf2fb" stroke="#2f6690" stroke-width="2"/>
+<text x="500.0" y="96.1" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">第二部分 坐标变换</text>
+<text x="500.0" y="117.4" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">外参 R、t · Pose2D · TF 树</text>
+<text x="500.0" y="137.7" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">geometry.py · config.py</text>
+<rect x="680.0" y="60.0" width="280.0" height="100.0" rx="10" fill="#eaf2fb" stroke="#2f6690" stroke-width="2"/>
+<text x="820.0" y="96.1" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">第三部分 预处理与融合</text>
+<text x="820.0" y="117.4" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">过滤 · 抽样 · 体素 · 融合</text>
+<text x="820.0" y="137.7" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">pointcloud.py</text>
+<rect x="300.0" y="210.0" width="400.0" height="100.0" rx="10" fill="#fdf1e6" stroke="#d9822b" stroke-width="2"/>
+<text x="500.0" y="246.1" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">第四部分 位姿估计、配准与回环</text>
+<text x="500.0" y="267.4" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">漂移里程计 · 关键帧 · 描述子 · ICP · 位姿图</text>
+<text x="500.0" y="287.7" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">slam.py</text>
+<rect x="40.0" y="370.0" width="280.0" height="100.0" rx="10" fill="#e8f6f3" stroke="#2a9d8f" stroke-width="2"/>
+<text x="180.0" y="406.1" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">第五部分 2D 占据栅格</text>
+<text x="180.0" y="427.4" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">高度筛选 · Bresenham · log-odds</text>
+<text x="180.0" y="447.7" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">mapping_2d.py</text>
+<rect x="360.0" y="370.0" width="280.0" height="100.0" rx="10" fill="#e8f6f3" stroke="#2a9d8f" stroke-width="2"/>
+<text x="500.0" y="406.1" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">第六部分 3D 体素地图</text>
+<text x="500.0" y="427.4" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">体素哈希 · 均值点 · PLY</text>
+<text x="500.0" y="447.7" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">mapping_3d.py</text>
+<rect x="680.0" y="370.0" width="280.0" height="100.0" rx="10" fill="#f1ecf8" stroke="#7b5ea7" stroke-width="2"/>
+<text x="820.0" y="406.1" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">第七、八部分 代码与运行</text>
+<text x="820.0" y="427.4" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">运行循环 · ROS2 · RViz2</text>
+<text x="820.0" y="447.7" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">demo_*.py · ros2_visualization.py</text>
+<line x1="320.0" y1="110.0" x2="356.0" y2="110.0" stroke="#2f6690" stroke-width="2" marker-end="url(#a_blue)"/>
+<line x1="640.0" y1="110.0" x2="676.0" y2="110.0" stroke="#2f6690" stroke-width="2" marker-end="url(#a_blue)"/>
+<line x1="820.0" y1="160.0" x2="702.0" y2="240.0" stroke="#2f6690" stroke-width="2" marker-end="url(#a_blue)"/>
+<line x1="380.0" y1="310.0" x2="220.0" y2="366.0" stroke="#d9822b" stroke-width="2" marker-end="url(#a_orange)"/>
+<line x1="470.0" y1="310.0" x2="470.0" y2="366.0" stroke="#d9822b" stroke-width="2" marker-end="url(#a_orange)"/>
+<line x1="560.0" y1="366.0" x2="560.0" y2="314.0" stroke="#2a9d8f" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#a_green)"/>
+<text x="572.0" y="345.0" font-size="13" text-anchor="start" fill="#2a9d8f" font-weight="normal">回环后重建地图</text>
+<line x1="640.0" y1="420.0" x2="676.0" y2="420.0" stroke="#7b5ea7" stroke-width="2" marker-end="url(#a_purple)"/>
+<text x="500.0" y="508.0" font-size="15" text-anchor="middle" fill="#6b7b8c" font-weight="normal">主线：一帧扫描 → 统一坐标 → 估计位姿 → 写入地图 → 回环修正历史位姿并重建</text>
+</svg>

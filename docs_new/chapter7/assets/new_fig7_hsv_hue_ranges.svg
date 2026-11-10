@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 300" width="940" height="300" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <linearGradient id="hue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff0000"/>
+      <stop offset="0.1667" stop-color="#ffff00"/>
+      <stop offset="0.3333" stop-color="#00ff00"/>
+      <stop offset="0.5" stop-color="#00ffff"/>
+      <stop offset="0.6667" stop-color="#0000ff"/>
+      <stop offset="0.8333" stop-color="#ff00ff"/>
+      <stop offset="1" stop-color="#ff0000"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="940" height="300" fill="#ffffff"/>
+  <text x="470" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">OpenCV 色相 H（0～179）与 segmentation.py 中四类颜色的 H 区间</text>
+
+  <!-- bar from x=80 to 860 (780 px for 180 units => 4.333 px/unit) -->
+  <rect x="80" y="120" width="780" height="40" fill="url(#hue)" stroke="#666"/>
+  <g font-size="12" fill="#444" text-anchor="middle">
+    <text x="80" y="180">0</text>
+    <text x="210" y="180">30</text>
+    <text x="340" y="180">60</text>
+    <text x="470" y="180">90</text>
+    <text x="600" y="180">120</text>
+    <text x="730" y="180">150</text>
+    <text x="856" y="180">179</text>
+  </g>
+
+  <!-- red 0-10 : x 80..123 ; 170-179: x 817..856 -->
+  <rect x="80" y="70" width="43" height="40" fill="none" stroke="#C0392B" stroke-width="2.5"/>
+  <text x="102" y="64" text-anchor="middle" font-size="12" fill="#C0392B">red 0–10</text>
+  <rect x="817" y="70" width="39" height="40" fill="none" stroke="#C0392B" stroke-width="2.5"/>
+  <text x="836" y="64" text-anchor="middle" font-size="12" fill="#C0392B">red 170–179</text>
+  <!-- yellow 18-35 : x 158..232 -->
+  <rect x="158" y="200" width="74" height="30" fill="none" stroke="#B7950B" stroke-width="2.5"/>
+  <text x="195" y="248" text-anchor="middle" font-size="12" fill="#B7950B">yellow 18–35</text>
+  <!-- green 35-85: x 232..448 -->
+  <rect x="232" y="70" width="216" height="40" fill="none" stroke="#2B6B2E" stroke-width="2.5"/>
+  <text x="340" y="64" text-anchor="middle" font-size="12" fill="#2B6B2E">green 35–85</text>
+  <!-- blue 90-135: x 470..665 -->
+  <rect x="470" y="200" width="195" height="30" fill="none" stroke="#1F4E8C" stroke-width="2.5"/>
+  <text x="567" y="248" text-anchor="middle" font-size="12" fill="#1F4E8C">blue 90–135</text>
+
+  <text x="470" y="280" text-anchor="middle" font-size="13" fill="#555">红色在色相环的首尾相接处，所以要用两个区间拼起来；同时还要求 S、V 足够大，避免把灰白暗区算进去</text>
+</svg>

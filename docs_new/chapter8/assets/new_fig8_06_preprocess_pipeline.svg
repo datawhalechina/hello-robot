@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+<defs><marker id="a_blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2f6690"/></marker><marker id="a_green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2a9d8f"/></marker><marker id="a_orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#d9822b"/></marker><marker id="a_gray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6b7b8c"/></marker><marker id="a_red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#c0392b"/></marker><marker id="a_ink" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1f2d3d"/></marker><marker id="a_purple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#7b5ea7"/></marker></defs>
+<rect x="0" y="0" width="1000" height="380" fill="#ffffff"/>
+<text x="500.0" y="34.0" font-size="22" text-anchor="middle" fill="#1f2d3d" font-weight="bold">单帧点云预处理流水线（PointCloudProcessor.process）</text>
+<rect x="35.0" y="70.0" width="210.0" height="95.0" rx="10" fill="#eaf2fb" stroke="#2f6690" stroke-width="2"/>
+<text x="140.0" y="103.6" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">① 兼容解析</text>
+<text x="140.0" y="124.9" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">parse_scan()</text>
+<text x="140.0" y="145.2" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">→ N×3 坐标 + N 强度</text>
+<rect x="755.0" y="220.0" width="210.0" height="95.0" rx="10" fill="#e8f6f3" stroke="#2a9d8f" stroke-width="2"/>
+<text x="860.0" y="253.6" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">⑤ 体素降采样</text>
+<text x="860.0" y="274.9" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">voxel_sample_indices</text>
+<text x="860.0" y="295.2" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">scan_voxel_size = 0.10 m</text>
+<rect x="275.0" y="70.0" width="210.0" height="95.0" rx="10" fill="#eaf2fb" stroke="#2f6690" stroke-width="2"/>
+<text x="380.0" y="103.6" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">② 有限值过滤</text>
+<text x="380.0" y="124.9" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">np.isfinite</text>
+<text x="380.0" y="145.2" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">删除 NaN / Inf</text>
+<rect x="515.0" y="220.0" width="210.0" height="95.0" rx="10" fill="#e8f6f3" stroke="#2a9d8f" stroke-width="2"/>
+<text x="620.0" y="253.6" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">⑥ 外参变换</text>
+<text x="620.0" y="274.9" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">points @ R(q)ᵀ + t</text>
+<text x="620.0" y="295.2" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">lidar_* → base_link</text>
+<rect x="515.0" y="70.0" width="210.0" height="95.0" rx="10" fill="#eaf2fb" stroke="#2f6690" stroke-width="2"/>
+<text x="620.0" y="103.6" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">③ 量程过滤</text>
+<text x="620.0" y="124.9" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">r = ‖p‖</text>
+<text x="620.0" y="145.2" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">0.25 m ≤ r ≤ 50 m</text>
+<rect x="275.0" y="220.0" width="210.0" height="95.0" rx="10" fill="#e8f6f3" stroke="#2a9d8f" stroke-width="2"/>
+<text x="380.0" y="253.6" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">⑦ 记录射线原点</text>
+<text x="380.0" y="274.9" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">origin = t（每点重复）</text>
+<text x="380.0" y="295.2" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">强度只清理 NaN/Inf</text>
+<rect x="755.0" y="70.0" width="210.0" height="95.0" rx="10" fill="#eaf2fb" stroke="#2f6690" stroke-width="2"/>
+<text x="860.0" y="103.6" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">④ 固定步长抽样</text>
+<text x="860.0" y="124.9" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">points[::stride]</text>
+<text x="860.0" y="145.2" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">point_stride = 2</text>
+<rect x="35.0" y="220.0" width="210.0" height="95.0" rx="10" fill="#fdf1e6" stroke="#d9822b" stroke-width="2"/>
+<text x="140.0" y="253.6" font-size="17" text-anchor="middle" fill="#1f2d3d" font-weight="bold">⑧ 左右融合</text>
+<text x="140.0" y="274.9" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">PointCloud.concatenate</text>
+<text x="140.0" y="295.2" font-size="14" text-anchor="middle" fill="#33475b" font-weight="normal">DualRtxLidar.capture()</text>
+<line x1="245.0" y1="117.0" x2="271.0" y2="117.0" stroke="#2f6690" stroke-width="2" marker-end="url(#a_blue)"/>
+<line x1="755.0" y1="267.0" x2="729.0" y2="267.0" stroke="#2a9d8f" stroke-width="2" marker-end="url(#a_green)"/>
+<line x1="485.0" y1="117.0" x2="511.0" y2="117.0" stroke="#2f6690" stroke-width="2" marker-end="url(#a_blue)"/>
+<line x1="515.0" y1="267.0" x2="489.0" y2="267.0" stroke="#2a9d8f" stroke-width="2" marker-end="url(#a_green)"/>
+<line x1="725.0" y1="117.0" x2="751.0" y2="117.0" stroke="#2f6690" stroke-width="2" marker-end="url(#a_blue)"/>
+<line x1="275.0" y1="267.0" x2="249.0" y2="267.0" stroke="#2a9d8f" stroke-width="2" marker-end="url(#a_green)"/>
+<line x1="860.0" y1="165.0" x2="860.0" y2="216.0" stroke="#2f6690" stroke-width="2" marker-end="url(#a_blue)"/>
+<text x="500.0" y="352.0" font-size="15" text-anchor="middle" fill="#6b7b8c" font-weight="normal">①–⑦ 对每台雷达各执行一次；⑧ 把两台雷达的结果连接成一帧融合 XYZI 点云</text>
+</svg>

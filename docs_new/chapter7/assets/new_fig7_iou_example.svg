@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 360" width="940" height="360" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect x="0" y="0" width="940" height="360" fill="#ffffff"/>
+  <text x="470" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">IoU 手算：同一目标的重复框 vs. 相邻的另一个目标（iou 阈值 = 0.45）</text>
+
+  <!-- left: A and C, scale 1px = 1 pixel, offset (-40, -30) -->
+  <text x="190" y="62" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">情形 1：A 与 C</text>
+  <rect x="60" y="70" width="100" height="100" fill="#4A78B5" fill-opacity="0.18" stroke="#4A78B5" stroke-width="2"/>
+  <rect x="70" y="75" width="100" height="100" fill="#C0392B" fill-opacity="0.15" stroke="#C0392B" stroke-width="2" stroke-dasharray="6 3"/>
+  <text x="64" y="88" font-size="12" fill="#1F4E8C">A 0.90</text>
+  <text x="120" y="190" font-size="12" fill="#C0392B">C 0.70</text>
+  <g font-size="13" fill="#333">
+    <text x="200" y="90">A = (100,100,200,200)</text>
+    <text x="200" y="110">C = (110,105,210,205)</text>
+    <text x="200" y="130">交集 = 90 × 95 = 8550</text>
+    <text x="200" y="150">并集 = 10000+10000−8550 = 11450</text>
+    <text x="200" y="175" font-weight="bold" fill="#C0392B">IoU ≈ 0.747 &gt; 0.45 → 删除 C</text>
+  </g>
+
+  <!-- right: A and B -->
+  <text x="680" y="62" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">情形 2：A 与 B</text>
+  <rect x="520" y="70" width="100" height="100" fill="#4A78B5" fill-opacity="0.18" stroke="#4A78B5" stroke-width="2"/>
+  <rect x="570" y="90" width="100" height="100" fill="#3E8E41" fill-opacity="0.15" stroke="#3E8E41" stroke-width="2" stroke-dasharray="6 3"/>
+  <text x="524" y="88" font-size="12" fill="#1F4E8C">A 0.90</text>
+  <text x="630" y="205" font-size="12" fill="#2B6B2E">B 0.80</text>
+  <g font-size="13" fill="#333">
+    <text x="690" y="90">B = (150,120,250,220)</text>
+    <text x="690" y="110">交集 = 50 × 80 = 4000</text>
+    <text x="690" y="130">并集 = 20000−4000 = 16000</text>
+    <text x="690" y="155" font-weight="bold" fill="#2B6B2E">IoU = 0.25 ≤ 0.45</text>
+    <text x="690" y="175" font-weight="bold" fill="#2B6B2E">→ 保留 B</text>
+  </g>
+
+  <rect x="60" y="240" width="820" height="90" rx="8" fill="#F7F9FC" stroke="#bbb"/>
+  <text x="470" y="266" text-anchor="middle" font-size="13" fill="#333">NMS 顺序：按置信度排序 A(0.90) → B(0.80) → C(0.70)；先保留 A，再删除与 A 的 IoU 超过阈值的框</text>
+  <text x="470" y="290" text-anchor="middle" font-size="13" fill="#333">C 与 A 几乎重合，被视为重复框；B 与 A 只重叠四分之一，被视为另一个目标</text>
+  <text x="470" y="314" text-anchor="middle" font-size="13" fill="#555">若把 iou 阈值降到 0.2，B 也会被删掉——相邻的两个真实目标被“合并”成一个</text>
+</svg>
