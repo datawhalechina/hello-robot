@@ -1,0 +1,52 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <marker id="feedback" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0f766e"/></marker>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:24px}.m{font-size:17px}.s{font-size:14px}.box{stroke-width:2}</style>
+  </defs>
+  <rect width="1000" height="560" fill="#f8fafc"/>
+  <text x="500" y="38" text-anchor="middle" class="t b h">移动底盘导航是持续运行的闭环</text>
+  <text x="500" y="65" text-anchor="middle" class="t s">地图、目标和实时状态共同进入规划控制链，底盘运动后的新观测再次反馈到系统</text>
+
+  <g class="box">
+    <rect x="45" y="95" width="175" height="92" rx="16" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect x="250" y="95" width="175" height="92" rx="16" fill="#dcfce7" stroke="#22c55e"/>
+    <rect x="455" y="95" width="175" height="92" rx="16" fill="#fef3c7" stroke="#f59e0b"/>
+    <rect x="660" y="95" width="175" height="92" rx="16" fill="#ede9fe" stroke="#8b5cf6"/>
+  </g>
+  <g class="t" text-anchor="middle">
+    <text x="132" y="128" class="b m">地图与机器人尺寸</text><text x="132" y="158" class="s">占据栅格、膨胀半径</text>
+    <text x="337" y="128" class="b m">当前状态</text><text x="337" y="158" class="s">位姿、TF、里程计</text>
+    <text x="542" y="128" class="b m">实时感知</text><text x="542" y="158" class="s">激光、动态障碍</text>
+    <text x="747" y="128" class="b m">任务目标</text><text x="747" y="158" class="s">x、y、yaw</text>
+  </g>
+
+  <g class="box">
+    <rect x="70" y="242" width="175" height="92" rx="18" fill="#e0f2fe" stroke="#0284c7"/>
+    <rect x="285" y="242" width="175" height="92" rx="18" fill="#ffedd5" stroke="#f97316"/>
+    <rect x="500" y="242" width="175" height="92" rx="18" fill="#fce7f3" stroke="#db2777"/>
+    <rect x="715" y="242" width="175" height="92" rx="18" fill="#ecfccb" stroke="#65a30d"/>
+  </g>
+  <g class="t" text-anchor="middle">
+    <text x="157" y="276" class="b m">更新代价地图</text><text x="157" y="306" class="s">哪里能走、哪里危险</text>
+    <text x="372" y="276" class="b m">全局与局部规划</text><text x="372" y="306" class="s">生成并修正参考路径</text>
+    <text x="587" y="276" class="b m">轨迹跟踪与安全</text><text x="587" y="306" class="s">计算 vx、vy、ωz</text>
+    <text x="802" y="276" class="b m">底盘执行</text><text x="802" y="306" class="s">转向与驱动关节</text>
+  </g>
+  <g stroke="#475569" stroke-width="4" marker-end="url(#arrow)">
+    <line x1="245" y1="288" x2="277" y2="288"/><line x1="460" y1="288" x2="492" y2="288"/><line x1="675" y1="288" x2="707" y2="288"/>
+  </g>
+  <g stroke="#94a3b8" stroke-width="2.5" marker-end="url(#arrow)">
+    <path d="M132 187 V215 H157 V234" fill="none"/><path d="M337 187 V215 H225 V234" fill="none"/>
+    <path d="M542 187 V215 H157 V234" fill="none"/><path d="M747 187 V215 H372 V234" fill="none"/>
+  </g>
+
+  <rect x="715" y="390" width="175" height="80" rx="16" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+  <text x="802" y="423" text-anchor="middle" class="t b m">机器人与环境</text><text x="802" y="451" text-anchor="middle" class="t s">产生新的位姿和传感器观测</text>
+  <line x1="802" y1="334" x2="802" y2="382" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M715 430 H115 Q70 430 70 385 V208 Q70 198 82 198" fill="none" stroke="#0f766e" stroke-width="4" marker-end="url(#feedback)"/>
+  <text x="350" y="456" text-anchor="middle" class="t b m" fill="#0f766e">反馈：/odom、/scan、TF、/clock</text>
+
+  <rect x="110" y="500" width="780" height="38" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="500" y="525" text-anchor="middle" class="t s">闭环中的任一环节失效，都可能表现为“有路径但不走”“能走但会碰撞”或“到达后朝向不正确”。</text>
+</svg>

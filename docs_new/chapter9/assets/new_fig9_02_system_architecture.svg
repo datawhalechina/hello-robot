@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="760" viewBox="0 0 1300 760" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5B6B7C"/>
+    </marker>
+  </defs>
+  <rect width="1300" height="760" fill="#FFFFFF"/>
+  <text x="650" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#1F2D3D">系统架构：四个进程、三套解释器、一个输出目录</text>
+
+  <!-- Isaac main process -->
+  <rect x="30" y="70" width="560" height="440" rx="14" fill="#EAF2FB" stroke="#2E6DB4" stroke-width="2"/>
+  <text x="50" y="100" font-size="17" font-weight="700" fill="#2E6DB4">主进程：Isaac Sim 自带 python.sh（run.sh 启动）</text>
+  <text x="50" y="124" font-size="13" fill="#5B6B7C">仿真、相机采集、机器人控制；推理期间不推进物理时间</text>
+
+  <rect x="50" y="140" width="520" height="56" rx="8" fill="#FFFFFF" stroke="#2E6DB4"/>
+  <text x="66" y="164" font-size="15" font-weight="700" fill="#1F2D3D">demo_grasp.py  主循环 / 逐轮目录 / 复核 / 停止条件</text>
+  <text x="66" y="185" font-size="13" fill="#5B6B7C">observe() → plan() → execute() → 记录 records → summary.json</text>
+
+  <rect x="50" y="210" width="250" height="135" rx="8" fill="#FFFFFF" stroke="#9AA8B6"/>
+  <text x="64" y="234" font-size="15" font-weight="700" fill="#1F2D3D">simulation.py</text>
+  <text x="64" y="257" font-size="13" fill="#1F2D3D">G2Simulation：World、G2 资产</text>
+  <text x="64" y="278" font-size="13" fill="#1F2D3D">check_fk / calibrate_gripper</text>
+  <text x="64" y="299" font-size="13" fill="#1F2D3D">scene.py：桌面、托盘、15 类物体</text>
+  <text x="64" y="320" font-size="13" fill="#1F2D3D">camera.py：RGB + 光轴深度 + K, T</text>
+
+  <rect x="320" y="210" width="250" height="135" rx="8" fill="#FFFFFF" stroke="#9AA8B6"/>
+  <text x="334" y="234" font-size="15" font-weight="700" fill="#1F2D3D">controller.py</text>
+  <text x="334" y="257" font-size="13" fill="#1F2D3D">PickController.plan：分阶段路径</text>
+  <text x="334" y="278" font-size="13" fill="#1F2D3D">_safe：夹爪/连杆/双臂/持物检查</text>
+  <text x="334" y="299" font-size="13" fill="#1F2D3D">move / execute：反馈与验收</text>
+  <text x="334" y="320" font-size="13" fill="#1F2D3D">kinematics.py + arm_controller.py</text>
+
+  <rect x="50" y="360" width="520" height="130" rx="8" fill="#F6F8FA" stroke="#9AA8B6"/>
+  <text x="66" y="386" font-size="15" font-weight="700" fill="#1F2D3D">Isaac 物理引擎（120 Hz）</text>
+  <text x="66" y="410" font-size="13" fill="#1F2D3D">articulation 位置驱动跟踪关节目标；接触、摩擦、重力</text>
+  <text x="66" y="432" font-size="13" fill="#1F2D3D">夹爪只驱动主关节 idx81_gripper_r_outer_joint1，其余指节靠联动约束</text>
+  <text x="66" y="454" font-size="13" fill="#1F2D3D">仿真真值只用于：重置布局、标定、抬升与放置验收</text>
+  <text x="66" y="476" font-size="13" fill="#C0392B">不向规划器提供待抓物体坐标</text>
+
+  <!-- vision worker -->
+  <rect x="700" y="70" width="570" height="215" rx="14" fill="#EAF7EF" stroke="#239B56" stroke-width="2"/>
+  <text x="720" y="100" font-size="17" font-weight="700" fill="#1E8449">视觉 worker：.envs/vision/bin/python</text>
+  <text x="720" y="124" font-size="13" fill="#5B6B7C">worker.py --role vision（常驻，模型只加载一次）</text>
+  <rect x="720" y="140" width="530" height="128" rx="8" fill="#FFFFFF" stroke="#9AA8B6"/>
+  <text x="736" y="165" font-size="14" fill="#1F2D3D">VisionPipeline.run：</text>
+  <text x="736" y="189" font-size="13" fill="#1F2D3D">perception.py：YOLO 检测 → SAM2 框提示分割 → 掩码筛选</text>
+  <text x="736" y="212" font-size="13" fill="#1F2D3D">pointcloud.py：反投影、体素、去噪、桌面 RANSAC、2.5D 姿态</text>
+  <text x="736" y="235" font-size="13" fill="#1F2D3D">grasp_planner.py：几何候选（geometry 后端）+ 统一筛选</text>
+  <text x="736" y="258" font-size="13" fill="#5B6B7C">写出 result.npz、perception.json、detections.jpg、*.ply</text>
+
+  <!-- graspgenx worker -->
+  <rect x="700" y="330" width="570" height="150" rx="14" fill="#FDF3E7" stroke="#D68910" stroke-width="2"/>
+  <text x="720" y="360" font-size="17" font-weight="700" fill="#B9770E">GraspGenX worker：.envs/graspgenx/bin/python</text>
+  <text x="720" y="384" font-size="13" fill="#5B6B7C">worker.py --role graspgenx（仅 --backend graspgenx 时由视觉 worker 启动）</text>
+  <rect x="720" y="398" width="530" height="66" rx="8" fill="#FFFFFF" stroke="#9AA8B6"/>
+  <text x="736" y="422" font-size="13" fill="#1F2D3D">graspgenx_backend.py：读取 graspgenx_input.npz 中的 object_i</text>
+  <text x="736" y="446" font-size="13" fill="#1F2D3D">扩散采样 256 → 保留前 64 → 转换到 TCP → graspgenx_raw.npz</text>
+
+  <!-- viewer -->
+  <rect x="700" y="525" width="570" height="95" rx="14" fill="#F4ECF7" stroke="#8E44AD" stroke-width="2"/>
+  <text x="720" y="555" font-size="17" font-weight="700" fill="#7D3C98">四宫格 viewer（可选）：viewer.py --follow</text>
+  <text x="720" y="580" font-size="13" fill="#1F2D3D">只读 viewer/ 目录中的实时 RGB 与最近一次推理快照</text>
+  <text x="720" y="602" font-size="13" fill="#C0392B">不向规划/控制反馈任何结果；关闭它不是急停</text>
+
+  <!-- output dir -->
+  <rect x="30" y="560" width="560" height="170" rx="14" fill="#F6F8FA" stroke="#5B6B7C" stroke-width="2"/>
+  <text x="50" y="590" font-size="17" font-weight="700" fill="#1F2D3D">输出目录 outputs/&lt;实验名&gt;/</text>
+  <text x="50" y="616" font-size="13" fill="#1F2D3D">run_config.json、calibration.json、robot_state.npz、summary.json</text>
+  <text x="50" y="640" font-size="13" fill="#1F2D3D">pick_00/ rgbd.npz → result.npz、perception.json、planning.json</text>
+  <text x="50" y="664" font-size="13" fill="#1F2D3D">pick_00/recheck/（预抓取复核）、after.npz、after.jpg</text>
+  <text x="50" y="688" font-size="13" fill="#1F2D3D">vision_worker.log、graspgenx_worker.log、viewer/</text>
+  <text x="50" y="712" font-size="13" fill="#5B6B7C">离线工具 replay.py / replay_plan.py / viewer.py --save 从这里读取</text>
+
+  <!-- arrows -->
+  <line x1="590" y1="160" x2="698" y2="160" stroke="#5B6B7C" stroke-width="2" marker-end="url(#a)"/>
+  <text x="600" y="150" font-size="12" fill="#5B6B7C">stdin JSON</text>
+  <line x1="698" y1="200" x2="590" y2="200" stroke="#5B6B7C" stroke-width="2" marker-end="url(#a)"/>
+  <text x="602" y="220" font-size="12" fill="#5B6B7C">stdout {ok}</text>
+
+  <line x1="985" y1="285" x2="985" y2="328" stroke="#5B6B7C" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="1040" y1="328" x2="1040" y2="287" stroke="#5B6B7C" stroke-width="2" marker-end="url(#a)"/>
+  <text x="1050" y="312" font-size="12" fill="#5B6B7C">JSON 命令 + NPZ 数组</text>
+
+  <line x1="300" y1="510" x2="300" y2="558" stroke="#5B6B7C" stroke-width="2" marker-end="url(#a)"/>
+  <text x="310" y="540" font-size="12" fill="#5B6B7C">rgbd.npz / summary.json</text>
+  <path d="M 700 250 C 640 300, 640 560, 592 600" fill="none" stroke="#5B6B7C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#a)"/>
+  <text x="608" y="420" font-size="12" fill="#5B6B7C">result.npz</text>
+  <path d="M 592 690 C 650 690, 650 600, 698 590" fill="none" stroke="#8E44AD" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#a)"/>
+  <text x="604" y="716" font-size="12" fill="#7D3C98">只读快照</text>
+</svg>

@@ -1,0 +1,42 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="470" viewBox="0 0 1100 470">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:24px}.m{font-size:17px}.s{font-size:14px}.panel{fill:#fff;stroke:#cbd5e1;stroke-width:2}</style>
+  </defs>
+  <rect width="1100" height="470" fill="#f8fafc"/>
+  <text x="550" y="38" text-anchor="middle" class="t b h">从 A* 栅格折线到可跟踪参考路径</text>
+  <text x="550" y="65" text-anchor="middle" class="t s">每一步都必须保留碰撞约束，不能只追求视觉上的光滑</text>
+
+  <g>
+    <rect x="25" y="100" width="235" height="270" rx="18" class="panel"/><rect x="300" y="100" width="235" height="270" rx="18" class="panel"/>
+    <rect x="575" y="100" width="235" height="270" rx="18" class="panel"/><rect x="850" y="100" width="225" height="270" rx="18" class="panel"/>
+  </g>
+  <g class="t" text-anchor="middle">
+    <text x="142" y="132" class="b m">1. A* 栅格路径</text><text x="417" y="132" class="b m">2. 视线捷径化</text>
+    <text x="692" y="132" class="b m">3. Chaikin 平滑</text><text x="962" y="132" class="b m">4. 重采样与航向</text>
+  </g>
+
+  <g stroke="#e2e8f0" stroke-width="1">
+    <path d="M45 160H240M45 200H240M45 240H240M45 280H240M45 320H240"/><path d="M65 150V345M105 150V345M145 150V345M185 150V345M225 150V345"/>
+  </g>
+  <polyline points="60,330 100,330 100,290 140,290 140,250 180,250 180,210 220,210 220,170" fill="none" stroke="#ef4444" stroke-width="6" stroke-linejoin="round"/>
+  <g fill="#ef4444"><circle cx="60" cy="330" r="5"/><circle cx="100" cy="330" r="5"/><circle cx="100" cy="290" r="5"/><circle cx="140" cy="290" r="5"/><circle cx="140" cy="250" r="5"/><circle cx="180" cy="250" r="5"/><circle cx="180" cy="210" r="5"/><circle cx="220" cy="210" r="5"/><circle cx="220" cy="170" r="5"/></g>
+
+  <polyline points="335,330 380,300 470,250 500,170" fill="none" stroke="#f97316" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#f97316"><circle cx="335" cy="330" r="7"/><circle cx="380" cy="300" r="7"/><circle cx="470" cy="250" r="7"/><circle cx="500" cy="170" r="7"/></g>
+  <path d="M348 312 L483 232" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 6"/>
+  <text x="417" y="345" text-anchor="middle" class="t s">删除视线可直达的冗余点</text>
+
+  <path d="M610 330 C650 325 660 290 690 280 C730 267 746 235 775 170" fill="none" stroke="#8b5cf6" stroke-width="7" stroke-linecap="round"/>
+  <polyline points="610,330 655,300 735,250 775,170" fill="none" stroke="#c4b5fd" stroke-width="2" stroke-dasharray="5 5"/>
+  <text x="692" y="345" text-anchor="middle" class="t s">缓和尖角，并对整条路径复查碰撞</text>
+
+  <path d="M875 330 C905 322 920 295 940 278 C970 250 995 220 1042 170" fill="none" stroke="#2563eb" stroke-width="5"/>
+  <g fill="#2563eb"><circle cx="875" cy="330" r="6"/><circle cx="904" cy="316" r="6"/><circle cx="927" cy="291" r="6"/><circle cx="951" cy="267" r="6"/><circle cx="975" cy="239" r="6"/><circle cx="998" cy="214" r="6"/><circle cx="1020" cy="190" r="6"/><circle cx="1042" cy="170" r="6"/></g>
+  <g stroke="#0f766e" stroke-width="3" marker-end="url(#arrow)"><line x1="918" y1="278" x2="940" y2="259"/><line x1="983" y1="225" x2="1005" y2="202"/></g>
+  <text x="962" y="345" text-anchor="middle" class="t s">统一点间距并生成路径切线航向</text>
+
+  <g stroke="#475569" stroke-width="4" marker-end="url(#arrow)"><line x1="262" y1="235" x2="292" y2="235"/><line x1="537" y1="235" x2="567" y2="235"/><line x1="812" y1="235" x2="842" y2="235"/></g>
+  <rect x="155" y="403" width="790" height="42" rx="12" fill="#fff7ed" stroke="#fb923c"/>
+  <text x="550" y="430" text-anchor="middle" class="t m">结果：点更少、转折更缓、间距更均匀，并且每个点具有可供控制器使用的航向。</text>
+</svg>

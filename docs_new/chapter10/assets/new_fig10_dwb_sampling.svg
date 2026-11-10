@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420" width="920" height="420" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#444"/>
+    </marker>
+  </defs>
+  <rect width="920" height="420" fill="#ffffff"/>
+  <text x="460" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">DWB 一个控制周期：采样 → 前向模拟 → 评分 → 选优</text>
+
+  <!-- step boxes -->
+  <rect x="30" y="60" width="190" height="70" rx="8" fill="#e8f1fb" stroke="#4a7fbf"/>
+  <text x="125" y="88" text-anchor="middle" font-size="14" fill="#1f3b5c">① 速度采样</text>
+  <text x="125" y="110" text-anchor="middle" font-size="12" fill="#555">12 × 12 × 16 ≤ 2304 组</text>
+
+  <rect x="260" y="60" width="190" height="70" rx="8" fill="#e9f6ec" stroke="#4c9a5f"/>
+  <text x="355" y="88" text-anchor="middle" font-size="14" fill="#1f4d2b">② 前向模拟 1.5 s</text>
+  <text x="355" y="110" text-anchor="middle" font-size="12" fill="#555">每组速度 → 一条候选轨迹</text>
+
+  <rect x="490" y="60" width="190" height="70" rx="8" fill="#fdf3e4" stroke="#d08a2e"/>
+  <text x="585" y="88" text-anchor="middle" font-size="14" fill="#6b4210">③ critics 加权评分</text>
+  <text x="585" y="110" text-anchor="middle" font-size="12" fill="#555">碰撞轨迹直接淘汰</text>
+
+  <rect x="720" y="60" width="170" height="70" rx="8" fill="#fbeaea" stroke="#c0504d"/>
+  <text x="805" y="88" text-anchor="middle" font-size="14" fill="#6b1f1d">④ 取总分最低</text>
+  <text x="805" y="110" text-anchor="middle" font-size="12" fill="#555">→ /cmd_vel_nav</text>
+
+  <line x1="220" y1="95" x2="258" y2="95" stroke="#444" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="450" y1="95" x2="488" y2="95" stroke="#444" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="680" y1="95" x2="718" y2="95" stroke="#444" stroke-width="1.6" marker-end="url(#a)"/>
+
+  <!-- illustration: robot, path, obstacle, fan of trajectories -->
+  <rect x="30" y="160" width="520" height="240" rx="8" fill="#fafafa" stroke="#ddd"/>
+  <path d="M70,340 C200,330 330,300 520,190" fill="none" stroke="#4c9a5f" stroke-width="3"/>
+  <text x="420" y="196" font-size="12" fill="#1f4d2b">全局路径 /plan</text>
+  <circle cx="330" cy="300" r="34" fill="#555"/>
+  <text x="330" y="305" text-anchor="middle" font-size="12" fill="#fff">障碍</text>
+  <circle cx="330" cy="300" r="52" fill="none" stroke="#c0504d" stroke-dasharray="4 3"/>
+  <rect x="58" y="326" width="26" height="26" rx="4" fill="#e8f1fb" stroke="#4a7fbf" stroke-width="2"/>
+  <path d="M71,339 C140,330 200,320 260,310" fill="none" stroke="#c0504d" stroke-width="1.6"/>
+  <text x="225" y="330" font-size="11" fill="#c0504d">✗ 碰撞</text>
+  <path d="M71,339 C140,320 210,280 270,240" fill="none" stroke="#4a7fbf" stroke-width="2.8"/>
+  <text x="200" y="245" font-size="11" fill="#1f3b5c">✓ 最优</text>
+  <path d="M71,339 C130,300 170,240 190,190" fill="none" stroke="#aaa" stroke-width="1.4"/>
+  <text x="140" y="195" font-size="11" fill="#888">偏离路径远，PathDist 高</text>
+  <path d="M71,339 C120,345 160,360 200,385" fill="none" stroke="#aaa" stroke-width="1.4"/>
+  <text x="200" y="385" font-size="11" fill="#888">背离目标，GoalDist 高</text>
+
+  <!-- critics table -->
+  <rect x="580" y="160" width="310" height="240" rx="8" fill="#f6f8fb" stroke="#c9d3e0"/>
+  <text x="735" y="184" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">nav2_params.yaml 中的 critic 权重</text>
+  <text x="600" y="210" font-size="12" fill="#333">BaseObstacle.scale</text><text x="860" y="210" text-anchor="end" font-size="12" fill="#333">0.04</text>
+  <text x="600" y="234" font-size="12" fill="#333">PathAlign.scale</text><text x="860" y="234" text-anchor="end" font-size="12" fill="#333">24.0</text>
+  <text x="600" y="258" font-size="12" fill="#333">PathDist.scale</text><text x="860" y="258" text-anchor="end" font-size="12" fill="#333">24.0</text>
+  <text x="600" y="282" font-size="12" fill="#333">GoalAlign.scale</text><text x="860" y="282" text-anchor="end" font-size="12" fill="#333">18.0</text>
+  <text x="600" y="306" font-size="12" fill="#333">GoalDist.scale</text><text x="860" y="306" text-anchor="end" font-size="12" fill="#333">18.0</text>
+  <text x="600" y="330" font-size="12" fill="#333">RotateToGoal.scale</text><text x="860" y="330" text-anchor="end" font-size="12" fill="#333">20.0</text>
+  <text x="600" y="354" font-size="12" fill="#333">Oscillation</text><text x="860" y="354" text-anchor="end" font-size="12" fill="#333">（未显式设置）</text>
+  <text x="600" y="384" font-size="11" fill="#666">总分 = Σ scale_i × critic_i(轨迹)</text>
+</svg>

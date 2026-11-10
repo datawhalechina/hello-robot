@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 460" width="920" height="460" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#444"/>
+    </marker>
+  </defs>
+  <rect width="920" height="460" fill="#ffffff"/>
+  <text x="460" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">行为树调度（简化示意）与 Lifecycle 状态</text>
+
+  <!-- BT -->
+  <rect x="230" y="56" width="200" height="40" rx="6" fill="#fbeaea" stroke="#c0504d"/>
+  <text x="330" y="81" text-anchor="middle" font-size="13" fill="#6b1f1d">NavigateToPose 行为树根</text>
+
+  <rect x="230" y="126" width="200" height="40" rx="6" fill="#fdf3e4" stroke="#d08a2e"/>
+  <text x="330" y="151" text-anchor="middle" font-size="13" fill="#6b4210">Recovery（失败则恢复后重试）</text>
+  <line x1="330" y1="96" x2="330" y2="124" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <rect x="70" y="200" width="250" height="40" rx="6" fill="#e8f1fb" stroke="#4a7fbf"/>
+  <text x="195" y="225" text-anchor="middle" font-size="13" fill="#1f3b5c">导航主序列（Sequence）</text>
+  <rect x="380" y="200" width="250" height="40" rx="6" fill="#f5ecf9" stroke="#8e5bb0"/>
+  <text x="505" y="225" text-anchor="middle" font-size="13" fill="#4a2a63">恢复动作（清代价地图 / Spin / Wait / BackUp）</text>
+  <line x1="300" y1="166" x2="210" y2="198" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="360" y1="166" x2="490" y2="198" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <rect x="30" y="280" width="150" height="50" rx="6" fill="#e9f6ec" stroke="#4c9a5f"/>
+  <text x="105" y="302" text-anchor="middle" font-size="12" fill="#1f4d2b">ComputePathToPose</text>
+  <text x="105" y="320" text-anchor="middle" font-size="11" fill="#555">→ planner_server</text>
+  <rect x="200" y="280" width="150" height="50" rx="6" fill="#ffffff" stroke="#999" stroke-dasharray="5 3"/>
+  <text x="275" y="302" text-anchor="middle" font-size="12" fill="#888">SmoothPath（可选）</text>
+  <text x="275" y="320" text-anchor="middle" font-size="11" fill="#888">默认 BT 不含</text>
+  <rect x="370" y="280" width="150" height="50" rx="6" fill="#e9f6ec" stroke="#4c9a5f"/>
+  <text x="445" y="302" text-anchor="middle" font-size="12" fill="#1f4d2b">FollowPath</text>
+  <text x="445" y="320" text-anchor="middle" font-size="11" fill="#555">→ controller_server</text>
+  <line x1="160" y1="240" x2="110" y2="278" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="200" y1="240" x2="270" y2="278" stroke="#999" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#a)"/>
+  <line x1="250" y1="240" x2="430" y2="278" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="505" y1="240" x2="560" y2="278" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+  <rect x="540" y="280" width="120" height="50" rx="6" fill="#f5ecf9" stroke="#8e5bb0"/>
+  <text x="600" y="310" text-anchor="middle" font-size="12" fill="#4a2a63">behavior_server</text>
+
+  <text x="30" y="370" font-size="12" fill="#444">tick 节点返回 SUCCESS / FAILURE / RUNNING；FollowPath 在机器人运动期间持续 RUNNING。</text>
+  <text x="30" y="390" font-size="12" fill="#444">真实 Humble 默认 BT 还包含按频率重规划、清除代价地图等节点，此图只保留与本章相关的骨架。</text>
+
+  <!-- lifecycle -->
+  <rect x="690" y="56" width="200" height="290" rx="8" fill="#f6f8fb" stroke="#c9d3e0"/>
+  <text x="790" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Lifecycle 节点</text>
+  <rect x="720" y="100" width="140" height="40" rx="20" fill="#eeeeee" stroke="#888"/>
+  <text x="790" y="125" text-anchor="middle" font-size="13" fill="#333">unconfigured</text>
+  <rect x="720" y="185" width="140" height="40" rx="20" fill="#fdf3e4" stroke="#d08a2e"/>
+  <text x="790" y="210" text-anchor="middle" font-size="13" fill="#6b4210">inactive</text>
+  <rect x="720" y="270" width="140" height="40" rx="20" fill="#e9f6ec" stroke="#4c9a5f"/>
+  <text x="790" y="295" text-anchor="middle" font-size="13" fill="#1f4d2b">active（提供服务）</text>
+  <line x1="790" y1="140" x2="790" y2="183" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="798" y="166" font-size="11" fill="#333">configure</text>
+  <line x1="790" y1="225" x2="790" y2="268" stroke="#444" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="798" y="251" font-size="11" fill="#333">activate</text>
+  <text x="790" y="334" text-anchor="middle" font-size="11" fill="#555">lifecycle_manager autostart: true</text>
+  <text x="690" y="370" font-size="11" fill="#555">ros2 lifecycle get /planner_server 查看</text>
+</svg>

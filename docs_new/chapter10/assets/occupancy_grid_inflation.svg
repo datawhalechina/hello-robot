@@ -1,0 +1,46 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560">
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#cbd5e1" stroke-width="1"/></pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:24px}.m{font-size:17px}.s{font-size:14px}</style>
+  </defs>
+  <rect width="1000" height="560" fill="#f8fafc"/>
+  <text x="500" y="38" text-anchor="middle" class="t b h">占据栅格与障碍物膨胀</text>
+  <text x="500" y="65" text-anchor="middle" class="t s">先把机器人尺寸“加到障碍物上”，再把机器人中心作为规划点</text>
+
+  <rect x="42" y="95" width="565" height="395" rx="16" fill="#fff" stroke="#94a3b8" stroke-width="2"/>
+  <rect x="58" y="111" width="533" height="363" fill="url(#grid)"/>
+  <g fill="#334155">
+    <rect x="122" y="143" width="128" height="96"/><rect x="410" y="303" width="128" height="96"/>
+    <rect x="282" y="111" width="64" height="96"/><rect x="282" y="367" width="64" height="107"/>
+  </g>
+  <g fill="#fca5a5" opacity="0.55" stroke="#ef4444" stroke-width="2">
+    <rect x="90" y="111" width="192" height="160" rx="28"/><rect x="378" y="271" width="192" height="160" rx="28"/>
+    <rect x="250" y="111" width="128" height="128" rx="28"/><rect x="250" y="335" width="128" height="139" rx="28"/>
+  </g>
+  <g fill="#334155">
+    <rect x="122" y="143" width="128" height="96"/><rect x="410" y="303" width="128" height="96"/>
+    <rect x="282" y="111" width="64" height="96"/><rect x="282" y="367" width="64" height="107"/>
+  </g>
+  <path d="M78 430 C170 402 204 317 276 302 C340 288 379 247 438 225 C486 207 530 183 571 144" fill="none" stroke="#2563eb" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="78" cy="430" r="10" fill="#22c55e"/><circle cx="571" cy="144" r="10" fill="#ef4444"/>
+  <circle cx="276" cy="302" r="19" fill="#fff" stroke="#0f766e" stroke-width="5"/>
+  <line x1="276" y1="302" x2="293" y2="292" stroke="#0f766e" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="645" y="104" width="310" height="86" rx="16" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+  <rect x="668" y="126" width="44" height="44" fill="#334155"/><rect x="728" y="126" width="44" height="44" rx="12" fill="#fca5a5" opacity="0.65" stroke="#ef4444"/>
+  <text x="795" y="139" class="t b m">灰色：真实障碍</text><text x="795" y="165" class="t s">红色：膨胀后的禁行区域</text>
+
+  <rect x="645" y="215" width="310" height="115" rx="16" fill="#ecfeff" stroke="#0891b2" stroke-width="2"/>
+  <text x="800" y="250" text-anchor="middle" class="t b m">膨胀半径</text>
+  <text x="800" y="284" text-anchor="middle" class="t m">R<tspan baseline-shift="sub" font-size="12">inflation</tspan> = R<tspan baseline-shift="sub" font-size="12">robot</tspan> + R<tspan baseline-shift="sub" font-size="12">margin</tspan></text>
+  <text x="800" y="312" text-anchor="middle" class="t s">本章：0.34 m + 0.10 m = 0.44 m</text>
+
+  <rect x="645" y="355" width="310" height="135" rx="16" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="800" y="388" text-anchor="middle" class="t b m">规划时关注机器人中心</text>
+  <text x="800" y="419" text-anchor="middle" class="t s">蓝线只要不进入红色区域，</text>
+  <text x="800" y="444" text-anchor="middle" class="t s">机器人外轮廓就能与障碍保持安全距离。</text>
+  <text x="800" y="470" text-anchor="middle" class="t s">膨胀过大：窄通道封闭；过小：碰撞风险上升。</text>
+
+  <text x="324" y="520" text-anchor="middle" class="t s">绿色为起点，红色为目标；示意路径在膨胀约束下绕开障碍。</text>
+</svg>

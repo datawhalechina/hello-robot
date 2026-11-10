@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" width="900" height="380" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#444"/>
+    </marker>
+  </defs>
+  <rect width="900" height="380" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">膨胀手算：分辨率 r = 0.1 m，膨胀半径 R = 0.15 m</text>
+
+  <!-- left grid: before -->
+  <text x="185" y="62" text-anchor="middle" font-size="14" fill="#333">膨胀前：只有中心 1 个占用栅格</text>
+  <g stroke="#999" stroke-width="1">
+    <rect x="60" y="80" width="250" height="250" fill="#ffffff"/>
+    <line x1="110" y1="80" x2="110" y2="330"/><line x1="160" y1="80" x2="160" y2="330"/>
+    <line x1="210" y1="80" x2="210" y2="330"/><line x1="260" y1="80" x2="260" y2="330"/>
+    <line x1="60" y1="130" x2="310" y2="130"/><line x1="60" y1="180" x2="310" y2="180"/>
+    <line x1="60" y1="230" x2="310" y2="230"/><line x1="60" y1="280" x2="310" y2="280"/>
+  </g>
+  <rect x="160" y="180" width="50" height="50" fill="#555"/>
+  <text x="185" y="210" text-anchor="middle" font-size="13" fill="#fff">100</text>
+
+  <!-- arrow -->
+  <line x1="330" y1="205" x2="420" y2="205" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="375" y="190" text-anchor="middle" font-size="12" fill="#444">inflated(0.15)</text>
+  <text x="375" y="228" text-anchor="middle" font-size="12" fill="#444">cells = ceil(1.5) = 2</text>
+
+  <!-- right grid: after -->
+  <text x="565" y="62" text-anchor="middle" font-size="14" fill="#333">膨胀后：3×3 共 9 个栅格被标记</text>
+  <g stroke="#999" stroke-width="1">
+    <rect x="440" y="80" width="250" height="250" fill="#ffffff"/>
+  </g>
+  <rect x="490" y="130" width="150" height="150" fill="#f3b3b1"/>
+  <rect x="540" y="180" width="50" height="50" fill="#555"/>
+  <g stroke="#999" stroke-width="1">
+    <line x1="490" y1="80" x2="490" y2="330"/><line x1="540" y1="80" x2="540" y2="330"/>
+    <line x1="590" y1="80" x2="590" y2="330"/><line x1="640" y1="80" x2="640" y2="330"/>
+    <line x1="440" y1="130" x2="690" y2="130"/><line x1="440" y1="180" x2="690" y2="180"/>
+    <line x1="440" y1="230" x2="690" y2="230"/><line x1="440" y1="280" x2="690" y2="280"/>
+  </g>
+  <text x="515" y="160" text-anchor="middle" font-size="11" fill="#7a1f1d">1.41</text>
+  <text x="565" y="160" text-anchor="middle" font-size="11" fill="#7a1f1d">1.0</text>
+  <text x="615" y="160" text-anchor="middle" font-size="11" fill="#7a1f1d">1.41</text>
+  <text x="515" y="210" text-anchor="middle" font-size="11" fill="#7a1f1d">1.0</text>
+  <text x="565" y="210" text-anchor="middle" font-size="11" fill="#fff">0</text>
+  <text x="615" y="210" text-anchor="middle" font-size="11" fill="#7a1f1d">1.0</text>
+  <text x="515" y="260" text-anchor="middle" font-size="11" fill="#7a1f1d">1.41</text>
+  <text x="565" y="260" text-anchor="middle" font-size="11" fill="#7a1f1d">1.0</text>
+  <text x="615" y="260" text-anchor="middle" font-size="11" fill="#7a1f1d">1.41</text>
+  <text x="565" y="110" text-anchor="middle" font-size="11" fill="#999">2.0</text>
+  <text x="465" y="210" text-anchor="middle" font-size="11" fill="#999">2.0</text>
+
+  <!-- notes -->
+  <text x="710" y="120" font-size="12" fill="#333">格内数字：偏移量</text>
+  <text x="710" y="138" font-size="12" fill="#333">hypot(dr, dc)（单位：格）</text>
+  <text x="710" y="170" font-size="12" fill="#333">判据：hypot × r ≤ R</text>
+  <text x="710" y="188" font-size="12" fill="#333">即 hypot ≤ 1.5</text>
+  <text x="710" y="220" font-size="12" fill="#7a1f1d">1.0、1.41 ≤ 1.5 → 标记</text>
+  <text x="710" y="238" font-size="12" fill="#999">2.0 &gt; 1.5 → 不标记</text>
+  <rect x="710" y="262" width="14" height="14" fill="#555"/><text x="730" y="274" font-size="12" fill="#333">原始障碍</text>
+  <rect x="710" y="286" width="14" height="14" fill="#f3b3b1"/><text x="730" y="298" font-size="12" fill="#333">膨胀区域</text>
+</svg>

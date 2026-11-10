@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" width="900" height="340" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2f7d32"/>
+    </marker>
+    <marker id="bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+  <rect width="900" height="340" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">对角移动的“防切角”（corner cutting）检查</text>
+
+  <!-- case 1: both orthogonal occupied -->
+  <text x="150" y="62" text-anchor="middle" font-size="14" fill="#333">情况 A：两侧都被占用</text>
+  <rect x="50" y="80" width="100" height="100" fill="#555" stroke="#999"/>
+  <rect x="150" y="80" width="100" height="100" fill="#f9d9b0" stroke="#999"/>
+  <rect x="50" y="180" width="100" height="100" fill="#cfe8d4" stroke="#999"/>
+  <rect x="150" y="180" width="100" height="100" fill="#555" stroke="#999"/>
+  <line x1="100" y1="230" x2="196" y2="134" stroke="#c0392b" stroke-width="3" stroke-dasharray="7 4" marker-end="url(#bad)"/>
+  <text x="100" y="262" text-anchor="middle" font-size="12" fill="#1f4d2b">当前</text>
+  <text x="200" y="112" text-anchor="middle" font-size="12" fill="#6b4210">候选</text>
+  <text x="150" y="306" text-anchor="middle" font-size="13" fill="#c0392b">禁止：从两个障碍角点之间穿过</text>
+
+  <!-- case 2: one orthogonal occupied -->
+  <text x="450" y="62" text-anchor="middle" font-size="14" fill="#333">情况 B：只有一侧被占用</text>
+  <rect x="350" y="80" width="100" height="100" fill="#ffffff" stroke="#999"/>
+  <rect x="450" y="80" width="100" height="100" fill="#f9d9b0" stroke="#999"/>
+  <rect x="350" y="180" width="100" height="100" fill="#cfe8d4" stroke="#999"/>
+  <rect x="450" y="180" width="100" height="100" fill="#555" stroke="#999"/>
+  <line x1="400" y1="230" x2="496" y2="134" stroke="#c0392b" stroke-width="3" stroke-dasharray="7 4" marker-end="url(#bad)"/>
+  <text x="400" y="262" text-anchor="middle" font-size="12" fill="#1f4d2b">当前</text>
+  <text x="500" y="112" text-anchor="middle" font-size="12" fill="#6b4210">候选</text>
+  <text x="450" y="306" text-anchor="middle" font-size="13" fill="#c0392b">本章代码同样禁止：任一侧占用即跳过</text>
+
+  <!-- case 3: both free -->
+  <text x="750" y="62" text-anchor="middle" font-size="14" fill="#333">情况 C：两侧都空闲</text>
+  <rect x="650" y="80" width="100" height="100" fill="#ffffff" stroke="#999"/>
+  <rect x="750" y="80" width="100" height="100" fill="#f9d9b0" stroke="#999"/>
+  <rect x="650" y="180" width="100" height="100" fill="#cfe8d4" stroke="#999"/>
+  <rect x="750" y="180" width="100" height="100" fill="#ffffff" stroke="#999"/>
+  <line x1="700" y1="230" x2="796" y2="134" stroke="#2f7d32" stroke-width="3" marker-end="url(#ok)"/>
+  <text x="700" y="262" text-anchor="middle" font-size="12" fill="#1f4d2b">当前</text>
+  <text x="800" y="112" text-anchor="middle" font-size="12" fill="#6b4210">候选</text>
+  <text x="750" y="306" text-anchor="middle" font-size="13" fill="#2f7d32">允许：代价 √2</text>
+  <text x="450" y="332" text-anchor="middle" font-size="12" fill="#666">检查的两个栅格：(row+dr, column) 与 (row, column+dc)</text>
+</svg>

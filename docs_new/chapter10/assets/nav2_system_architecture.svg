@@ -1,0 +1,52 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="650" viewBox="0 0 1100 650">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <marker id="feedback" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0f766e"/></marker>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:24px}.m{font-size:17px}.s{font-size:14px}.box{stroke-width:2}</style>
+  </defs>
+  <rect width="1100" height="650" fill="#f8fafc"/>
+  <text x="550" y="38" text-anchor="middle" class="t b h">本章 Nav2 示例的组件与数据流</text>
+  <text x="550" y="65" text-anchor="middle" class="t s">Nav2 不是单个规划器，而是由 Action、行为树、多个服务器、代价地图和底盘接口组成的系统</text>
+
+  <rect x="390" y="92" width="320" height="65" rx="16" fill="#ede9fe" stroke="#8b5cf6" class="box"/>
+  <text x="550" y="119" text-anchor="middle" class="t b m">NavigateToPose Action 目标</text><text x="550" y="143" text-anchor="middle" class="t s">目标位姿：map 坐标系中的 x、y、yaw</text>
+  <rect x="390" y="190" width="320" height="72" rx="16" fill="#fce7f3" stroke="#db2777" class="box"/>
+  <text x="550" y="220" text-anchor="middle" class="t b m">bt_navigator</text><text x="550" y="245" text-anchor="middle" class="t s">行为树调度规划、控制、检查与恢复</text>
+  <line x1="550" y1="157" x2="550" y2="182" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g class="box">
+    <rect x="45" y="315" width="205" height="105" rx="16" fill="#dbeafe" stroke="#3b82f6"/>
+    <rect x="285" y="315" width="205" height="105" rx="16" fill="#ffedd5" stroke="#f97316"/>
+    <rect x="525" y="315" width="205" height="105" rx="16" fill="#dcfce7" stroke="#22c55e"/>
+    <rect x="765" y="315" width="205" height="105" rx="16" fill="#fee2e2" stroke="#ef4444"/>
+  </g>
+  <g class="t" text-anchor="middle">
+    <text x="147" y="346" class="b m">planner_server</text><text x="147" y="374" class="s">NavFn A* 生成全局路径</text><text x="147" y="398" class="s">读取 global_costmap</text>
+    <text x="387" y="346" class="b m">smoother_server</text><text x="387" y="374" class="s">Simple Smoother</text><text x="387" y="398" class="s">由行为树显式调用时执行</text>
+    <text x="627" y="346" class="b m">controller_server</text><text x="627" y="374" class="s">DWB 采样和评价轨迹</text><text x="627" y="398" class="s">读取 local_costmap</text>
+    <text x="867" y="346" class="b m">behavior_server</text><text x="867" y="374" class="s">旋转、后退、等待</text><text x="867" y="398" class="s">任务失败时提供恢复</text>
+  </g>
+  <g stroke="#475569" stroke-width="3" marker-end="url(#arrow)">
+    <path d="M505 262 V285 H147 V307" fill="none"/><path d="M535 262 V285 H387 V307" fill="none"/><path d="M565 262 V285 H627 V307" fill="none"/><path d="M595 262 V285 H867 V307" fill="none"/>
+  </g>
+
+  <rect x="65" y="460" width="405" height="70" rx="15" fill="#e0f2fe" stroke="#0284c7" class="box"/>
+  <text x="267" y="489" text-anchor="middle" class="t b m">map_server + global_costmap</text><text x="267" y="514" text-anchor="middle" class="t s">静态地图、实时障碍、膨胀层</text>
+  <rect x="525" y="460" width="205" height="70" rx="15" fill="#ecfeff" stroke="#0891b2" class="box"/>
+  <text x="627" y="489" text-anchor="middle" class="t b m">local_costmap</text><text x="627" y="514" text-anchor="middle" class="t s">6 m × 6 m 滚动窗口</text>
+  <path d="M147 420 V452" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/><path d="M627 420 V452" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="765" y="460" width="205" height="70" rx="15" fill="#ecfccb" stroke="#65a30d" class="box"/>
+  <text x="867" y="489" text-anchor="middle" class="t b m">velocity_smoother</text><text x="867" y="514" text-anchor="middle" class="t s">限速、限加速度、超时保护</text>
+  <path d="M730 367 H750 Q760 367 760 380 V451" fill="none" stroke="#475569" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="765" y="560" width="205" height="62" rx="15" fill="#fff7ed" stroke="#f59e0b" class="box"/>
+  <text x="867" y="586" text-anchor="middle" class="t b m">/cmd_vel → nav2_bridge.py</text><text x="867" y="609" text-anchor="middle" class="t s">G2BaseController → Isaac Sim G2</text>
+  <line x1="867" y1="530" x2="867" y2="552" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="65" y="560" width="590" height="62" rx="15" fill="#f0fdfa" stroke="#0f766e" class="box"/>
+  <text x="360" y="586" text-anchor="middle" class="t b m">反馈数据：/odom、/scan、TF、/clock</text><text x="360" y="609" text-anchor="middle" class="t s">更新位姿和两层代价地图，使下一控制周期基于最新环境状态</text>
+  <path d="M757 591 H663" stroke="#0f766e" stroke-width="4" marker-end="url(#feedback)"/>
+  <path d="M360 560 V545 Q360 540 350 540 H267 V538" fill="none" stroke="#0f766e" stroke-width="3" marker-end="url(#feedback)"/>
+  <path d="M480 560 V545 Q480 540 490 540 H627 V538" fill="none" stroke="#0f766e" stroke-width="3" marker-end="url(#feedback)"/>
+</svg>

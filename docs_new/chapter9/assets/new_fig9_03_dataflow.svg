@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="800" viewBox="0 0 1300 800" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5B6B7C"/>
+    </marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#C0392B"/>
+    </marker>
+  </defs>
+  <rect width="1300" height="800" fill="#FFFFFF"/>
+  <text x="650" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#1F2D3D">一轮抓放的数据流：每一步交给下一步的是什么数据</text>
+  <text x="650" y="62" text-anchor="middle" font-size="14" fill="#5B6B7C">蓝色＝感知，绿色＝几何与抓取，橙色＝规划与控制；红色虚线＝拒绝/停止出口</text>
+
+  <!-- Row 1: perception -->
+  <g font-size="13" fill="#1F2D3D">
+    <rect x="30" y="90" width="285" height="170" rx="10" fill="#EAF2FB" stroke="#2E6DB4" stroke-width="2"/>
+    <text x="45" y="116" font-size="15" font-weight="700" fill="#2E6DB4">① 观察 rgbd.npz</text>
+    <text x="45" y="141">rgb：480×640×3 uint8</text>
+    <text x="45" y="162">depth：480×640 float32，光轴深度 m</text>
+    <text x="45" y="183">K：3×3；T_world_camera：4×4</text>
+    <text x="45" y="204">frame_id、sim_time</text>
+    <text x="45" y="225">table_z、workspace、place_xy</text>
+    <text x="45" y="246" fill="#5B6B7C">camera.capture() + demo_grasp.observe</text>
+
+    <rect x="345" y="90" width="285" height="170" rx="10" fill="#EAF2FB" stroke="#2E6DB4" stroke-width="2"/>
+    <text x="360" y="116" font-size="15" font-weight="700" fill="#2E6DB4">② 场景支路</text>
+    <text x="360" y="141">unproject(stride=2) → clean_cloud</text>
+    <text x="360" y="162">（3 mm 体素 + MAD 去飞点）</text>
+    <text x="360" y="183">裁剪：workspace 与 z∈[桌高−4.5cm, +40cm]</text>
+    <text x="360" y="204">scene：N×3 世界坐标</text>
+    <text x="360" y="225">fit_table → plane = [nx,ny,nz,d]</text>
+    <text x="360" y="246" fill="#5B6B7C">worker.VisionPipeline.run</text>
+
+    <rect x="660" y="90" width="285" height="170" rx="10" fill="#EAF2FB" stroke="#2E6DB4" stroke-width="2"/>
+    <text x="675" y="116" font-size="15" font-weight="700" fill="#2E6DB4">③ 检测 + 分割</text>
+    <text x="675" y="141">YOLO：conf≥0.18，NMS IoU 0.45</text>
+    <text x="675" y="162">SAM2：框提示，多掩码取最高分</text>
+    <text x="675" y="183">筛选：分数≥0.60、框附近、最大连通域</text>
+    <text x="675" y="204">面积 60 px～25% 图像、去重</text>
+    <text x="675" y="225">detections：box/mask/label/conf/sam_score</text>
+    <text x="675" y="246" fill="#5B6B7C">perception.DetectorSegmenter</text>
+
+    <rect x="975" y="90" width="295" height="170" rx="10" fill="#E9F7EF" stroke="#239B56" stroke-width="2"/>
+    <text x="990" y="116" font-size="15" font-weight="700" fill="#1E8449">④ 目标支路 object_i</text>
+    <text x="990" y="141">掩码 3×3 腐蚀 → unproject(mask)</text>
+    <text x="990" y="162">clean_cloud → 高于桌面 7 mm</text>
+    <text x="990" y="183">不在接收区（中位点判定）</text>
+    <text x="990" y="204">有效点 ≥ 40 → object_i：M×3</text>
+    <text x="990" y="225">estimate_pose → ObjectPose</text>
+    <text x="990" y="246" fill="#5B6B7C">center/rotation/extents/yaw_observable</text>
+  </g>
+
+  <!-- Row 2: grasp -->
+  <g font-size="13" fill="#1F2D3D">
+    <rect x="975" y="320" width="295" height="160" rx="10" fill="#E9F7EF" stroke="#239B56" stroke-width="2"/>
+    <text x="990" y="346" font-size="15" font-weight="700" fill="#1E8449">⑤ 原始候选 Grasp 列表</text>
+    <text x="990" y="371">geometry：12 偏航 × 2 高度 ≤ 24/物体</text>
+    <text x="990" y="392">graspgenx：采样 256，保留前 64/物体</text>
+    <text x="990" y="413">Grasp.T：4×4（world ← G，TCP）</text>
+    <text x="990" y="434">width、score、object_id、source</text>
+    <text x="990" y="462" fill="#5B6B7C">grasp_planner / graspgenx_backend</text>
+
+    <rect x="660" y="320" width="285" height="160" rx="10" fill="#E9F7EF" stroke="#239B56" stroke-width="2"/>
+    <text x="675" y="346" font-size="15" font-weight="700" fill="#1E8449">⑥ 统一筛选 filter_grasps</text>
+    <text x="675" y="371">T ∈ SE(3)；1.4 cm ≤ width ≤ 最大开口−2余量</text>
+    <text x="675" y="392">俯抓倾角 ≤ 25°</text>
+    <text x="675" y="413">接近线 13 个采样位姿无碰撞</text>
+    <text x="675" y="434">按实例轮转，最多 24 个</text>
+    <text x="675" y="462" fill="#5B6B7C">→ result.npz、perception.json</text>
+
+    <rect x="345" y="320" width="285" height="160" rx="10" fill="#FDF3E7" stroke="#D68910" stroke-width="2"/>
+    <text x="360" y="346" font-size="15" font-weight="700" fill="#B9770E">⑦ 规划 PickController.plan</text>
+    <text x="360" y="371">世界 → 基座：T_base_world · T</text>
+    <text x="360" y="392">完整位姿 IK（多初值，FK 复验）</text>
+    <text x="360" y="413">PickPlan：approach / descend / lift /</text>
+    <text x="360" y="434">transfer / place / retreat / home</text>
+    <text x="360" y="462" fill="#5B6B7C">每段为 7 维关节路点列表 → planning.json</text>
+
+    <rect x="30" y="320" width="285" height="160" rx="10" fill="#FDF3E7" stroke="#D68910" stroke-width="2"/>
+    <text x="45" y="346" font-size="15" font-weight="700" fill="#B9770E">⑧ 执行 execute / move</text>
+    <text x="45" y="371">smoothstep 插值 → command_positions</text>
+    <text x="45" y="392">每步读反馈：跟踪误差 &gt; 0.4 rad 停止</text>
+    <text x="45" y="413">段末：关节收敛、TCP 偏差 ≤ 15 mm</text>
+    <text x="45" y="434">预抓取位复核：同类且中位点 &lt; 1.5 cm</text>
+    <text x="45" y="462" fill="#5B6B7C">夹爪 grip(OPEN / CLOSED)</text>
+  </g>
+
+  <!-- Row 3: verify -->
+  <g font-size="13" fill="#1F2D3D">
+    <rect x="30" y="560" width="400" height="150" rx="10" fill="#F6F8FA" stroke="#5B6B7C" stroke-width="2"/>
+    <text x="45" y="586" font-size="15" font-weight="700" fill="#1F2D3D">⑨ 验收（使用仿真真值，决定是否继续）</text>
+    <text x="45" y="611">抬升：恰好 1 件物体上升 &gt; 4.5 cm</text>
+    <text x="45" y="632">搬运后：仍有物体处于抬起状态</text>
+    <text x="45" y="653">放置：落入接收区、高度合理、|v| &lt; 0.03 m/s</text>
+    <text x="45" y="674">records ← {lifted, placed, gripper_angle, status}</text>
+    <text x="45" y="697" fill="#5B6B7C">scene.evaluate_lift / scene.placed</text>
+
+    <rect x="470" y="560" width="380" height="150" rx="10" fill="#F6F8FA" stroke="#5B6B7C" stroke-width="2"/>
+    <text x="485" y="586" font-size="15" font-weight="700" fill="#1F2D3D">⑩ 下一轮或结束</text>
+    <text x="485" y="611">回到 home → 重新拍摄 → 回到 ①</text>
+    <text x="485" y="632">已放置物体由接收区规则过滤</text>
+    <text x="485" y="653">轮数：--max-picks N 或 --pick-all</text>
+    <text x="485" y="674">summary.json：records + exit_status</text>
+    <text x="485" y="697" fill="#5B6B7C">0 正常 / 1 异常 / 2 执行失败 / 3 无候选或无计划</text>
+
+    <rect x="890" y="560" width="380" height="150" rx="10" fill="#FDEDEC" stroke="#C0392B" stroke-width="2"/>
+    <text x="905" y="586" font-size="15" font-weight="700" fill="#C0392B">拒绝 / 停止出口（不盲抓）</text>
+    <text x="905" y="611">④ 点太少、高度异常 → 该实例 rejected</text>
+    <text x="905" y="632">⑥ 无候选 → status=3，no_grasp</text>
+    <text x="905" y="653">⑦ 所有候选规划失败 → status=3</text>
+    <text x="905" y="674">⑧⑨ 跟踪/复核/抬升/放置失败 → status=2</text>
+    <text x="905" y="697">任何异常 → status=1</text>
+  </g>
+
+  <!-- arrows row1 -->
+  <line x1="315" y1="175" x2="343" y2="175" stroke="#5B6B7C" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M 172 90 C 172 70, 802 70, 802 88" fill="none" stroke="#5B6B7C" stroke-width="2" marker-end="url(#a)"/>
+  <text x="487" y="82" text-anchor="middle" font-size="12" fill="#5B6B7C">rgb（同一帧）</text>
+  <line x1="945" y1="175" x2="973" y2="175" stroke="#5B6B7C" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M 487 260 C 487 290, 1060 280, 1060 262" fill="none" stroke="#5B6B7C" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a)"/>
+  <text x="760" y="292" text-anchor="middle" font-size="12" fill="#5B6B7C">plane（桌面分离）、scene（碰撞检查）</text>
+  <!-- down -->
+  <line x1="1122" y1="260" x2="1122" y2="318" stroke="#5B6B7C" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="975" y1="400" x2="947" y2="400" stroke="#5B6B7C" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="660" y1="400" x2="632" y2="400" stroke="#5B6B7C" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="345" y1="400" x2="317" y2="400" stroke="#5B6B7C" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="172" y1="480" x2="172" y2="558" stroke="#5B6B7C" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="430" y1="635" x2="468" y2="635" stroke="#5B6B7C" stroke-width="2" marker-end="url(#a)"/>
+  <!-- loop back to 1 -->
+  <path d="M 660 710 C 660 780, 10 780, 10 400 C 10 300, 15 200, 28 175" fill="none" stroke="#2E6DB4" stroke-width="2" marker-end="url(#a)"/>
+  <text x="330" y="772" text-anchor="middle" font-size="13" fill="#2E6DB4">逐轮闭环：抓放一件 → 回位 → 重新感知</text>
+  <!-- reject arrows -->
+  <line x1="800" y1="480" x2="905" y2="558" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#r)"/>
+  <line x1="487" y1="480" x2="895" y2="566" stroke="#C0392B" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#r)"/>
+</svg>

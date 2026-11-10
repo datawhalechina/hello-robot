@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 400" width="920" height="400" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#444"/>
+    </marker>
+  </defs>
+  <rect width="920" height="400" fill="#ffffff"/>
+  <text x="460" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">TeachingNavigator 状态机（navigator.py）</text>
+
+  <rect x="30" y="160" width="110" height="50" rx="25" fill="#eeeeee" stroke="#888" stroke-width="1.5"/>
+  <text x="85" y="190" text-anchor="middle" font-size="14" fill="#333">IDLE</text>
+
+  <rect x="220" y="160" width="140" height="50" rx="25" fill="#e8f1fb" stroke="#4a7fbf" stroke-width="1.5"/>
+  <text x="290" y="190" text-anchor="middle" font-size="14" fill="#1f3b5c">PLANNING</text>
+
+  <rect x="460" y="160" width="160" height="50" rx="25" fill="#e9f6ec" stroke="#4c9a5f" stroke-width="1.5"/>
+  <text x="540" y="190" text-anchor="middle" font-size="14" fill="#1f4d2b">CONTROLLING</text>
+
+  <rect x="460" y="300" width="160" height="50" rx="25" fill="#fdf3e4" stroke="#d08a2e" stroke-width="1.5"/>
+  <text x="540" y="330" text-anchor="middle" font-size="14" fill="#6b4210">RECOVERY</text>
+
+  <rect x="730" y="80" width="160" height="50" rx="25" fill="#dff3e3" stroke="#2f7d32" stroke-width="1.5"/>
+  <text x="810" y="110" text-anchor="middle" font-size="14" fill="#1f4d2b">SUCCEEDED</text>
+
+  <rect x="730" y="240" width="160" height="50" rx="25" fill="#fbeaea" stroke="#c0504d" stroke-width="1.5"/>
+  <text x="810" y="270" text-anchor="middle" font-size="14" fill="#6b1f1d">FAILED</text>
+
+  <line x1="140" y1="185" x2="218" y2="185" stroke="#444" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="179" y="176" text-anchor="middle" font-size="11" fill="#333">set_goal()</text>
+
+  <line x1="360" y1="185" x2="458" y2="185" stroke="#444" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="409" y="166" text-anchor="middle" font-size="11" fill="#333">A* 成功 +</text>
+  <text x="409" y="180" text-anchor="middle" font-size="11" fill="#333">optimize()</text>
+
+  <path d="M290,160 C300,80 650,60 728,100" fill="none" stroke="#c0504d" stroke-width="1.4" stroke-dasharray="5 3"/>
+  <path d="M290,210 C300,300 600,300 728,272" fill="none" stroke="#c0504d" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#a)"/>
+  <text x="330" y="262" font-size="11" fill="#7a1f1d">PlanningError</text>
+
+  <line x1="620" y1="175" x2="728" y2="112" stroke="#2f7d32" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="640" y="132" font-size="11" fill="#1f4d2b">位置≤0.12 m 且</text>
+  <text x="640" y="146" font-size="11" fill="#1f4d2b">航向≤0.12 rad</text>
+
+  <line x1="560" y1="210" x2="560" y2="298" stroke="#444" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="568" y="236" font-size="11" fill="#333">局部阻塞 / 卡住 7 s /</text>
+  <text x="568" y="250" font-size="11" fill="#333">碰撞监控急停</text>
+
+  <path d="M460,325 C330,330 290,280 290,212" fill="none" stroke="#d08a2e" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="300" y="340" font-size="11" fill="#6b4210">清局部历史、零速度，重新全局规划</text>
+
+  <line x1="620" y1="316" x2="728" y2="282" stroke="#c0504d" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="640" y="320" font-size="11" fill="#7a1f1d">第 4 次恢复请求</text>
+  <text x="640" y="334" font-size="11" fill="#7a1f1d">（&gt; max 3）</text>
+
+  <text x="30" y="385" font-size="12" fill="#666">虚线红箭头：规划失败直接进入 FAILED；任何状态收到新目标都会经 set_goal() 重新进入 PLANNING。</text>
+</svg>

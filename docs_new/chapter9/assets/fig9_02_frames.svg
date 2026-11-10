@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="830" viewBox="0 0 1500 830" role="img" aria-labelledby="title desc">
+<title id="title">图 9-2｜把像素坐标变成机器人能执行的 TCP 位姿</title><desc id="desc">先统一深度、单位与坐标约定，再谈姿态估计和逆运动学。</desc>
+<rect width="1500" height="830" fill="#F5F8FC"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#69788A"/></marker></defs>
+<text x="45" y="58" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="32" font-weight="700" fill="#18334B">图 9-2｜把像素坐标变成机器人能执行的 TCP 位姿</text>
+<text x="45" y="100" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#69788A">先统一深度、单位与坐标约定，再谈姿态估计和逆运动学。</text>
+<rect x="50" y="165" width="320" height="177" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="70" y="202" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5">像素与光轴深度</text>
+<text x="70" y="239" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">像素 (u, v)，深度 z</text>
+<text x="70" y="270" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">z 使用米；不是射线距离</text>
+<text x="70" y="301" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">内参 K 描述投影关系</text>
+<rect x="410" y="165" width="320" height="177" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="430" y="202" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5">相机光学系 C</text>
+<text x="430" y="239" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">p_C = z · K⁻¹ · [u,v,1]ᵀ</text>
+<text x="430" y="270" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">X 向右，Y 向下</text>
+<text x="430" y="301" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">Z 沿光轴向前</text>
+<rect x="770" y="165" width="320" height="177" rx="15" fill="white" stroke="#17816E" stroke-width="2"/>
+<text x="790" y="202" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#17816E">世界坐标系 W</text>
+<text x="790" y="239" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">p_W = R_WC · p_C + t_WC</text>
+<text x="790" y="270" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">统一点云、桌面和夹爪</text>
+<text x="790" y="301" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">本章世界坐标 Z 向上</text>
+<rect x="1130" y="165" width="320" height="177" rx="15" fill="white" stroke="#BC641D" stroke-width="2"/>
+<text x="1150" y="202" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#BC641D">机械臂基座系 B</text>
+<text x="1150" y="239" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">由 T_world_base 的逆变换</text>
+<text x="1150" y="270" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">把世界目标转到 IK 坐标系</text>
+<text x="1150" y="301" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">与 FK 的基座定义一致</text>
+<path d="M370 250 H408" fill="none" stroke="#69788A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M730 250 H768" fill="none" stroke="#69788A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M1090 250 H1128" fill="none" stroke="#69788A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="50" y="404" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#18334B">抓取位姿还要对齐夹爪参考点，不能只转换物体中心。</text>
+<rect x="50" y="445" width="420" height="170" rx="15" fill="white" stroke="#7452AE" stroke-width="2"/>
+<text x="70" y="482" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#7452AE">模型夹爪基准 H</text>
+<text x="70" y="519" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">GraspGenX 给出夹爪基准位姿</text>
+<text x="70" y="550" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">点云去中心化后，平移只恢复一次</text>
+<text x="70" y="581" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">夹爪几何来自实测扫掠体</text>
+<rect x="540" y="445" width="420" height="170" rx="15" fill="white" stroke="#17816E" stroke-width="2"/>
+<text x="560" y="482" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#17816E">控制 TCP 坐标系 G</text>
+<text x="560" y="519" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">T_world_G = T_world_H · T_H_G</text>
+<text x="560" y="550" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">用标定关系对齐参考点与朝向</text>
+<text x="560" y="581" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">闭合轴、接近轴必须约定一致</text>
+<rect x="1030" y="445" width="420" height="170" rx="15" fill="white" stroke="#BC641D" stroke-width="2"/>
+<text x="1050" y="482" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#BC641D">完整位姿 IK 目标</text>
+<text x="1050" y="519" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">T_base_G = T_world_base⁻¹</text>
+<text x="1050" y="550" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">                         · T_world_G</text>
+<text x="1050" y="581" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">同时约束位置和朝向</text>
+<path d="M470 530 H538" fill="none" stroke="#69788A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M960 530 H1028" fill="none" stroke="#69788A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="50" y="675" width="1400" height="105" rx="15" fill="white" stroke="#69788A" stroke-width="2"/>
+<text x="70" y="712" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#69788A">检查顺序</text>
+<text x="70" y="749" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">图像与深度对齐 → 米与像素不混用 → 相机轴方向正确 → 变换方向正确 → TCP 与夹爪基准一致</text>
+</svg>

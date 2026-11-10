@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="600" viewBox="0 0 1300 600" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#2E6DB4"/>
+    </marker>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#D68910"/>
+    </marker>
+  </defs>
+  <rect width="1300" height="600" fill="#FFFFFF"/>
+  <text x="650" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#1F2D3D">PickPlan 的八个阶段（侧视示意，高度为相对桌面的数值案例）</text>
+  <text x="650" y="62" text-anchor="middle" font-size="14" fill="#5B6B7C">蓝色实线＝关节空间插值；橙色实线＝固定朝向笛卡尔直线（每 1.2 cm 一个 IK 点）；数值以抓取点高 26 mm 的肥皂为例</text>
+
+  <!-- table -->
+  <rect x="60" y="470" width="1180" height="18" fill="#C9CED4"/>
+  <text x="70" y="510" font-size="13" fill="#5B6B7C">桌面（z = 0）</text>
+  <!-- tray -->
+  <rect x="930" y="462" width="220" height="8" fill="#2F5D6B"/>
+  <text x="1040" y="530" text-anchor="middle" font-size="13" fill="#2F5D6B">接收区（托盘中心附近 5 个备选点）</text>
+  <!-- object -->
+  <rect x="330" y="443" width="60" height="27" fill="#F5D6E3" stroke="#B0577F"/>
+  <text x="360" y="530" text-anchor="middle" font-size="13" fill="#7B2E52">目标物体</text>
+
+  <!-- scale: 1 mm = 0.7 px vertically roughly; pick at z=26 -> y=452 ; pre at 146 -> y=368 ; lift at 186 -> y=340; transfer >=230 -> y=309 ; place 88 -> y= 408 -->
+  <!-- home -->
+  <circle cx="140" cy="150" r="9" fill="#1F2D3D"/>
+  <text x="155" y="140" font-size="14" fill="#1F2D3D">home（HOME_RIGHT）</text>
+  <!-- observation -->
+  <circle cx="270" cy="350" r="8" fill="#2E6DB4"/>
+  <text x="140" y="342" font-size="13" fill="#2E6DB4">观察位</text>
+  <text x="120" y="360" font-size="12" fill="#2E6DB4">pre + (−13 cm, 0, +2.5 cm)</text>
+  <!-- pre -->
+  <circle cx="360" cy="368" r="8" fill="#D68910"/>
+  <text x="380" y="372" font-size="13" fill="#B9770E">预抓取 pre：z = 26 + 120 = 146 mm</text>
+  <!-- grasp -->
+  <circle cx="360" cy="452" r="8" fill="#C0392B"/>
+  <text x="400" y="456" font-size="13" fill="#C0392B">抓取 T：z = 26 mm，闭合夹爪</text>
+  <!-- lift -->
+  <circle cx="360" cy="340" r="8" fill="#D68910"/>
+  <text x="380" y="330" font-size="13" fill="#B9770E">抬升 lift：z = 26 + 160 = 186 mm</text>
+  <!-- transfer target -->
+  <circle cx="1040" cy="309" r="8" fill="#D68910"/>
+  <text x="840" y="292" font-size="13" fill="#B9770E">搬运终点：z = max(186, 230) = 230 mm</text>
+  <!-- place -->
+  <circle cx="1040" cy="402" r="8" fill="#D68910"/>
+  <text x="1060" y="406" font-size="13" fill="#B9770E">释放 place：托盘面 + 80 mm，打开夹爪</text>
+
+  <!-- paths -->
+  <path d="M 140 159 C 160 260, 220 330, 262 348" fill="none" stroke="#2E6DB4" stroke-width="3" marker-end="url(#a)"/>
+  <text x="70" y="250" font-size="13" fill="#2E6DB4">① approach</text>
+  <line x1="278" y1="352" x2="350" y2="366" stroke="#D68910" stroke-width="3" marker-end="url(#b)"/>
+  <text x="250" y="398" font-size="12" fill="#B9770E">② descend 前半</text>
+  <line x1="352" y1="378" x2="352" y2="442" stroke="#D68910" stroke-width="3" marker-end="url(#b)"/>
+  <text x="250" y="420" font-size="12" fill="#B9770E">② descend 下探</text>
+  <line x1="370" y1="442" x2="370" y2="350" stroke="#D68910" stroke-width="3" marker-end="url(#b)"/>
+  <text x="380" y="412" font-size="12" fill="#B9770E">③ lift（验证抬升 &gt;4.5 cm）</text>
+  <line x1="368" y1="336" x2="1030" y2="310" stroke="#D68910" stroke-width="3" marker-end="url(#b)"/>
+  <text x="560" y="314" font-size="13" fill="#B9770E">④ transfer（持物包围盒参与碰撞检查）</text>
+  <line x1="1034" y1="318" x2="1034" y2="392" stroke="#D68910" stroke-width="3" marker-end="url(#b)"/>
+  <text x="960" y="360" font-size="12" fill="#B9770E">⑤ place</text>
+  <line x1="1048" y1="392" x2="1048" y2="320" stroke="#D68910" stroke-width="3" marker-end="url(#b)"/>
+  <text x="1056" y="360" font-size="12" fill="#B9770E">⑥ retreat</text>
+  <path d="M 1040 300 C 900 120, 400 100, 152 146" fill="none" stroke="#2E6DB4" stroke-width="3" marker-end="url(#a)"/>
+  <text x="600" y="128" font-size="13" fill="#2E6DB4">⑦ home（接收区加入保守占据体后检查）</text>
+
+  <!-- recheck mark -->
+  <rect x="440" y="180" width="350" height="70" rx="10" fill="#EAF2FB" stroke="#2E6DB4"/>
+  <text x="455" y="205" font-size="13" fill="#1F2D3D">到达观察位后执行 recheck：重新拍摄、检测、分割</text>
+  <text x="455" y="228" font-size="13" fill="#1F2D3D">同类别 且 中位点位移 &lt; 1.5 cm 才继续下探</text>
+  <line x1="440" y1="230" x2="280" y2="340" stroke="#2E6DB4" stroke-dasharray="5 4" stroke-width="1.5"/>
+
+  <text x="650" y="575" text-anchor="middle" font-size="13" fill="#5B6B7C">全部阶段在执行前一次性规划完成，任一阶段失败即换下一个候选；全部失败则 status=3，不执行任何动作</text>
+</svg>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="640" viewBox="0 0 1300 640" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5B6B7C"/>
+    </marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#239B56"/>
+    </marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#C0392B"/>
+    </marker>
+  </defs>
+  <rect width="1300" height="640" fill="#FFFFFF"/>
+  <text x="650" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#1F2D3D">数值案例：几何后端为肥皂（70×38×27 mm）生成俯抓候选</text>
+  <text x="650" y="62" text-anchor="middle" font-size="14" fill="#5B6B7C">俯视图；箭头为夹爪闭合方向 x_G（θ 相对 PCA 主轴）；假设可见点均匀覆盖顶面，1%/99% 分位数≈边缘</text>
+
+  <!-- top view -->
+  <rect x="40" y="90" width="560" height="520" rx="12" fill="#F6F8FA" stroke="#9AA8B6"/>
+  <g transform="translate(320,350)">
+    <rect x="-140" y="-76" width="280" height="152" fill="#F5D6E3" stroke="#B0577F" stroke-width="2"/>
+    <text x="0" y="5" text-anchor="middle" font-size="15" fill="#7B2E52">soap（4 px = 1 mm）</text>
+    <line x1="-200" y1="0" x2="-150" y2="0" stroke="#5B6B7C" stroke-dasharray="4 3"/>
+    <text x="-238" y="-8" font-size="12" fill="#5B6B7C">PCA 主轴</text>
+    <!-- theta 0 -->
+    <line x1="-60" y1="-110" x2="60" y2="-110" stroke="#239B56" stroke-width="3" marker-end="url(#g)" marker-start="url(#g)"/>
+    <text x="0" y="-122" text-anchor="middle" font-size="13" fill="#239B56">θ=0°：w = 70+6 = 76 mm ✓</text>
+    <!-- theta 90 -->
+    <line x1="180" y1="-55" x2="180" y2="55" stroke="#239B56" stroke-width="3" marker-end="url(#g)" marker-start="url(#g)"/>
+    <text x="192" y="-8" font-size="13" fill="#239B56">θ=90°</text>
+    <text x="192" y="12" font-size="13" fill="#239B56">w = 38+6 = 44 mm ✓</text>
+    <!-- theta 30 -->
+    <line x1="-110" y1="160" x2="-10" y2="102" stroke="#C0392B" stroke-width="3" marker-end="url(#r)" marker-start="url(#r)"/>
+    <text x="-250" y="190" font-size="13" fill="#C0392B">θ=30°：w ≈ 79.6+6 = 85.6 mm ✗（&gt;77）</text>
+    <!-- theta 60 -->
+    <line x1="60" y1="160" x2="118" y2="100" stroke="#239B56" stroke-width="3" marker-end="url(#g)" marker-start="url(#g)"/>
+    <text x="40" y="190" font-size="13" fill="#239B56">θ=60°：w ≈ 67.9+6 = 73.9 mm ✓</text>
+  </g>
+
+  <!-- table -->
+  <g font-size="14" fill="#1F2D3D">
+    <rect x="630" y="90" width="640" height="300" rx="12" fill="#FFFFFF" stroke="#9AA8B6"/>
+    <text x="650" y="118" font-size="16" font-weight="700">① 开口需求 w(θ) = 70|cosθ| + 38|sinθ| + 6（mm）</text>
+    <text x="650" y="146">筛选上限：max_width − 2·margin = 85 − 8 = 77 mm（默认几何，标定后会更新）</text>
+    <line x1="650" y1="160" x2="1250" y2="160" stroke="#D5DCE3"/>
+    <text x="650" y="184" font-weight="700">θ（12 个偏航）</text><text x="900" y="184" font-weight="700">w / mm</text><text x="1010" y="184" font-weight="700">宽度筛选</text><text x="1120" y="184" font-weight="700">score(0.55)</text>
+    <text x="650" y="212">0°, 180°</text><text x="900" y="212">76.0</text><text x="1010" y="212" fill="#239B56">通过</text><text x="1120" y="212">0.642</text>
+    <text x="650" y="240">30°, 150°, 210°, 330°</text><text x="900" y="240">85.6</text><text x="1010" y="240" fill="#C0392B">拒绝</text><text x="1120" y="240">—</text>
+    <text x="650" y="268">60°, 120°, 240°, 300°</text><text x="900" y="268">73.9</text><text x="1010" y="268" fill="#239B56">通过</text><text x="1120" y="268">0.652</text>
+    <text x="650" y="296">90°, 270°</text><text x="900" y="296">44.0</text><text x="1010" y="296" fill="#239B56">通过</text><text x="1120" y="296" font-weight="700">0.793</text>
+    <text x="650" y="330" fill="#5B6B7C">score = 1 − w/85×0.4 − |fraction−0.55|×0.2；fraction=0.72 时再减 0.034</text>
+    <text x="650" y="356" fill="#5B6B7C">θ 与 θ+180° 宽度相同：双指夹爪对称，排序会出现成对候选</text>
+    <text x="650" y="378" fill="#5B6B7C">8 个偏航 × 2 个高度 = 16 个通过宽度筛选（仍需倾角与碰撞检查）</text>
+
+    <rect x="630" y="405" width="640" height="205" rx="12" fill="#FFFFFF" stroke="#9AA8B6"/>
+    <text x="650" y="433" font-size="16" font-weight="700">② 接触高度（相对桌面，mm）</text>
+    <text x="650" y="461">候选高度 = max(bottom + h·fraction, bottom + finger_z_max + 10)</text>
+    <text x="650" y="489">fraction=0.55：max(27×0.55=14.9, 16+10=26) = 26</text>
+    <text x="650" y="515">fraction=0.72：max(27×0.72=19.4, 26) = 26</text>
+    <text x="650" y="541">上限检查：26 ≤ h + 10 = 37 → 保留</text>
+    <text x="650" y="571" fill="#B9770E">27 mm 的矮物体两档被净空“抬平”成同一高度，只差分数；h &gt; 36 mm</text>
+    <text x="650" y="595" fill="#B9770E">时 0.72 档才高出 26 mm；h &lt; 16 mm 时两档都超上限被跳过（默认几何）。</text>
+  </g>
+</svg>

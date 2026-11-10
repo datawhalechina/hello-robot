@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" width="980" height="560" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect width="980" height="560" fill="#ffffff"/>
+  <text x="490" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#222">第十章知识地图：原理（左）与两套代码（右）</text>
+
+  <!-- left column: principles -->
+  <rect x="30" y="56" width="430" height="484" rx="10" fill="#f6f8fb" stroke="#c9d3e0"/>
+  <text x="245" y="80" text-anchor="middle" font-size="15" font-weight="bold" fill="#34495e">原理部分</text>
+
+  <rect x="60" y="94" width="370" height="50" rx="8" fill="#e8f1fb" stroke="#4a7fbf"/>
+  <text x="245" y="116" text-anchor="middle" font-size="14" fill="#1f3b5c">第一部分 位姿 / TF / 占据栅格 / 膨胀</text>
+  <text x="245" y="134" text-anchor="middle" font-size="12" fill="#555">p=[x,y,ψ]，R_infl = 0.34 + 0.10 m</text>
+
+  <rect x="60" y="164" width="370" height="50" rx="8" fill="#e9f6ec" stroke="#4c9a5f"/>
+  <text x="245" y="186" text-anchor="middle" font-size="14" fill="#1f4d2b">第二部分 全局规划：Dijkstra / A* / 加权 A*</text>
+  <text x="245" y="204" text-anchor="middle" font-size="12" fill="#555">f = g + w·h，Octile 启发，防斜向穿墙</text>
+
+  <rect x="60" y="234" width="370" height="50" rx="8" fill="#fdf3e4" stroke="#d08a2e"/>
+  <text x="245" y="256" text-anchor="middle" font-size="14" fill="#6b4210">第三部分 路径优化</text>
+  <text x="245" y="274" text-anchor="middle" font-size="12" fill="#555">捷径化 → Chaikin → 等距重采样 → 航向</text>
+
+  <rect x="60" y="304" width="370" height="50" rx="8" fill="#f5ecf9" stroke="#8e5bb0"/>
+  <text x="245" y="326" text-anchor="middle" font-size="14" fill="#4a2a63">第四部分 局部规划 / 跟踪 / 安全闭环</text>
+  <text x="245" y="344" text-anchor="middle" font-size="12" fill="#555">局部窗口 A*、前视比例控制、状态机与恢复</text>
+
+  <rect x="60" y="374" width="370" height="50" rx="8" fill="#fbeaea" stroke="#c0504d"/>
+  <text x="245" y="396" text-anchor="middle" font-size="14" fill="#6b1f1d">第五部分 Nav2 框架</text>
+  <text x="245" y="414" text-anchor="middle" font-size="12" fill="#555">行为树、各 server、两层 costmap、DWB、参数</text>
+
+  <rect x="60" y="444" width="370" height="76" rx="8" fill="#eeeeee" stroke="#888"/>
+  <text x="245" y="468" text-anchor="middle" font-size="14" fill="#333">第六 / 七部分 代码解析与运行</text>
+  <text x="245" y="488" text-anchor="middle" font-size="12" fill="#555">文件组织、调用关系、Isaac Sim 运行</text>
+  <text x="245" y="506" text-anchor="middle" font-size="12" fill="#555">RViz 观察、check_nav2.sh 排查</text>
+
+  <line x1="245" y1="144" x2="245" y2="162" stroke="#555" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="245" y1="214" x2="245" y2="232" stroke="#555" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="245" y1="284" x2="245" y2="302" stroke="#555" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="245" y1="354" x2="245" y2="372" stroke="#555" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="245" y1="424" x2="245" y2="442" stroke="#555" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <!-- right top: chapter10_1 -->
+  <rect x="510" y="56" width="440" height="290" rx="10" fill="#f9fbf4" stroke="#9db36a"/>
+  <text x="730" y="80" text-anchor="middle" font-size="15" font-weight="bold" fill="#4d6420">code_chapter10_1（自研教学导航）</text>
+  <text x="530" y="112" font-size="13" fill="#333">costmap.py / build_map.py</text>
+  <text x="530" y="160" font-size="13" fill="#333">global_planner.py（AStarPlanner）</text>
+  <text x="530" y="208" font-size="13" fill="#333">trajectory.py（TrajectoryOptimizer）</text>
+  <text x="530" y="256" font-size="13" fill="#333">local_planner.py / path_tracker.py</text>
+  <text x="530" y="304" font-size="13" fill="#333">navigator.py / demo_navigation.py</text>
+
+  <!-- right bottom: chapter10_2 -->
+  <rect x="510" y="366" width="440" height="174" rx="10" fill="#fdf6f6" stroke="#c98a88"/>
+  <text x="730" y="390" text-anchor="middle" font-size="15" font-weight="bold" fill="#7a2f2c">code_chapter10_2（标准 Nav2 工程）</text>
+  <text x="530" y="420" font-size="13" fill="#333">config/nav2_params.yaml（插件与参数）</text>
+  <text x="530" y="448" font-size="13" fill="#333">launch/nav2_navigation.launch.py</text>
+  <text x="530" y="476" font-size="13" fill="#333">nav2_bridge.py（Isaac Sim ⇄ ROS 2）</text>
+  <text x="530" y="504" font-size="13" fill="#333">g2_chapter10_2_nav/send_goal.py</text>
+  <text x="530" y="528" font-size="12" fill="#777">两套代码互不调用，职责一一对应</text>
+
+  <!-- mapping arrows -->
+  <line x1="432" y1="119" x2="524" y2="108" stroke="#4a7fbf" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#arr)"/>
+  <line x1="432" y1="189" x2="524" y2="156" stroke="#4c9a5f" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#arr)"/>
+  <line x1="432" y1="259" x2="524" y2="204" stroke="#d08a2e" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#arr)"/>
+  <line x1="432" y1="329" x2="524" y2="262" stroke="#8e5bb0" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#arr)"/>
+  <line x1="432" y1="399" x2="524" y2="420" stroke="#c0504d" stroke-width="1.4" stroke-dasharray="5 3" marker-end="url(#arr)"/>
+</svg>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="620" viewBox="0 0 1300 620" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5B6B7C"/>
+    </marker>
+  </defs>
+  <rect width="1300" height="620" fill="#FFFFFF"/>
+  <text x="650" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#1F2D3D">数值案例：一个像素如何变成机械臂基座坐标中的点</text>
+  <text x="650" y="62" text-anchor="middle" font-size="14" fill="#5B6B7C">内参按 camera.py 的焦距/孔径估算；相机竖直朝下、基座仅平移是教学简化假设，实际以 rgbd.npz / robot_state.npz 为准</text>
+
+  <!-- step boxes -->
+  <g font-size="14" fill="#1F2D3D">
+    <rect x="30" y="90" width="290" height="230" rx="12" fill="#EAF2FB" stroke="#2E6DB4" stroke-width="2"/>
+    <text x="45" y="118" font-size="16" font-weight="700" fill="#2E6DB4">1 像素 + 深度</text>
+    <text x="45" y="148">图像 640×480</text>
+    <text x="45" y="174">u = 400 px，v = 300 px</text>
+    <text x="45" y="200">光轴深度 z = 0.800 m</text>
+    <text x="45" y="232">f_x = f_y ≈ 24/26×640</text>
+    <text x="45" y="256">       ≈ 590.8 px</text>
+    <text x="45" y="282">c_x = 320，c_y = 240</text>
+
+    <rect x="350" y="90" width="290" height="230" rx="12" fill="#EAF2FB" stroke="#2E6DB4" stroke-width="2"/>
+    <text x="365" y="118" font-size="16" font-weight="700" fill="#2E6DB4">2 相机光学系 C</text>
+    <text x="365" y="148">x = (400−320)×0.8/590.8</text>
+    <text x="365" y="172">   = 0.1083 m（向右）</text>
+    <text x="365" y="200">y = (300−240)×0.8/590.8</text>
+    <text x="365" y="224">   = 0.0812 m（向下）</text>
+    <text x="365" y="252">z = 0.800 m（向前）</text>
+    <text x="365" y="290" font-weight="700">p_C = (0.1083, 0.0812, 0.800)</text>
+
+    <rect x="670" y="90" width="290" height="230" rx="12" fill="#E9F7EF" stroke="#239B56" stroke-width="2"/>
+    <text x="685" y="118" font-size="16" font-weight="700" fill="#1E8449">3 世界系 W</text>
+    <text x="685" y="148">相机位于 (0.50, 0.20, 1.60)</text>
+    <text x="685" y="172">光轴竖直向下时</text>
+    <text x="685" y="196">R_WC 列 = [1,0,0], [0,−1,0], [0,0,−1]</text>
+    <text x="685" y="226">x_W = 0.50 + 0.1083</text>
+    <text x="685" y="250">y_W = 0.20 − 0.0812</text>
+    <text x="685" y="274">z_W = 1.60 − 0.800</text>
+    <text x="685" y="302" font-weight="700">p_W = (0.6083, 0.1188, 0.800)</text>
+
+    <rect x="990" y="90" width="280" height="230" rx="12" fill="#FDF3E7" stroke="#D68910" stroke-width="2"/>
+    <text x="1005" y="118" font-size="16" font-weight="700" fill="#B9770E">4 机械臂基座系 B</text>
+    <text x="1005" y="148">假设 T_WB 只有平移</text>
+    <text x="1005" y="172">t_WB = (0.00, −0.20, 0.90)</text>
+    <text x="1005" y="200">p_B = R_WBᵀ (p_W − t_WB)</text>
+    <text x="1005" y="230">   = (0.6083, 0.3188, −0.100)</text>
+    <text x="1005" y="262">IK 只接受 B 系目标：</text>
+    <text x="1005" y="286">controller._solve 中</text>
+    <text x="1005" y="308">target = T_base_world @ T</text>
+  </g>
+  <line x1="320" y1="205" x2="348" y2="205" stroke="#5B6B7C" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="640" y1="205" x2="668" y2="205" stroke="#5B6B7C" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="960" y1="205" x2="988" y2="205" stroke="#5B6B7C" stroke-width="2" marker-end="url(#a)"/>
+  <text x="334" y="195" text-anchor="middle" font-size="12" fill="#5B6B7C">K⁻¹</text>
+  <text x="654" y="195" text-anchor="middle" font-size="12" fill="#5B6B7C">T_WC</text>
+  <text x="974" y="195" text-anchor="middle" font-size="12" fill="#5B6B7C">T_WB⁻¹</text>
+
+  <!-- depth definition pitfall -->
+  <rect x="30" y="350" width="1240" height="240" rx="12" fill="#FDEDEC" stroke="#C0392B" stroke-width="2"/>
+  <text x="50" y="380" font-size="16" font-weight="700" fill="#C0392B">易错点：把“射线距离 r”当成“光轴深度 z”会差多少？（同一像素 u=400, v=300）</text>
+  <g font-size="14" fill="#1F2D3D">
+    <text x="50" y="412">归一化射线 d = K⁻¹[u, v, 1]ᵀ = (0.1354, 0.1016, 1)，|d| = √(1 + 0.01834 + 0.01032) ≈ 1.0142</text>
+    <text x="50" y="440">若传感器给的是射线距离 r = 0.800 m，则真实光轴深度 z = r/|d| = 0.800/1.0142 ≈ 0.7888 m</text>
+    <text x="50" y="468">误把 r 当 z 使用：Z 方向偏差 ≈ 0.800 − 0.7888 = 11.2 mm；X 方向偏差 ≈ 0.1354×11.2 mm ≈ 1.5 mm</text>
+    <text x="50" y="496">像素越远离主点 (c_x, c_y)，|d| 越大，偏差越大 → 系统性误差，而不是随机噪声</text>
+    <text x="50" y="530" font-weight="700">本章 camera.py 读取 distance_to_image_plane（光轴深度），pointcloud.unproject 直接用 z·K⁻¹[u,v,1]ᵀ。</text>
+    <text x="50" y="560" fill="#5B6B7C">11 mm 的高度误差已经超过“物体点需高于桌面 7 mm”的筛选阈值，足以把桌面点误判为物体，或把薄物体整块滤掉。</text>
+  </g>
+</svg>

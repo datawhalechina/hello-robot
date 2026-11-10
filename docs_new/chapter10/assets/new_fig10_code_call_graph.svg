@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 470" width="940" height="470" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#444"/>
+    </marker>
+  </defs>
+  <rect width="940" height="470" fill="#ffffff"/>
+  <text x="470" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">两套代码的模块调用关系</text>
+
+  <!-- left: chapter10_1 -->
+  <rect x="20" y="44" width="450" height="410" rx="10" fill="#f9fbf4" stroke="#9db36a"/>
+  <text x="245" y="66" text-anchor="middle" font-size="14" font-weight="bold" fill="#4d6420">code_chapter10_1（单进程）</text>
+  <rect x="150" y="80" width="190" height="36" rx="6" fill="#ffffff" stroke="#4d6420"/>
+  <text x="245" y="103" text-anchor="middle" font-size="12" fill="#333">demo_navigation.py main()</text>
+
+  <rect x="40" y="146" width="130" height="34" rx="6" fill="#e8f1fb" stroke="#4a7fbf"/>
+  <text x="105" y="168" text-anchor="middle" font-size="12" fill="#333">build_map / costmap</text>
+  <rect x="190" y="146" width="110" height="34" rx="6" fill="#ffffff" stroke="#888"/>
+  <text x="245" y="168" text-anchor="middle" font-size="12" fill="#333">simulation.py</text>
+  <rect x="320" y="146" width="130" height="34" rx="6" fill="#ffffff" stroke="#888"/>
+  <text x="385" y="168" text-anchor="middle" font-size="12" fill="#333">ros2_interface.py</text>
+
+  <rect x="150" y="212" width="190" height="36" rx="6" fill="#f5ecf9" stroke="#8e5bb0"/>
+  <text x="245" y="235" text-anchor="middle" font-size="12" fill="#333">navigator.TeachingNavigator</text>
+
+  <rect x="30" y="282" width="140" height="34" rx="6" fill="#e9f6ec" stroke="#4c9a5f"/>
+  <text x="100" y="304" text-anchor="middle" font-size="12" fill="#333">AStarPlanner</text>
+  <rect x="180" y="282" width="130" height="34" rx="6" fill="#fdf3e4" stroke="#d08a2e"/>
+  <text x="245" y="304" text-anchor="middle" font-size="12" fill="#333">TrajectoryOptimizer</text>
+  <rect x="320" y="282" width="130" height="34" rx="6" fill="#e9f6ec" stroke="#4c9a5f"/>
+  <text x="385" y="304" text-anchor="middle" font-size="12" fill="#333">LocalPlanner</text>
+  <rect x="30" y="348" width="200" height="34" rx="6" fill="#fbeaea" stroke="#c0504d"/>
+  <text x="130" y="370" text-anchor="middle" font-size="12" fill="#333">HolonomicPathTracker</text>
+  <rect x="250" y="348" width="200" height="34" rx="6" fill="#fbeaea" stroke="#c0504d"/>
+  <text x="350" y="370" text-anchor="middle" font-size="12" fill="#333">CollisionMonitor / ProgressChecker</text>
+  <rect x="120" y="408" width="250" height="34" rx="6" fill="#eeeeee" stroke="#666"/>
+  <text x="245" y="430" text-anchor="middle" font-size="12" fill="#333">code_chapter4 G2BaseController</text>
+
+  <line x1="200" y1="116" x2="120" y2="144" stroke="#444" stroke-width="1.3" marker-end="url(#a)"/>
+  <line x1="245" y1="116" x2="245" y2="144" stroke="#444" stroke-width="1.3" marker-end="url(#a)"/>
+  <line x1="290" y1="116" x2="370" y2="144" stroke="#444" stroke-width="1.3" marker-end="url(#a)"/>
+  <path d="M150,98 C20,110 20,200 148,228" fill="none" stroke="#444" stroke-width="1.3" marker-end="url(#a)"/>
+  <text x="30" y="200" font-size="11" fill="#555">update()</text>
+  <line x1="200" y1="248" x2="110" y2="280" stroke="#444" stroke-width="1.3" marker-end="url(#a)"/>
+  <line x1="245" y1="248" x2="245" y2="280" stroke="#444" stroke-width="1.3" marker-end="url(#a)"/>
+  <line x1="290" y1="248" x2="380" y2="280" stroke="#444" stroke-width="1.3" marker-end="url(#a)"/>
+  <line x1="320" y1="316" x2="290" y2="318" stroke="#4c9a5f" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#a)"/>
+  <text x="300" y="336" font-size="10" fill="#4c9a5f">局部复用 A* + 优化</text>
+  <line x1="210" y1="248" x2="140" y2="346" stroke="#444" stroke-width="1.3" marker-end="url(#a)"/>
+  <line x1="280" y1="248" x2="340" y2="346" stroke="#444" stroke-width="1.3" marker-end="url(#a)"/>
+  <path d="M340,98 C470,120 470,380 372,420" fill="none" stroke="#444" stroke-width="1.3" marker-end="url(#a)"/>
+  <text x="430" y="400" font-size="11" fill="#555">set_velocity</text>
+
+  <!-- right: chapter10_2 -->
+  <rect x="490" y="44" width="430" height="410" rx="10" fill="#fdf6f6" stroke="#c98a88"/>
+  <text x="705" y="66" text-anchor="middle" font-size="14" font-weight="bold" fill="#7a2f2c">code_chapter10_2（三组进程）</text>
+
+  <rect x="510" y="84" width="190" height="64" rx="6" fill="#ffffff" stroke="#888"/>
+  <text x="605" y="106" text-anchor="middle" font-size="12" fill="#333">进程 1 run_nav2_bridge.sh</text>
+  <text x="605" y="124" text-anchor="middle" font-size="11" fill="#555">nav2_bridge.py + simulation.py</text>
+  <text x="605" y="140" text-anchor="middle" font-size="11" fill="#555">+ G2BaseController</text>
+
+  <rect x="720" y="84" width="185" height="64" rx="6" fill="#ffffff" stroke="#888"/>
+  <text x="812" y="106" text-anchor="middle" font-size="12" fill="#333">进程 3 send_goal.sh</text>
+  <text x="812" y="124" text-anchor="middle" font-size="11" fill="#555">GoalClient（Action 客户端）</text>
+  <text x="812" y="140" text-anchor="middle" font-size="11" fill="#555">或 RViz Nav2 Goal</text>
+
+  <rect x="510" y="200" width="395" height="200" rx="6" fill="#fbeaea" stroke="#c0504d"/>
+  <text x="707" y="222" text-anchor="middle" font-size="12" fill="#333">进程 2 run_nav2.sh → nav2_navigation.launch.py</text>
+  <text x="530" y="250" font-size="11" fill="#333">map_server + lifecycle_manager_map</text>
+  <text x="530" y="272" font-size="11" fill="#333">navigation_launch.py（nav2_bringup）：</text>
+  <text x="545" y="292" font-size="11" fill="#333">bt_navigator → planner_server / controller_server</text>
+  <text x="545" y="312" font-size="11" fill="#333">smoother_server / behavior_server</text>
+  <text x="545" y="332" font-size="11" fill="#333">velocity_smoother / waypoint_follower</text>
+  <text x="530" y="356" font-size="11" fill="#333">参数：nav2_params.yaml；可选 RViz（use_rviz）</text>
+  <text x="530" y="380" font-size="11" fill="#555">/cmd_vel_nav → velocity_smoother → /cmd_vel</text>
+
+  <line x1="812" y1="148" x2="812" y2="198" stroke="#444" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="818" y="178" font-size="11" fill="#333">/navigate_to_pose</text>
+  <line x1="580" y1="148" x2="580" y2="198" stroke="#444" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="586" y="172" font-size="10" fill="#333">/odom /scan /clock TF</text>
+  <line x1="660" y1="198" x2="660" y2="150" stroke="#c0504d" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="666" y="190" font-size="10" fill="#7a1f1d">/cmd_vel</text>
+  <text x="510" y="436" font-size="11" fill="#666">进程之间只通过 ROS 2 话题、Action、TF 通信，不互相 import。</text>
+</svg>

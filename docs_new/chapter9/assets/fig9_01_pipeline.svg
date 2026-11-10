@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="900" viewBox="0 0 1500 900" role="img" aria-labelledby="title desc">
+<title id="title">图 9-1｜看见、规划、抓放，再重新观察</title><desc id="desc">箭头表示数据或执行顺序；两个抓取后端只替换候选生成，不替换控制器。</desc>
+<rect width="1500" height="900" fill="#F5F8FC"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#69788A"/></marker></defs>
+<text x="45" y="58" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="32" font-weight="700" fill="#18334B">图 9-1｜看见、规划、抓放，再重新观察</text>
+<text x="45" y="100" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#69788A">箭头表示数据或执行顺序；两个抓取后端只替换候选生成，不替换控制器。</text>
+<rect x="50" y="150" width="320" height="125" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="70" y="187" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5">RGB-D 观察</text>
+<text x="70" y="224" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">同一时刻的图像与深度</text>
+<text x="70" y="255" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">相机内外参 + 机器人状态</text>
+<rect x="410" y="150" width="320" height="125" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="430" y="187" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5">YOLO 检测</text>
+<text x="430" y="224" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">类别与二维边界框</text>
+<text x="430" y="255" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">找到“哪里有什么”</text>
+<rect x="770" y="150" width="320" height="125" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="790" y="187" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5">SAM2 分割</text>
+<text x="790" y="224" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">检测框作为提示</text>
+<text x="790" y="255" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">得到每个实例的掩码</text>
+<rect x="1130" y="150" width="320" height="125" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="1150" y="187" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5">反投影与点云</text>
+<text x="1150" y="224" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">目标点云 + 场景点云</text>
+<text x="1150" y="255" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">桌面拟合、去噪、姿态</text>
+<path d="M370 212 H408" fill="none" stroke="#69788A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M730 212 H768" fill="none" stroke="#69788A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M1090 212 H1128" fill="none" stroke="#69788A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M1290 275 V310 H570 V350" fill="none" stroke="#69788A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M970 310 V350" fill="none" stroke="#69788A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="410" y="350" width="320" height="125" rx="15" fill="white" stroke="#17816E" stroke-width="2"/>
+<text x="430" y="387" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#17816E">几何后端</text>
+<text x="430" y="424" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">主轴、宽度与高度采样</text>
+<text x="430" y="455" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">规则可解释，便于教学</text>
+<rect x="810" y="350" width="320" height="125" rx="15" fill="white" stroke="#7452AE" stroke-width="2"/>
+<text x="830" y="387" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#7452AE">GraspGenX 后端</text>
+<text x="830" y="424" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">目标点云 + 夹爪描述</text>
+<text x="830" y="455" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">学习模型生成并评分</text>
+<text x="756" y="420" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#69788A">或</text>
+<path d="M570 475 V500 H750 V535" fill="none" stroke="#69788A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M970 475 V500 H750" fill="none" stroke="#69788A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="50" y="360" width="310" height="150" rx="15" fill="white" stroke="#69788A" stroke-width="2"/>
+<text x="70" y="397" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#69788A">仿真真值的边界</text>
+<text x="70" y="434" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">用于采集标签与结果验证</text>
+<text x="70" y="465" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">验证结果会影响执行</text>
+<text x="70" y="496" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">不直接提供抓取目标坐标</text>
+<rect x="600" y="535" width="320" height="125" rx="15" fill="white" stroke="#17816E" stroke-width="2"/>
+<text x="620" y="572" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#17816E">统一候选筛选</text>
+<text x="620" y="609" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">TCP、开口、倾角、净空</text>
+<text x="620" y="640" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">保留几何上可用的候选</text>
+<path d="M920 597 H1028" fill="none" stroke="#69788A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="1030" y="535" width="420" height="125" rx="15" fill="white" stroke="#BC641D" stroke-width="2"/>
+<text x="1050" y="572" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#BC641D">完整路径规划</text>
+<text x="1050" y="609" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">全位姿 IK + 路径碰撞检查</text>
+<text x="1050" y="640" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">先规划抓、放、返回，再执行</text>
+<path d="M1240 660 V715" fill="none" stroke="#69788A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="1030" y="715" width="420" height="125" rx="15" fill="white" stroke="#BC641D" stroke-width="2"/>
+<text x="1050" y="752" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#BC641D">复核与物理抓放</text>
+<text x="1050" y="789" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">新观察复核 → 夹紧 → 抬升</text>
+<text x="1050" y="820" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">搬运 → 释放 → 检查放置</text>
+<path d="M1030 777 H922" fill="none" stroke="#69788A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="600" y="715" width="320" height="125" rx="15" fill="white" stroke="#17816E" stroke-width="2"/>
+<text x="620" y="752" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#17816E">是否继续？</text>
+<text x="620" y="789" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">完成：回观察位，下一轮</text>
+<text x="620" y="820" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">失败或无计划：停止</text>
+<path d="M600 777 H372" fill="none" stroke="#69788A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="50" y="715" width="320" height="125" rx="15" fill="white" stroke="#2463B5" stroke-width="2"/>
+<text x="70" y="752" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="25" font-weight="700" fill="#2463B5">重新获取 RGB-D</text>
+<text x="70" y="789" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">不沿用旧物体坐标</text>
+<text x="70" y="820" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="400" fill="#18334B">已放置区域不再作为目标</text>
+<path d="M50 777 H25 V212 H48" fill="none" stroke="#69788A" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="50" y="883" font-family="Noto Sans CJK SC, Microsoft YaHei, sans-serif" font-size="23" font-weight="400" fill="#BC641D">推理等待期间物理不推进；这是逐轮闭环，不是高速运动物体的连续追踪与拦截。</text>
+</svg>

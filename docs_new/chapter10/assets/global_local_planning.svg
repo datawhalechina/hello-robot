@@ -1,0 +1,39 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="570" viewBox="0 0 1050 570">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>.t{font-family:'Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif;fill:#0f172a}.b{font-weight:700}.h{font-size:24px}.m{font-size:17px}.s{font-size:14px}</style>
+  </defs>
+  <rect width="1050" height="570" fill="#f8fafc"/>
+  <text x="525" y="38" text-anchor="middle" class="t b h">全局规划、局部绕行与全向轨迹跟踪的分工</text>
+  <text x="525" y="66" text-anchor="middle" class="t s">全局层决定长距离方向，局部层处理眼前变化，控制层把路径误差变成底盘速度</text>
+
+  <rect x="35" y="100" width="405" height="360" rx="18" fill="#fff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="237" y="132" text-anchor="middle" class="t b m">全局层：整张静态地图</text>
+  <g fill="#475569"><rect x="75" y="165" width="75" height="130"/><rect x="300" y="250" width="95" height="120"/><rect x="190" y="165" width="45" height="85"/></g>
+  <path d="M75 405 C150 385 155 330 225 310 C290 292 286 220 385 175" fill="none" stroke="#2563eb" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="75" cy="405" r="10" fill="#22c55e"/><circle cx="385" cy="175" r="10" fill="#ef4444"/>
+  <text x="237" y="435" text-anchor="middle" class="t s">A* 给出从起点到最终目标的长期参考路线</text>
+
+  <rect x="480" y="100" width="310" height="360" rx="18" fill="#fff" stroke="#f97316" stroke-width="2"/>
+  <text x="635" y="132" text-anchor="middle" class="t b m">局部层：机器人附近滚动窗口</text>
+  <rect x="520" y="165" width="230" height="230" rx="12" fill="#fff7ed" stroke="#fb923c" stroke-width="2" stroke-dasharray="8 6"/>
+  <path d="M535 355 C585 325 615 282 730 205" fill="none" stroke="#93c5fd" stroke-width="6" stroke-dasharray="8 7"/>
+  <circle cx="635" cy="278" r="34" fill="#fecaca" stroke="#ef4444" stroke-width="3"/>
+  <text x="635" y="284" text-anchor="middle" class="t b s">动态障碍</text>
+  <path d="M535 355 C575 330 585 360 630 350 C680 338 706 280 730 205" fill="none" stroke="#f97316" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="535" cy="355" r="18" fill="#fff" stroke="#0f766e" stroke-width="5"/>
+  <path d="M548 347 L570 334" stroke="#0f766e" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="635" y="430" text-anchor="middle" class="t s">参考段受阻时只在局部窗口中生成短距离绕行</text>
+
+  <rect x="830" y="100" width="185" height="360" rx="18" fill="#fff" stroke="#22c55e" stroke-width="2"/>
+  <text x="922" y="132" text-anchor="middle" class="t b m">控制层</text>
+  <circle cx="922" cy="220" r="42" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+  <path d="M922 220 L972 185" stroke="#16a34a" stroke-width="5" marker-end="url(#arrow)"/>
+  <text x="922" y="288" text-anchor="middle" class="t s">选择前视点</text>
+  <rect x="855" y="318" width="135" height="85" rx="14" fill="#ecfccb" stroke="#65a30d"/>
+  <text x="922" y="348" text-anchor="middle" class="t b m">速度指令</text><text x="922" y="378" text-anchor="middle" class="t m">vₓ, vᵧ, ωz</text>
+  <g stroke="#475569" stroke-width="4" marker-end="url(#arrow)"><line x1="442" y1="280" x2="472" y2="280"/><line x1="792" y1="280" x2="822" y2="280"/></g>
+
+  <rect x="110" y="495" width="830" height="45" rx="12" fill="#ecfeff" stroke="#0891b2"/>
+  <text x="525" y="523" text-anchor="middle" class="t m">局部路径始终服务于全局方向；控制器只执行当前周期安全、平滑且满足速度约束的运动。</text>
+</svg>
