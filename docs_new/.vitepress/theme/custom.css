@@ -1,0 +1,122 @@
+/* ---------- 主题色：科技蓝 → 青色 ---------- */
+:root {
+  --vp-c-brand-1: #2f6bff;
+  --vp-c-brand-2: #4c82ff;
+  --vp-c-brand-3: #2f6bff;
+  --vp-c-brand-soft: rgba(47, 107, 255, 0.12);
+
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #2f6bff 20%, #13c2c2);
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #2f6bff 50%, #13c2c2 50%);
+  --vp-home-hero-image-filter: blur(48px);
+}
+
+.dark {
+  --vp-c-brand-1: #7aa2ff;
+  --vp-c-brand-2: #5a8bff;
+  --vp-c-brand-3: #2f6bff;
+  --vp-c-brand-soft: rgba(122, 162, 255, 0.16);
+}
+
+@media (min-width: 640px) {
+  :root { --vp-home-hero-image-filter: blur(56px); }
+}
+@media (min-width: 960px) {
+  :root { --vp-home-hero-image-filter: blur(72px); }
+}
+
+/* ---------- 宽屏下加宽正文，方便阅读表格和代码 ---------- */
+@media (min-width: 1440px) {
+  .VPDoc.has-aside .content-container.content-container {
+    max-width: 860px;
+  }
+}
+
+/* ---------- 图片与图注 ---------- */
+.vp-doc img {
+  display: block;
+  margin: 20px auto 8px;
+  max-width: 100%;
+  border-radius: 8px;
+  cursor: zoom-in;
+}
+.dark .vp-doc img {
+  filter: brightness(0.92);
+}
+.vp-doc p[align='center'] {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+}
+.vp-doc video {
+  display: block;
+  margin: 20px auto 8px;
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* ---------- 💡 要点 / ⚠️ 注意 提示框 ---------- */
+.vp-doc blockquote {
+  margin: 20px 0;
+  padding: 12px 18px;
+  border-left: 4px solid var(--vp-c-brand-1);
+  border-radius: 0 8px 8px 0;
+  background: var(--vp-c-brand-soft);
+}
+.vp-doc blockquote > p {
+  color: var(--vp-c-text-1);
+}
+
+/* ---------- 公式：长公式横向滚动，不撑破页面 ---------- */
+.vp-doc mjx-container[display='true'] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  padding: 4px 0;
+}
+
+/* ---------- 首页：书籍式目录 ---------- */
+.book-toc {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 8px 24px 96px;
+}
+.book-toc h2 {
+  margin: 0 0 32px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--vp-c-divider);
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.3em;
+}
+.book-toc .toc-part {
+  margin-bottom: 28px;
+}
+.book-toc h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+}
+.book-toc ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.book-toc li a {
+  display: block;
+  padding: 9px 12px;
+  border-radius: 6px;
+  color: var(--vp-c-text-1);
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+.book-toc li a:hover {
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+}
+.book-toc .header-anchor {
+  display: none;
+}
