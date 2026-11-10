@@ -907,9 +907,11 @@ MoveIt 2 版本通过 OMPL（Open Motion Planning Library）配置了三种采�
 RRTstar 在随机树生长过程中不断选择和重连父节点，理论上具有渐近最优性质。和 RRT 相比，新增两步：
 
 1. **选父节点**（ChooseParent）： $\mathbf{q}_{new}$ 不一定挂在 $\mathbf{q}_{near}$ 下，而是在半径 $\rho$ 内的邻居中选一个使“从根到 $\mathbf{q}_{new}$ 的代价”最小的节点：
-$$
-\mathbf{q}_{parent}=\arg\min_{\mathbf{q}\in\mathcal{N}(\mathbf{q}_{new},\rho)}\big[c(\mathbf{q})+d(\mathbf{q},\mathbf{q}_{new})\big]
-$$
+
+   $$
+   \mathbf{q}_{parent}=\arg\min_{\mathbf{q}\in\mathcal{N}(\mathbf{q}_{new},\rho)}\big[c(\mathbf{q})+d(\mathbf{q},\mathbf{q}_{new})\big]
+   $$
+
 2. **重连**（Rewire）：对每个邻居 $\mathbf{q}_k$，若经过 $\mathbf{q}_{new}$ 到达它更便宜，即 $c(\mathbf{q}_{new})+d(\mathbf{q}_{new},\mathbf{q}_k)<c(\mathbf{q}_k)$，就把它的父节点改成 $\mathbf{q}_{new}$。
 
 这里 $c(\cdot)$ 是从树根沿树到该节点的累计路径长度。随着采样增加，路径会逐渐变短，代价是每次迭代都要做邻域查询和更多碰撞检查。本章配置 `range=0.18`、`goal_bias=0.08`。它通常比 RRTConnect 慢，因此只在首选规划器失败后作为回退。
