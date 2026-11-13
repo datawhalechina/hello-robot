@@ -22,7 +22,7 @@
 
 ## 🔗 相关链接
 
-- **在线阅读地址**：[https://github.com/datawhalechina/hello-robot](https://datawhalechina.github.io/hello-robot/)
+- **在线阅读地址**：[https://datawhalechina.github.io/hello-robot](https://datawhalechina.github.io/hello-robot)
 - **一键部署平台**：[gpufree平台一键部署指南](./使用指南.md) ，平台中部署了完整的环境和代码，同时为大家下载了所有的模型权重，想要自己部署在电脑上的同学可以按照教程文档中的流程部署（注意，云平台和教程中自己部署后执行的命令不一样哦~注意辨别）
 
 ## ✨ 教程亮点
