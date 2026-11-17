@@ -161,6 +161,7 @@
 
 ## 🙏 致谢
 
+- 感谢每一位为hello-robot做出贡献的开发者
 - 特别感谢[@Sm1les](https://github.com/Sm1les)对本项目的帮助与支持
 
 ## ⭐ Star History
